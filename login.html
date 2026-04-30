@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登录 - 代码种子练习平台</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 100px auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: #2d7a2d;
+      font-size: 28px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #2d7a2d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #256525;
+    }
+
+    .tip {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🌱 代码种子</h1>
+    <p>请输入你的姓名（或昵称）开始练习</p>
+
+    <input id="studentName" type="text" placeholder="例如：小明 / 4年级小博" />
+    <button onclick="login()">进入练习</button>
+
+    <div class="tip">
+      （这是伪登录：只用于记录练习情况，不需要密码）
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById("studentName").value.trim();
+
+      if (name === "") {
+        alert("请输入姓名/昵称 😊");
+        return;
+      }
+
+      // 存入浏览器本地
+      localStorage.setItem("studentName", name);
+
+      // 跳转回首页
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
