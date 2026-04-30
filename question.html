@@ -170,7 +170,7 @@
 
   <div class="container">
     <div class="title">📌 Python 基础选择题练习</div>
-    <div class="info">做完后会显示正确答案与解析（适合3-6年级）</div>
+    <div class="info" id="studentInfo">正在加载学生信息...</div>
 
     <div class="question-box">
       <div class="question-text" id="questionText">题目加载中...</div>
@@ -196,6 +196,16 @@
   </footer>
 
   <script>
+    // ==========================
+    // 获取学生名字（伪登录）
+    // ==========================
+    const studentName = localStorage.getItem("studentName");
+    if (!studentName) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("studentInfo").innerText = "当前练习账号：" + studentName;
+    }
+
     // ==========================
     // 题库数据（你以后只要改这里）
     // ==========================
@@ -239,6 +249,33 @@
     let correctCount = 0;
     let finishedCount = 0;
     let answered = false;
+
+    // ==========================
+    // 更新学生成绩（保存到 localStorage）
+    // ==========================
+    function saveProgress() {
+      // 取旧数据
+      let totalDone = parseInt(localStorage.getItem(studentName + "_totalDone")) || 0;
+      let totalCorrect = parseInt(localStorage.getItem(studentName + "_totalCorrect")) || 0;
+
+      // 加上本次进度
+      totalDone += 1;
+      totalCorrect += 0; // 默认不加，正确才加
+
+      // 保存回去
+      localStorage.setItem(studentName + "_totalDone", totalDone);
+      localStorage.setItem(studentName + "_totalCorrect", totalCorrect);
+
+      // 保存最近练习时间
+      const now = new Date().toLocaleString();
+      localStorage.setItem(studentName + "_lastTime", now);
+    }
+
+    function saveCorrect() {
+      let totalCorrect = parseInt(localStorage.getItem(studentName + "_totalCorrect")) || 0;
+      totalCorrect += 1;
+      localStorage.setItem(studentName + "_totalCorrect", totalCorrect);
+    }
 
     // ==========================
     // 加载题目
@@ -296,8 +333,13 @@
       finishedCount++;
       answered = true;
 
+      // 每提交一次题目，保存一次做题记录
+      saveProgress();
+
       if (userAnswer === q.answer) {
         correctCount++;
+        saveCorrect();
+
         document.getElementById("resultText").innerText = "✅ 回答正确！";
         document.getElementById("resultText").style.color = "#2d7a2d";
       } else {
@@ -319,12 +361,9 @@
       currentIndex++;
 
       if (currentIndex >= questions.length) {
-        alert("🎉 恭喜你完成全部题目！\n得分：" + correctCount + " / " + questions.length);
-
-        // 重置（方便重新练）
-        currentIndex = 0;
-        correctCount = 0;
-        finishedCount = 0;
+        alert("🎉 本次练习完成！\n本次得分：" + correctCount + " / " + questions.length);
+        window.location.href = "index.html";
+        return;
       }
 
       loadQuestion();

@@ -14,7 +14,6 @@
       color: #333;
     }
 
-    /* 顶部导航 */
     .nav {
       width: 100%;
       height: 60px;
@@ -44,12 +43,11 @@
       color: #2d7a2d;
     }
 
-    /* 主体区域 */
     .main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 80px;
+      margin-top: 70px;
       padding: 0 20px;
     }
 
@@ -73,9 +71,21 @@
       font-weight: bold;
     }
 
-    /* 搜索框 */
+    .stats {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      background: #fafafa;
+      font-size: 14px;
+      color: #333;
+      width: 100%;
+      max-width: 650px;
+      line-height: 1.8;
+    }
+
     .search-box {
-      margin-top: 35px;
+      margin-top: 30px;
       width: 100%;
       max-width: 650px;
       display: flex;
@@ -106,9 +116,8 @@
       background: #256525;
     }
 
-    /* 快捷入口按钮 */
     .quick-links {
-      margin-top: 30px;
+      margin-top: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -131,9 +140,8 @@
       color: white;
     }
 
-    /* 推荐区 */
     .hot {
-      margin-top: 50px;
+      margin-top: 40px;
       width: 100%;
       max-width: 650px;
       padding: 18px;
@@ -171,9 +179,8 @@
       font-weight: bold;
     }
 
-    /* 底部 */
     footer {
-      margin-top: 80px;
+      margin-top: 70px;
       padding: 20px;
       text-align: center;
       font-size: 12px;
@@ -184,7 +191,6 @@
 
 <body>
 
-  <!-- 顶部导航 -->
   <div class="nav">
     <div class="logo">🌱 代码种子工作室</div>
 
@@ -196,20 +202,21 @@
     </div>
   </div>
 
-  <!-- 主体 -->
   <div class="main">
     <h1>代码种子</h1>
     <p>每天 10 题，编程进步看得见</p>
 
     <div class="welcome" id="welcomeText"></div>
 
-    <!-- 搜索框 -->
+    <div class="stats" id="statsBox">
+      正在加载练习记录...
+    </div>
+
     <div class="search-box">
       <input id="searchInput" type="text" placeholder="搜索：Python循环 / Scratch闯关 / 信息素养模拟题..." />
       <button onclick="doSearch()">搜索</button>
     </div>
 
-    <!-- 快捷入口 -->
     <div class="quick-links">
       <a href="question.html">📌 今日练习</a>
       <a href="tiku.html">🐍 Python基础</a>
@@ -219,7 +226,6 @@
       <a href="tiku.html">❌ 错题本</a>
     </div>
 
-    <!-- 热门推荐 -->
     <div class="hot">
       <h2>🔥 今日推荐练习</h2>
       <ul>
@@ -237,24 +243,35 @@
   </footer>
 
   <script>
-    // 检查是否已登录
     const studentName = localStorage.getItem("studentName");
 
     if (!studentName) {
-      // 没登录就跳转到 login.html
       window.location.href = "login.html";
     } else {
       document.getElementById("welcomeText").innerText = "欢迎你：" + studentName + " 😊";
+
+      let totalDone = parseInt(localStorage.getItem(studentName + "_totalDone")) || 0;
+      let totalCorrect = parseInt(localStorage.getItem(studentName + "_totalCorrect")) || 0;
+      let lastTime = localStorage.getItem(studentName + "_lastTime") || "暂无记录";
+
+      let rate = 0;
+      if (totalDone > 0) {
+        rate = Math.round((totalCorrect / totalDone) * 100);
+      }
+
+      document.getElementById("statsBox").innerHTML =
+        "📌 历史练习题数：" + totalDone + " 题<br>" +
+        "✅ 历史正确题数：" + totalCorrect + " 题<br>" +
+        "📈 历史正确率：" + rate + "%<br>" +
+        "🕒 最近练习时间：" + lastTime;
     }
 
     function doSearch() {
       const keyword = document.getElementById("searchInput").value.trim();
-
       if (keyword === "") {
         alert("请输入要搜索的内容 😊");
         return;
       }
-
       window.location.href = "search.html?keyword=" + encodeURIComponent(keyword);
     }
 
