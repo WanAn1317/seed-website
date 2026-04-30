@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>练习题 - 代码种子练习平台</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+
+    .nav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2d7a2d;
+    }
+
+    .nav .menu a {
+      text-decoration: none;
+      margin-left: 18px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .nav .menu a:hover {
+      color: #2d7a2d;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .title {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .question-box {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: block;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background: #fff;
+      transition: 0.2s;
+    }
+
+    .options label:hover {
+      border-color: #2d7a2d;
+      background: #f0fff0;
+    }
+
+    .btn-area {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .submit-btn {
+      background: #2d7a2d;
+      color: white;
+    }
+
+    .submit-btn:hover {
+      background: #256525;
+    }
+
+    .next-btn {
+      background: #555;
+      color: white;
+    }
+
+    .next-btn:hover {
+      background: #333;
+    }
+
+    .result {
+      margin-top: 18px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .analysis {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px dashed #ccc;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .score-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      background: #f9f9f9;
+      font-size: 14px;
+      color: #333;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="logo">🌱 代码种子工作室</div>
+
+    <div class="menu">
+      <a href="index.html">首页</a>
+      <a href="tiku.html">题库</a>
+      <a href="ziliao.html">资料库</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="title">📌 Python 基础选择题练习</div>
+    <div class="info">做完后会显示正确答案与解析（适合3-6年级）</div>
+
+    <div class="question-box">
+      <div class="question-text" id="questionText">题目加载中...</div>
+
+      <div class="options" id="optionsBox"></div>
+
+      <div class="btn-area">
+        <button class="submit-btn" onclick="checkAnswer()">提交答案</button>
+        <button class="next-btn" onclick="nextQuestion()">下一题</button>
+      </div>
+
+      <div class="result" id="resultText"></div>
+      <div class="analysis" id="analysisBox"></div>
+    </div>
+
+    <div class="score-box" id="scoreBox">
+      当前进度：0 / 0 题 | 正确：0 题
+    </div>
+  </div>
+
+  <footer>
+    © 2026 代码种子工作室 | 免费练习平台
+  </footer>
+
+  <script>
+    // ==========================
+    // 题库数据（你以后只要改这里）
+    // ==========================
+    const questions = [
+      {
+        title: "下面哪个变量名是合法的？",
+        options: ["1name", "my-name", "_name", "my name"],
+        answer: 2,
+        analysis: "Python变量名可以包含字母、数字、下划线，但不能以数字开头，不能有空格或短横线。"
+      },
+      {
+        title: "print(3 + 2 * 2) 的结果是？",
+        options: ["10", "7", "8", "9"],
+        answer: 1,
+        analysis: "先算乘法 2*2=4，再算加法 3+4=7。"
+      },
+      {
+        title: "if语句中判断相等用哪个符号？",
+        options: ["=", "==", "!=", "<>"],
+        answer: 1,
+        analysis: "= 是赋值，== 才是判断相等。"
+      },
+      {
+        title: "下面哪一个是列表(list)？",
+        options: ["(1,2,3)", "{1,2,3}", "[1,2,3]", "\"123\""],
+        answer: 2,
+        analysis: "Python中列表用 [] 表示。"
+      },
+      {
+        title: "for i in range(3): 会循环几次？",
+        options: ["2次", "3次", "4次", "无限次"],
+        answer: 1,
+        analysis: "range(3)表示 0,1,2 一共3个数字，所以循环3次。"
+      }
+    ];
+
+    // ==========================
+    // 变量
+    // ==========================
+    let currentIndex = 0;
+    let correctCount = 0;
+    let finishedCount = 0;
+    let answered = false;
+
+    // ==========================
+    // 加载题目
+    // ==========================
+    function loadQuestion() {
+      answered = false;
+      document.getElementById("resultText").innerText = "";
+      document.getElementById("analysisBox").style.display = "none";
+
+      const q = questions[currentIndex];
+      document.getElementById("questionText").innerText = (currentIndex + 1) + ". " + q.title;
+
+      const optionsBox = document.getElementById("optionsBox");
+      optionsBox.innerHTML = "";
+
+      q.options.forEach((opt, index) => {
+        const label = document.createElement("label");
+        label.innerHTML = `
+          <input type="radio" name="option" value="${index}" style="margin-right:10px;">
+          ${String.fromCharCode(65 + index)}. ${opt}
+        `;
+        optionsBox.appendChild(label);
+      });
+
+      updateScore();
+    }
+
+    // ==========================
+    // 更新分数显示
+    // ==========================
+    function updateScore() {
+      document.getElementById("scoreBox").innerText =
+        `当前进度：${finishedCount} / ${questions.length} 题 | 正确：${correctCount} 题`;
+    }
+
+    // ==========================
+    // 检查答案
+    // ==========================
+    function checkAnswer() {
+      if (answered) {
+        alert("这题你已经提交过了，点击下一题继续 😊");
+        return;
+      }
+
+      const selected = document.querySelector('input[name="option"]:checked');
+
+      if (!selected) {
+        alert("请先选择一个答案！");
+        return;
+      }
+
+      const userAnswer = parseInt(selected.value);
+      const q = questions[currentIndex];
+
+      finishedCount++;
+      answered = true;
+
+      if (userAnswer === q.answer) {
+        correctCount++;
+        document.getElementById("resultText").innerText = "✅ 回答正确！";
+        document.getElementById("resultText").style.color = "#2d7a2d";
+      } else {
+        document.getElementById("resultText").innerText =
+          "❌ 回答错误！正确答案是：" + String.fromCharCode(65 + q.answer);
+        document.getElementById("resultText").style.color = "red";
+      }
+
+      document.getElementById("analysisBox").innerText = "解析：" + q.analysis;
+      document.getElementById("analysisBox").style.display = "block";
+
+      updateScore();
+    }
+
+    // ==========================
+    // 下一题
+    // ==========================
+    function nextQuestion() {
+      currentIndex++;
+
+      if (currentIndex >= questions.length) {
+        alert("🎉 恭喜你完成全部题目！\n得分：" + correctCount + " / " + questions.length);
+
+        // 重置（方便重新练）
+        currentIndex = 0;
+        correctCount = 0;
+        finishedCount = 0;
+      }
+
+      loadQuestion();
+    }
+
+    // 初始加载
+    loadQuestion();
+  </script>
+
+</body>
+</html>

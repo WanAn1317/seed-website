@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜索结果 - 代码种子练习平台</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .nav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2d7a2d;
+    }
+
+    .nav .menu a {
+      text-decoration: none;
+      margin-left: 18px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .result {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #fafafa;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .info {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: #2d7a2d;
+      color: white;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: #256525;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="logo">🌱 代码种子工作室</div>
+    <div class="menu">
+      <a href="index.html">首页</a>
+      <a href="tiku.html">题库</a>
+      <a href="ziliao.html">资料库</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 id="keywordTitle">搜索结果：</h1>
+
+    <div class="result">
+      <div class="title">Python if判断练习题（基础）</div>
+      <div class="info">类型：题库 | 难度：基础 | 标签：条件判断</div>
+      <a class="btn" href="tiku.html">进入题库</a>
+    </div>
+
+    <div class="result">
+      <div class="title">for循环练习题合集（入门）</div>
+      <div class="info">类型：题库 | 难度：入门 | 标签：循环</div>
+      <a class="btn" href="tiku.html">进入题库</a>
+    </div>
+
+    <div class="result">
+      <div class="title">Python循环讲义（PDF）</div>
+      <div class="info">类型：资料库 | 分类：Python基础</div>
+      <a class="btn" href="ziliao.html">查看资料</a>
+    </div>
+  </div>
+
+  <script>
+    // 获取 url 参数 keyword
+    const params = new URLSearchParams(window.location.search);
+    const keyword = params.get("keyword");
+
+    if (keyword) {
+      document.getElementById("keywordTitle").innerText = "搜索结果：" + keyword;
+    }
+  </script>
+
+</body>
+</html>

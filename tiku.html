@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>题库 - 代码种子练习平台</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .nav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2d7a2d;
+    }
+
+    .nav .menu a {
+      text-decoration: none;
+      margin-left: 18px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .nav .menu a:hover {
+      color: #2d7a2d;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #2d7a2d;
+      background: #fff;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: #2d7a2d;
+      color: white;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: #256525;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="logo">🌱 代码种子工作室</div>
+
+    <div class="menu">
+      <a href="index.html">首页</a>
+      <a href="tiku.html">题库</a>
+      <a href="ziliao.html">资料库</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>📌 题库练习</h1>
+
+    <div class="filter">
+      <select>
+        <option>选择语言</option>
+        <option>Scratch</option>
+        <option>Python</option>
+        <option>C++</option>
+      </select>
+
+      <select>
+        <option>选择难度</option>
+        <option>入门</option>
+        <option>基础</option>
+        <option>提高</option>
+        <option>竞赛</option>
+      </select>
+
+      <select>
+        <option>题目类型</option>
+        <option>选择题</option>
+        <option>判断题</option>
+        <option>编程题</option>
+      </select>
+    </div>
+
+    <!-- 题目卡片 -->
+    <div class="card">
+      <div class="title">Python 判断题：变量命名规则</div>
+      <div class="tags">标签：变量 / 输入输出 | 难度：入门</div>
+      <a class="btn" href="question.html">开始练习</a>
+    </div>
+
+    <div class="card">
+      <div class="title">Python 选择题：if 条件判断基础</div>
+      <div class="tags">标签：条件分支 | 难度：基础</div>
+      <a class="btn" href="question.html">开始练习</a>
+    </div>
+
+    <div class="card">
+      <div class="title">信息素养大赛模拟题（选择题 15题）</div>
+      <div class="tags">标签：竞赛 / 模拟卷 | 难度：基础</div>
+      <a class="btn" href="question.html">开始练习</a>
+    </div>
+
+    <div class="card">
+      <div class="title">Scratch 闯关：广播与角色控制</div>
+      <div class="tags">标签：事件 / 广播 | 难度：入门</div>
+      <a class="btn" href="question.html">开始练习</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 代码种子工作室 | 免费练习平台
+  </footer>
+
+</body>
+</html>
