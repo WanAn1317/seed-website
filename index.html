@@ -37,6 +37,7 @@
       margin-left: 18px;
       color: #555;
       font-size: 14px;
+      cursor: pointer;
     }
 
     .nav .menu a:hover {
@@ -63,6 +64,13 @@
       margin-top: 10px;
       color: #666;
       font-size: 14px;
+    }
+
+    .welcome {
+      margin-top: 15px;
+      font-size: 15px;
+      color: #2d7a2d;
+      font-weight: bold;
     }
 
     /* 搜索框 */
@@ -184,7 +192,7 @@
       <a href="index.html">首页</a>
       <a href="tiku.html">题库</a>
       <a href="ziliao.html">资料库</a>
-      <a href="#">关于我们</a>
+      <a onclick="logout()">退出登录</a>
     </div>
   </div>
 
@@ -192,6 +200,8 @@
   <div class="main">
     <h1>代码种子</h1>
     <p>每天 10 题，编程进步看得见</p>
+
+    <div class="welcome" id="welcomeText"></div>
 
     <!-- 搜索框 -->
     <div class="search-box">
@@ -201,7 +211,7 @@
 
     <!-- 快捷入口 -->
     <div class="quick-links">
-      <a href="tiku.html">📌 今日练习</a>
+      <a href="question.html">📌 今日练习</a>
       <a href="tiku.html">🐍 Python基础</a>
       <a href="tiku.html">🎮 Scratch闯关</a>
       <a href="tiku.html">🏆 竞赛真题</a>
@@ -227,6 +237,16 @@
   </footer>
 
   <script>
+    // 检查是否已登录
+    const studentName = localStorage.getItem("studentName");
+
+    if (!studentName) {
+      // 没登录就跳转到 login.html
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcomeText").innerText = "欢迎你：" + studentName + " 😊";
+    }
+
     function doSearch() {
       const keyword = document.getElementById("searchInput").value.trim();
 
@@ -235,13 +255,18 @@
         return;
       }
 
-      // 跳转到搜索结果页
       window.location.href = "search.html?keyword=" + encodeURIComponent(keyword);
     }
 
     function fillSearch(text) {
       document.getElementById("searchInput").value = text;
       doSearch();
+    }
+
+    function logout() {
+      localStorage.removeItem("studentName");
+      alert("已退出登录");
+      window.location.href = "login.html";
     }
   </script>
 
