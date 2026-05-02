@@ -3,12 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <title>在线答题</title>
+
+  <style>
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+    }
+
+    #paperTitle {
+      color: #2d7a2d;
+    }
+
+    .question-card {
+      border: 1px solid #ddd;
+      padding: 14px;
+      margin: 14px 0;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    .correct-card {
+      border: 2px solid #2ecc71;
+      background: #eafff2;
+    }
+
+    .wrong-card {
+      border: 2px solid #e74c3c;
+      background: #ffecec;
+    }
+
+    .option-line {
+      display: block;
+      padding: 6px 8px;
+      border-radius: 6px;
+      margin: 4px 0;
+      cursor: pointer;
+    }
+
+    .option-correct {
+      color: #1e8f4d;
+      font-weight: bold;
+      background: rgba(46, 204, 113, 0.15);
+    }
+
+    .option-wrong {
+      color: #c0392b;
+      font-weight: bold;
+      background: rgba(231, 76, 60, 0.15);
+    }
+
+    .analysis-box {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px dashed #aaa;
+      white-space: pre-line;
+      display: none;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #2d7a2d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #256525;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    #result {
+      margin-top: 18px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
 </head>
+
 <body>
+
   <h1 id="paperTitle">试卷加载中...</h1>
   <div id="questionBox"></div>
 
-  <button onclick="submitPaper()">提交试卷</button>
+  <button id="submitBtn" onclick="submitPaper()">提交试卷</button>
   <h2 id="result"></h2>
 
   <script>
@@ -33,19 +122,22 @@
 
         currentPaper.questions.forEach(q => {
           const div = document.createElement("div");
-          div.style.border = "1px solid #ccc";
-          div.style.padding = "10px";
-          div.style.margin = "10px 0";
+          div.className = "question-card";
+          div.id = "questionCard" + q.id;
 
           div.innerHTML = `
             <p><b>${q.id}. ${q.question}</b></p>
-            ${Object.entries(q.options).map(([key, val]) => `
-              <label>
-                <input type="radio" name="q${q.id}" value="${key}">
-                ${key}. ${val}
-              </label><br>
-            `).join("")}
-            <p id="analysis${q.id}" style="display:none; color:green; white-space:pre-line;"></p>
+
+            <div id="options${q.id}">
+              ${Object.entries(q.options).map(([key, val]) => `
+                <label class="option-line" id="opt_${q.id}_${key}">
+                  <input type="radio" name="q${q.id}" value="${key}">
+                  ${key}. ${val}
+                </label>
+              `).join("")}
+            </div>
+
+            <div class="analysis-box" id="analysis${q.id}"></div>
           `;
 
           box.appendChild(div);
@@ -61,19 +153,46 @@
         const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
         const userAnswer = selected ? selected.value : "";
 
-        if (userAnswer === q.answer) {
-          score++;
+        const card = document.getElementById("questionCard" + q.id);
+
+        // 正确答案选项标绿
+        const correctOpt = document.getElementById(`opt_${q.id}_${q.answer}`);
+        if (correctOpt) {
+          correctOpt.classList.add("option-correct");
         }
 
+        // 如果选错，把选的标红
+        if (userAnswer && userAnswer !== q.answer) {
+          const wrongOpt = document.getElementById(`opt_${q.id}_${userAnswer}`);
+          if (wrongOpt) {
+            wrongOpt.classList.add("option-wrong");
+          }
+        }
+
+        // 整题标记对错
+        if (userAnswer === q.answer) {
+          score++;
+          card.classList.add("correct-card");
+        } else {
+          card.classList.add("wrong-card");
+        }
+
+        // 显示解析
         const analysisBox = document.getElementById("analysis" + q.id);
         analysisBox.style.display = "block";
+
         analysisBox.innerText =
-          `正确答案：${q.answer}\n你的答案：${userAnswer || "未作答"}\n解析：${q.analysis || "暂无解析"}`;
+          `正确答案：${q.answer}\n你的答案：${userAnswer || "未作答"}\n\n解析：${q.analysis || "暂无解析"}`;
       });
 
       document.getElementById("result").innerText =
         `得分：${score} / ${currentPaper.questions.length}`;
+
+      // 禁用按钮防止重复提交
+      document.getElementById("submitBtn").disabled = true;
+      document.getElementById("submitBtn").innerText = "已提交";
     }
   </script>
+
 </body>
 </html>
