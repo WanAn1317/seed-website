@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>试卷列表</title>
+</head>
+<body>
+  <h1>试卷列表</h1>
+  <p>请选择一套试卷开始答题：</p>
+
+  <ul id="paperList"></ul>
+
+  <script>
+    fetch("./data/papers.json")
+      .then(res => res.json())
+      .then(papers => {
+        const ul = document.getElementById("paperList");
+
+        papers.forEach(paper => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <a href="quiz.html?paper=${paper.id}">
+              ${paper.title}
+            </a>
+          `;
+          ul.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById("paperList").innerHTML = "<li>题库加载失败</li>";
+        console.log(err);
+      });
+  </script>
+</body>
+</html>
