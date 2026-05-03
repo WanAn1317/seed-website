@@ -1,187 +1,256 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>题库 - 代码种子练习平台</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Microsoft YaHei", Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-
-    .nav {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .nav .logo {
-      font-size: 18px;
-      font-weight: bold;
-      color: #2d7a2d;
-    }
-
-    .nav .menu a {
-      text-decoration: none;
-      margin-left: 18px;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .nav .menu a:hover {
-      color: #2d7a2d;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .filter {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    select {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    .card {
-      border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      background: #fafafa;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      border-color: #2d7a2d;
-      background: #fff;
-    }
-
-    .title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .tags {
-      font-size: 13px;
-      color: #666;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      background: #2d7a2d;
-      color: white;
-      font-size: 13px;
-    }
-
-    .btn:hover {
-      background: #256525;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>题库练习系统</title>
+<style>
+body{font-family:Arial;background:#f6f7fb;margin:0;padding:0}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.card{background:white;padding:15px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.btn{padding:10px 15px;background:#4CAF50;color:white;border:none;border-radius:6px;cursor:pointer}
+.btn:hover{background:#45a049}
+.option{display:block;margin:6px 0}
+.title{font-size:20px;font-weight:bold;margin-bottom:10px}
+.tag{font-size:12px;color:#666}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+</style>
 </head>
 
 <body>
 
-  <div class="nav">
-    <div class="logo">🌱 代码种子工作室</div>
+<div class="container">
 
-    <div class="menu">
-      <a href="index.html">首页</a>
-      <a href="tiku.html">题库</a>
-      <a href="ziliao.html">资料库</a>
-    </div>
-  </div>
+<div class="title">📌 题库练习系统</div>
 
-  <div class="container">
-    <h1>📌 题库练习</h1>
+<!-- 选择区（保留你的结构） -->
+<div class="card">
+    <h3>Python</h3>
+    <button class="btn" onclick="startPractice('python')">开始练习</button>
+</div>
 
-    <div class="filter">
-      <select>
-        <option>选择语言</option>
-        <option>Scratch</option>
-        <option>Python</option>
-        <option>C++</option>
-      </select>
+<!-- 练习区 -->
+<div id="quizBox"></div>
 
-      <select>
-        <option>选择难度</option>
-        <option>入门</option>
-        <option>基础</option>
-        <option>提高</option>
-        <option>竞赛</option>
-      </select>
+<!-- 结果 -->
+<div id="result"></div>
 
-      <select>
-        <option>题目类型</option>
-        <option>选择题</option>
-        <option>判断题</option>
-        <option>编程题</option>
-      </select>
-    </div>
+</div>
 
-    <!-- 题目卡片 -->
-    <div class="card">
-      <div class="title">Python 判断题：变量命名规则</div>
-      <div class="tags">标签：变量 / 输入输出 | 难度：入门</div>
-      <a class="btn" href="question.html">开始练习</a>
-    </div>
+<script>
 
-    <div class="card">
-      <div class="title">Python 选择题：if 条件判断基础</div>
-      <div class="tags">标签：条件分支 | 难度：基础</div>
-      <a class="btn" href="question.html">开始练习</a>
-    </div>
+/* =========================
+   📌 Python题库（升级完整版）
+========================= */
+const questionBank = {
 
-    <div class="card">
-      <div class="title">信息素养大赛模拟题（选择题 15题）</div>
-      <div class="tags">标签：竞赛 / 模拟卷 | 难度：基础</div>
-      <a class="btn" href="question.html">开始练习</a>
-    </div>
+python: [
+{
+q:"变量名合法的是？",
+options:["123abc","x","for","@name"],
+a:1,
+analysis:"变量不能数字开头，也不能用关键字或符号"
+},
+{
+q:"Python输入函数是？",
+options:["print()","input()","scan()","get()"],
+a:1,
+analysis:"input()用于输入"
+},
+{
+q:"if语句用于？",
+options:["循环","判断","输入","输出"],
+a:1,
+analysis:"if用于条件判断"
+},
+{
+q:"range(5)包含？",
+options:["1-5","0-4","1-4","0-5"],
+a:1,
+analysis:"左闭右开"
+},
+{
+q:"列表追加方法？",
+options:["add()","append()","insert()","push()"],
+a:1,
+analysis:"append()"
+},
+{
+q:"Python注释符号？",
+options:["//","#","--","**"],
+a:1,
+analysis:"#是注释"
+},
+{
+q:"字符串类型是？",
+options:["可变","不可变","数组","整数"],
+a:1,
+analysis:"字符串不可修改"
+},
+{
+q:"for循环作用？",
+options:["判断","循环","输入","输出"],
+a:1,
+analysis:"for用于循环"
+},
+{
+q:"len()作用？",
+options:["求长度","求和","求最大","排序"],
+a:0,
+analysis:"len求长度"
+},
+{
+q:"==表示？",
+options:["赋值","比较","输入","输出"],
+a:1,
+analysis:"比较运算"
+},
 
-    <div class="card">
-      <div class="title">Scratch 闯关：广播与角色控制</div>
-      <div class="tags">标签：事件 / 广播 | 难度：入门</div>
-      <a class="btn" href="question.html">开始练习</a>
-    </div>
-  </div>
+//（中级继续补全）
+{
+q:"列表索引从？",
+options:["1","0","-1","2"],
+a:1,
+analysis:"从0开始"
+},
+{
+q:"while True作用？",
+options:["一次","循环","结束","输入"],
+a:1,
+analysis:"无限循环"
+},
+{
+q:"break作用？",
+options:["继续","跳出循环","结束程序","暂停"],
+a:1,
+analysis:"跳出循环"
+},
+{
+q:"append作用？",
+options:["替换","删除","添加","排序"],
+a:2,
+analysis:"添加元素"
+},
+{
+q:"int()作用？",
+options:["转字符串","转整数","打印","输入"],
+a:1,
+analysis:"类型转换"
+},
 
-  <footer>
-    © 2026 代码种子工作室 | 免费练习平台
-  </footer>
+//（高级补齐）
+{
+q:"字典结构是？",
+options:["列表","键值对","数组","集合"],
+a:1,
+analysis:"key-value结构"
+},
+{
+q:"extend作用？",
+options:["添加一个元素","合并列表","删除","排序"],
+a:1,
+analysis:"扩展列表"
+},
+{
+q:"==与=区别？",
+options:["相同","比较与赋值","无区别","都赋值"],
+a:1,
+analysis:"=赋值 ==比较"
+},
+{
+q:"input返回类型？",
+options:["int","str","float","bool"],
+a:1,
+analysis:"字符串"
+},
+{
+q:"Python语言特点？",
+options:["编译型","解释型","汇编","机器码"],
+a:1,
+analysis:"解释型语言"
+}
+
+]
+
+};
+
+/* =========================
+   📌 当前状态
+========================= */
+let current = [];
+let answers = [];
+
+/* =========================
+   📌 随机抽题
+========================= */
+function startPractice(type){
+    let pool = [...questionBank[type]];
+
+    // 🔀 随机打乱
+    pool.sort(()=>Math.random()-0.5);
+
+    current = pool;
+    renderQuiz();
+}
+
+/* =========================
+   📌 渲染题目
+========================= */
+function renderQuiz(){
+    let html = "";
+
+    current.forEach((item,index)=>{
+        html += `<div class="card">
+        <div>${index+1}. ${item.q}</div>`;
+
+        item.options.forEach((opt,i)=>{
+            html += `
+            <label class="option">
+                <input type="radio" name="q${index}" value="${i}">
+                ${opt}
+            </label>`;
+        });
+
+        html += `</div>`;
+    });
+
+    html += `<button class="btn" onclick="submitQuiz()">提交试卷</button>`;
+
+    document.getElementById("quizBox").innerHTML = html;
+}
+
+/* =========================
+   📌 提交批改
+========================= */
+function submitQuiz(){
+
+    let score = 0;
+    let result = "<h3>📊 批改结果</h3>";
+
+    current.forEach((q,i)=>{
+
+        let sel = document.querySelector(`input[name=q${i}]:checked`);
+        let val = sel ? sel.value : -1;
+
+        let correct = (val == q.a);
+
+        if(correct) score++;
+
+        result += `<div class="card">
+        <div>${i+1}. ${q.q}</div>
+        <div>你的答案：${val==-1?"未选择":q.options[val]}</div>
+        <div>正确答案：${q.options[q.a]}</div>
+        <div>${correct?"✔ 正确":"❌ 错误"}</div>
+        <div class="tag">解析：${q.analysis}</div>
+        </div>`;
+    });
+
+    result = `<div class="card"><h2>得分：${score}/${current.length}</h2></div>` + result;
+
+    document.getElementById("result").innerHTML = result;
+}
+
+</script>
 
 </body>
 </html>
