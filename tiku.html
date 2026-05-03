@@ -3,36 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <title>题库练习系统</title>
+
 <style>
-body{font-family:Arial;background:#f6f7fb;margin:0;padding:0}
-.container{max-width:900px;margin:0 auto;padding:20px}
-.card{background:white;padding:15px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
-.btn{padding:10px 15px;background:#4CAF50;color:white;border:none;border-radius:6px;cursor:pointer}
+body{
+    font-family: Arial;
+    background:#f6f7fb;
+    margin:0;
+}
+
+.container{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.card{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+select{
+    padding:6px;
+    margin-right:10px;
+    border-radius:6px;
+}
+
+.btn{
+    padding:8px 14px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
 .btn:hover{background:#45a049}
-.option{display:block;margin:6px 0}
-.title{font-size:20px;font-weight:bold;margin-bottom:10px}
+
 .tag{font-size:12px;color:#666}
+
+.option{display:block;margin:5px 0}
+
 .correct{color:green;font-weight:bold}
 .wrong{color:red;font-weight:bold}
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="title">📌 题库练习系统</div>
+<div class="title">📌 题库练习</div>
 
-<!-- 选择区（保留你的结构） -->
+<!-- =========================
+📌 选择区（恢复完整版）
+========================= -->
 <div class="card">
-    <h3>Python</h3>
-    <button class="btn" onclick="startPractice('python')">开始练习</button>
+
+<!-- 语言选择（你缺的） -->
+<select id="lang">
+    <option value="python">Python</option>
+    <option value="scratch">Scratch</option>
+    <option value="cpp">C++</option>
+</select>
+
+<!-- 题型 -->
+<select id="type">
+    <option value="all">题目类型</option>
+    <option value="single">选择题</option>
+    <option value="judge">判断题</option>
+</select>
+
+<!-- 难度 -->
+<select id="level">
+    <option value="all">选择难度</option>
+    <option value="easy">入门</option>
+    <option value="base">基础</option>
+    <option value="hard">进阶</option>
+</select>
+
+<button class="btn" onclick="filter()">筛选</button>
+
 </div>
 
-<!-- 练习区 -->
-<div id="quizBox"></div>
+<!-- 列表 -->
+<div id="list"></div>
 
-<!-- 结果 -->
+<!-- 练习 -->
+<div id="quiz"></div>
 <div id="result"></div>
 
 </div>
@@ -40,215 +107,213 @@ body{font-family:Arial;background:#f6f7fb;margin:0;padding:0}
 <script>
 
 /* =========================
-   📌 Python题库（升级完整版）
+📌 完整题库（Python全章节）
 ========================= */
-const questionBank = {
+const db = {
 
-python: [
+python:[
+
+/* ===== 变量基础 ===== */
 {
-q:"变量名合法的是？",
-options:["123abc","x","for","@name"],
-a:1,
-analysis:"变量不能数字开头，也不能用关键字或符号"
-},
-{
-q:"Python输入函数是？",
-options:["print()","input()","scan()","get()"],
-a:1,
-analysis:"input()用于输入"
-},
-{
-q:"if语句用于？",
-options:["循环","判断","输入","输出"],
-a:1,
-analysis:"if用于条件判断"
-},
-{
-q:"range(5)包含？",
-options:["1-5","0-4","1-4","0-5"],
-a:1,
-analysis:"左闭右开"
-},
-{
-q:"列表追加方法？",
-options:["add()","append()","insert()","push()"],
-a:1,
-analysis:"append()"
-},
-{
-q:"Python注释符号？",
-options:["//","#","--","**"],
-a:1,
-analysis:"#是注释"
-},
-{
-q:"字符串类型是？",
-options:["可变","不可变","数组","整数"],
-a:1,
-analysis:"字符串不可修改"
-},
-{
-q:"for循环作用？",
-options:["判断","循环","输入","输出"],
-a:1,
-analysis:"for用于循环"
-},
-{
-q:"len()作用？",
-options:["求长度","求和","求最大","排序"],
-a:0,
-analysis:"len求长度"
-},
-{
-q:"==表示？",
-options:["赋值","比较","输入","输出"],
-a:1,
-analysis:"比较运算"
+title:"变量与基础（入门）",
+type:"single",
+level:"easy",
+tag:"变量",
+questions:[
+{q:"变量名可以数字开头吗？",options:["可以","不可以"],a:1},
+{q:"变量可以包含数字吗？",options:["可以","不可以"],a:0},
+{q:"变量必须以什么开头？",options:["数字","字母或_"],a:1},
+{q:"for是变量名吗？",options:["是","不是"],a:1},
+{q:"变量名区分大小写吗？",options:["不区分","区分"],a:1}
+]
 },
 
-//（中级继续补全）
+/* ===== 输入输出 ===== */
 {
-q:"列表索引从？",
-options:["1","0","-1","2"],
-a:1,
-analysis:"从0开始"
-},
-{
-q:"while True作用？",
-options:["一次","循环","结束","输入"],
-a:1,
-analysis:"无限循环"
-},
-{
-q:"break作用？",
-options:["继续","跳出循环","结束程序","暂停"],
-a:1,
-analysis:"跳出循环"
-},
-{
-q:"append作用？",
-options:["替换","删除","添加","排序"],
-a:2,
-analysis:"添加元素"
-},
-{
-q:"int()作用？",
-options:["转字符串","转整数","打印","输入"],
-a:1,
-analysis:"类型转换"
+title:"输入输出",
+type:"single",
+level:"easy",
+tag:"IO",
+questions:[
+{q:"输入函数是？",options:["print","input"],a:1},
+{q:"print作用？",options:["输入","输出"],a:1},
+{q:"input返回类型？",options:["int","str"],a:1},
+{q:"输出用什么？",options:["input","print"],a:1},
+{q:"输入用于？",options:["获取数据","删除数据"],a:0}
+]
 },
 
-//（高级补齐）
+/* ===== 条件判断 ===== */
 {
-q:"字典结构是？",
-options:["列表","键值对","数组","集合"],
-a:1,
-analysis:"key-value结构"
+title:"条件判断",
+type:"single",
+level:"base",
+tag:"条件",
+questions:[
+{q:"if作用？",options:["循环","判断"],a:1},
+{q:"else表示？",options:["否则","开始"],a:0},
+{q:"比较符号是？",options:["=","=="],a:1},
+{q:"条件成立执行？",options:["if块","else块"],a:0},
+{q:"判断结构？",options:["if","for"],a:0}
+]
 },
+
+/* ===== 循环 ===== */
 {
-q:"extend作用？",
-options:["添加一个元素","合并列表","删除","排序"],
-a:1,
-analysis:"扩展列表"
+title:"循环结构",
+type:"single",
+level:"base",
+tag:"循环",
+questions:[
+{q:"for作用？",options:["判断","循环"],a:1},
+{q:"while True是？",options:["一次","无限循环"],a:1},
+{q:"break作用？",options:["结束循环","继续"],a:0},
+{q:"range(5)包含？",options:["0-4","1-5"],a:0},
+{q:"循环结构是？",options:["if","for/while"],a:1}
+]
 },
+
+/* ===== 列表 ===== */
 {
-q:"==与=区别？",
-options:["相同","比较与赋值","无区别","都赋值"],
-a:1,
-analysis:"=赋值 ==比较"
+title:"列表与字符串",
+type:"single",
+level:"base",
+tag:"列表",
+questions:[
+{q:"append作用？",options:["删除","添加"],a:1},
+{q:"索引从？",options:["1","0"],a:1},
+{q:"字符串可变吗？",options:["可变","不可变"],a:1},
+{q:"extend作用？",options:["合并","删除"],a:0},
+{q:"len作用？",options:["长度","加法"],a:0}
+]
 },
+
+/* ===== 综合 ===== */
 {
-q:"input返回类型？",
-options:["int","str","float","bool"],
-a:1,
-analysis:"字符串"
-},
-{
-q:"Python语言特点？",
-options:["编译型","解释型","汇编","机器码"],
-a:1,
-analysis:"解释型语言"
+title:"综合应用",
+type:"single",
+level:"hard",
+tag:"综合",
+questions:[
+{q:"==表示？",options:["赋值","比较"],a:1},
+{q:"%是？",options:["除法","取余"],a:1},
+{q:"int作用？",options:["转整数","输出"],a:0},
+{q:"字典是？",options:["键值对","列表"],a:0},
+{q:"Python是？",options:["编译","解释"],a:1}
+]
 }
 
 ]
 
 };
 
-/* =========================
-   📌 当前状态
-========================= */
-let current = [];
-let answers = [];
+/* ========================= */
+let current=[];
 
 /* =========================
-   📌 随机抽题
+📌 过滤
 ========================= */
-function startPractice(type){
-    let pool = [...questionBank[type]];
+function filter(){
 
-    // 🔀 随机打乱
-    pool.sort(()=>Math.random()-0.5);
+    let lang=document.getElementById("lang").value;
+    let type=document.getElementById("type").value;
+    let level=document.getElementById("level").value;
 
-    current = pool;
-    renderQuiz();
+    let list=db[lang]||[];
+
+    render(list,type,level);
 }
 
 /* =========================
-   📌 渲染题目
+📌 渲染列表
 ========================= */
-function renderQuiz(){
-    let html = "";
+function render(list,type,level){
 
-    current.forEach((item,index)=>{
-        html += `<div class="card">
-        <div>${index+1}. ${item.q}</div>`;
+    let html="";
 
-        item.options.forEach((opt,i)=>{
-            html += `
-            <label class="option">
-                <input type="radio" name="q${index}" value="${i}">
-                ${opt}
-            </label>`;
-        });
+    list.forEach((c,i)=>{
 
-        html += `</div>`;
-    });
+        if(type!="all" && c.type!=type) return;
+        if(level!="all" && c.level!=level) return;
 
-    html += `<button class="btn" onclick="submitQuiz()">提交试卷</button>`;
-
-    document.getElementById("quizBox").innerHTML = html;
-}
-
-/* =========================
-   📌 提交批改
-========================= */
-function submitQuiz(){
-
-    let score = 0;
-    let result = "<h3>📊 批改结果</h3>";
-
-    current.forEach((q,i)=>{
-
-        let sel = document.querySelector(`input[name=q${i}]:checked`);
-        let val = sel ? sel.value : -1;
-
-        let correct = (val == q.a);
-
-        if(correct) score++;
-
-        result += `<div class="card">
-        <div>${i+1}. ${q.q}</div>
-        <div>你的答案：${val==-1?"未选择":q.options[val]}</div>
-        <div>正确答案：${q.options[q.a]}</div>
-        <div>${correct?"✔ 正确":"❌ 错误"}</div>
-        <div class="tag">解析：${q.analysis}</div>
+        html+=`
+        <div class="card">
+            <div><b>${c.title}</b></div>
+            <div class="tag">${c.tag}</div>
+            <button class="btn" onclick="start(${i})">开始练习</button>
         </div>`;
     });
 
-    result = `<div class="card"><h2>得分：${score}/${current.length}</h2></div>` + result;
-
-    document.getElementById("result").innerHTML = result;
+    document.getElementById("list").innerHTML=html;
 }
+
+/* =========================
+📌 开始
+========================= */
+function start(i){
+
+    let q=db.python[i].questions;
+
+    current=q.sort(()=>Math.random()-0.5);
+
+    show();
+}
+
+/* ========================= */
+function show(){
+
+    let html="";
+
+    current.forEach((q,i)=>{
+
+        html+=`<div class="card">
+        <div>${i+1}. ${q.q}</div>`;
+
+        if(q.options){
+            q.options.forEach((o,j)=>{
+                html+=`
+                <label class="option">
+                    <input type="radio" name="q${i}" value="${j}">
+                    ${o}
+                </label>`;
+            });
+        }
+
+        html+="</div>";
+    });
+
+    html+=`<button class="btn" onclick="submit()">提交</button>`;
+
+    document.getElementById("quiz").innerHTML=html;
+}
+
+/* ========================= */
+function submit(){
+
+    let score=0;
+    let html="";
+
+    current.forEach((q,i)=>{
+
+        let s=document.querySelector(`input[name=q${i}]:checked`);
+        let v=s?parseInt(s.value):-1;
+
+        let ok=v===q.a;
+
+        if(ok)score++;
+
+        html+=`
+        <div class="card">
+            <div>${i+1}. ${q.q}</div>
+            <div class="${ok?'correct':'wrong'}">${ok?'正确':'错误'}</div>
+        </div>`;
+    });
+
+    document.getElementById("result").innerHTML=
+    `<div class="card"><h3>得分：${score}/${current.length}</h3></div>`+html;
+}
+
+render(db.python);
 
 </script>
 
