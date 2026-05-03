@@ -1,157 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<title>在线考试系统</title>
-
-<style>
-body {
-  font-family: "Microsoft YaHei", Arial;
-  background: #f5f7fb;
-  margin: 0;
-}
-
-/* 顶部栏 */
-.exam-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #2d7a2d;
-  color: white;
-  padding: 12px 20px;
-  position: sticky;
-  top: 0;
-}
-
-.exam-header h2 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.exam-header button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.submit-btn {
-  background: #ffcc00;
-  font-weight: bold;
-}
-
-/* 题目卡片 */
-.question {
-  background: white;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.question label {
-  display: block;
-  margin: 6px 0;
-  cursor: pointer;
-}
-
-#result {
-  text-align: center;
-  margin: 20px;
-}
-</style>
-
-</head>
-
-<body>
-
-<!-- 顶部栏 -->
-<div class="exam-header">
-
-  <button onclick="window.location.href='papers.html'">
-    ↩ 返回试卷列表
-  </button>
-
-  <h2 id="paperTitle">在线考试系统</h2>
-
-  <button class="submit-btn" onclick="submitQuiz()">
-    📤 提交试卷
-  </button>
-
-</div>
-
-<!-- 题目区域 -->
-<div id="quiz"></div>
-
-<div id="result"></div>
-
-<script>
-
-let allPapers = [];
-let paper = null;
 let submitted = false;
 
-// 获取试卷ID
-function getPaperId() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("paper");
-}
-
-// 加载题库
-fetch("data/papers.json")
-  .then(res => res.json())
-  .then(data => {
-
-    allPapers = data;
-
-    const paperId = getPaperId();
-
-    paper = allPapers.find(p => p.id === paperId);
-
-    if (!paper) {
-      document.getElementById("quiz").innerHTML = "<h3>❌ 试卷不存在</h3>";
-      return;
-    }
-
-    document.getElementById("paperTitle").innerText = paper.title;
-
-    renderQuiz();
-
-  })
-  .catch(err => {
-    document.getElementById("quiz").innerHTML = "<h3>❌ 题库加载失败</h3>";
-    console.log(err);
-  });
-
-// 渲染题目
-function renderQuiz() {
-
-  const quizDiv = document.getElementById("quiz");
-  quizDiv.innerHTML = "";
-
-  paper.questions.forEach((q, index) => {
-
-    let html = `
-      <div class="question">
-        <p>${index + 1}. ${q.question}</p>
-    `;
-
-    for (let key in q.options) {
-      html += `
-        <label>
-          <input type="radio" name="q${index}" value="${key}">
-          ${key}. ${q.options[key]}
-        </label>
-      `;
-    }
-
-    html += `</div>`;
-
-    quizDiv.innerHTML += html;
-  });
-}
-
-// 提交试卷（最终稳定版）
 function submitQuiz() {
 
   if (submitted) {
@@ -161,41 +9,76 @@ function submitQuiz() {
 
   let score = 0;
 
+  let reviewHTML = "";
+
   paper.questions.forEach((q, index) => {
 
     let selected = document.querySelector(`input[name="q${index}"]:checked`);
 
-    if (selected && selected.value === q.answer) {
-      score++;
-    }
+    let userAnswer = selected ? selected.value : "未选择";
+
+    let isCorrect = userAnswer === q.answer;
+
+    if (isCorrect) score++;
+
+    // 每题解析卡片（重点：红绿标识）
+    reviewHTML += `
+      <div style="
+        background:white;
+        margin:15px;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 2px 6px rgba(0,0,0,0.08);
+        border-left:6px solid ${isCorrect ? '#2ecc71' : '#e74c3c'};
+      ">
+
+        <p style="font-size:16px;"><b>${index + 1}. ${q.question}</b></p>
+
+        <p>
+          你的答案：
+          <span style="color:${isCorrect ? '#2ecc71' : '#e74c3c'}; font-weight:bold;">
+            ${userAnswer}
+          </span>
+        </p>
+
+        <p>
+          正确答案：
+          <span style="color:#2ecc71; font-weight:bold;">
+            ${q.answer}
+          </span>
+        </p>
+
+        <div style="margin-top:10px; color:#555; white-space:pre-line;">
+          📘 解析：${q.analysis}
+        </div>
+
+      </div>
+    `;
   });
 
   submitted = true;
 
-  // 锁定选项
+  // 锁定所有选项（防止修改）
   document.querySelectorAll("input[type=radio]").forEach(i => {
     i.disabled = true;
   });
 
-  // 显示结果卡片
+  // 总分卡片 + 解析
   document.getElementById("result").innerHTML = `
     <div style="
-      background:white;
+      background:#fff;
       margin:20px;
       padding:20px;
       border-radius:10px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
       text-align:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
     ">
-      <h2>🎉 提交成功</h2>
-      <p style="font-size:18px;">
+      <h2>🎉 批改完成</h2>
+      <p style="font-size:20px;">
         得分：<b>${score}</b> / ${paper.questions.length}
       </p>
     </div>
+
+    ${reviewHTML}
   `;
 }
-
-</script>
-
-</body>
-</html>
