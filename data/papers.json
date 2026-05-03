@@ -20,7 +20,7 @@
     {
       "id": 2,
       "type": "single",
-      "question": "导入随机库后，执行如下代码，输出的结果可能是（）\n1\n2\n3\n4\na = randint(0,5)\nb = randint(1,6)\nc = a + b\nprint(c)",
+      "question": "导入随机库后，执行如下代码，输出的结果可能是（）\na = randint(0,5)\nb = randint(1,6)\nc = a + b\nprint(c)",
       "options": {
         "A": "A",
         "B": "8",
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "type": "single",
-      "question": "下列代码的输出结果是（ ）\n1\nprint(6+4)",
+      "question": "下列代码的输出结果是（ ）\nprint(6+4)",
       "options": {
         "A": "A",
         "B": "10",
@@ -98,7 +98,7 @@
     {
       "id": 8,
       "type": "single",
-      "question": "运行下列代码，输出结果是( )\n1\n2\n3\nh = {\"Tom\":147, \"Jack\":150, \"Amy\":143}\nh[\"Jack\"] = 160\nprint(h)",
+      "question": "运行下列代码，输出结果是( )\nh = {\"Tom\":147, \"Jack\":150, \"Amy\":143}\nh[\"Jack\"] = 160\nprint(h)",
       "options": {
         "A": "A",
         "B": "{“Tom”:147,“Jack”:160,“Amy”:143}",
@@ -111,7 +111,7 @@
     {
       "id": 9,
       "type": "single",
-      "question": "导入随机库后，执行如下代码，下列说法正确的是（ ）\n1\n2\na = randint(1,15)\nb = randint(20,30)",
+      "question": "导入随机库后，执行如下代码，下列说法正确的是（ ）\na = randint(1,15)\nb = randint(20,30)",
       "options": {
         "A": "A",
         "B": "变量a存储的数字大于变量b存储的数字",
@@ -124,7 +124,7 @@
     {
       "id": 10,
       "type": "single",
-      "question": "下列代码的输出结果是（ ）\n1\n2\n3\n4\nx=18\ny=9\nz=x/y\nprint(z)",
+      "question": "下列代码的输出结果是（ ）\nx=18\ny=9\nz=x/y\nprint(z)",
       "options": {
         "A": "A",
         "B": "18",
@@ -137,7 +137,7 @@
     {
       "id": 11,
       "type": "single",
-      "question": "运行下列代码，list中最后存储的是( )\n1\n2\nlist1 = {\"牙刷\":2,\"牙膏\":4}\nlist1[\"毛巾\"] = 6",
+      "question": "运行下列代码，list中最后存储的是( )\nlist1 = {\"牙刷\":2,\"牙膏\":4}\nlist1[\"毛巾\"] = 6",
       "options": {
         "A": "A",
         "B": "{“毛巾”:6}",
@@ -163,7 +163,7 @@
     {
       "id": 13,
       "type": "single",
-      "question": "运行下列代码，最后a中存储的内容是( )\n1\n2\na =[\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\"]\na.append(\"黑豹\")",
+      "question": "运行下列代码，最后a中存储的内容是( )\na =[\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\"]\na.append(\"黑豹\")",
       "options": {
         "A": "A",
         "B": "[“钢铁侠”,“绿巨人”,“蜘蛛侠”]",
@@ -189,7 +189,7 @@
     {
       "id": 15,
       "type": "single",
-      "question": "下列代码中，如果输出结果是hi，横线处应填入\n1\n2\nn = \"hi\"\n__________",
+      "question": "下列代码中，如果输出结果是hi，横线处应填入\nn = \"hi\"\n__________",
       "options": {
         "A": "A",
         "B": "PRINT(n)",
@@ -241,7 +241,7 @@
     {
       "id": 19,
       "type": "single",
-      "question": "下面代码可以正确遍历列表nums。\n1\n2\n3\nnums =[1,2,3, 4,5]\nfor num in nums.\nprint(num)",
+      "question": "下面代码可以正确遍历列表nums。\nnums =[1,2,3, 4,5]\nfor num in nums.\nprint(num)",
       "options": {
         "A": "A",
         "B": "正确",
@@ -287,7 +287,7 @@
     {
       "id": 2,
       "type": "single",
-      "question": "执行下面的代码，变量 a 的值有可能是？\n1\n2\nfrom random import *\na = randint(1,10)",
+      "question": "执行下面的代码，变量 a 的值有可能是？\nfrom random import *\na = randint(1,10)",
       "options": {
         "A": "A",
         "B": "0",
@@ -339,7 +339,7 @@
     {
       "id": 6,
       "type": "single",
-      "question": "运行下面的程序，最终的运行结果是？\n1\n2\n3\nbook = ['三国演义'，'红楼梦'，'水浒传'，西游记'，'论语'，'安徒生童话]\nprint(book[3])",
+      "question": "运行下面的程序，最终的运行结果是？\nbook = ['三国演义'，'红楼梦'，'水浒传'，西游记'，'论语'，'安徒生童话]\nprint(book[3])",
       "options": {
         "A": "A",
         "B": "论语",
@@ -352,7 +352,7 @@
     {
       "id": 7,
       "type": "single",
-      "question": "下列选项中，能够将元素\"牛奶\"修改为\"咖啡\"的是？\n1\ndrinks = ['茶', '牛奶', '啤酒', '果汁']",
+      "question": "下列选项中，能够将元素\"牛奶\"修改为\"咖啡\"的是？\ndrinks = ['茶', '牛奶', '啤酒', '果汁']",
       "options": {
         "A": "A",
         "B": "drinks[1] = ‘咖啡’",
@@ -365,7 +365,7 @@
     {
       "id": 8,
       "type": "single",
-      "question": "运行以下代码，输出结果是？\n1\n2\n3\n4\nx = 10\ny = 15\nz = x + y\nprint(z)",
+      "question": "运行以下代码，输出结果是？\nx = 10\ny = 15\nz = x + y\nprint(z)",
       "options": {
         "A": "A",
         "B": "25",
@@ -378,7 +378,7 @@
     {
       "id": 9,
       "type": "single",
-      "question": "运行下面的程序，num 列表最终的元素是？\n1\n2\nnum = [1, 2, 3, 4, 5]\nnum[3] = 1",
+      "question": "运行下面的程序，num 列表最终的元素是？\nnum = [1, 2, 3, 4, 5]\nnum[3] = 1",
       "options": {
         "A": "A",
         "B": "[1, 2, 3, 4, 5, 1]",
@@ -391,7 +391,7 @@
     {
       "id": 10,
       "type": "single",
-      "question": "下面代码的输出结果是？\n1\n2\n3\n4\n5\na = 95\nif a >= 60:\nprint('通过')\nelse:\nprint('不通过')",
+      "question": "下面代码的输出结果是？\na = 95\nif a >= 60:\nprint('通过')\nelse:\nprint('不通过')",
       "options": {
         "A": "A",
         "B": "无法输出",
@@ -417,7 +417,7 @@
     {
       "id": 12,
       "type": "single",
-      "question": "下列程序的输出结果是？\n1\n2\n3\n4\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\nif n < 8:\nprint(n)",
+      "question": "下列程序的输出结果是？\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\nif n < 8:\nprint(n)",
       "options": {
         "A": "A",
         "B": "3 7 2",
@@ -430,7 +430,7 @@
     {
       "id": 13,
       "type": "single",
-      "question": "运行下列代码，最终的输出 “练习” 的次数是？\n1\n2\n3\n4\nwhile True:\nprint(\"练习\")\nbreak\nprint(\"练习\")",
+      "question": "运行下列代码，最终的输出 “练习” 的次数是？\nwhile True:\nprint(\"练习\")\nbreak\nprint(\"练习\")",
       "options": {
         "A": "A",
         "B": "1",
@@ -443,7 +443,7 @@
     {
       "id": 14,
       "type": "single",
-      "question": "下面程序的输出结果是？\n1\n2\n3\n4\n5\n6\n7\na = 50\na = a * 2\na = a - 15\nif a > 90:\nprint('完美!')\nelse:\nprint('不错哦!')",
+      "question": "下面程序的输出结果是？\na = 50\na = a * 2\na = a - 15\nif a > 90:\nprint('完美!')\nelse:\nprint('不错哦!')",
       "options": {
         "A": "A",
         "B": "90",
@@ -456,7 +456,7 @@
     {
       "id": 15,
       "type": "single",
-      "question": "运行下面的程序，最终的结果是？\n1\n2\n3\n4\na = 10\nfor j in range(2):\na += 10\nprint(a)",
+      "question": "运行下面的程序，最终的结果是？\na = 10\nfor j in range(2):\na += 10\nprint(a)",
       "options": {
         "A": "A",
         "B": "110",
@@ -482,7 +482,7 @@
     {
       "id": 17,
       "type": "single",
-      "question": "运行代码，输出结果是 3 。\n1\n2\na = [2, 4, 6, 8]\nprint(a[2])",
+      "question": "运行代码，输出结果是 3 。\na = [2, 4, 6, 8]\nprint(a[2])",
       "options": {
         "A": "A",
         "B": "正确",
@@ -508,7 +508,7 @@
     {
       "id": 19,
       "type": "single",
-      "question": "运行代码，输出结果是 3 。\n1\n2\na = [1, 2, 3, 4]\nprint(a[2]+1)",
+      "question": "运行代码，输出结果是 3 。\na = [1, 2, 3, 4]\nprint(a[2]+1)",
       "options": {
         "A": "A",
         "B": "正确",
@@ -521,7 +521,7 @@
     {
       "id": 20,
       "type": "single",
-      "question": "执行下面代码，程序的输出结果为 3 。\n1\n2\n3\n4\n5\na = 3\nif a == '3':\nprint(3)\nelse:\nprint(1)",
+      "question": "执行下面代码，程序的输出结果为 3 。\na = 3\nif a == '3':\nprint(3)\nelse:\nprint(1)",
       "options": {
         "A": "A",
         "B": "正确",
@@ -555,7 +555,7 @@
     {
       "id": 2,
       "type": "single",
-      "question": "运⾏下⾯的代码，最终输出的结果是？\n1\n2\nn = 6 * 3 + 4 * 2\nprint(n)",
+      "question": "运⾏下⾯的代码，最终输出的结果是？\nn = 6 * 3 + 4 * 2\nprint(n)",
       "options": {
         "A": "A",
         "B": "15",
@@ -594,7 +594,7 @@
     {
       "id": 5,
       "type": "single",
-      "question": "运⾏下⾯的程序，代码输出数字1的次数是？\n1\n2\nfor i in range(5):\nprint(1)",
+      "question": "运⾏下⾯的程序，代码输出数字1的次数是？\nfor i in range(5):\nprint(1)",
       "options": {
         "A": "A",
         "B": "4次",
@@ -607,7 +607,7 @@
     {
       "id": 6,
       "type": "single",
-      "question": "运⾏下⾯的程序，列表num的最终内容是？\n1\n2\n3\nnum = [1, 2, 3, 4]\nnum.append(6)\nprint(num)",
+      "question": "运⾏下⾯的程序，列表num的最终内容是？\nnum = [1, 2, 3, 4]\nnum.append(6)\nprint(num)",
       "options": {
         "A": "A",
         "B": "[1, 2, 3, 4, 6]",
@@ -620,7 +620,7 @@
     {
       "id": 7,
       "type": "single",
-      "question": "运⾏以下代码，seasons中最终存储的是？\n1\n2\nseasons = ['春天', '夏天', '秋天', '冬天']\nseasons.remove('春天')",
+      "question": "运⾏以下代码，seasons中最终存储的是？\nseasons = ['春天', '夏天', '秋天', '冬天']\nseasons.remove('春天')",
       "options": {
         "A": "A",
         "B": "[“春天”, “夏天”, “秋天”, “冬天”, “春天”]",
@@ -633,7 +633,7 @@
     {
       "id": 8,
       "type": "single",
-      "question": "运⾏下列代码的输出结果是？\n1\n2\n3\n4\n5\nm = 0\nif 10 > m:\nprint(\"YES\")\nelse:\nprint(\"NO\")",
+      "question": "运⾏下列代码的输出结果是？\nm = 0\nif 10 > m:\nprint(\"YES\")\nelse:\nprint(\"NO\")",
       "options": {
         "A": "A",
         "B": "NO",
@@ -646,7 +646,7 @@
     {
       "id": 9,
       "type": "single",
-      "question": "运⾏下⾯的程序，最终的运⾏结果是？\n1\n2\n3\nbook = ['三国演义' , '红楼梦', '⽔浒传', '⻄游记', '论语', '安徒生童话']\nprint(book[3])",
+      "question": "运⾏下⾯的程序，最终的运⾏结果是？\nbook = ['三国演义' , '红楼梦', '⽔浒传', '⻄游记', '论语', '安徒生童话']\nprint(book[3])",
       "options": {
         "A": "A",
         "B": "红楼梦",
@@ -672,7 +672,7 @@
     {
       "id": 11,
       "type": "single",
-      "question": "下列程序的输出结果是？\n1\n2\n3\n4\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\nif n < 8:\nprint(n)",
+      "question": "下列程序的输出结果是？\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\nif n < 8:\nprint(n)",
       "options": {
         "A": "A",
         "B": "2",
@@ -685,7 +685,7 @@
     {
       "id": 12,
       "type": "single",
-      "question": "运⾏下列代码，程序的执行结果是？\n1\n2\n3\n4\na = 10\nfor i in range(3) :\na = a - 2\nprint(a)",
+      "question": "运⾏下列代码，程序的执行结果是？\na = 10\nfor i in range(3) :\na = a - 2\nprint(a)",
       "options": {
         "A": "A",
         "B": "6",
@@ -711,7 +711,7 @@
     {
       "id": 14,
       "type": "single",
-      "question": "运⾏下⾯的代码，最终的运⾏结果是？\n1\n2\na=[1, 2, 3, 4, 5, 6, 7]\nprint(a[3] + a[5])",
+      "question": "运⾏下⾯的代码，最终的运⾏结果是？\na=[1, 2, 3, 4, 5, 6, 7]\nprint(a[3] + a[5])",
       "options": {
         "A": "A",
         "B": "9",
@@ -724,7 +724,7 @@
     {
       "id": 15,
       "type": "single",
-      "question": "运⾏下列程序，最终结果是？\n1\n2\n3\n4\n5\nx = 6\ny = x + 3\nz = x - 2\na = y * z\nprint(a)",
+      "question": "运⾏下列程序，最终结果是？\nx = 6\ny = x + 3\nz = x - 2\na = y * z\nprint(a)",
       "options": {
         "A": "A",
         "B": "72",
@@ -776,7 +776,7 @@
     {
       "id": 19,
       "type": "single",
-      "question": "运⾏下⾯代码，程序会输出2个’胖大星’。\n1\n2\n3\n4\nwhile True:\nprint('胖⼤星')\nbreak\nprint('胖⼤星')",
+      "question": "运⾏下⾯代码，程序会输出2个’胖大星’。\nwhile True:\nprint('胖⼤星')\nbreak\nprint('胖⼤星')",
       "options": {
         "A": "A",
         "B": "正确",
@@ -789,7 +789,7 @@
     {
       "id": 20,
       "type": "single",
-      "question": "执⾏下⾯代码，程序的输出结果为3。\n1\n2\n3\n4\n5\na = 3\nif a== '3':\nprint(3)\nelse:\nprint(1)",
+      "question": "执⾏下⾯代码，程序的输出结果为3。\na = 3\nif a== '3':\nprint(3)\nelse:\nprint(1)",
       "options": {
         "A": "A",
         "B": "正确",
