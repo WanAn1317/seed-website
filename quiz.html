@@ -8,7 +8,6 @@ function submitQuiz() {
   }
 
   let score = 0;
-
   let reviewHTML = "";
 
   paper.questions.forEach((q, index) => {
@@ -21,7 +20,6 @@ function submitQuiz() {
 
     if (isCorrect) score++;
 
-    // 每题解析卡片（重点：红绿标识）
     reviewHTML += `
       <div style="
         background:white;
@@ -32,7 +30,7 @@ function submitQuiz() {
         border-left:6px solid ${isCorrect ? '#2ecc71' : '#e74c3c'};
       ">
 
-        <p style="font-size:16px;"><b>${index + 1}. ${q.question}</b></p>
+        <p><b>${index + 1}. ${q.question}</b></p>
 
         <p>
           你的答案：
@@ -48,7 +46,7 @@ function submitQuiz() {
           </span>
         </p>
 
-        <div style="margin-top:10px; color:#555; white-space:pre-line;">
+        <div style="color:#555; white-space:pre-line;">
           📘 解析：${q.analysis}
         </div>
 
@@ -58,12 +56,10 @@ function submitQuiz() {
 
   submitted = true;
 
-  // 锁定所有选项（防止修改）
   document.querySelectorAll("input[type=radio]").forEach(i => {
     i.disabled = true;
   });
 
-  // 总分卡片 + 解析
   document.getElementById("result").innerHTML = `
     <div style="
       background:#fff;
