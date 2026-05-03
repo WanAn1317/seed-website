@@ -35,7 +35,6 @@ body {
   cursor: pointer;
 }
 
-/* 提交按钮 */
 .submit-btn {
   background: #ffcc00;
   font-weight: bold;
@@ -58,7 +57,6 @@ body {
 
 #result {
   text-align: center;
-  font-size: 18px;
   margin: 20px;
 }
 </style>
@@ -91,8 +89,9 @@ body {
 
 let allPapers = [];
 let paper = null;
+let submitted = false;
 
-// 获取URL参数
+// 获取试卷ID
 function getPaperId() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("paper");
@@ -114,10 +113,8 @@ fetch("data/papers.json")
       return;
     }
 
-    // 设置标题
     document.getElementById("paperTitle").innerText = paper.title;
 
-    // 渲染题目
     renderQuiz();
 
   })
@@ -128,14 +125,15 @@ fetch("data/papers.json")
 
 // 渲染题目
 function renderQuiz() {
+
   const quizDiv = document.getElementById("quiz");
   quizDiv.innerHTML = "";
 
   paper.questions.forEach((q, index) => {
 
     let html = `
-    <div class="question">
-      <p>${index + 1}. ${q.question}</p>
+      <div class="question">
+        <p>${index + 1}. ${q.question}</p>
     `;
 
     for (let key in q.options) {
@@ -153,8 +151,13 @@ function renderQuiz() {
   });
 }
 
-// 提交判分
+// 提交试卷（最终稳定版）
 function submitQuiz() {
+
+  if (submitted) {
+    alert("⚠️ 试卷已提交，不能重复提交");
+    return;
+  }
 
   let score = 0;
 
@@ -165,11 +168,31 @@ function submitQuiz() {
     if (selected && selected.value === q.answer) {
       score++;
     }
-
   });
 
-  document.getElementById("result").innerText =
-    "得分：" + score + " / " + paper.questions.length;
+  submitted = true;
+
+  // 锁定选项
+  document.querySelectorAll("input[type=radio]").forEach(i => {
+    i.disabled = true;
+  });
+
+  // 显示结果卡片
+  document.getElementById("result").innerHTML = `
+    <div style="
+      background:white;
+      margin:20px;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      text-align:center;
+    ">
+      <h2>🎉 提交成功</h2>
+      <p style="font-size:18px;">
+        得分：<b>${score}</b> / ${paper.questions.length}
+      </p>
+    </div>
+  `;
 }
 
 </script>
