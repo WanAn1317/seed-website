@@ -23,6 +23,11 @@ body {
   top: 0;
 }
 
+.exam-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
 .exam-header button {
   padding: 6px 12px;
   border: none;
@@ -30,10 +35,10 @@ body {
   cursor: pointer;
 }
 
-/* 标题 */
-.exam-header h2 {
-  margin: 0;
-  font-size: 18px;
+/* 提交按钮 */
+.submit-btn {
+  background: #ffcc00;
+  font-weight: bold;
 }
 
 /* 题目卡片 */
@@ -45,17 +50,16 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* 选项 */
 .question label {
   display: block;
   margin: 6px 0;
   cursor: pointer;
 }
 
-/* 提交按钮 */
-.submit-btn {
-  background: #ffcc00;
-  font-weight: bold;
+#result {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px;
 }
 </style>
 
@@ -63,59 +67,111 @@ body {
 
 <body>
 
-<!-- 🟢 顶部考试栏 -->
+<!-- 顶部栏 -->
 <div class="exam-header">
 
-  <div>
-    <button onclick="window.location.href='papers.html'">
-      ↩ 返回试卷列表
-    </button>
-  </div>
+  <button onclick="window.location.href='papers.html'">
+    ↩ 返回试卷列表
+  </button>
 
-  <div>
-    <h2 id="paperTitle">在线考试系统</h2>
-  </div>
+  <h2 id="paperTitle">在线考试系统</h2>
 
-  <div>
-    <button onclick="submitQuiz()" class="submit-btn">
-      📤 提交试卷
-    </button>
-  </div>
+  <button class="submit-btn" onclick="submitQuiz()">
+    📤 提交试卷
+  </button>
 
 </div>
 
-<!-- 🧠 题目区域 -->
+<!-- 题目区域 -->
 <div id="quiz"></div>
 
-<h3 id="result" style="text-align:center;"></h3>
+<div id="result"></div>
 
 <script>
-// ============================
-// 这里保持你原来的逻辑即可
-// ============================
 
-// 示例：你后面接你原来的 paper 加载逻辑
-// paper.questions 渲染到 quiz
+let allPapers = [];
+let paper = null;
 
+// 获取URL参数
+function getPaperId() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("paper");
+}
+
+// 加载题库
+fetch("data/papers.json")
+  .then(res => res.json())
+  .then(data => {
+
+    allPapers = data;
+
+    const paperId = getPaperId();
+
+    paper = allPapers.find(p => p.id === paperId);
+
+    if (!paper) {
+      document.getElementById("quiz").innerHTML = "<h3>❌ 试卷不存在</h3>";
+      return;
+    }
+
+    // 设置标题
+    document.getElementById("paperTitle").innerText = paper.title;
+
+    // 渲染题目
+    renderQuiz();
+
+  })
+  .catch(err => {
+    document.getElementById("quiz").innerHTML = "<h3>❌ 题库加载失败</h3>";
+    console.log(err);
+  });
+
+// 渲染题目
+function renderQuiz() {
+  const quizDiv = document.getElementById("quiz");
+  quizDiv.innerHTML = "";
+
+  paper.questions.forEach((q, index) => {
+
+    let html = `
+    <div class="question">
+      <p>${index + 1}. ${q.question}</p>
+    `;
+
+    for (let key in q.options) {
+      html += `
+        <label>
+          <input type="radio" name="q${index}" value="${key}">
+          ${key}. ${q.options[key]}
+        </label>
+      `;
+    }
+
+    html += `</div>`;
+
+    quizDiv.innerHTML += html;
+  });
+}
+
+// 提交判分
 function submitQuiz() {
+
   let score = 0;
 
   paper.questions.forEach((q, index) => {
+
     let selected = document.querySelector(`input[name="q${index}"]:checked`);
 
     if (selected && selected.value === q.answer) {
       score++;
     }
+
   });
 
   document.getElementById("result").innerText =
     "得分：" + score + " / " + paper.questions.length;
 }
 
-// 👉 标题（后面接你paper加载后赋值）
-function setTitle(title) {
-  document.getElementById("paperTitle").innerText = title;
-}
 </script>
 
 </body>
