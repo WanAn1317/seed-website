@@ -3,33 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <title>试卷列表</title>
-</head>
-<body>
-  <h1>试卷列表</h1>
-  <p>请选择一套试卷开始答题：</p>
 
-  <ul id="paperList"></ul>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      background: #fff;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #2d7a2d;
+    }
+
+    .tabs {
+      margin: 20px 0;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      background: #f5f5f5;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .tab-btn.active {
+      background: #2d7a2d;
+      color: white;
+      border: 1px solid #2d7a2d;
+      font-weight: bold;
+    }
+
+    .paper-list {
+      margin-top: 15px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .paper-list li {
+      margin: 10px 0;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .paper-list li:hover {
+      background: #eafff2;
+      border-color: #2d7a2d;
+    }
+
+    .paper-list a {
+      text-decoration: none;
+      color: #333;
+      font-size: 15px;
+      display: block;
+    }
+
+    .paper-list a:hover {
+      color: #2d7a2d;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>试卷列表</h1>
+  <p>请选择科目后开始答题：</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showSubject('python')" id="btn-python">🐍 Python</button>
+    <button class="tab-btn" onclick="showSubject('scratch')" id="btn-scratch">🎮 图形化编程</button>
+    <button class="tab-btn" onclick="showSubject('cpp')" id="btn-cpp">💻 C++</button>
+  </div>
+
+  <ul id="paperList" class="paper-list"></ul>
 
   <script>
+    let allPapers = [];
+    let currentSubject = "python";
+
     fetch("./data/papers.json")
       .then(res => res.json())
       .then(papers => {
-        const ul = document.getElementById("paperList");
-
-        papers.forEach(paper => {
-          const li = document.createElement("li");
-          li.innerHTML = `
-            <a href="quiz.html?paper=${paper.id}">
-              ${paper.title}
-            </a>
-          `;
-          ul.appendChild(li);
-        });
+        allPapers = papers;
+        renderList();
       })
       .catch(err => {
         document.getElementById("paperList").innerHTML = "<li>题库加载失败</li>";
         console.log(err);
       });
+
+    function showSubject(subject) {
+      currentSubject = subject;
+
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.getElementById("btn-" + subject).classList.add("active");
+
+      renderList();
+    }
+
+    function renderList() {
+      const ul = document.getElementById("paperList");
+      ul.innerHTML = "";
+
+      const filtered = allPapers.filter(p => (p.subject || "python") === currentSubject);
+
+      if (filtered.length === 0) {
+        ul.innerHTML = "<li>暂无该科目的试卷</li>";
+        return;
+      }
+
+      filtered.forEach(paper => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <a href="quiz.html?paper=${paper.id}">
+            📄 ${paper.title}
+          </a>
+        `;
+        ul.appendChild(li);
+      });
+    }
   </script>
+
 </body>
 </html>
