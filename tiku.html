@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>题库练习系统</title>
+<title>Python题库练习系统</title>
 
 <style>
 body{
@@ -48,9 +48,9 @@ select{
 
 .btn:hover{background:#45a049}
 
-.tag{font-size:12px;color:#666}
+.tag{font-size:12px;color:#666;margin:5px 0}
 
-.option{display:block;margin:5px 0}
+.option{display:block;margin:6px 0}
 
 .correct{color:green;font-weight:bold}
 .wrong{color:red;font-weight:bold}
@@ -62,28 +62,19 @@ select{
 
 <div class="container">
 
-<div class="title">📌 题库练习</div>
+<div class="title">📌 Python题库练习</div>
 
 <!-- =========================
-📌 选择区（恢复完整版）
+📌 筛选区（保留原布局）
 ========================= -->
 <div class="card">
 
-<!-- 语言选择（你缺的） -->
-<select id="lang">
-    <option value="python">Python</option>
-    <option value="scratch">Scratch</option>
-    <option value="cpp">C++</option>
-</select>
-
-<!-- 题型 -->
 <select id="type">
     <option value="all">题目类型</option>
     <option value="single">选择题</option>
     <option value="judge">判断题</option>
 </select>
 
-<!-- 难度 -->
 <select id="level">
     <option value="all">选择难度</option>
     <option value="easy">入门</option>
@@ -95,105 +86,10 @@ select{
 
 </div>
 
-<!-- 列表 -->
+<!-- 章节列表 -->
 <div id="list"></div>
 
-<!-- 练习 -->
-<div id="quiz"></div>
-<div id="result"></div>
-
-</div>
-
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<title>题库练习系统</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#f6f7fb;
-    margin:0;
-}
-
-.container{
-    max-width:900px;
-    margin:0 auto;
-    padding:20px;
-}
-
-.card{
-    background:#fff;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
-
-.title{
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-select{
-    padding:6px;
-    margin-right:10px;
-    border-radius:6px;
-}
-
-.btn{
-    padding:8px 14px;
-    background:#4CAF50;
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-.btn:hover{background:#45a049}
-
-.tag{font-size:12px;color:#666}
-
-.option{display:block;margin:5px 0}
-
-.correct{color:green;font-weight:bold}
-.wrong{color:red;font-weight:bold}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="title">📌 题库练习</div>
-
-<!-- ========================= -->
-<div class="card">
-
-<select id="lang">
-    <option value="python">Python</option>
-</select>
-
-<select id="type">
-    <option value="all">题目类型</option>
-    <option value="single">选择题</option>
-</select>
-
-<select id="level">
-    <option value="all">选择难度</option>
-    <option value="easy">入门</option>
-    <option value="base">基础</option>
-    <option value="hard">进阶</option>
-</select>
-
-<button class="btn" onclick="filter()">筛选</button>
-
-</div>
-
-<div id="list"></div>
+<!-- 练习区 -->
 <div id="quiz"></div>
 <div id="result"></div>
 
@@ -201,495 +97,334 @@ select{
 
 <script>
 
-const db = {
-
 /* =========================
-🐍 Python（10章）
+📌 Python题库（10章，每章20题）
+题型：single / judge
+难度：easy / base / hard
 ========================= */
-python:[
 
+const db = [
+
+/* 1. 变量与数据类型 */
 {
-title:"变量与数据类型",
+title:"变量与数据类型（20题）",
 type:"single",
 level:"easy",
-tag:"变量",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-变量${i+1}：合法变量名是？`,
-options:["1a","a1","for","@x"],
-a:1
-}))
-},
-
-{
-title:"输入与输出",
-type:"single",
-level:"easy",
-tag:"IO",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-输入输出${i+1}：print作用是？`,
-options:["输入","输出","计算","判断"],
-a:1
-}))
-},
-
-{
-title:"运算符与表达式",
-type:"single",
-level:"base",
-tag:"运算",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-运算符${i+1}：5%2结果是？`,
-options:["2","1","0","5"],
-a:1
-}))
-},
-
-{
-title:"条件判断",
-type:"single",
-level:"base",
-tag:"条件",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-if${i+1}：if作用是？`,
-options:["循环","判断","输入","输出"],
-a:1
-}))
-},
-
-{
-title:"循环结构",
-type:"single",
-level:"base",
-tag:"循环",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-循环${i+1}：for作用是？`,
-options:["判断","循环","输入","输出"],
-a:1
-}))
-},
-
-{
-title:"列表与元组",
-type:"single",
-level:"base",
-tag:"列表",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-列表${i+1}：list特点？`,
-options:["可变","不可变","字符串","数字"],
-a:0
-}))
-},
-
-{
-title:"字符串处理",
-type:"single",
-level:"base",
-tag:"字符串",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-字符串${i+1}：len作用？`,
-options:["长度","删除","判断","循环"],
-a:0
-}))
-},
-
-{
-title:"字典与集合",
-type:"single",
-level:"base",
-tag:"字典",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-字典${i+1}：字典是？`,
-options:["键值对","列表","数组","字符串"],
-a:0
-}))
-},
-
-{
-title:"函数基础",
-type:"single",
-level:"hard",
-tag:"函数",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-函数${i+1}：def作用？`,
-options:["定义函数","循环","判断","输出"],
-a:0
-}))
-},
-
-{
-title:"综合应用",
-type:"single",
-level:"hard",
-tag:"综合",
-questions:Array.from({length:20},(_,i)=>({
-q:`Python-综合${i+1}：Python属于？`,
-options:["编译","解释","机器","汇编"],
-a:1
-}))
-}
-
-/* =========================
-🎮 Scratch（9章）
-========================= */
-],
-
-scratch:[
-
-{
-title:"角色与舞台",
-type:"single",
-level:"easy",
-tag:"角色",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-角色${i+1}：舞台是？`,
-options:["背景","代码","变量","循环"],
-a:0
-}))
-},
-
-{
-title:"事件系统",
-type:"single",
-level:"easy",
-tag:"事件",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-事件${i+1}：绿旗是？`,
-options:["开始","停止","循环","判断"],
-a:0
-}))
-},
-
-{
-title:"运动与坐标",
-type:"single",
-level:"base",
-tag:"运动",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-运动${i+1}：x轴是？`,
-options:["水平","垂直","颜色","声音"],
-a:0
-}))
-},
-
-{
-title:"外观与动画",
-type:"single",
-level:"base",
-tag:"外观",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-外观${i+1}：造型用于？`,
-options:["动画","循环","变量","输入"],
-a:0
-}))
-},
-
-{
-title:"声音与特效",
-type:"single",
-level:"base",
-tag:"声音",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-声音${i+1}：声音积木是？`,
-options:["播放","循环","判断","变量"],
-a:0
-}))
-},
-
-{
-title:"控制结构",
-type:"single",
-level:"base",
-tag:"控制",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-控制${i+1}：重复执行是？`,
-options:["循环","判断","事件","变量"],
-a:0
-}))
-},
-
-{
-title:"变量与数据",
-type:"single",
-level:"base",
-tag:"变量",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-变量${i+1}：变量作用？`,
-options:["存数据","动画","声音","背景"],
-a:0
-}))
-},
-
-{
-title:"侦测与交互",
-type:"single",
-level:"base",
-tag:"交互",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-侦测${i+1}：碰到颜色？`,
-options:["检测","循环","变量","输出"],
-a:0
-}))
-},
-
-{
-title:"项目综合",
-type:"single",
-level:"hard",
-tag:"项目",
-questions:Array.from({length:20},(_,i)=>({
-q:`Scratch-项目${i+1}：作品是？`,
-options:["程序","图片","视频","文本"],
-a:0
-}))
-}
-
-/* =========================
-💻 C++（9章）
-========================= */
-],
-
-cpp:[
-
-{
-title:"程序结构",
-type:"single",
-level:"easy",
-tag:"基础",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-结构${i+1}：main作用？`,
-options:["入口","循环","变量","输出"],
-a:0
-}))
-},
-
-{
-title:"输入输出",
-type:"single",
-level:"easy",
-tag:"IO",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-IO${i+1}：输出是？`,
-options:["cin","cout","if","for"],
-a:1
-}))
-},
-
-{
-title:"变量类型",
-type:"single",
-level:"base",
-tag:"变量",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-变量${i+1}：int是？`,
-options:["整数","小数","字符串","布尔"],
-a:0
-}))
-},
-
-{
-title:"运算符",
-type:"single",
-level:"base",
-tag:"运算",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-运算${i+1}：%是？`,
-options:["加","减","取余","乘"],
-a:2
-}))
-},
-
-{
-title:"条件语句",
-type:"single",
-level:"base",
-tag:"条件",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-条件${i+1}：if作用？`,
-options:["判断","循环","输出","输入"],
-a:0
-}))
-},
-
-{
-title:"循环结构",
-type:"single",
-level:"base",
-tag:"循环",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-循环${i+1}：for作用？`,
-options:["循环","判断","变量","函数"],
-a:0
-}))
-},
-
-{
-title:"数组",
-type:"single",
-level:"base",
-tag:"数组",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-数组${i+1}：数组特点？`,
-options:["同类型","不同类型","函数","变量"],
-a:0
-}))
-},
-
-{
-title:"函数",
-type:"single",
-level:"hard",
-tag:"函数",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-函数${i+1}：函数作用？`,
-options:["模块","循环","变量","判断"],
-a:0
-}))
-},
-
-{
-title:"综合应用",
-type:"single",
-level:"hard",
-tag:"综合",
-questions:Array.from({length:20},(_,i)=>({
-q:`C++-综合${i+1}：C++属于？`,
-options:["编译","解释","脚本","网页"],
-a:0
-}))
-}
-
+tag:"变量 / 数据类型",
+questions:[
+{q:"以下哪个变量名合法？",options:["1abc","abc_1","for","a-b"],a:1},
+{q:"Python变量名可以以下划线开头吗？",options:["可以","不可以"],a:0},
+{q:"Python变量区分大小写吗？",options:["区分","不区分"],a:0},
+{q:"以下哪个是整数类型？",options:["3.14","'3'","3","True"],a:2},
+{q:"input() 输入的默认类型是？",options:["int","str","float","bool"],a:1},
+{q:"以下哪个是浮点数？",options:["10","10.0","'10'","True"],a:1},
+{q:"True 属于什么类型？",options:["int","bool","str","list"],a:1},
+{q:"下列属于字符串的是？",options:["123","'123'","12.3","False"],a:1},
+{q:"Python中变量需要声明类型吗？",options:["需要","不需要"],a:1},
+{q:"= 在Python中表示？",options:["比较","赋值"],a:1},
+{q:"以下哪个是合法变量名？",options:["class","_name","my name","9x"],a:1},
+{q:"变量的作用是？",options:["存储数据","输出屏幕","输入键盘","删除文件"],a:0},
+{q:"以下哪个是列表？",options:["(1,2)","[1,2]","{1,2}","'1,2'"],a:1},
+{q:"以下哪个是元组？",options:["[1,2]","(1,2)","{1:2}","{1,2}"],a:1},
+{q:"以下哪个是字典？",options:["{1,2}","{'a':1}","[1,2]","(1,2)"],a:1},
+{q:"变量名可以包含数字吗？",options:["可以","不可以"],a:0},
+{q:"Python中 None 表示？",options:["空值","0","False","空字符串"],a:0},
+{q:"type(5) 的结果是？",options:["int","float","str","bool"],a:0},
+{q:"type('hi') 的结果是？",options:["str","int","list","tuple"],a:0},
+{q:"type([1,2]) 的结果是？",options:["list","tuple","dict","set"],a:0}
 ]
+},
 
-};
+/* 2. 输入与输出 */
+{
+title:"输入与输出（20题）",
+type:"single",
+level:"easy",
+tag:"input / print",
+questions:[
+{q:"Python中输出使用的函数是？",options:["input()","print()","scanf()","cout"],a:1},
+{q:"Python中输入使用的函数是？",options:["print()","cin","input()","read()"],a:2},
+{q:"print('hi') 的作用是？",options:["输入hi","输出hi","删除hi","循环hi"],a:1},
+{q:"input() 的返回值类型是？",options:["int","str","float","bool"],a:1},
+{q:"想把输入的数字转为整数应该用？",options:["str()","int()","float()","bool()"],a:1},
+{q:"print默认结尾是什么？",options:["换行","空格","逗号","不输出"],a:0},
+{q:"print(1,2) 默认分隔符是？",options:["逗号","空格","换行","冒号"],a:1},
+{q:"print中 end='' 的作用是？",options:["不换行","换两行","报错","删除输出"],a:0},
+{q:"print中 sep='-' 的作用是？",options:["改变分隔符","改变字体","改变颜色","改变变量"],a:0},
+{q:"input('请输入:') 的作用是？",options:["输出提示并输入","输出提示并退出","报错","循环输入"],a:0},
+{q:"print('a'+'b') 输出？",options:["ab","a+b","报错","a b"],a:0},
+{q:"print('a', 'b') 输出？",options:["ab","a b","a,b","报错"],a:1},
+{q:"int('12') 的结果是？",options:["12","'12'","报错","None"],a:0},
+{q:"str(12) 的结果是？",options:["'12'","12","报错","None"],a:0},
+{q:"float('3.5') 的结果是？",options:["3","3.5","'3.5'","报错"],a:1},
+{q:"input() 能输入多个值吗？",options:["可以，用split","不可以"],a:0},
+{q:"a=input(); print(a) 输出？",options:["输入内容","变量名a","报错","None"],a:0},
+{q:"print(type(input())) 输出？",options:["str","int","float","bool"],a:0},
+{q:"print('Hello\\nWorld') 输出？",options:["两行","一行","报错","空"],a:0},
+{q:"\\t 表示？",options:["制表符","换行","空格","逗号"],a:0}
+]
+},
+
+/* 3. 运算符与表达式 */
+{
+title:"运算符与表达式（20题）",
+type:"single",
+level:"base",
+tag:"+ - * / % **",
+questions:[
+{q:"5//2 的结果是？",options:["2.5","2","3","报错"],a:1},
+{q:"5%2 的结果是？",options:["0","1","2","2.5"],a:1},
+{q:"2**3 的结果是？",options:["6","8","9","5"],a:1},
+{q:"10/4 的结果是？",options:["2","2.5","3","报错"],a:1},
+{q:"10//4 的结果是？",options:["2","2.5","3","报错"],a:0},
+{q:"表达式 3+4*2 结果？",options:["14","11","10","7"],a:1},
+{q:"(3+4)*2 结果？",options:["11","14","7","8"],a:1},
+{q:"比较运算符是？",options:["==","+=","//","**"],a:0},
+{q:"逻辑与是？",options:["&&","and","&","AND"],a:1},
+{q:"逻辑或是？",options:["||","or","|","OR"],a:1},
+{q:"not True 的结果？",options:["True","False"],a:1},
+{q:"True and False 结果？",options:["True","False"],a:1},
+{q:"True or False 结果？",options:["True","False"],a:0},
+{q:"3>2 的结果？",options:["True","False"],a:0},
+{q:"3!=3 的结果？",options:["True","False"],a:1},
+{q:"3==3 的结果？",options:["True","False"],a:0},
+{q:"a=5; a+=2 后a是？",options:["5","7","2","10"],a:1},
+{q:"a=5; a*=2 后a是？",options:["10","7","25","2"],a:0},
+{q:"a=5; a-=3 后a是？",options:["2","8","3","15"],a:0},
+{q:"1<2<3 结果？",options:["True","False"],a:0}
+]
+},
+
+/* 4. 条件判断 */
+{
+title:"条件判断 if-else（20题）",
+type:"single",
+level:"base",
+tag:"if / else / elif",
+questions:[
+{q:"if语句的作用是？",options:["循环","判断","输出","输入"],a:1},
+{q:"else表示？",options:["否则","结束","开始","跳过"],a:0},
+{q:"elif表示？",options:["否则如果","循环","输入","输出"],a:0},
+{q:"if后面必须跟？",options:["条件","数字","变量名","字符串"],a:0},
+{q:"条件成立执行？",options:["if块","else块"],a:0},
+{q:"条件不成立执行？",options:["if块","else块"],a:1},
+{q:"以下哪个是正确写法？",options:["if x=3:","if x==3:","if x===3:","if x!=:"],a:1},
+{q:"if语句块必须缩进吗？",options:["必须","不需要"],a:0},
+{q:"比较运算符 >= 表示？",options:["大于等于","小于等于"],a:0},
+{q:"比较运算符 != 表示？",options:["不等于","等于"],a:0},
+{q:"if True: print(1) 输出？",options:["1","无输出"],a:0},
+{q:"if False: print(1) 输出？",options:["1","无输出"],a:1},
+{q:"判断偶数用？",options:["num/2==0","num%2==0"],a:1},
+{q:"if语句可以嵌套吗？",options:["可以","不可以"],a:0},
+{q:"if后面必须加？",options:["冒号","分号"],a:0},
+{q:"Python中else后面要写条件吗？",options:["要","不要"],a:1},
+{q:"x=5 if x>3 输出？",options:["True","False"],a:0},
+{q:"if语句中可以用and吗？",options:["可以","不可以"],a:0},
+{q:"if语句中可以用or吗？",options:["可以","不可以"],a:0},
+{q:"if语句中可以用not吗？",options:["可以","不可以"],a:0}
+]
+},
+
+/* 5. 循环结构 */
+{
+title:"循环结构 for/while（20题）",
+type:"single",
+level:"base",
+tag:"for / while / break / continue",
+questions:[
+{q:"for循环用于？",options:["遍历序列","判断","输出","输入"],a:0},
+{q:"while循环用于？",options:["重复执行","输出","输入","比较"],a:0},
+{q:"range(5) 生成？",options:["0-4","1-5","0-5","1-4"],a:0},
+{q:"break作用？",options:["结束循环","跳过本次","继续循环","退出程序"],a:0},
+{q:"continue作用？",options:["结束循环","跳过本次循环","停止程序","报错"],a:1},
+{q:"while True 表示？",options:["无限循环","循环一次"],a:0},
+{q:"for i in range(3) 循环次数？",options:["2次","3次","4次","1次"],a:1},
+{q:"range(1,5) 包含5吗？",options:["包含","不包含"],a:1},
+{q:"range(1,6) 包含5吗？",options:["包含","不包含"],a:0},
+{q:"for循环可以遍历字符串吗？",options:["可以","不可以"],a:0},
+{q:"while循环必须有break结束吗？",options:["必须","不一定"],a:1},
+{q:"for循环遍历字典默认遍历？",options:["键","值"],a:0},
+{q:"循环可以嵌套吗？",options:["可以","不可以"],a:0},
+{q:"range(0,10,2) 表示？",options:["0到9步长2","0到10步长2","报错","1到10"],a:0},
+{q:"for循环中i会自动变化吗？",options:["会","不会"],a:0},
+{q:"while循环条件为False会？",options:["结束","报错"],a:0},
+{q:"break会跳出几层循环？",options:["当前一层","所有层"],a:0},
+{q:"continue会跳到？",options:["下一次循环","循环外"],a:0},
+{q:"while循环常见死循环原因？",options:["条件不变","变量太多"],a:0},
+{q:"循环结构作用？",options:["重复执行","判断","输出","输入"],a:0}
+]
+},
+
+/* 6. 列表与元组 */
+{
+title:"列表与元组（20题）",
+type:"single",
+level:"base",
+tag:"list / tuple",
+questions:[
+{q:"列表用什么符号？",options:["()","[]","{}","<>"],a:1},
+{q:"元组用什么符号？",options:["()","[]","{}","<>"],a:0},
+{q:"列表索引从几开始？",options:["0","1"],a:0},
+{q:"a=[1,2,3] a[0]是？",options:["1","2","3"],a:0},
+{q:"append作用？",options:["添加元素","删除元素"],a:0},
+{q:"len作用？",options:["长度","加法"],a:0},
+{q:"remove作用？",options:["删除指定值","删除索引"],a:0},
+{q:"pop默认删除？",options:["最后一个","第一个"],a:0},
+{q:"列表可以修改吗？",options:["可以","不可以"],a:0},
+{q:"元组可以修改吗？",options:["可以","不可以"],a:1},
+{q:"a=[1,2]; a.extend([3,4])结果？",options:["[1,2,3,4]","[1,2,[3,4]]"],a:0},
+{q:"a=[1,2]; a.append([3,4])结果？",options:["[1,2,3,4]","[1,2,[3,4]]"],a:1},
+{q:"切片a[1:3] 包含索引3吗？",options:["包含","不包含"],a:1},
+{q:"a=[1,2,3,4] a[1:3]是？",options:["[2,3]","[2,3,4]"],a:0},
+{q:"list复制正确方式？",options:["b=a","b=a.copy()"],a:1},
+{q:"b=a 会导致？",options:["共享同一列表","复制新列表"],a:0},
+{q:"a=[1,2,3] a.insert(1,9)结果？",options:["[1,9,2,3]","[9,1,2,3]"],a:0},
+{q:"tuple可以用于？",options:["不可变数据","随便修改"],a:0},
+{q:"列表可以嵌套吗？",options:["可以","不可以"],a:0},
+{q:"a=[1,2,3]; a.reverse()作用？",options:["倒序","排序"],a:0}
+]
+},
+
+/* 7. 字符串处理 */
+{
+title:"字符串处理（20题）",
+type:"single",
+level:"base",
+tag:"str / slice / replace",
+questions:[
+{q:"字符串用什么表示？",options:["单引号或双引号","中括号","大括号","圆括号"],a:0},
+{q:"字符串可变吗？",options:["可变","不可变"],a:1},
+{q:"'abc'[0] 是？",options:["a","b","c"],a:0},
+{q:"len('abc')结果？",options:["2","3","4"],a:1},
+{q:"'a'+'b'结果？",options:["ab","a b","报错"],a:0},
+{q:"'abc'.upper()结果？",options:["ABC","abc","Abc"],a:0},
+{q:"'ABC'.lower()结果？",options:["abc","ABC","Abc"],a:0},
+{q:"'hello'.replace('h','H')结果？",options:["Hello","hello","Hhello"],a:0},
+{q:"'a,b,c'.split(',')结果？",options:["['a','b','c']","['a,b,c']"],a:0},
+{q:"' '.join(['a','b'])结果？",options:["a b","ab","a,b"],a:0},
+{q:"字符串切片左闭右开吗？",options:["是","不是"],a:0},
+{q:"'abcdef'[1:4]结果？",options:["bcd","bcde","cde"],a:0},
+{q:"'abc' * 3结果？",options:["abcabcabc","abc3","报错"],a:0},
+{q:"'abc'.find('b')结果？",options:["1","2","0"],a:0},
+{q:"'abc'.startswith('a')结果？",options:["True","False"],a:0},
+{q:"'abc'.endswith('c')结果？",options:["True","False"],a:0},
+{q:"strip()作用？",options:["去掉空格","变大写","替换"],a:0},
+{q:"'  hi  '.strip()结果？",options:["hi","  hi  ","hi  "],a:0},
+{q:"in可以判断子串吗？",options:["可以","不可以"],a:0},
+{q:"'a' in 'cat'结果？",options:["True","False"],a:0},
+{q:"字符串索引支持负数吗？",options:["支持","不支持"],a:0}
+]
+},
+
+/* 8. 字典与集合 */
+{
+title:"字典与集合（20题）",
+type:"single",
+level:"hard",
+tag:"dict / set",
+questions:[
+{q:"字典用什么符号？",options:["[]","{}","()","<>"],a:1},
+{q:"集合用什么符号？",options:["{}","[]","()","<>"],a:0},
+{q:"字典存储方式是？",options:["键值对","顺序列表","元组","字符串"],a:0},
+{q:"d={'a':1} 访问值用？",options:["d['a']","d(a)"],a:0},
+{q:"字典中key必须唯一吗？",options:["必须","不需要"],a:0},
+{q:"字典遍历默认遍历？",options:["键","值"],a:0},
+{q:"获取字典所有值用？",options:["values()","keys()","items()","get()"],a:0},
+{q:"获取字典所有键用？",options:["keys()","values()","items()","find()"],a:0},
+{q:"items()返回？",options:["键值对","只有键","只有值"],a:0},
+{q:"d.get('x')如果不存在返回？",options:["None","报错","0"],a:0},
+{q:"集合特点？",options:["无重复","可重复","有序"],a:0},
+{q:"set([1,1,2])结果？",options:["{1,2}","{1,1,2}","[1,2]"],a:0},
+{q:"集合可以用索引访问吗？",options:["可以","不可以"],a:1},
+{q:"删除字典键用？",options:["del d['a']","remove()","pop(0)"],a:0},
+{q:"d.pop('a')作用？",options:["删除并返回值","删除所有","报错"],a:0},
+{q:"字典可以嵌套吗？",options:["可以","不可以"],a:0},
+{q:"集合支持交集吗？",options:["支持","不支持"],a:0},
+{q:"集合交集符号是？",options:["&","|","-","+"],a:0},
+{q:"集合并集符号是？",options:["|","&","-","+"],a:0},
+{q:"集合差集符号是？",options:["-","+","&","|"],a:0},
+{q:"字典更新用？",options:["update()","append()","extend()"],a:0}
+]
+},
+
+/* 9. 函数基础 */
+{
+title:"函数基础（20题）",
+type:"single",
+level:"hard",
+tag:"def / return / 参数",
+questions:[
+{q:"定义函数用关键字？",options:["func","def","function","lambda"],a:1},
+{q:"函数返回值用？",options:["print","return","break","yield"],a:1},
+{q:"return后代码会执行吗？",options:["不会","会"],a:0},
+{q:"函数参数作用？",options:["传入数据","输出数据"],a:0},
+{q:"函数可以没有参数吗？",options:["可以","不可以"],a:0},
+{q:"函数可以没有返回值吗？",options:["可以","不可以"],a:0},
+{q:"调用函数用？",options:["函数名()","def函数名"],a:0},
+{q:"def add(a,b): return a+b 是？",options:["函数定义","函数调用"],a:0},
+{q:"函数可以重复调用吗？",options:["可以","不可以"],a:0},
+{q:"局部变量作用域？",options:["函数内部","全局"],a:0},
+{q:"global关键字作用？",options:["修改全局变量","删除变量"],a:0},
+{q:"函数名必须合法变量名吗？",options:["是","不是"],a:0},
+{q:"默认参数写法？",options:["def f(a=1)","def f(a==1)"],a:0},
+{q:"可变参数用？",options:["*args","&args","?args"],a:0},
+{q:"关键字参数是？",options:["f(a=1)","f(1=a)"],a:0},
+{q:"函数递归是？",options:["函数调用自身","循环调用"],a:0},
+{q:"return None 表示？",options:["返回空值","报错"],a:0},
+{q:"函数可以返回多个值吗？",options:["可以","不可以"],a:0},
+{q:"多个返回值本质是？",options:["元组","列表"],a:0},
+{q:"lambda是？",options:["匿名函数","循环"],a:0}
+]
+},
+
+/* 10. 综合应用 */
+{
+title:"综合应用（20题）",
+type:"single",
+level:"hard",
+tag:"综合 / 逻辑 / 小项目",
+questions:[
+{q:"判断奇数正确写法？",options:["num%2==1","num/2==1"],a:0},
+{q:"for循环遍历列表写法？",options:["for x in lst","for x=lst"],a:0},
+{q:"列表去重可以用？",options:["set()","dict()","tuple()"],a:0},
+{q:"字典in判断的是？",options:["键","值"],a:0},
+{q:"len([1,2,3])结果？",options:["3","2","1"],a:0},
+{q:"range(1,10,3)生成？",options:["1,4,7","1,3,5,7,9"],a:0},
+{q:"字符串转整数？",options:["int('12')","str(12)"],a:0},
+{q:"if-elif-else作用？",options:["多分支判断","循环"],a:0},
+{q:"while循环退出条件是？",options:["条件变False","必须break"],a:0},
+{q:"列表排序函数？",options:["sort()","append()","reverse()"],a:0},
+{q:"sum([1,2,3])结果？",options:["6","5","3"],a:0},
+{q:"max([1,9,3])结果？",options:["9","3","1"],a:0},
+{q:"min([1,9,3])结果？",options:["1","3","9"],a:0},
+{q:"字典长度len({'a':1,'b':2})结果？",options:["2","1","0"],a:0},
+{q:"列表切片a[:3]表示？",options:["前3个","后3个"],a:0},
+{q:"a[-1]表示？",options:["最后一个","第一个"],a:0},
+{q:"try-except作用？",options:["异常处理","循环"],a:0},
+{q:"文件读取常用open模式？",options:["r","x","t"],a:0},
+{q:"print(type(3.0))结果？",options:["float","int"],a:0},
+{q:"Python常用于？",options:["数据分析/AI","只能做游戏"],a:0}
+]
+}
+
+];
 
 
 /* =========================
-📌 逻辑（修复语言切换）
+📌 运行逻辑
 ========================= */
 
-let current=[];
-let currentChapter=null;
+let current = [];
+let currentChapter = null;
 
 function filter(){
 
-    let lang=document.getElementById("lang").value;
-
-    render(db[lang]);
-}
-
-function render(list){
-
-    let html="";
-
-    list.forEach((c,i)=>{
-
-        html+=`
-        <div class="card">
-            <div><b>${c.title}</b></div>
-            <div class="tag">${c.tag} | 20题</div>
-            <button class="btn" onclick="start(${i})">开始练习</button>
-        </div>`;
-    });
-
-    document.getElementById("list").innerHTML=html;
-}
-
-function start(i){
-
-    let lang=document.getElementById("lang").value;
-
-    currentChapter=db[lang][i];
-
-    current=currentChapter.questions
-        .slice()
-        .sort(()=>Math.random()-0.5);
-
-    show();
-}
-
-function show(){
-
-    let html="";
-
-    current.forEach((q,i)=>{
-
-        html+=`
-        <div class="card">
-            <div>${i+1}. ${q.q}</div>
-        `;
-
-        q.options.forEach((o,j)=>{
-            html+=`
-            <label class="option">
-                <input type="radio" name="q${i}" value="${j}">
-                ${o}
-            </label>`;
-        });
-
-        html+="</div>";
-    });
-
-    html+=`<button class="btn" onclick="submit()">提交</button>`;
-
-    document.getElementById("quiz").innerHTML=html;
-}
-
-function submit(){
-
-    let score=0;
-    let html="";
-
-    current.forEach((q,i)=>{
-
-        let s=document.querySelector(`input[name=q${i}]:checked`);
-        let v=s?parseInt(s.value):-1;
-
-        let ok=v===q.a;
-
-        if(ok)score++;
-
-        html+=`
-        <div class="card">
-            <div>${i+1}. ${q.q}</div>
-            <div class="${ok?'correct':'wrong'}">${ok?'正确':'错误'}</div>
-        </div>`;
-    });
-
-    document.getElementById("result").innerHTML=
-    `<div class="card"><h3>得分：${score}/${current.length}</h3></div>`+html;
-}
-
-render(db.python);
-
-</script>
-</body>
-</html>
-
-/* ========================= */
-let current=[];
-
-/* =========================
-📌 过滤
-========================= */
-function filter(){
-
-    let lang=document.getElementById("lang").value;
     let type=document.getElementById("type").value;
     let level=document.getElementById("level").value;
 
-    let list=db[lang]||[];
-
-    render(list,type,level);
-}
-
-/* =========================
-📌 渲染列表
-========================= */
-function render(list,type,level){
-
     let html="";
 
-    list.forEach((c,i)=>{
+    db.forEach((c,i)=>{
 
         if(type!="all" && c.type!=type) return;
         if(level!="all" && c.level!=level) return;
@@ -697,30 +432,42 @@ function render(list,type,level){
         html+=`
         <div class="card">
             <div><b>${c.title}</b></div>
-            <div class="tag">${c.tag}</div>
+            <div class="tag">标签：${c.tag} | 难度：${levelName(c.level)}</div>
             <button class="btn" onclick="start(${i})">开始练习</button>
         </div>`;
     });
 
     document.getElementById("list").innerHTML=html;
+    document.getElementById("quiz").innerHTML="";
+    document.getElementById("result").innerHTML="";
+    document.getElementById("list").style.display="block";
 }
 
-/* =========================
-📌 开始
-========================= */
+function levelName(lv){
+    if(lv=="easy") return "入门";
+    if(lv=="base") return "基础";
+    if(lv=="hard") return "进阶";
+    return "未知";
+}
+
 function start(i){
 
-    let q=db.python[i].questions;
+    currentChapter = db[i];
 
-    current=q.sort(()=>Math.random()-0.5);
+    // 随机打乱
+    current = currentChapter.questions.slice().sort(()=>Math.random()-0.5);
 
+    document.getElementById("list").style.display="none";
+    document.getElementById("result").innerHTML="";
     show();
 }
 
-/* ========================= */
 function show(){
 
-    let html="";
+    let html=`<div class="card">
+        <b>📘 当前章节：${currentChapter.title}</b>
+        <div class="tag">标签：${currentChapter.tag} | 难度：${levelName(currentChapter.level)}</div>
+    </div>`;
 
     current.forEach((q,i)=>{
 
@@ -740,12 +487,14 @@ function show(){
         html+="</div>";
     });
 
-    html+=`<button class="btn" onclick="submit()">提交</button>`;
+    html+=`
+    <button class="btn" onclick="submit()">提交</button>
+    <button class="btn" onclick="back()" style="background:#2196F3;margin-left:10px;">返回上一页</button>
+    `;
 
     document.getElementById("quiz").innerHTML=html;
 }
 
-/* ========================= */
 function submit(){
 
     let score=0;
@@ -753,7 +502,7 @@ function submit(){
 
     current.forEach((q,i)=>{
 
-        let s=document.querySelector(`input[name=q${i}]:checked`);
+        let s=document.querySelector(\`input[name=q\${i}]:checked\`);
         let v=s?parseInt(s.value):-1;
 
         let ok=v===q.a;
@@ -763,15 +512,27 @@ function submit(){
         html+=`
         <div class="card">
             <div>${i+1}. ${q.q}</div>
-            <div class="${ok?'correct':'wrong'}">${ok?'正确':'错误'}</div>
+            <div class="${ok?'correct':'wrong'}">${ok?'✅ 正确':'❌ 错误'}</div>
+            <div class="tag">正确答案：${q.options[q.a]}</div>
         </div>`;
     });
 
     document.getElementById("result").innerHTML=
-    `<div class="card"><h3>得分：${score}/${current.length}</h3></div>`+html;
+    \`<div class="card"><h3>🎯 得分：${score}/${current.length}</h3></div>\`+html;
+
+    // 禁止修改答案
+    document.querySelectorAll("input[type=radio]").forEach(i=>{
+        i.disabled=true;
+    });
 }
 
-render(db.python);
+function back(){
+    document.getElementById("quiz").innerHTML="";
+    document.getElementById("result").innerHTML="";
+    document.getElementById("list").style.display="block";
+}
+
+filter();
 
 </script>
 
