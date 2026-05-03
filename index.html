@@ -64,44 +64,11 @@
       font-size: 14px;
     }
 
-    /* 新增：题库按钮样式 */
-    .enter-btn {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 12px 26px;
-      background: #2d7a2d;
-      color: white;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .enter-btn:hover {
-      background: #256525;
-      transform: translateY(-1px);
-    }
-
     .welcome {
       margin-top: 15px;
       font-size: 15px;
       color: #2d7a2d;
       font-weight: bold;
-    }
-
-    .stats {
-      margin-top: 15px;
-      padding: 15px;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      background: #fafafa;
-      font-size: 14px;
-      color: #333;
-      width: 100%;
-      max-width: 650px;
-      line-height: 1.8;
     }
 
     .search-box {
@@ -216,7 +183,7 @@
 
     <div class="menu">
       <a href="index.html">首页</a>
-      <a href="tiku.html">题库</a>
+      <a href="papers.html">在线试卷题库</a>
       <a href="ziliao.html">资料库</a>
       <a onclick="logout()">退出登录</a>
     </div>
@@ -226,28 +193,19 @@
     <h1>代码种子</h1>
     <p>每天 10 题，编程进步看得见</p>
 
-    <!-- 主页中间入口按钮 -->
-    <a class="enter-btn" href="papers.html">📚 进入在线试卷题库</a>
-
     <div class="welcome" id="welcomeText"></div>
-
-    <div class="stats" id="statsBox">
-      正在加载练习记录...
-    </div>
 
     <div class="search-box">
       <input id="searchInput" type="text" placeholder="搜索：Python循环 / Scratch闯关 / 信息素养模拟题..." />
       <button onclick="doSearch()">搜索</button>
     </div>
 
-    <!-- 快捷入口：已删除今日练习，替换为在线试卷题库 -->
     <div class="quick-links">
       <a href="papers.html">📚 在线试卷题库</a>
       <a href="tiku.html">🐍 Python基础</a>
       <a href="tiku.html">🎮 Scratch闯关</a>
       <a href="tiku.html">🏆 竞赛真题</a>
       <a href="ziliao.html">📂 资料库</a>
-      <a href="tiku.html">❌ 错题本</a>
     </div>
 
     <div class="hot">
@@ -273,21 +231,6 @@
       window.location.href = "login.html";
     } else {
       document.getElementById("welcomeText").innerText = "欢迎你：" + studentName + " 😊";
-
-      let totalDone = parseInt(localStorage.getItem(studentName + "_totalDone")) || 0;
-      let totalCorrect = parseInt(localStorage.getItem(studentName + "_totalCorrect")) || 0;
-      let lastTime = localStorage.getItem(studentName + "_lastTime") || "暂无记录";
-
-      let rate = 0;
-      if (totalDone > 0) {
-        rate = Math.round((totalCorrect / totalDone) * 100);
-      }
-
-      document.getElementById("statsBox").innerHTML =
-        "📌 历史练习题数：" + totalDone + " 题<br>" +
-        "✅ 历史正确题数：" + totalCorrect + " 题<br>" +
-        "📈 历史正确率：" + rate + "%<br>" +
-        "🕒 最近练习时间：" + lastTime;
     }
 
     function doSearch() {
