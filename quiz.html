@@ -1,198 +1,122 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <title>在线答题</title>
+<meta charset="UTF-8">
+<title>在线考试系统</title>
 
-  <style>
-    body {
-      font-family: "Microsoft YaHei", Arial, sans-serif;
-      background: #fff;
-      color: #333;
-      padding: 20px;
-    }
+<style>
+body {
+  font-family: "Microsoft YaHei", Arial;
+  background: #f5f7fb;
+  margin: 0;
+}
 
-    #paperTitle {
-      color: #2d7a2d;
-    }
+/* 顶部栏 */
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d7a2d;
+  color: white;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+}
 
-    .question-card {
-      border: 1px solid #ddd;
-      padding: 14px;
-      margin: 14px 0;
-      border-radius: 10px;
-      background: #fafafa;
-    }
+.exam-header button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    .correct-card {
-      border: 2px solid #2ecc71;
-      background: #eafff2;
-    }
+/* 标题 */
+.exam-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
 
-    .wrong-card {
-      border: 2px solid #e74c3c;
-      background: #ffecec;
-    }
+/* 题目卡片 */
+.question {
+  background: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 
-    .option-line {
-      display: block;
-      padding: 6px 8px;
-      border-radius: 6px;
-      margin: 4px 0;
-      cursor: pointer;
-    }
+/* 选项 */
+.question label {
+  display: block;
+  margin: 6px 0;
+  cursor: pointer;
+}
 
-    .option-correct {
-      color: #1e8f4d;
-      font-weight: bold;
-      background: rgba(46, 204, 113, 0.15);
-    }
+/* 提交按钮 */
+.submit-btn {
+  background: #ffcc00;
+  font-weight: bold;
+}
+</style>
 
-    .option-wrong {
-      color: #c0392b;
-      font-weight: bold;
-      background: rgba(231, 76, 60, 0.15);
-    }
-
-    .analysis-box {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 8px;
-      background: #fff;
-      border: 1px dashed #aaa;
-      white-space: pre-line;
-      display: none;
-    }
-
-    button {
-      padding: 12px 20px;
-      background: #2d7a2d;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    button:hover {
-      background: #256525;
-    }
-
-    button:disabled {
-      background: #999;
-      cursor: not-allowed;
-    }
-
-    #result {
-      margin-top: 18px;
-      font-size: 18px;
-      color: #333;
-    }
-  </style>
 </head>
 
 <body>
 
-  <h1 id="paperTitle">试卷加载中...</h1>
-  <div id="questionBox"></div>
+<!-- 🟢 顶部考试栏 -->
+<div class="exam-header">
 
-  <button id="submitBtn" onclick="submitPaper()">提交试卷</button>
-  <h2 id="result"></h2>
+  <div>
+    <button onclick="window.location.href='papers.html'">
+      ↩ 返回试卷列表
+    </button>
+  </div>
 
-  <script>
-    const params = new URLSearchParams(location.search);
-    const paperId = params.get("paper");
+  <div>
+    <h2 id="paperTitle">在线考试系统</h2>
+  </div>
 
-    let currentPaper = null;
+  <div>
+    <button onclick="submitQuiz()" class="submit-btn">
+      📤 提交试卷
+    </button>
+  </div>
 
-    fetch("./data/papers.json")
-      .then(res => res.json())
-      .then(papers => {
-        currentPaper = papers.find(p => p.id === paperId);
+</div>
 
-        if (!currentPaper) {
-          document.getElementById("paperTitle").innerText = "找不到试卷！";
-          return;
-        }
+<!-- 🧠 题目区域 -->
+<div id="quiz"></div>
 
-        document.getElementById("paperTitle").innerText = currentPaper.title;
+<h3 id="result" style="text-align:center;"></h3>
 
-        const box = document.getElementById("questionBox");
+<script>
+// ============================
+// 这里保持你原来的逻辑即可
+// ============================
 
-        currentPaper.questions.forEach(q => {
-          const div = document.createElement("div");
-          div.className = "question-card";
-          div.id = "questionCard" + q.id;
+// 示例：你后面接你原来的 paper 加载逻辑
+// paper.questions 渲染到 quiz
 
-          div.innerHTML = `
-            <p><b>${q.id}. ${q.question}</b></p>
+function submitQuiz() {
+  let score = 0;
 
-            <div id="options${q.id}">
-              ${Object.entries(q.options).map(([key, val]) => `
-                <label class="option-line" id="opt_${q.id}_${key}">
-                  <input type="radio" name="q${q.id}" value="${key}">
-                  ${key}. ${val}
-                </label>
-              `).join("")}
-            </div>
+  paper.questions.forEach((q, index) => {
+    let selected = document.querySelector(`input[name="q${index}"]:checked`);
 
-            <div class="analysis-box" id="analysis${q.id}"></div>
-          `;
-
-          box.appendChild(div);
-        });
-      });
-
-    function submitPaper() {
-      if (!currentPaper) return;
-
-      let score = 0;
-
-      currentPaper.questions.forEach(q => {
-        const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
-        const userAnswer = selected ? selected.value : "";
-
-        const card = document.getElementById("questionCard" + q.id);
-
-        // 正确答案选项标绿
-        const correctOpt = document.getElementById(`opt_${q.id}_${q.answer}`);
-        if (correctOpt) {
-          correctOpt.classList.add("option-correct");
-        }
-
-        // 如果选错，把选的标红
-        if (userAnswer && userAnswer !== q.answer) {
-          const wrongOpt = document.getElementById(`opt_${q.id}_${userAnswer}`);
-          if (wrongOpt) {
-            wrongOpt.classList.add("option-wrong");
-          }
-        }
-
-        // 整题标记对错
-        if (userAnswer === q.answer) {
-          score++;
-          card.classList.add("correct-card");
-        } else {
-          card.classList.add("wrong-card");
-        }
-
-        // 显示解析
-        const analysisBox = document.getElementById("analysis" + q.id);
-        analysisBox.style.display = "block";
-
-        analysisBox.innerText =
-          `正确答案：${q.answer}\n你的答案：${userAnswer || "未作答"}\n\n解析：${q.analysis || "暂无解析"}`;
-      });
-
-      document.getElementById("result").innerText =
-        `得分：${score} / ${currentPaper.questions.length}`;
-
-      // 禁用按钮防止重复提交
-      document.getElementById("submitBtn").disabled = true;
-      document.getElementById("submitBtn").innerText = "已提交";
+    if (selected && selected.value === q.answer) {
+      score++;
     }
-  </script>
+  });
+
+  document.getElementById("result").innerText =
+    "得分：" + score + " / " + paper.questions.length;
+}
+
+// 👉 标题（后面接你paper加载后赋值）
+function setTitle(title) {
+  document.getElementById("paperTitle").innerText = title;
+}
+</script>
 
 </body>
 </html>
