@@ -1,159 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <title>题库导入工具</title>
+  <meta charset="UTF-8">
+  <title>教师批量导入系统 V3</title>
+
   <style>
-    body { font-family: Arial; padding: 20px; }
-    textarea { width: 100%; height: 250px; font-size: 14px; }
-    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
-    pre { background: #f5f5f5; padding: 15px; white-space: pre-wrap; word-break: break-all; }
-    input { width: 100%; padding: 8px; margin: 5px 0; font-size: 14px; }
+    body {
+      font-family: "Microsoft YaHei";
+      background: #f5f7fa;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #2d7a2d;
+    }
+
+    textarea {
+      width: 100%;
+      height: 360px;
+      padding: 12px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: #2d7a2d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #256b25;
+    }
+
+    pre {
+      background: #fff;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      overflow-x: auto;
+    }
   </style>
 </head>
+
 <body>
 
-<h1>题库导入工具（Word → JSON）</h1>
+<h2>📦 教师批量导入系统 V3</h2>
 
-<p>卷子ID（英文/数字/下划线，例如 paper_2026_01）：</p>
-<input id="paperId" placeholder="paper_2026_01">
+<p>📌 直接粘贴题目文本（支持你现在比赛格式）</p>
 
-<p>卷子标题（显示给学生看的）：</p>
-<input id="paperTitle" placeholder="2026 信息素养大赛 模拟卷01">
+<input id="title" placeholder="试卷标题，例如：2025 信息素养大赛 初中组">
 
-<p>粘贴 Word 题库原文：</p>
-<textarea id="rawText" placeholder="把题目原文整套粘贴到这里..."></textarea>
+<textarea id="input" placeholder="粘贴题库内容..."></textarea>
 
-<br>
-<button onclick="convert()">转换为 JSON</button>
-<button onclick="copyJSON()">复制 JSON</button>
+<button onclick="parsePaper()">🚀 解析生成 JSON</button>
+<button onclick="downloadJSON()">📥 下载 JSON</button>
 
-<h2>转换结果：</h2>
 <pre id="output"></pre>
 
 <script>
-function cleanLine(line) {
-  return line.replace(/\s+/g, " ").trim();
-}
 
-function convert() {
-  const paperId = document.getElementById("paperId").value.trim();
-  const paperTitle = document.getElementById("paperTitle").value.trim();
-  const raw = document.getElementById("rawText").value;
+let resultPaper = null;
 
-  if (!paperId || !paperTitle) {
-    alert("请填写卷子ID和卷子标题！");
-    return;
-  }
+function parsePaper() {
+  const text = document.getElementById("input").value;
+  const title = document.getElementById("title").value || "未命名试卷";
 
-  const lines = raw.split("\n").map(l => l.trim()).filter(l => l !== "");
-  let questions = [];
+  const questions = [];
 
-  let i = 0;
-  while (i < lines.length) {
-    // 找题号（如 1. 或 1）
-    if (/^\d+\./.test(lines[i]) || /^\d+$/.test(lines[i])) {
-      let qid = parseInt(lines[i]);
-      if (isNaN(qid)) qid = parseInt(lines[i].replace(".", ""));
+  // 按题号切分（核心）
+  const blocks = text.split(/\n\d+\./).filter(b => b.trim().length > 0);
 
-      i++;
+  let id = 1;
 
-      // 题干（可能多行）
-      let questionText = "";
-      while (i < lines.length && !lines[i].startsWith("(5分)") && !/^[A-D]$/.test(lines[i]) && !/^正确答案/.test(lines[i])) {
-        // 遇到选项内容（没有A/B标记的情况）
-        if (lines[i] === "正确" || lines[i] === "错误") break;
-        if (lines[i] === "显示答案") break;
-        if (lines[i] === "试题解析:") break;
-        questionText += (questionText ? "\n" : "") + lines[i];
-        i++;
-        // 如果题干后出现 (5分)，跳过
-      }
+  blocks.forEach(block => {
 
-      // 跳过 (5分)
-      if (i < lines.length && lines[i].includes("分")) i++;
+    let question = block.match(/^(.*?)(A\.)/s);
+    if (!question) return;
 
-      // 读取4个选项（没有A/B标记，默认按顺序A/B/C/D）
-      let optionsArr = [];
-      while (i < lines.length && optionsArr.length < 4 && !/^正确答案/.test(lines[i])) {
-        if (lines[i] === "显示答案") { i++; continue; }
-        if (lines[i] === "试题解析:") break;
-        optionsArr.push(lines[i]);
-        i++;
-      }
+    let qText = question[1].replace(/\n/g, "").trim();
 
-      // 判断题（只有 正确/错误 两个选项）
-      if (optionsArr.length === 2 && (optionsArr[0] === "正确" || optionsArr[0] === "错误")) {
-        // OK
-      }
+    let options = {};
+    let optionMatches = block.match(/([A-D])\s*([\s\S]*?)(?=\n[A-D]\.|正确答案|$)/g);
 
-      let options = {};
-      if (optionsArr.length === 4) {
-        options = { A: optionsArr[0], B: optionsArr[1], C: optionsArr[2], D: optionsArr[3] };
-      } else if (optionsArr.length === 2) {
-        options = { A: optionsArr[0], B: optionsArr[1] };
-      } else {
-        // 不标准就跳过
-        options = {};
-      }
-
-      // 答案
-      let answer = "";
-      while (i < lines.length && !/^正确答案/.test(lines[i])) i++;
-      if (i < lines.length && /^正确答案/.test(lines[i])) {
-        answer = lines[i].replace("正确答案", "").replace(":", "").replace("：", "").trim();
-        i++;
-      }
-
-      // 跳过 “显示答案”
-      if (i < lines.length && lines[i] === "显示答案") i++;
-
-      // 解析
-      let analysis = "";
-      if (i < lines.length && lines[i].startsWith("试题解析")) {
-        i++;
-        while (i < lines.length && !(/^\d+\./.test(lines[i]) || /^\d+$/.test(lines[i]))) {
-          analysis += (analysis ? "\n" : "") + lines[i];
-          i++;
+    if (optionMatches) {
+      optionMatches.forEach(opt => {
+        let m = opt.match(/([A-D])\s*([\s\S]*)/);
+        if (m) {
+          options[m[1]] = m[2].replace(/\n/g, "").trim();
         }
-      }
-
-      // 判断题识别
-      let qtype = "single";
-      if (Object.keys(options).length === 2) qtype = "judge";
-
-      questions.push({
-        id: qid,
-        type: qtype,
-        question: questionText.trim(),
-        options: options,
-        answer: answer,
-        analysis: analysis.trim()
       });
-
-    } else {
-      i++;
     }
-  }
 
-  const paperObj = {
-    id: paperId,
-    title: paperTitle,
-    questions: questions
+    let answerMatch = block.match(/正确答案\s*[:：]\s*([A-D])/);
+    let answer = answerMatch ? answerMatch[1] : "";
+
+    let analysisMatch = block.match(/试题解析:([\s\S]*)/);
+    let analysis = analysisMatch ? analysisMatch[1].trim() : "";
+
+    questions.push({
+      id: id++,
+      type: "single",
+      question: qText,
+      options,
+      answer,
+      analysis
+    });
+
+  });
+
+  resultPaper = {
+    id: "paper_" + Date.now(),
+    title,
+    questions
   };
 
-  document.getElementById("output").textContent = JSON.stringify(paperObj, null, 2);
+  document.getElementById("output").textContent =
+    JSON.stringify(resultPaper, null, 2);
 }
 
-function copyJSON() {
-  const text = document.getElementById("output").textContent;
-  if (!text) {
-    alert("请先转换生成 JSON！");
+function downloadJSON() {
+  if (!resultPaper) {
+    alert("请先生成数据");
     return;
   }
-  navigator.clipboard.writeText(text);
-  alert("已复制 JSON！");
+
+  const blob = new Blob(
+    [JSON.stringify([resultPaper], null, 2)],
+    { type: "application/json" }
+  );
+
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "papers.json";
+  a.click();
 }
+
 </script>
 
 </body>
