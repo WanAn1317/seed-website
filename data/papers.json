@@ -1,24 +1,5 @@
 [
-  {
-    "id": "paper_test_01",
-    "title": "测试卷01",
-    "questions": [
-      {
-        "id": 1,
-        "type": "single",
-        "question": "Python 列表索引从几开始？",
-        "options": {
-          "A": "1",
-          "B": "2",
-          "C": "0",
-          "D": "-1"
-        },
-        "answer": "C",
-        "analysis": "Python 列表索引从 0 开始。"
-      }
-    ]
-  },
-
+ 
   {
   "id": "paper_2025_junior_01",
   "title": "2025 信息素养大赛 初赛 初中组",
