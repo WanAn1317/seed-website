@@ -201,12 +201,11 @@ select{
 
 <script>
 
-/* =========================
-📌 Python 10章（每章20题）
-========================= */
-
 const db = {
 
+/* =========================
+🐍 Python（10章）
+========================= */
 python:[
 
 {
@@ -215,7 +214,7 @@ type:"single",
 level:"easy",
 tag:"变量",
 questions:Array.from({length:20},(_,i)=>({
-q:`变量与数据类型第${i+1}题：下列哪个是合法变量名？`,
+q:`Python-变量${i+1}：合法变量名是？`,
 options:["1a","a1","for","@x"],
 a:1
 }))
@@ -227,7 +226,7 @@ type:"single",
 level:"easy",
 tag:"IO",
 questions:Array.from({length:20},(_,i)=>({
-q:`输入输出第${i+1}题：print()作用是？`,
+q:`Python-输入输出${i+1}：print作用是？`,
 options:["输入","输出","计算","判断"],
 a:1
 }))
@@ -239,19 +238,19 @@ type:"single",
 level:"base",
 tag:"运算",
 questions:Array.from({length:20},(_,i)=>({
-q:`运算符第${i+1}题：5%2结果是？`,
+q:`Python-运算符${i+1}：5%2结果是？`,
 options:["2","1","0","5"],
 a:1
 }))
 },
 
 {
-title:"条件判断 if-else",
+title:"条件判断",
 type:"single",
 level:"base",
 tag:"条件",
 questions:Array.from({length:20},(_,i)=>({
-q:`条件判断第${i+1}题：if作用是？`,
+q:`Python-if${i+1}：if作用是？`,
 options:["循环","判断","输入","输出"],
 a:1
 }))
@@ -263,7 +262,7 @@ type:"single",
 level:"base",
 tag:"循环",
 questions:Array.from({length:20},(_,i)=>({
-q:`循环结构第${i+1}题：for作用是？`,
+q:`Python-循环${i+1}：for作用是？`,
 options:["判断","循环","输入","输出"],
 a:1
 }))
@@ -275,7 +274,7 @@ type:"single",
 level:"base",
 tag:"列表",
 questions:Array.from({length:20},(_,i)=>({
-q:`列表第${i+1}题：list特点是？`,
+q:`Python-列表${i+1}：list特点？`,
 options:["可变","不可变","字符串","数字"],
 a:0
 }))
@@ -287,7 +286,7 @@ type:"single",
 level:"base",
 tag:"字符串",
 questions:Array.from({length:20},(_,i)=>({
-q:`字符串第${i+1}题：len作用是？`,
+q:`Python-字符串${i+1}：len作用？`,
 options:["长度","删除","判断","循环"],
 a:0
 }))
@@ -299,7 +298,7 @@ type:"single",
 level:"base",
 tag:"字典",
 questions:Array.from({length:20},(_,i)=>({
-q:`字典第${i+1}题：字典是？`,
+q:`Python-字典${i+1}：字典是？`,
 options:["键值对","列表","数组","字符串"],
 a:0
 }))
@@ -311,7 +310,7 @@ type:"single",
 level:"hard",
 tag:"函数",
 questions:Array.from({length:20},(_,i)=>({
-q:`函数第${i+1}题：def作用是？`,
+q:`Python-函数${i+1}：def作用？`,
 options:["定义函数","循环","判断","输出"],
 a:0
 }))
@@ -323,9 +322,239 @@ type:"single",
 level:"hard",
 tag:"综合",
 questions:Array.from({length:20},(_,i)=>({
-q:`综合第${i+1}题：Python属于？`,
+q:`Python-综合${i+1}：Python属于？`,
 options:["编译","解释","机器","汇编"],
 a:1
+}))
+}
+
+/* =========================
+🎮 Scratch（9章）
+========================= */
+],
+
+scratch:[
+
+{
+title:"角色与舞台",
+type:"single",
+level:"easy",
+tag:"角色",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-角色${i+1}：舞台是？`,
+options:["背景","代码","变量","循环"],
+a:0
+}))
+},
+
+{
+title:"事件系统",
+type:"single",
+level:"easy",
+tag:"事件",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-事件${i+1}：绿旗是？`,
+options:["开始","停止","循环","判断"],
+a:0
+}))
+},
+
+{
+title:"运动与坐标",
+type:"single",
+level:"base",
+tag:"运动",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-运动${i+1}：x轴是？`,
+options:["水平","垂直","颜色","声音"],
+a:0
+}))
+},
+
+{
+title:"外观与动画",
+type:"single",
+level:"base",
+tag:"外观",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-外观${i+1}：造型用于？`,
+options:["动画","循环","变量","输入"],
+a:0
+}))
+},
+
+{
+title:"声音与特效",
+type:"single",
+level:"base",
+tag:"声音",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-声音${i+1}：声音积木是？`,
+options:["播放","循环","判断","变量"],
+a:0
+}))
+},
+
+{
+title:"控制结构",
+type:"single",
+level:"base",
+tag:"控制",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-控制${i+1}：重复执行是？`,
+options:["循环","判断","事件","变量"],
+a:0
+}))
+},
+
+{
+title:"变量与数据",
+type:"single",
+level:"base",
+tag:"变量",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-变量${i+1}：变量作用？`,
+options:["存数据","动画","声音","背景"],
+a:0
+}))
+},
+
+{
+title:"侦测与交互",
+type:"single",
+level:"base",
+tag:"交互",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-侦测${i+1}：碰到颜色？`,
+options:["检测","循环","变量","输出"],
+a:0
+}))
+},
+
+{
+title:"项目综合",
+type:"single",
+level:"hard",
+tag:"项目",
+questions:Array.from({length:20},(_,i)=>({
+q:`Scratch-项目${i+1}：作品是？`,
+options:["程序","图片","视频","文本"],
+a:0
+}))
+}
+
+/* =========================
+💻 C++（9章）
+========================= */
+],
+
+cpp:[
+
+{
+title:"程序结构",
+type:"single",
+level:"easy",
+tag:"基础",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-结构${i+1}：main作用？`,
+options:["入口","循环","变量","输出"],
+a:0
+}))
+},
+
+{
+title:"输入输出",
+type:"single",
+level:"easy",
+tag:"IO",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-IO${i+1}：输出是？`,
+options:["cin","cout","if","for"],
+a:1
+}))
+},
+
+{
+title:"变量类型",
+type:"single",
+level:"base",
+tag:"变量",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-变量${i+1}：int是？`,
+options:["整数","小数","字符串","布尔"],
+a:0
+}))
+},
+
+{
+title:"运算符",
+type:"single",
+level:"base",
+tag:"运算",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-运算${i+1}：%是？`,
+options:["加","减","取余","乘"],
+a:2
+}))
+},
+
+{
+title:"条件语句",
+type:"single",
+level:"base",
+tag:"条件",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-条件${i+1}：if作用？`,
+options:["判断","循环","输出","输入"],
+a:0
+}))
+},
+
+{
+title:"循环结构",
+type:"single",
+level:"base",
+tag:"循环",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-循环${i+1}：for作用？`,
+options:["循环","判断","变量","函数"],
+a:0
+}))
+},
+
+{
+title:"数组",
+type:"single",
+level:"base",
+tag:"数组",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-数组${i+1}：数组特点？`,
+options:["同类型","不同类型","函数","变量"],
+a:0
+}))
+},
+
+{
+title:"函数",
+type:"single",
+level:"hard",
+tag:"函数",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-函数${i+1}：函数作用？`,
+options:["模块","循环","变量","判断"],
+a:0
+}))
+},
+
+{
+title:"综合应用",
+type:"single",
+level:"hard",
+tag:"综合",
+questions:Array.from({length:20},(_,i)=>({
+q:`C++-综合${i+1}：C++属于？`,
+options:["编译","解释","脚本","网页"],
+a:0
 }))
 }
 
@@ -334,18 +563,20 @@ a:1
 };
 
 
-/* ========================= */
+/* =========================
+📌 逻辑（修复语言切换）
+========================= */
+
 let current=[];
 let currentChapter=null;
 
-/* ========================= */
 function filter(){
 
-    let list=db.python;
-    render(list);
+    let lang=document.getElementById("lang").value;
+
+    render(db[lang]);
 }
 
-/* ========================= */
 function render(list){
 
     let html="";
@@ -363,11 +594,11 @@ function render(list){
     document.getElementById("list").innerHTML=html;
 }
 
-
-/* ========================= */
 function start(i){
 
-    currentChapter=db.python[i];
+    let lang=document.getElementById("lang").value;
+
+    currentChapter=db[lang][i];
 
     current=currentChapter.questions
         .slice()
@@ -376,8 +607,6 @@ function start(i){
     show();
 }
 
-
-/* ========================= */
 function show(){
 
     let html="";
@@ -405,8 +634,6 @@ function show(){
     document.getElementById("quiz").innerHTML=html;
 }
 
-
-/* ========================= */
 function submit(){
 
     let score=0;
@@ -424,9 +651,7 @@ function submit(){
         html+=`
         <div class="card">
             <div>${i+1}. ${q.q}</div>
-            <div class="${ok?'correct':'wrong'}">
-                ${ok?'正确':'错误'}
-            </div>
+            <div class="${ok?'correct':'wrong'}">${ok?'正确':'错误'}</div>
         </div>`;
     });
 
@@ -437,7 +662,6 @@ function submit(){
 render(db.python);
 
 </script>
-
 </body>
 </html>
 
