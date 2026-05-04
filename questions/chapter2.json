@@ -1,0 +1,374 @@
+[
+  {
+    "id": 201,
+    "type": "选择题",
+    "question": "在 Python 中，用来接收用户输入的函数是？",
+    "options": ["A. print()", "B. input()", "C. type()", "D. int()"],
+    "answer": "B",
+    "explain": "input() 用于接收用户从键盘输入的数据。"
+  },
+  {
+    "id": 202,
+    "type": "选择题",
+    "question": "以下哪个是合法的变量名？",
+    "options": ["A. 2name", "B. my-name", "C. my_name", "D. my name"],
+    "answer": "C",
+    "explain": "变量名不能以数字开头，不能包含空格和减号，my_name 是合法的。"
+  },
+  {
+    "id": 203,
+    "type": "选择题",
+    "question": "Python 中用来查看变量类型的函数是？",
+    "options": ["A. check()", "B. typeof()", "C. type()", "D. class()"],
+    "answer": "C",
+    "explain": "type() 可以返回变量的数据类型。"
+  },
+  {
+    "id": 204,
+    "type": "选择题",
+    "question": "下列哪个属于整数类型？",
+    "options": ["A. 3.14", "B. \"100\"", "C. 100", "D. True"],
+    "answer": "C",
+    "explain": "100 没有小数点且没有引号，属于 int 整数类型。"
+  },
+  {
+    "id": 205,
+    "type": "选择题",
+    "question": "下列哪个属于字符串类型？",
+    "options": ["A. 12", "B. 3.5", "C. \"abc\"", "D. False"],
+    "answer": "C",
+    "explain": "带引号的内容属于字符串类型 str。"
+  },
+  {
+    "id": 206,
+    "type": "选择题",
+    "question": "下列哪个属于浮点数类型？",
+    "options": ["A. 10", "B. \"10.5\"", "C. 10.5", "D. True"],
+    "answer": "C",
+    "explain": "10.5 含小数点，属于 float 类型。"
+  },
+  {
+    "id": 207,
+    "type": "选择题",
+    "question": "Python 中 True 的数据类型是？",
+    "options": ["A. int", "B. float", "C. bool", "D. str"],
+    "answer": "C",
+    "explain": "True 和 False 属于布尔类型 bool。"
+  },
+  {
+    "id": 208,
+    "type": "选择题",
+    "question": "执行 a = \"5\" 后，a 的数据类型是？",
+    "options": ["A. int", "B. float", "C. str", "D. bool"],
+    "answer": "C",
+    "explain": "\"5\" 带引号，所以是字符串类型 str。"
+  },
+  {
+    "id": 209,
+    "type": "选择题",
+    "question": "执行 a = int(\"8\") 后，a 的值是？",
+    "options": ["A. \"8\"", "B. 8", "C. 8.0", "D. 报错"],
+    "answer": "B",
+    "explain": "int(\"8\") 会把字符串 \"8\" 转换成整数 8。"
+  },
+  {
+    "id": 210,
+    "type": "选择题",
+    "question": "执行 float(3) 的结果是？",
+    "options": ["A. 3", "B. 3.0", "C. \"3\"", "D. 报错"],
+    "answer": "B",
+    "explain": "float(3) 会把整数转换为浮点数 3.0。"
+  },
+  {
+    "id": 211,
+    "type": "选择题",
+    "question": "input() 函数输入的数据默认是什么类型？",
+    "options": ["A. int", "B. float", "C. bool", "D. str"],
+    "answer": "D",
+    "explain": "input() 接收的内容默认都是字符串类型。"
+  },
+  {
+    "id": 212,
+    "type": "选择题",
+    "question": "执行 a = 10; b = 3; print(a/b) 输出结果类型一般是？",
+    "options": ["A. int", "B. float", "C. str", "D. bool"],
+    "answer": "B",
+    "explain": "Python 中 / 运算结果是浮点数 float。"
+  },
+  {
+    "id": 213,
+    "type": "选择题",
+    "question": "下列哪个不是 Python 的基本数据类型？",
+    "options": ["A. int", "B. float", "C. str", "D. char"],
+    "answer": "D",
+    "explain": "Python 没有 char 类型，单个字符也属于 str。"
+  },
+  {
+    "id": 214,
+    "type": "选择题",
+    "question": "如果想把数字 12 转换为字符串，应该使用？",
+    "options": ["A. str(12)", "B. int(12)", "C. float(12)", "D. bool(12)"],
+    "answer": "A",
+    "explain": "str() 可以把其他类型转换为字符串类型。"
+  },
+  {
+    "id": 215,
+    "type": "选择题",
+    "question": "变量的作用是？",
+    "options": ["A. 用来存储数据", "B. 用来画画", "C. 用来删除程序", "D. 用来关机"],
+    "answer": "A",
+    "explain": "变量可以保存数据，方便程序后续使用。"
+  },
+  {
+    "id": 216,
+    "type": "选择题",
+    "question": "执行 a = 5; a = a + 2 后，a 的值是？",
+    "options": ["A. 2", "B. 5", "C. 7", "D. 10"],
+    "answer": "C",
+    "explain": "a 原来是 5，a+2=7，再赋值给 a。"
+  },
+  {
+    "id": 217,
+    "type": "选择题",
+    "question": "执行 print(\"3\" + \"4\") 输出结果是？",
+    "options": ["A. 7", "B. 34", "C. 报错", "D. 12"],
+    "answer": "B",
+    "explain": "字符串相加表示拼接，\"3\"+\"4\" 结果是 \"34\"。"
+  },
+  {
+    "id": 218,
+    "type": "选择题",
+    "question": "执行 print(3 + 4) 输出结果是？",
+    "options": ["A. 34", "B. \"34\"", "C. 7", "D. 报错"],
+    "answer": "C",
+    "explain": "数字相加是数学加法，3+4=7。"
+  },
+  {
+    "id": 219,
+    "type": "选择题",
+    "question": "下列哪个变量名更符合规范？",
+    "options": ["A. a", "B. x1", "C. student_score", "D. 变量"],
+    "answer": "C",
+    "explain": "student_score 有意义且使用下划线分隔，符合良好命名习惯。"
+  },
+  {
+    "id": 220,
+    "type": "选择题",
+    "question": "如果想交换两个变量 a 和 b 的值，Python 中最方便的写法是？",
+    "options": ["A. a=b; b=a", "B. a,b=b,a", "C. swap(a,b)", "D. a=b+a"],
+    "answer": "B",
+    "explain": "Python 支持多变量赋值：a,b=b,a 可以直接交换。"
+  },
+
+  {
+    "id": 221,
+    "type": "判断题",
+    "question": "变量名可以以数字开头。",
+    "answer": "错误",
+    "explain": "变量名不能以数字开头，否则会语法错误。"
+  },
+  {
+    "id": 222,
+    "type": "判断题",
+    "question": "input() 输入的内容默认是字符串类型。",
+    "answer": "正确",
+    "explain": "input() 接收到的数据默认是 str 类型。"
+  },
+  {
+    "id": 223,
+    "type": "判断题",
+    "question": "Python 中 int(\"10\") 的结果是整数 10。",
+    "answer": "正确",
+    "explain": "int() 可以把字符串数字转换为整数。"
+  },
+  {
+    "id": 224,
+    "type": "判断题",
+    "question": "float(\"3.14\") 的结果是 3.14。",
+    "answer": "正确",
+    "explain": "float() 可以把字符串小数转换为浮点数。"
+  },
+  {
+    "id": 225,
+    "type": "判断题",
+    "question": "字符串 \"100\" 和整数 100 是相同的。",
+    "answer": "错误",
+    "explain": "\"100\" 是字符串，100 是整数，它们类型不同。"
+  },
+  {
+    "id": 226,
+    "type": "判断题",
+    "question": "Python 中 True 的类型是 bool。",
+    "answer": "正确",
+    "explain": "True/False 属于布尔类型 bool。"
+  },
+  {
+    "id": 227,
+    "type": "判断题",
+    "question": "Python 中变量必须先声明类型才能使用。",
+    "answer": "错误",
+    "explain": "Python 是动态类型语言，变量无需提前声明类型。"
+  },
+  {
+    "id": 228,
+    "type": "判断题",
+    "question": "变量可以重复赋值，后面的值会覆盖前面的值。",
+    "answer": "正确",
+    "explain": "变量再次赋值会更新存储的数据。"
+  },
+  {
+    "id": 229,
+    "type": "判断题",
+    "question": "type(10) 会返回 int。",
+    "answer": "正确",
+    "explain": "10 是整数类型，所以 type(10) 返回 int。"
+  },
+  {
+    "id": 230,
+    "type": "判断题",
+    "question": "type(\"abc\") 会返回 str。",
+    "answer": "正确",
+    "explain": "\"abc\" 是字符串类型。"
+  },
+  {
+    "id": 231,
+    "type": "判断题",
+    "question": "print(\"3\"+\"4\") 会输出 7。",
+    "answer": "错误",
+    "explain": "字符串相加是拼接，输出结果是 34。"
+  },
+  {
+    "id": 232,
+    "type": "判断题",
+    "question": "print(3+4) 会输出 7。",
+    "answer": "正确",
+    "explain": "数字相加是算术运算，3+4=7。"
+  },
+  {
+    "id": 233,
+    "type": "判断题",
+    "question": "Python 中可以使用下划线 _ 作为变量名的一部分。",
+    "answer": "正确",
+    "explain": "例如 student_score 是合法变量名。"
+  },
+  {
+    "id": 234,
+    "type": "判断题",
+    "question": "变量名中可以包含空格。",
+    "answer": "错误",
+    "explain": "变量名不能包含空格，否则语法错误。"
+  },
+  {
+    "id": 235,
+    "type": "判断题",
+    "question": "Python 中 bool(0) 的结果是 False。",
+    "answer": "正确",
+    "explain": "0 会被认为是假，bool(0) 为 False。"
+  },
+  {
+    "id": 236,
+    "type": "判断题",
+    "question": "Python 中 bool(5) 的结果是 True。",
+    "answer": "正确",
+    "explain": "非零数字通常会被认为是真。"
+  },
+  {
+    "id": 237,
+    "type": "判断题",
+    "question": "Python 中 \"5\" + 2 会正常输出 7。",
+    "answer": "错误",
+    "explain": "字符串和整数不能直接相加，需要先类型转换。"
+  },
+  {
+    "id": 238,
+    "type": "判断题",
+    "question": "str(100) 的结果是 \"100\"。",
+    "answer": "正确",
+    "explain": "str() 可以把整数转换为字符串。"
+  },
+  {
+    "id": 239,
+    "type": "判断题",
+    "question": "Python 中 a,b=b,a 可以实现交换变量。",
+    "answer": "正确",
+    "explain": "Python 支持多变量赋值交换。"
+  },
+  {
+    "id": 240,
+    "type": "判断题",
+    "question": "变量名可以使用中文。",
+    "answer": "正确",
+    "explain": "Python 支持中文变量名，但不推荐用于正式开发。"
+  },
+
+  {
+    "id": 241,
+    "type": "编程题",
+    "question": "创建变量 name 保存字符串 \"Tom\"，并输出它。",
+    "answer": "name=\"Tom\"\nprint(name)",
+    "explain": "变量 name 保存字符串，再用 print() 输出变量内容。"
+  },
+  {
+    "id": 242,
+    "type": "编程题",
+    "question": "创建变量 age 保存整数 12，并输出 age。",
+    "answer": "age=12\nprint(age)",
+    "explain": "整数可以直接赋值给变量，再输出。"
+  },
+  {
+    "id": 243,
+    "type": "编程题",
+    "question": "输入一个数字（字符串形式），转换成整数后输出。",
+    "answer": "x=int(input())\nprint(x)",
+    "explain": "input() 得到字符串，需要用 int() 转换后输出。"
+  },
+  {
+    "id": 244,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 的数据类型。",
+    "answer": "n=int(input())\nprint(type(n))",
+    "explain": "使用 int() 转换后，type(n) 输出类型信息。"
+  },
+  {
+    "id": 245,
+    "type": "编程题",
+    "question": "创建变量 a=3.14，输出 a 的类型。",
+    "answer": "a=3.14\nprint(type(a))",
+    "explain": "3.14 是 float 类型，type(a) 会显示 float。"
+  },
+  {
+    "id": 246,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出它们的和。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a+b)",
+    "explain": "分别输入两个整数并转换类型，再相加输出。"
+  },
+  {
+    "id": 247,
+    "type": "编程题",
+    "question": "创建变量 x=10，y=20，交换它们的值并输出交换后的 x 和 y。",
+    "answer": "x=10\ny=20\nx,y=y,x\nprint(x)\nprint(y)",
+    "explain": "使用 x,y=y,x 可以快速交换变量值。"
+  },
+  {
+    "id": 248,
+    "type": "编程题",
+    "question": "输入一个数字（可能有小数），转换成 float 并输出。",
+    "answer": "x=float(input())\nprint(x)",
+    "explain": "float() 可以把输入的字符串转换成浮点数。"
+  },
+  {
+    "id": 249,
+    "type": "编程题",
+    "question": "创建变量 score=100，将它转换成字符串后输出。",
+    "answer": "score=100\nprint(str(score))",
+    "explain": "str() 可以把整数转换成字符串。"
+  },
+  {
+    "id": 250,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 是否大于 0（输出 True 或 False）。",
+    "answer": "n=int(input())\nprint(n>0)",
+    "explain": "比较表达式 n>0 的结果是布尔值 True/False。"
+  }
+]
