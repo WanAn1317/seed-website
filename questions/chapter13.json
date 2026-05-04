@@ -1,0 +1,374 @@
+[
+  {
+    "id": 1301,
+    "type": "选择题",
+    "question": "Python 中用来定义函数的关键字是？",
+    "options": ["A. func", "B. def", "C. function", "D. define"],
+    "answer": "B",
+    "explain": "def 是 Python 中定义函数的关键字。"
+  },
+  {
+    "id": 1302,
+    "type": "选择题",
+    "question": "下面哪个是正确的函数定义格式？",
+    "options": ["A. def fun{}", "B. def fun():", "C. fun def():", "D. def fun;"],
+    "answer": "B",
+    "explain": "Python 函数定义格式：def 函数名():"
+  },
+  {
+    "id": 1303,
+    "type": "选择题",
+    "question": "函数体的代码必须缩进，这是因为？",
+    "options": ["A. Python 不支持空格", "B. Python 用缩进表示代码块", "C. Python 不支持大括号", "D. Python 必须用 Tab"],
+    "answer": "B",
+    "explain": "Python 用缩进来区分代码块，函数体必须缩进。"
+  },
+  {
+    "id": 1304,
+    "type": "选择题",
+    "question": "执行下面代码：\n\ndef f():\n    print(\"Hi\")\n\nf()\n输出结果是？",
+    "options": ["A. f", "B. Hi", "C. 报错", "D. 什么都不输出"],
+    "answer": "B",
+    "explain": "调用函数 f() 会执行 print(\"Hi\")。"
+  },
+  {
+    "id": 1305,
+    "type": "选择题",
+    "question": "函数调用的正确写法是？",
+    "options": ["A. f", "B. call f()", "C. f()", "D. def f()"],
+    "answer": "C",
+    "explain": "调用函数要写函数名加括号 f()。"
+  },
+  {
+    "id": 1306,
+    "type": "选择题",
+    "question": "下面哪个函数有参数？",
+    "options": ["A. def f():", "B. def f(x):", "C. def f x:", "D. f(x)="],
+    "answer": "B",
+    "explain": "def f(x): 表示函数 f 有一个参数 x。"
+  },
+  {
+    "id": 1307,
+    "type": "选择题",
+    "question": "执行代码：\n\ndef add(a,b):\n    return a+b\n\nprint(add(2,3))\n输出结果是？",
+    "options": ["A. 23", "B. 5", "C. add", "D. 报错"],
+    "answer": "B",
+    "explain": "add(2,3) 返回 2+3=5。"
+  },
+  {
+    "id": 1308,
+    "type": "选择题",
+    "question": "函数中 return 的作用是？",
+    "options": ["A. 输出内容", "B. 返回结果并结束函数", "C. 让函数暂停", "D. 定义变量"],
+    "answer": "B",
+    "explain": "return 可以返回函数结果，并结束函数执行。"
+  },
+  {
+    "id": 1309,
+    "type": "选择题",
+    "question": "如果函数没有写 return，默认返回什么？",
+    "options": ["A. 0", "B. False", "C. None", "D. 空字符串"],
+    "answer": "C",
+    "explain": "Python 函数默认返回 None。"
+  },
+  {
+    "id": 1310,
+    "type": "选择题",
+    "question": "下面哪个写法可以让函数返回 10？",
+    "options": ["A. print(10)", "B. return 10", "C. input(10)", "D. break 10"],
+    "answer": "B",
+    "explain": "return 10 表示函数返回 10。"
+  },
+  {
+    "id": 1311,
+    "type": "选择题",
+    "question": "函数的参数作用是？",
+    "options": ["A. 用来存储函数名", "B. 用来让函数接收外部数据", "C. 用来结束程序", "D. 用来输出函数内容"],
+    "answer": "B",
+    "explain": "参数可以让函数接收外部传入的数据。"
+  },
+  {
+    "id": 1312,
+    "type": "选择题",
+    "question": "执行代码：\n\ndef f(x):\n    print(x)\n\nf(5)\n输出结果是？",
+    "options": ["A. x", "B. 5", "C. f", "D. 报错"],
+    "answer": "B",
+    "explain": "调用 f(5)，参数 x=5，所以输出 5。"
+  },
+  {
+    "id": 1313,
+    "type": "选择题",
+    "question": "执行代码：\n\ndef f(x):\n    return x*2\n\nprint(f(4))\n输出结果是？",
+    "options": ["A. 4", "B. 6", "C. 8", "D. 16"],
+    "answer": "C",
+    "explain": "f(4) 返回 4*2=8。"
+  },
+  {
+    "id": 1314,
+    "type": "选择题",
+    "question": "函数名应该符合什么规则？",
+    "options": ["A. 必须以数字开头", "B. 必须包含空格", "C. 和变量命名规则一样", "D. 必须全部大写"],
+    "answer": "C",
+    "explain": "函数名和变量名规则一样：字母、数字、下划线，不能以数字开头。"
+  },
+  {
+    "id": 1315,
+    "type": "选择题",
+    "question": "函数可以重复调用吗？",
+    "options": ["A. 不可以", "B. 可以", "C. 只能调用一次", "D. 只能在循环里调用"],
+    "answer": "B",
+    "explain": "函数定义后可以多次调用。"
+  },
+  {
+    "id": 1316,
+    "type": "选择题",
+    "question": "下面哪个是正确的带两个参数的函数定义？",
+    "options": ["A. def f(a b):", "B. def f(a,b):", "C. def f(a;b):", "D. def f=a,b:"],
+    "answer": "B",
+    "explain": "多个参数之间用逗号分隔。"
+  },
+  {
+    "id": 1317,
+    "type": "选择题",
+    "question": "执行代码：\n\ndef f(a,b):\n    return a-b\n\nprint(f(10,3))\n输出结果是？",
+    "options": ["A. 7", "B. 13", "C. 30", "D. 3"],
+    "answer": "A",
+    "explain": "10-3=7。"
+  },
+  {
+    "id": 1318,
+    "type": "选择题",
+    "question": "下面哪个写法可以定义一个空函数（暂时不写内容）？",
+    "options": ["A. pass", "B. break", "C. continue", "D. return"],
+    "answer": "A",
+    "explain": "pass 表示占位符，可以用来定义空函数。"
+  },
+  {
+    "id": 1319,
+    "type": "选择题",
+    "question": "函数的好处是？",
+    "options": ["A. 让代码重复更多", "B. 让程序更复杂", "C. 提高代码复用性", "D. 只能用来输出"],
+    "answer": "C",
+    "explain": "函数可以让代码重复使用，提高复用性。"
+  },
+  {
+    "id": 1320,
+    "type": "选择题",
+    "question": "下面哪个是正确的 return 写法？",
+    "options": ["A. return()", "B. return x", "C. returns x", "D. return = x"],
+    "answer": "B",
+    "explain": "return 后面可以直接跟返回值。"
+  },
+
+  {
+    "id": 1321,
+    "type": "判断题",
+    "question": "函数必须先定义，再调用。",
+    "answer": "正确",
+    "explain": "Python 执行时必须先有函数定义，才能调用。"
+  },
+  {
+    "id": 1322,
+    "type": "判断题",
+    "question": "函数定义时可以不写参数。",
+    "answer": "正确",
+    "explain": "def f(): 就是无参数函数。"
+  },
+  {
+    "id": 1323,
+    "type": "判断题",
+    "question": "函数的参数可以是多个。",
+    "answer": "正确",
+    "explain": "函数可以有多个参数，用逗号隔开。"
+  },
+  {
+    "id": 1324,
+    "type": "判断题",
+    "question": "return 语句可以让函数结束。",
+    "answer": "正确",
+    "explain": "return 执行后函数立即结束。"
+  },
+  {
+    "id": 1325,
+    "type": "判断题",
+    "question": "函数一定要写 return。",
+    "answer": "错误",
+    "explain": "函数可以不写 return，此时默认返回 None。"
+  },
+  {
+    "id": 1326,
+    "type": "判断题",
+    "question": "print() 和 return 的作用完全一样。",
+    "answer": "错误",
+    "explain": "print 是输出，return 是返回结果。"
+  },
+  {
+    "id": 1327,
+    "type": "判断题",
+    "question": "函数可以在程序中多次调用。",
+    "answer": "正确",
+    "explain": "函数可以重复使用。"
+  },
+  {
+    "id": 1328,
+    "type": "判断题",
+    "question": "函数体必须缩进。",
+    "answer": "正确",
+    "explain": "Python 用缩进区分代码块。"
+  },
+  {
+    "id": 1329,
+    "type": "判断题",
+    "question": "pass 可以用来写空函数。",
+    "answer": "正确",
+    "explain": "pass 是占位语句。"
+  },
+  {
+    "id": 1330,
+    "type": "判断题",
+    "question": "函数参数只能传入整数。",
+    "answer": "错误",
+    "explain": "函数参数可以是任意类型，如字符串、列表等。"
+  },
+  {
+    "id": 1331,
+    "type": "判断题",
+    "question": "函数名可以和变量名规则一样命名。",
+    "answer": "正确",
+    "explain": "函数名遵循变量命名规则。"
+  },
+  {
+    "id": 1332,
+    "type": "判断题",
+    "question": "函数调用时必须加括号。",
+    "answer": "正确",
+    "explain": "调用函数需要写 f()。"
+  },
+  {
+    "id": 1333,
+    "type": "判断题",
+    "question": "return 后面可以不写任何内容。",
+    "answer": "正确",
+    "explain": "return 单独使用会返回 None。"
+  },
+  {
+    "id": 1334,
+    "type": "判断题",
+    "question": "函数可以嵌套调用（一个函数里调用另一个函数）。",
+    "answer": "正确",
+    "explain": "函数内部可以调用其他函数。"
+  },
+  {
+    "id": 1335,
+    "type": "判断题",
+    "question": "函数可以提高代码复用性。",
+    "answer": "正确",
+    "explain": "函数能让相同逻辑复用。"
+  },
+  {
+    "id": 1336,
+    "type": "判断题",
+    "question": "函数必须写在程序最开头。",
+    "answer": "错误",
+    "explain": "函数可以写在任意位置，但调用前必须已经定义。"
+  },
+  {
+    "id": 1337,
+    "type": "判断题",
+    "question": "函数可以有多个 return。",
+    "answer": "正确",
+    "explain": "不同分支中可以写多个 return。"
+  },
+  {
+    "id": 1338,
+    "type": "判断题",
+    "question": "函数中 return 之后的代码不会执行。",
+    "answer": "正确",
+    "explain": "return 会结束函数。"
+  },
+  {
+    "id": 1339,
+    "type": "判断题",
+    "question": "函数参数可以是字符串。",
+    "answer": "正确",
+    "explain": "参数类型不限。"
+  },
+  {
+    "id": 1340,
+    "type": "判断题",
+    "question": "函数可以没有名字。",
+    "answer": "错误",
+    "explain": "普通 def 定义函数必须有函数名。"
+  },
+
+  {
+    "id": 1341,
+    "type": "编程题",
+    "question": "定义一个函数 hello()，输出 \"Hello\"，并调用它。",
+    "answer": "def hello():\n    print(\"Hello\")\n\nhello()",
+    "explain": "定义函数后，通过 hello() 调用即可。"
+  },
+  {
+    "id": 1342,
+    "type": "编程题",
+    "question": "定义函数 add(a,b)，返回 a+b，并输出 add(3,5) 的结果。",
+    "answer": "def add(a,b):\n    return a+b\n\nprint(add(3,5))",
+    "explain": "函数返回值用 return，调用后 print 输出。"
+  },
+  {
+    "id": 1343,
+    "type": "编程题",
+    "question": "定义函数 square(x)，返回 x 的平方，并输出 square(6)。",
+    "answer": "def square(x):\n    return x*x\n\nprint(square(6))",
+    "explain": "平方可以用 x*x。"
+  },
+  {
+    "id": 1344,
+    "type": "编程题",
+    "question": "定义函数 is_even(n)，如果 n 是偶数返回 True，否则返回 False，并测试 n=7。",
+    "answer": "def is_even(n):\n    return n%2==0\n\nprint(is_even(7))",
+    "explain": "偶数满足 n%2==0。"
+  },
+  {
+    "id": 1345,
+    "type": "编程题",
+    "question": "定义函数 max2(a,b)，返回较大的数，并输出 max2(10,20)。",
+    "answer": "def max2(a,b):\n    if a>b:\n        return a\n    else:\n        return b\n\nprint(max2(10,20))",
+    "explain": "使用 if 判断大小并 return。"
+  },
+  {
+    "id": 1346,
+    "type": "编程题",
+    "question": "定义函数 sum_to_n(n)，返回 1 到 n 的和，并输出 sum_to_n(5)。",
+    "answer": "def sum_to_n(n):\n    s=0\n    for i in range(1,n+1):\n        s+=i\n    return s\n\nprint(sum_to_n(5))",
+    "explain": "循环累加即可求 1~n 的和。"
+  },
+  {
+    "id": 1347,
+    "type": "编程题",
+    "question": "定义函数 print_line()，输出一行 \"-----\"，并调用 3 次。",
+    "answer": "def print_line():\n    print(\"-----\")\n\nprint_line()\nprint_line()\nprint_line()",
+    "explain": "函数定义后可以重复调用。"
+  },
+  {
+    "id": 1348,
+    "type": "编程题",
+    "question": "定义函数 greet(name)，输出 \"Hello\" 加上 name，并调用 greet(\"Tom\")。",
+    "answer": "def greet(name):\n    print(\"Hello\",name)\n\ngreet(\"Tom\")",
+    "explain": "参数 name 可以接收传入的名字。"
+  },
+  {
+    "id": 1349,
+    "type": "编程题",
+    "question": "定义函数 area(a,b)，返回长方形面积，并输出 area(3,4)。",
+    "answer": "def area(a,b):\n    return a*b\n\nprint(area(3,4))",
+    "explain": "长方形面积 = 长*宽。"
+  },
+  {
+    "id": 1350,
+    "type": "编程题",
+    "question": "定义函数 print_nums(n)，输出 1 到 n，每个数字一行，并调用 print_nums(3)。",
+    "answer": "def print_nums(n):\n    for i in range(1,n+1):\n        print(i)\n\nprint_nums(3)",
+    "explain": "用 for 循环输出 1~n。"
+  }
+]
