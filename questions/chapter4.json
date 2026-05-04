@@ -2,373 +2,373 @@
   {
     "id": 401,
     "type": "选择题",
-    "question": "下面代码的输出结果是什么？\n\nfor i in range(3):\n    print(i)",
-    "options": ["A. 0 1 2", "B. 1 2 3", "C. 0 1 2 3", "D. 3"],
-    "answer": "A",
-    "explain": "range(3)会生成0,1,2，因此输出0 1 2。"
+    "question": "Python 中用于条件判断的关键字是？",
+    "options": ["A. for", "B. if", "C. while", "D. def"],
+    "answer": "B",
+    "explain": "if 用于条件判断，当条件成立时执行对应代码。"
   },
   {
     "id": 402,
     "type": "选择题",
-    "question": "range(2,5) 会生成哪些数字？",
-    "options": ["A. 2 3 4", "B. 2 3 4 5", "C. 3 4 5", "D. 1 2 3 4"],
+    "question": "下面代码的输出结果是什么？\n\nx=5\nif x>3:\n    print(\"YES\")",
+    "options": ["A. YES", "B. NO", "C. 5", "D. 无输出"],
     "answer": "A",
-    "explain": "range(2,5) 从2开始到4结束（不包含5）。"
+    "explain": "x=5，大于3，条件成立，因此输出 YES。"
   },
   {
     "id": 403,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(1,6,2):\n    print(i)",
-    "options": ["A. 1 3 5", "B. 1 2 3 4 5", "C. 2 4 6", "D. 1 4 6"],
-    "answer": "A",
-    "explain": "range(1,6,2) 表示从1开始每次加2，到6前结束。"
+    "question": "下面代码的输出结果是什么？\n\nx=2\nif x>3:\n    print(\"YES\")",
+    "options": ["A. YES", "B. NO", "C. 2", "D. 无输出"],
+    "answer": "D",
+    "explain": "x=2，不大于3，条件不成立，if语句块不执行，所以无输出。"
   },
   {
     "id": 404,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(5,0,-1):\n    print(i)",
-    "options": ["A. 5 4 3 2 1", "B. 5 4 3 2 1 0", "C. 4 3 2 1", "D. 0 1 2 3 4 5"],
+    "question": "Python 中表示“否则”的关键字是？",
+    "options": ["A. else", "B. elif", "C. other", "D. except"],
     "answer": "A",
-    "explain": "range(5,0,-1) 从5递减到1，不包含0。"
+    "explain": "else 表示条件不成立时执行的代码块。"
   },
   {
     "id": 405,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nx=1\nwhile x<4:\n    print(x)\n    x+=1",
-    "options": ["A. 1 2 3", "B. 1 2 3 4", "C. 0 1 2 3", "D. 死循环"],
-    "answer": "A",
-    "explain": "x依次为1,2,3，x=4时退出循环。"
+    "question": "下面代码输出什么？\n\nx=3\nif x>5:\n    print(\"A\")\nelse:\n    print(\"B\")",
+    "options": ["A. A", "B. B", "C. A B", "D. 无输出"],
+    "answer": "B",
+    "explain": "x=3，不大于5，所以执行else部分，输出B。"
   },
   {
     "id": 406,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nx=5\nwhile x>2:\n    print(x)\n    x-=2",
-    "options": ["A. 5 3", "B. 5 3 1", "C. 5 4 3 2", "D. 死循环"],
-    "answer": "A",
-    "explain": "x=5输出，变3输出，变1后退出。"
+    "question": "elif 的作用是？",
+    "options": ["A. 循环语句", "B. 条件分支中的“否则如果”", "C. 定义函数", "D. 输出语句"],
+    "answer": "B",
+    "explain": "elif 表示“否则如果”，用于多条件判断。"
   },
   {
     "id": 407,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,6):\n    s+=i\nprint(s)",
-    "options": ["A. 15", "B. 10", "C. 20", "D. 6"],
-    "answer": "A",
-    "explain": "1+2+3+4+5=15。"
+    "question": "下面代码输出什么？\n\nx=10\nif x<5:\n    print(\"A\")\nelif x<15:\n    print(\"B\")\nelse:\n    print(\"C\")",
+    "options": ["A. A", "B. B", "C. C", "D. 无输出"],
+    "answer": "B",
+    "explain": "x=10，不小于5，但小于15，因此输出B。"
   },
   {
     "id": 408,
     "type": "选择题",
-    "question": "range(1,1) 会生成多少个数字？",
-    "options": ["A. 0个", "B. 1个", "C. 2个", "D. 会报错"],
-    "answer": "A",
-    "explain": "起始值和结束值相同，range为空。"
+    "question": "比较运算符中表示“等于”的是？",
+    "options": ["A. =", "B. ==", "C. !=", "D. >="],
+    "answer": "B",
+    "explain": "= 是赋值，== 才是判断是否相等。"
   },
   {
     "id": 409,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==3:\n        continue\n    print(i)",
-    "options": ["A. 1 2 4 5", "B. 1 2 3 4 5", "C. 3 4 5", "D. 1 2 3 4"],
-    "answer": "A",
-    "explain": "continue 会跳过 i=3 这一轮循环。"
+    "question": "下面哪个表达式表示“不等于”？",
+    "options": ["A. a==b", "B. a=b", "C. a!=b", "D. a<=b"],
+    "answer": "C",
+    "explain": "!= 表示不等于。"
   },
   {
     "id": 410,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==4:\n        break\n    print(i)",
-    "options": ["A. 1 2 3", "B. 1 2 3 4 5", "C. 4 5", "D. 1 2 3 4"],
+    "question": "下面代码输出什么？\n\nx=8\nif x>=8:\n    print(\"OK\")",
+    "options": ["A. OK", "B. 8", "C. False", "D. 无输出"],
     "answer": "A",
-    "explain": "break 会直接结束循环，因此只输出1 2 3。"
+    "explain": "x=8，满足x>=8，因此输出OK。"
   },
   {
     "id": 411,
     "type": "选择题",
-    "question": "break 的作用是？",
-    "options": ["A. 跳过本次循环", "B. 结束整个循环", "C. 让循环重新开始", "D. 删除变量"],
+    "question": "逻辑运算符 and 的含义是？",
+    "options": ["A. 或", "B. 且", "C. 非", "D. 等于"],
     "answer": "B",
-    "explain": "break 会终止循环结构。"
+    "explain": "and 表示“并且”，两个条件都为真才为真。"
   },
   {
     "id": 412,
     "type": "选择题",
-    "question": "continue 的作用是？",
-    "options": ["A. 跳过本次循环", "B. 结束整个循环", "C. 退出程序", "D. 输出答案"],
+    "question": "逻辑运算符 or 的含义是？",
+    "options": ["A. 或", "B. 且", "C. 非", "D. 大于"],
     "answer": "A",
-    "explain": "continue 会跳过本次循环剩余代码，进入下一轮。"
+    "explain": "or 表示“或者”，只要有一个条件为真即可。"
   },
   {
     "id": 413,
     "type": "选择题",
-    "question": "下面代码 print 会执行几次？\n\nfor i in range(3):\n    for j in range(2):\n        print(i,j)",
-    "options": ["A. 6次", "B. 5次", "C. 3次", "D. 2次"],
+    "question": "逻辑运算符 not 的作用是？",
+    "options": ["A. 取反", "B. 相加", "C. 相乘", "D. 判断是否相等"],
     "answer": "A",
-    "explain": "外层3次，内层2次，总共3×2=6次。"
+    "explain": "not 会把 True 变 False，把 False 变 True。"
   },
   {
     "id": 414,
     "type": "选择题",
-    "question": "下面代码输出多少个 * ？\n\nfor i in range(2):\n    for j in range(3):\n        print('*',end='')",
-    "options": ["A. 6个", "B. 5个", "C. 3个", "D. 2个"],
+    "question": "下面代码输出什么？\n\nx=5\nif x>3 and x<10:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "options": ["A. YES", "B. NO", "C. 5", "D. 无输出"],
     "answer": "A",
-    "explain": "2行，每行3个，总共6个。"
+    "explain": "x=5，大于3且小于10，两个条件都满足，因此输出YES。"
   },
   {
     "id": 415,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,11):\n    if i%2==0:\n        s+=i\nprint(s)",
-    "options": ["A. 30", "B. 25", "C. 55", "D. 20"],
+    "question": "下面代码输出什么？\n\nx=12\nif x<5 or x>10:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "options": ["A. YES", "B. NO", "C. 12", "D. 无输出"],
     "answer": "A",
-    "explain": "偶数2+4+6+8+10=30。"
+    "explain": "x=12，满足x>10，所以or条件成立，输出YES。"
   },
   {
     "id": 416,
     "type": "选择题",
-    "question": "range(10,0,-3) 的输出顺序是？",
-    "options": ["A. 10 7 4 1", "B. 10 8 6 4 2", "C. 10 7 4", "D. 10 0"],
-    "answer": "A",
-    "explain": "从10开始每次减3，到0前结束。"
+    "question": "下面代码输出什么？\n\nx=3\nif not(x==3):\n    print(\"A\")\nelse:\n    print(\"B\")",
+    "options": ["A. A", "B. B", "C. 3", "D. 无输出"],
+    "answer": "B",
+    "explain": "x==3 为True，not True为False，所以执行else输出B。"
   },
   {
     "id": 417,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nx=0\nwhile x<3:\n    x+=1\nprint(x)",
-    "options": ["A. 3", "B. 2", "C. 0", "D. 4"],
-    "answer": "A",
-    "explain": "循环结束时x变为3。"
+    "question": "下面代码输出什么？\n\nscore=85\nif score>=90:\n    print(\"A\")\nelif score>=80:\n    print(\"B\")\nelse:\n    print(\"C\")",
+    "options": ["A. A", "B. B", "C. C", "D. 无输出"],
+    "answer": "B",
+    "explain": "85不满90但>=80，因此输出B。"
   },
   {
     "id": 418,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(5):\n    if i%2==0:\n        continue\n    print(i)",
-    "options": ["A. 1 3", "B. 0 2 4", "C. 0 1 2 3 4", "D. 2 4"],
-    "answer": "A",
-    "explain": "偶数跳过，只打印奇数1和3。"
+    "question": "下面代码输出什么？\n\nx=7\nif x%2==0:\n    print(\"偶数\")\nelse:\n    print(\"奇数\")",
+    "options": ["A. 偶数", "B. 奇数", "C. 7", "D. 报错"],
+    "answer": "B",
+    "explain": "7%2=1，不等于0，所以输出奇数。"
   },
   {
     "id": 419,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    print(i)\n    if i==2:\n        break",
-    "options": ["A. 1 2", "B. 1 2 3 4 5", "C. 2", "D. 1"],
+    "question": "下面代码输出什么？\n\nx=4\nif x%2==0:\n    print(\"偶数\")\nelse:\n    print(\"奇数\")",
+    "options": ["A. 偶数", "B. 奇数", "C. 4", "D. 报错"],
     "answer": "A",
-    "explain": "先打印再break，因此输出1和2。"
+    "explain": "4%2=0，所以输出偶数。"
   },
   {
     "id": 420,
     "type": "选择题",
-    "question": "下面代码输出什么？\n\nx=0\nwhile x<10:\n    x+=3\nprint(x)",
-    "options": ["A. 12", "B. 9", "C. 10", "D. 15"],
-    "answer": "A",
-    "explain": "0→3→6→9→12，12不满足<10退出。"
+    "question": "嵌套if指的是？",
+    "options": ["A. if里写while", "B. if里再写if", "C. for里写print", "D. else里写break"],
+    "answer": "B",
+    "explain": "嵌套if就是在if语句块内部再写一个if判断。"
   },
 
   {
     "id": 421,
     "type": "判断题",
-    "question": "for循环常与 range() 函数一起使用。",
+    "question": "if语句后面必须加冒号 :",
     "answer": "正确",
-    "explain": "range() 能生成一系列数字，常用于控制循环次数。"
+    "explain": "Python语法规定if条件后必须写冒号。"
   },
   {
     "id": 422,
     "type": "判断题",
-    "question": "range(5) 会生成 1 到 5。",
+    "question": "else语句可以单独存在，不需要if。",
     "answer": "错误",
-    "explain": "range(5) 生成0到4。"
+    "explain": "else必须和if配合使用。"
   },
   {
     "id": 423,
     "type": "判断题",
-    "question": "while 循环必须有结束条件，否则可能会变成死循环。",
+    "question": "elif可以出现多次。",
     "answer": "正确",
-    "explain": "如果条件一直成立且变量不更新，就会无限循环。"
+    "explain": "elif可以写多个，实现多条件判断。"
   },
   {
     "id": 424,
     "type": "判断题",
-    "question": "break 会跳过本次循环并进入下一轮循环。",
-    "answer": "错误",
-    "explain": "break 是直接结束整个循环。"
+    "question": "if判断中可以使用比较运算符。",
+    "answer": "正确",
+    "explain": "例如 if x>3: 就是比较运算符的使用。"
   },
   {
     "id": 425,
     "type": "判断题",
-    "question": "continue 会结束整个循环。",
+    "question": "Python中 = 和 == 的作用相同。",
     "answer": "错误",
-    "explain": "continue 只跳过当前这一轮，进入下一轮。"
+    "explain": "= 是赋值，== 是判断相等。"
   },
   {
     "id": 426,
     "type": "判断题",
-    "question": "for i in range(3) 中 i 的取值依次为 0,1,2。",
+    "question": "and表示两个条件都满足才为真。",
     "answer": "正确",
-    "explain": "range(3) 会生成0到2。"
+    "explain": "and两边都为True时结果才为True。"
   },
   {
     "id": 427,
     "type": "判断题",
-    "question": "range(2,6) 会生成 2,3,4,5,6。",
-    "answer": "错误",
-    "explain": "range 不包含结束值6，所以生成2,3,4,5。"
+    "question": "or表示只要有一个条件满足就为真。",
+    "answer": "正确",
+    "explain": "or两边只要一个为True，结果就是True。"
   },
   {
     "id": 428,
     "type": "判断题",
-    "question": "range(5,0,-1) 会生成 5,4,3,2,1。",
+    "question": "not会对条件结果取反。",
     "answer": "正确",
-    "explain": "负步长表示倒序生成，不包含结束值0。"
+    "explain": "not True变False，not False变True。"
   },
   {
     "id": 429,
     "type": "判断题",
-    "question": "while True: 是一个无限循环写法。",
+    "question": "if语句块中必须缩进，否则会报错。",
     "answer": "正确",
-    "explain": "True永远为真，除非遇到break。"
+    "explain": "Python通过缩进区分代码块。"
   },
   {
     "id": 430,
     "type": "判断题",
-    "question": "for循环可以遍历列表中的元素。",
-    "answer": "正确",
-    "explain": "for x in lst 可以依次取出列表里的每个元素。"
+    "question": "elif必须写在if之前。",
+    "answer": "错误",
+    "explain": "elif必须写在if之后，else之前。"
   },
   {
     "id": 431,
     "type": "判断题",
-    "question": "嵌套循环中，外层循环每执行一次，内层循环会完整执行一遍。",
+    "question": "if语句可以嵌套使用。",
     "answer": "正确",
-    "explain": "这是嵌套循环的基本规律。"
+    "explain": "可以在if里面再写if，实现更复杂判断。"
   },
   {
     "id": 432,
     "type": "判断题",
-    "question": "在 while 循环中使用 continue 时，后面的代码也会继续执行。",
-    "answer": "错误",
-    "explain": "continue 会直接跳到下一轮循环，后面代码不执行。"
+    "question": "if条件不成立时，if内部代码不会执行。",
+    "answer": "正确",
+    "explain": "if条件为False时会跳过代码块。"
   },
   {
     "id": 433,
     "type": "判断题",
-    "question": "如果 while 循环中变量不变化，可能会死循环。",
+    "question": "else后面也需要加冒号 :",
     "answer": "正确",
-    "explain": "条件一直成立就会无限循环。"
+    "explain": "else也是代码块结构，必须写冒号。"
   },
   {
     "id": 434,
     "type": "判断题",
-    "question": "for循环比while循环更适合用于“次数确定”的循环。",
-    "answer": "正确",
-    "explain": "for常用于固定次数，while常用于条件控制。"
+    "question": "if语句只能判断数字，不能判断字符串。",
+    "answer": "错误",
+    "explain": "if可以判断任何表达式，包括字符串比较。"
   },
   {
     "id": 435,
     "type": "判断题",
-    "question": "range(1,10,2) 会生成 1,3,5,7,9。",
+    "question": "可以用 if 判断一个数是否为偶数。",
     "answer": "正确",
-    "explain": "从1开始每次加2，到10前结束。"
+    "explain": "通过 n%2==0 判断是否为偶数。"
   },
   {
     "id": 436,
     "type": "判断题",
-    "question": "break 只能用于 while 循环，不能用于 for 循环。",
-    "answer": "错误",
-    "explain": "break 可以用于 for 和 while。"
+    "question": "比较运算符 >= 表示大于等于。",
+    "answer": "正确",
+    "explain": ">=表示大于或等于。"
   },
   {
     "id": 437,
     "type": "判断题",
-    "question": "continue 可以用于 for 和 while 循环。",
+    "question": "if条件中可以使用括号()。",
     "answer": "正确",
-    "explain": "continue 同样适用于两种循环结构。"
+    "explain": "括号可以让条件更清晰，例如 if (x>3):。"
   },
   {
     "id": 438,
     "type": "判断题",
-    "question": "range(10,0,-2) 会生成 10,8,6,4,2。",
-    "answer": "正确",
-    "explain": "从10开始每次减2，到0前结束。"
+    "question": "if语句必须有else。",
+    "answer": "错误",
+    "explain": "if可以单独使用，不一定要else。"
   },
   {
     "id": 439,
     "type": "判断题",
-    "question": "嵌套循环一定会执行很多次，所以程序一定会很慢。",
-    "answer": "错误",
-    "explain": "循环次数不多时不会慢，关键看数据规模。"
+    "question": "if语句可以用来做成绩分级判断。",
+    "answer": "正确",
+    "explain": "成绩判断常用if/elif/else实现。"
   },
   {
     "id": 440,
     "type": "判断题",
-    "question": "while循环条件不成立时，循环体一次都不会执行。",
-    "answer": "正确",
-    "explain": "while 是先判断条件再执行循环体。"
+    "question": "elif语句可以写在else之后。",
+    "answer": "错误",
+    "explain": "else必须放在最后，elif不能写在else后面。"
   },
 
   {
     "id": 441,
     "type": "编程题",
-    "question": "使用 for 循环输出 1 到 5。",
-    "answer": "for i in range(1,6):\n    print(i)",
-    "explain": "range(1,6)会生成1到5，for循环依次输出。"
+    "question": "输入一个整数 n，如果 n 大于 0 输出 \"正数\"，否则输出 \"非正数\"。",
+    "answer": "n=int(input())\nif n>0:\n    print(\"正数\")\nelse:\n    print(\"非正数\")",
+    "explain": "使用if判断n是否大于0，大于输出正数，否则输出非正数。"
   },
   {
     "id": 442,
     "type": "编程题",
-    "question": "使用 while 循环输出 1 到 5。",
-    "answer": "i=1\nwhile i<=5:\n    print(i)\n    i+=1",
-    "explain": "while循环需要变量更新，否则会死循环。"
+    "question": "输入一个整数 n，如果 n 是偶数输出 \"偶数\"，否则输出 \"奇数\"。",
+    "answer": "n=int(input())\nif n%2==0:\n    print(\"偶数\")\nelse:\n    print(\"奇数\")",
+    "explain": "通过n%2判断余数是否为0。"
   },
   {
     "id": 443,
     "type": "编程题",
-    "question": "使用 for 循环计算 1 到 10 的和，并输出结果。",
-    "answer": "s=0\nfor i in range(1,11):\n    s+=i\nprint(s)",
-    "explain": "使用累加变量s，每次加上i即可。"
+    "question": "输入一个整数 score，若 score>=60 输出 \"及格\"，否则输出 \"不及格\"。",
+    "answer": "score=int(input())\nif score>=60:\n    print(\"及格\")\nelse:\n    print(\"不及格\")",
+    "explain": "用if判断成绩是否>=60。"
   },
   {
     "id": 444,
     "type": "编程题",
-    "question": "使用 while 循环计算 1 到 10 的和，并输出结果。",
-    "answer": "i=1\ns=0\nwhile i<=10:\n    s+=i\n    i+=1\nprint(s)",
-    "explain": "while循环配合累加变量实现求和。"
+    "question": "输入一个整数 score，如果 score>=90 输出 \"A\"，如果 score>=80 输出 \"B\"，否则输出 \"C\"。",
+    "answer": "score=int(input())\nif score>=90:\n    print(\"A\")\nelif score>=80:\n    print(\"B\")\nelse:\n    print(\"C\")",
+    "explain": "多条件判断要用if/elif/else结构。"
   },
   {
     "id": 445,
     "type": "编程题",
-    "question": "使用 for 循环输出 1 到 20 的偶数。",
-    "answer": "for i in range(1,21):\n    if i%2==0:\n        print(i)",
-    "explain": "判断i是否能被2整除，能整除就是偶数。"
+    "question": "输入两个整数 a 和 b，输出其中较大的数。",
+    "answer": "a=int(input())\nb=int(input())\nif a>b:\n    print(a)\nelse:\n    print(b)",
+    "explain": "比较a和b大小，大的输出。"
   },
   {
     "id": 446,
     "type": "编程题",
-    "question": "输入一个整数 n，使用 for 循环输出 1 到 n。",
-    "answer": "n=int(input())\nfor i in range(1,n+1):\n    print(i)",
-    "explain": "range结束值不包含，所以要写n+1。"
+    "question": "输入一个整数 n，如果 n 能被 3 整除输出 \"YES\"，否则输出 \"NO\"。",
+    "answer": "n=int(input())\nif n%3==0:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "explain": "通过取余判断能否被3整除。"
   },
   {
     "id": 447,
     "type": "编程题",
-    "question": "输入一个整数 n，计算 1 到 n 的和并输出。",
-    "answer": "n=int(input())\ns=0\nfor i in range(1,n+1):\n    s+=i\nprint(s)",
-    "explain": "用for循环遍历1到n，每次累加。"
+    "question": "输入一个整数 n，如果 n 在 1 到 10 之间（包含1和10）输出 \"OK\"，否则输出 \"NO\"。",
+    "answer": "n=int(input())\nif n>=1 and n<=10:\n    print(\"OK\")\nelse:\n    print(\"NO\")",
+    "explain": "使用and连接两个条件，判断是否在区间内。"
   },
   {
     "id": 448,
     "type": "编程题",
-    "question": "输入一个整数 n，输出 n 的阶乘（n!）。",
-    "answer": "n=int(input())\nans=1\nfor i in range(1,n+1):\n    ans*=i\nprint(ans)",
-    "explain": "阶乘是1×2×3×...×n。"
+    "question": "输入一个整数 n，如果 n 小于 0 或 n 大于 100 输出 \"OUT\"，否则输出 \"IN\"。",
+    "answer": "n=int(input())\nif n<0 or n>100:\n    print(\"OUT\")\nelse:\n    print(\"IN\")",
+    "explain": "or表示满足其中一个条件即可。"
   },
   {
     "id": 449,
     "type": "编程题",
-    "question": "使用 for 循环输出 5 行 \"Hello\"。",
-    "answer": "for i in range(5):\n    print(\"Hello\")",
-    "explain": "range(5)循环5次，每次输出一行Hello。"
+    "question": "输入一个整数 n，如果 n 等于 0 输出 \"ZERO\"，否则输出 \"NOT ZERO\"。",
+    "answer": "n=int(input())\nif n==0:\n    print(\"ZERO\")\nelse:\n    print(\"NOT ZERO\")",
+    "explain": "用==判断是否等于0。"
   },
   {
     "id": 450,
     "type": "编程题",
-    "question": "输入一个整数 n，输出 1 到 n 中所有能被 3 整除的数字。",
-    "answer": "n=int(input())\nfor i in range(1,n+1):\n    if i%3==0:\n        print(i)",
-    "explain": "使用取余运算判断是否能被3整除。"
+    "question": "输入一个整数 n，如果 n 不是 5 输出 \"YES\"，否则输出 \"NO\"。",
+    "answer": "n=int(input())\nif n!=5:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "explain": "!=表示不等于。"
   }
 ]
