@@ -1,502 +1,374 @@
 [
   {
     "id": 401,
-    "chapter": 4,
-    "title": "循环结构 第1题：for循环基础",
-    "type": "single",
+    "type": "选择题",
     "question": "下面代码的输出结果是什么？\n\nfor i in range(3):\n    print(i)",
-    "options": ["0 1 2", "1 2 3", "0 1 2 3", "3"],
+    "options": ["A. 0 1 2", "B. 1 2 3", "C. 0 1 2 3", "D. 3"],
     "answer": "A",
-    "explanation": "range(3)会生成0,1,2，因此依次输出0、1、2。"
+    "explain": "range(3)会生成0,1,2，因此输出0 1 2。"
   },
   {
     "id": 402,
-    "chapter": 4,
-    "title": "循环结构 第2题：range起始值",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\nfor i in range(2, 5):\n    print(i)",
-    "options": ["2 3 4", "2 3 4 5", "3 4 5", "5 4 3 2"],
+    "type": "选择题",
+    "question": "range(2,5) 会生成哪些数字？",
+    "options": ["A. 2 3 4", "B. 2 3 4 5", "C. 3 4 5", "D. 1 2 3 4"],
     "answer": "A",
-    "explanation": "range(2,5)表示从2开始到5结束（不包含5），所以输出2 3 4。"
+    "explain": "range(2,5) 从2开始到4结束（不包含5）。"
   },
   {
     "id": 403,
-    "chapter": 4,
-    "title": "循环结构 第3题：range步长",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\nfor i in range(1, 6, 2):\n    print(i)",
-    "options": ["1 3 5", "1 2 3 4 5", "2 4 6", "1 4 6"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6,2):\n    print(i)",
+    "options": ["A. 1 3 5", "B. 1 2 3 4 5", "C. 2 4 6", "D. 1 4 6"],
     "answer": "A",
-    "explanation": "range(1,6,2)从1开始，每次加2，到6之前结束，因此输出1 3 5。"
+    "explain": "range(1,6,2) 表示从1开始每次加2，到6前结束。"
   },
   {
     "id": 404,
-    "chapter": 4,
-    "title": "循环结构 第4题：倒序range",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\nfor i in range(5, 0, -1):\n    print(i)",
-    "options": ["5 4 3 2 1", "5 4 3 2 1 0", "4 3 2 1", "0 1 2 3 4 5"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(5,0,-1):\n    print(i)",
+    "options": ["A. 5 4 3 2 1", "B. 5 4 3 2 1 0", "C. 4 3 2 1", "D. 0 1 2 3 4 5"],
     "answer": "A",
-    "explanation": "range(5,0,-1)表示从5开始递减，直到0（不包含0），输出5 4 3 2 1。"
+    "explain": "range(5,0,-1) 从5递减到1，不包含0。"
   },
   {
     "id": 405,
-    "chapter": 4,
-    "title": "循环结构 第5题：while循环基础",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\nx = 1\nwhile x < 4:\n    print(x)\n    x += 1",
-    "options": ["1 2 3", "1 2 3 4", "0 1 2 3", "死循环"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=1\nwhile x<4:\n    print(x)\n    x+=1",
+    "options": ["A. 1 2 3", "B. 1 2 3 4", "C. 0 1 2 3", "D. 死循环"],
     "answer": "A",
-    "explanation": "x从1开始，每次+1，当x变成4时条件不成立结束，所以输出1 2 3。"
+    "explain": "x依次为1,2,3，x=4时退出循环。"
   },
   {
     "id": 406,
-    "chapter": 4,
-    "title": "循环结构 第6题：while循环判断",
-    "type": "single",
-    "question": "下面代码运行后输出是什么？\n\nx = 5\nwhile x > 2:\n    print(x)\n    x -= 2",
-    "options": ["5 3", "5 3 1", "5 4 3 2", "死循环"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=5\nwhile x>2:\n    print(x)\n    x-=2",
+    "options": ["A. 5 3", "B. 5 3 1", "C. 5 4 3 2", "D. 死循环"],
     "answer": "A",
-    "explanation": "x=5输出后变3，3输出后变1，1不满足>2结束。"
+    "explain": "x=5输出，变3输出，变1后退出。"
   },
   {
     "id": 407,
-    "chapter": 4,
-    "title": "循环结构 第7题：累加求和",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\ns = 0\nfor i in range(1, 6):\n    s += i\nprint(s)",
-    "options": ["15", "10", "20", "6"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,6):\n    s+=i\nprint(s)",
+    "options": ["A. 15", "B. 10", "C. 20", "D. 6"],
     "answer": "A",
-    "explanation": "1+2+3+4+5=15。"
+    "explain": "1+2+3+4+5=15。"
   },
   {
     "id": 408,
-    "chapter": 4,
-    "title": "循环结构 第8题：range边界",
-    "type": "single",
-    "question": "下面代码的输出结果是什么？\n\nfor i in range(1, 1):\n    print(i)\nprint('end')",
-    "options": ["end", "1 end", "1", "报错"],
+    "type": "选择题",
+    "question": "range(1,1) 会生成多少个数字？",
+    "options": ["A. 0个", "B. 1个", "C. 2个", "D. 会报错"],
     "answer": "A",
-    "explanation": "range(1,1)没有任何数，循环不会执行，只输出end。"
+    "explain": "起始值和结束值相同，range为空。"
   },
   {
     "id": 409,
-    "chapter": 4,
-    "title": "循环结构 第9题：continue",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(1, 6):\n    if i == 3:\n        continue\n    print(i)",
-    "options": ["1 2 4 5", "1 2 3 4 5", "3 4 5", "1 2 3 4"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==3:\n        continue\n    print(i)",
+    "options": ["A. 1 2 4 5", "B. 1 2 3 4 5", "C. 3 4 5", "D. 1 2 3 4"],
     "answer": "A",
-    "explanation": "当i=3时执行continue跳过本次循环，不打印3。"
+    "explain": "continue 会跳过 i=3 这一轮循环。"
   },
   {
     "id": 410,
-    "chapter": 4,
-    "title": "循环结构 第10题：break",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(1, 6):\n    if i == 4:\n        break\n    print(i)",
-    "options": ["1 2 3", "1 2 3 4 5", "4 5", "1 2 3 4"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==4:\n        break\n    print(i)",
+    "options": ["A. 1 2 3", "B. 1 2 3 4 5", "C. 4 5", "D. 1 2 3 4"],
     "answer": "A",
-    "explanation": "当i=4时break直接终止循环，所以只输出1 2 3。"
+    "explain": "break 会直接结束循环，因此只输出1 2 3。"
   },
   {
     "id": 411,
-    "chapter": 4,
-    "title": "循环结构 第11题：while+break",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 1\nwhile True:\n    print(x)\n    if x == 3:\n        break\n    x += 1",
-    "options": ["1 2 3", "1 2", "死循环", "3"],
-    "answer": "A",
-    "explanation": "while True是无限循环，但当x==3时break终止，因此输出1 2 3。"
+    "type": "选择题",
+    "question": "break 的作用是？",
+    "options": ["A. 跳过本次循环", "B. 结束整个循环", "C. 让循环重新开始", "D. 删除变量"],
+    "answer": "B",
+    "explain": "break 会终止循环结构。"
   },
   {
     "id": 412,
-    "chapter": 4,
-    "title": "循环结构 第12题：死循环判断",
-    "type": "single",
-    "question": "下面代码会发生什么？\n\nx = 1\nwhile x < 5:\n    print(x)",
-    "options": ["死循环", "输出1 2 3 4", "输出1 2 3 4 5", "报错"],
+    "type": "选择题",
+    "question": "continue 的作用是？",
+    "options": ["A. 跳过本次循环", "B. 结束整个循环", "C. 退出程序", "D. 输出答案"],
     "answer": "A",
-    "explanation": "x一直是1，没有更新，条件一直成立，所以会无限输出1。"
+    "explain": "continue 会跳过本次循环剩余代码，进入下一轮。"
   },
   {
     "id": 413,
-    "chapter": 4,
-    "title": "循环结构 第13题：嵌套循环输出次数",
-    "type": "single",
-    "question": "下面代码中print会执行几次？\n\nfor i in range(3):\n    for j in range(2):\n        print(i, j)",
-    "options": ["6", "5", "3", "2"],
+    "type": "选择题",
+    "question": "下面代码 print 会执行几次？\n\nfor i in range(3):\n    for j in range(2):\n        print(i,j)",
+    "options": ["A. 6次", "B. 5次", "C. 3次", "D. 2次"],
     "answer": "A",
-    "explanation": "外层循环3次，内层循环2次，总次数=3×2=6。"
+    "explain": "外层3次，内层2次，总共3×2=6次。"
   },
   {
     "id": 414,
-    "chapter": 4,
-    "title": "循环结构 第14题：嵌套循环规律",
-    "type": "single",
-    "question": "下面代码输出结果是什么？\n\nfor i in range(2):\n    for j in range(3):\n        print('*', end='')\n    print()",
-    "options": ["每行3个*，共2行", "每行2个*，共3行", "总共6行*", "输出报错"],
+    "type": "选择题",
+    "question": "下面代码输出多少个 * ？\n\nfor i in range(2):\n    for j in range(3):\n        print('*',end='')",
+    "options": ["A. 6个", "B. 5个", "C. 3个", "D. 2个"],
     "answer": "A",
-    "explanation": "外层循环2次，每次内层循环输出3个*，然后print()换行。"
+    "explain": "2行，每行3个，总共6个。"
   },
   {
     "id": 415,
-    "chapter": 4,
-    "title": "循环结构 第15题：累加偶数和",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 11):\n    if i % 2 == 0:\n        s += i\nprint(s)",
-    "options": ["30", "25", "55", "20"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,11):\n    if i%2==0:\n        s+=i\nprint(s)",
+    "options": ["A. 30", "B. 25", "C. 55", "D. 20"],
     "answer": "A",
-    "explanation": "2+4+6+8+10=30。"
+    "explain": "偶数2+4+6+8+10=30。"
   },
   {
     "id": 416,
-    "chapter": 4,
-    "title": "循环结构 第16题：range步长陷阱",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(10, 0, -3):\n    print(i)",
-    "options": ["10 7 4 1", "10 8 6 4 2", "10 7 4", "10 0"],
+    "type": "选择题",
+    "question": "range(10,0,-3) 的输出顺序是？",
+    "options": ["A. 10 7 4 1", "B. 10 8 6 4 2", "C. 10 7 4", "D. 10 0"],
     "answer": "A",
-    "explanation": "从10开始每次减3：10→7→4→1，下一次-3变-2结束。"
+    "explain": "从10开始每次减3，到0前结束。"
   },
   {
     "id": 417,
-    "chapter": 4,
-    "title": "循环结构 第17题：while累加",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 1\ns = 0\nwhile x <= 3:\n    s += x\n    x += 1\nprint(s)",
-    "options": ["6", "3", "4", "5"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=0\nwhile x<3:\n    x+=1\nprint(x)",
+    "options": ["A. 3", "B. 2", "C. 0", "D. 4"],
     "answer": "A",
-    "explanation": "1+2+3=6。"
+    "explain": "循环结束时x变为3。"
   },
   {
     "id": 418,
-    "chapter": 4,
-    "title": "循环结构 第18题：continue影响",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(5):\n    if i % 2 == 0:\n        continue\n    print(i)",
-    "options": ["1 3", "0 2 4", "0 1 2 3 4", "2 4"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(5):\n    if i%2==0:\n        continue\n    print(i)",
+    "options": ["A. 1 3", "B. 0 2 4", "C. 0 1 2 3 4", "D. 2 4"],
     "answer": "A",
-    "explanation": "当i为偶数时跳过，打印奇数1和3。"
+    "explain": "偶数跳过，只打印奇数1和3。"
   },
   {
     "id": 419,
-    "chapter": 4,
-    "title": "循环结构 第19题：break位置",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(1, 6):\n    print(i)\n    if i == 2:\n        break",
-    "options": ["1 2", "1 2 3 4 5", "2", "1"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    print(i)\n    if i==2:\n        break",
+    "options": ["A. 1 2", "B. 1 2 3 4 5", "C. 2", "D. 1"],
     "answer": "A",
-    "explanation": "先打印i，再判断break，所以会输出1和2。"
+    "explain": "先打印再break，因此输出1和2。"
   },
   {
     "id": 420,
-    "chapter": 4,
-    "title": "循环结构 第20题：while条件变化",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 10\nwhile x > 0:\n    x -= 5\nprint(x)",
-    "options": ["0", "5", "-5", "10"],
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=0\nwhile x<10:\n    x+=3\nprint(x)",
+    "options": ["A. 12", "B. 9", "C. 10", "D. 15"],
     "answer": "A",
-    "explanation": "10减5变5，5减5变0，0不满足>0退出，输出0。"
+    "explain": "0→3→6→9→12，12不满足<10退出。"
   },
+
   {
     "id": 421,
-    "chapter": 4,
-    "title": "循环结构 第21题：循环变量最后值",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(4):\n    pass\nprint(i)",
-    "options": ["3", "4", "0", "报错"],
-    "answer": "A",
-    "explanation": "循环结束时i最后一次取值为3。"
+    "type": "判断题",
+    "question": "for循环常与 range() 函数一起使用。",
+    "answer": "正确",
+    "explain": "range() 能生成一系列数字，常用于控制循环次数。"
   },
   {
     "id": 422,
-    "chapter": 4,
-    "title": "循环结构 第22题：while最后值",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 0\nwhile x < 3:\n    x += 1\nprint(x)",
-    "options": ["3", "2", "0", "4"],
-    "answer": "A",
-    "explanation": "循环执行3次，最后x变为3。"
+    "type": "判断题",
+    "question": "range(5) 会生成 1 到 5。",
+    "answer": "错误",
+    "explain": "range(5) 生成0到4。"
   },
   {
     "id": 423,
-    "chapter": 4,
-    "title": "循环结构 第23题：求1到100的和",
-    "type": "single",
-    "question": "下面程序运行后s的值是多少？\n\ns = 0\nfor i in range(1, 101):\n    s += i\nprint(s)",
-    "options": ["5050", "5000", "100", "10100"],
-    "answer": "A",
-    "explanation": "1到100的和为5050。"
+    "type": "判断题",
+    "question": "while 循环必须有结束条件，否则可能会变成死循环。",
+    "answer": "正确",
+    "explain": "如果条件一直成立且变量不更新，就会无限循环。"
   },
   {
     "id": 424,
-    "chapter": 4,
-    "title": "循环结构 第24题：range生成的数字个数",
-    "type": "single",
-    "question": "range(2, 10, 2)一共会生成几个数字？",
-    "options": ["4", "5", "6", "8"],
-    "answer": "A",
-    "explanation": "range(2,10,2)生成2,4,6,8，一共4个数字。"
+    "type": "判断题",
+    "question": "break 会跳过本次循环并进入下一轮循环。",
+    "answer": "错误",
+    "explain": "break 是直接结束整个循环。"
   },
   {
     "id": 425,
-    "chapter": 4,
-    "title": "循环结构 第25题：for循环与列表",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nlst = [3, 5, 7]\nfor x in lst:\n    print(x)",
-    "options": ["3 5 7", "0 1 2", "5 7", "报错"],
-    "answer": "A",
-    "explanation": "for会依次取出列表元素3、5、7。"
+    "type": "判断题",
+    "question": "continue 会结束整个循环。",
+    "answer": "错误",
+    "explain": "continue 只跳过当前这一轮，进入下一轮。"
   },
   {
     "id": 426,
-    "chapter": 4,
-    "title": "循环结构 第26题：for循环下标",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nlst = [10, 20, 30]\nfor i in range(len(lst)):\n    print(lst[i])",
-    "options": ["10 20 30", "0 1 2", "1 2 3", "报错"],
-    "answer": "A",
-    "explanation": "len(lst)=3，下标0~2，输出对应元素10 20 30。"
+    "type": "判断题",
+    "question": "for i in range(3) 中 i 的取值依次为 0,1,2。",
+    "answer": "正确",
+    "explain": "range(3) 会生成0到2。"
   },
   {
     "id": 427,
-    "chapter": 4,
-    "title": "循环结构 第27题：嵌套循环累加",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(3):\n    for j in range(2):\n        s += 1\nprint(s)",
-    "options": ["6", "5", "3", "2"],
-    "answer": "A",
-    "explanation": "总循环次数3×2=6，每次s加1，所以结果为6。"
+    "type": "判断题",
+    "question": "range(2,6) 会生成 2,3,4,5,6。",
+    "answer": "错误",
+    "explain": "range 不包含结束值6，所以生成2,3,4,5。"
   },
   {
     "id": 428,
-    "chapter": 4,
-    "title": "循环结构 第28题：continue影响累加",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 6):\n    if i == 4:\n        continue\n    s += i\nprint(s)",
-    "options": ["11", "15", "10", "9"],
-    "answer": "A",
-    "explanation": "跳过4，因此加1+2+3+5=11。"
+    "type": "判断题",
+    "question": "range(5,0,-1) 会生成 5,4,3,2,1。",
+    "answer": "正确",
+    "explain": "负步长表示倒序生成，不包含结束值0。"
   },
   {
     "id": 429,
-    "chapter": 4,
-    "title": "循环结构 第29题：break影响累加",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 10):\n    if i == 5:\n        break\n    s += i\nprint(s)",
-    "options": ["10", "15", "5", "45"],
-    "answer": "A",
-    "explanation": "break在i=5时停止，因此加1+2+3+4=10。"
+    "type": "判断题",
+    "question": "while True: 是一个无限循环写法。",
+    "answer": "正确",
+    "explain": "True永远为真，除非遇到break。"
   },
   {
     "id": 430,
-    "chapter": 4,
-    "title": "循环结构 第30题：while与continue",
-    "type": "single",
-    "question": "下面代码会发生什么？\n\nx = 0\nwhile x < 5:\n    if x == 2:\n        continue\n    print(x)\n    x += 1",
-    "options": ["死循环", "输出0 1 3 4", "输出0 1 2 3 4", "报错"],
-    "answer": "A",
-    "explanation": "当x==2时continue跳过后面的x+=1，导致x永远是2，进入死循环。"
+    "type": "判断题",
+    "question": "for循环可以遍历列表中的元素。",
+    "answer": "正确",
+    "explain": "for x in lst 可以依次取出列表里的每个元素。"
   },
   {
     "id": 431,
-    "chapter": 4,
-    "title": "循环结构 第31题：判断循环次数",
-    "type": "single",
-    "question": "下面代码中while循环会执行几次？\n\nx = 1\nwhile x <= 8:\n    x *= 2",
-    "options": ["3", "4", "5", "2"],
-    "answer": "B",
-    "explanation": "x取值依次为1、2、4、8时都会进入循环，共执行4次，最后变成16退出。"
+    "type": "判断题",
+    "question": "嵌套循环中，外层循环每执行一次，内层循环会完整执行一遍。",
+    "answer": "正确",
+    "explain": "这是嵌套循环的基本规律。"
   },
   {
     "id": 432,
-    "chapter": 4,
-    "title": "循环结构 第32题：输出次数",
-    "type": "single",
-    "question": "下面代码print会执行几次？\n\nfor i in range(2, 8, 2):\n    print(i)",
-    "options": ["3", "4", "5", "2"],
-    "answer": "A",
-    "explanation": "range(2,8,2)生成2,4,6，共3个数字，因此print执行3次。"
+    "type": "判断题",
+    "question": "在 while 循环中使用 continue 时，后面的代码也会继续执行。",
+    "answer": "错误",
+    "explain": "continue 会直接跳到下一轮循环，后面代码不执行。"
   },
   {
     "id": 433,
-    "chapter": 4,
-    "title": "循环结构 第33题：循环变量范围",
-    "type": "single",
-    "question": "for i in range(5): 中i的取值范围是？",
-    "options": ["0~4", "1~5", "0~5", "1~4"],
-    "answer": "A",
-    "explanation": "range(5)生成0到4。"
+    "type": "判断题",
+    "question": "如果 while 循环中变量不变化，可能会死循环。",
+    "answer": "正确",
+    "explain": "条件一直成立就会无限循环。"
   },
   {
     "id": 434,
-    "chapter": 4,
-    "title": "循环结构 第34题：range不包含结束值",
-    "type": "single",
-    "question": "下面哪个range会生成 1 2 3 4 5？",
-    "options": ["range(1, 6)", "range(1, 5)", "range(0, 5)", "range(2, 6)"],
-    "answer": "A",
-    "explanation": "range(1,6)生成1到5。"
+    "type": "判断题",
+    "question": "for循环比while循环更适合用于“次数确定”的循环。",
+    "answer": "正确",
+    "explain": "for常用于固定次数，while常用于条件控制。"
   },
   {
     "id": 435,
-    "chapter": 4,
-    "title": "循环结构 第35题：for循环求奇数和",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 10, 2):\n    s += i\nprint(s)",
-    "options": ["25", "20", "30", "45"],
-    "answer": "A",
-    "explanation": "1+3+5+7+9=25。"
+    "type": "判断题",
+    "question": "range(1,10,2) 会生成 1,3,5,7,9。",
+    "answer": "正确",
+    "explain": "从1开始每次加2，到10前结束。"
   },
   {
     "id": 436,
-    "chapter": 4,
-    "title": "循环结构 第36题：while求奇数和",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 1\ns = 0\nwhile x <= 9:\n    s += x\n    x += 2\nprint(s)",
-    "options": ["25", "20", "30", "45"],
-    "answer": "A",
-    "explanation": "累加1,3,5,7,9结果为25。"
+    "type": "判断题",
+    "question": "break 只能用于 while 循环，不能用于 for 循环。",
+    "answer": "错误",
+    "explain": "break 可以用于 for 和 while。"
   },
   {
     "id": 437,
-    "chapter": 4,
-    "title": "循环结构 第37题：循环与条件组合",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(1, 6):\n    if i % 3 == 0:\n        print('A')\n    else:\n        print('B')",
-    "options": ["B B A B B", "A A B B B", "B A B A B", "A B B B A"],
-    "answer": "A",
-    "explanation": "只有i=3满足%3==0输出A，其余输出B。"
+    "type": "判断题",
+    "question": "continue 可以用于 for 和 while 循环。",
+    "answer": "正确",
+    "explain": "continue 同样适用于两种循环结构。"
   },
   {
     "id": 438,
-    "chapter": 4,
-    "title": "循环结构 第38题：嵌套循环输出规律",
-    "type": "single",
-    "question": "下面代码输出多少个#？\n\nfor i in range(4):\n    for j in range(i):\n        print('#', end='')",
-    "options": ["6", "4", "10", "8"],
-    "answer": "A",
-    "explanation": "i=0输出0个，i=1输出1个，i=2输出2个，i=3输出3个，总共0+1+2+3=6。"
+    "type": "判断题",
+    "question": "range(10,0,-2) 会生成 10,8,6,4,2。",
+    "answer": "正确",
+    "explain": "从10开始每次减2，到0前结束。"
   },
   {
     "id": 439,
-    "chapter": 4,
-    "title": "循环结构 第39题：while嵌套次数",
-    "type": "single",
-    "question": "下面代码中print会执行几次？\n\ni = 0\nwhile i < 3:\n    j = 0\n    while j < 2:\n        print(i, j)\n        j += 1\n    i += 1",
-    "options": ["6", "5", "3", "2"],
-    "answer": "A",
-    "explanation": "外层3次，内层2次，总共6次。"
+    "type": "判断题",
+    "question": "嵌套循环一定会执行很多次，所以程序一定会很慢。",
+    "answer": "错误",
+    "explain": "循环次数不多时不会慢，关键看数据规模。"
   },
   {
     "id": 440,
-    "chapter": 4,
-    "title": "循环结构 第40题：循环结束条件",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 0\nwhile x < 3:\n    x += 1\nprint('ok')",
-    "options": ["ok", "0 1 2 ok", "1 2 3 ok", "死循环"],
-    "answer": "A",
-    "explanation": "循环没有打印内容，结束后输出ok。"
+    "type": "判断题",
+    "question": "while循环条件不成立时，循环体一次都不会执行。",
+    "answer": "正确",
+    "explain": "while 是先判断条件再执行循环体。"
   },
+
   {
     "id": 441,
-    "chapter": 4,
-    "title": "循环结构 第41题：翻倍计数",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 1\ncount = 0\nwhile x < 20:\n    x *= 2\n    count += 1\nprint(count)",
-    "options": ["5", "4", "6", "3"],
-    "answer": "A",
-    "explanation": "x变化：1→2→4→8→16→32，循环执行5次。"
+    "type": "编程题",
+    "question": "使用 for 循环输出 1 到 5。",
+    "answer": "for i in range(1,6):\n    print(i)",
+    "explain": "range(1,6)会生成1到5，for循环依次输出。"
   },
   {
     "id": 442,
-    "chapter": 4,
-    "title": "循环结构 第42题：for循环输出最后一个数",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(2, 10, 3):\n    pass\nprint(i)",
-    "options": ["8", "11", "9", "10"],
-    "answer": "A",
-    "explanation": "range(2,10,3)生成2,5,8，最后i=8。"
+    "type": "编程题",
+    "question": "使用 while 循环输出 1 到 5。",
+    "answer": "i=1\nwhile i<=5:\n    print(i)\n    i+=1",
+    "explain": "while循环需要变量更新，否则会死循环。"
   },
   {
     "id": 443,
-    "chapter": 4,
-    "title": "循环结构 第43题：for循环求乘积",
-    "type": "single",
-    "question": "下面代码输出什么？\n\np = 1\nfor i in range(1, 5):\n    p *= i\nprint(p)",
-    "options": ["24", "10", "120", "15"],
-    "answer": "A",
-    "explanation": "1×2×3×4=24。"
+    "type": "编程题",
+    "question": "使用 for 循环计算 1 到 10 的和，并输出结果。",
+    "answer": "s=0\nfor i in range(1,11):\n    s+=i\nprint(s)",
+    "explain": "使用累加变量s，每次加上i即可。"
   },
   {
     "id": 444,
-    "chapter": 4,
-    "title": "循环结构 第44题：while求乘积",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 1\np = 1\nwhile x <= 4:\n    p *= x\n    x += 1\nprint(p)",
-    "options": ["24", "10", "120", "15"],
-    "answer": "A",
-    "explanation": "循环乘1到4，结果24。"
+    "type": "编程题",
+    "question": "使用 while 循环计算 1 到 10 的和，并输出结果。",
+    "answer": "i=1\ns=0\nwhile i<=10:\n    s+=i\n    i+=1\nprint(s)",
+    "explain": "while循环配合累加变量实现求和。"
   },
   {
     "id": 445,
-    "chapter": 4,
-    "title": "循环结构 第45题：continue与break结合",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nfor i in range(1, 8):\n    if i == 2:\n        continue\n    if i == 6:\n        break\n    print(i)",
-    "options": ["1 3 4 5", "1 2 3 4 5", "3 4 5 6", "1 3 4 5 6 7"],
-    "answer": "A",
-    "explanation": "跳过2，遇到6停止，因此输出1 3 4 5。"
+    "type": "编程题",
+    "question": "使用 for 循环输出 1 到 20 的偶数。",
+    "answer": "for i in range(1,21):\n    if i%2==0:\n        print(i)",
+    "explain": "判断i是否能被2整除，能整除就是偶数。"
   },
   {
     "id": 446,
-    "chapter": 4,
-    "title": "循环结构 第46题：嵌套循环累加规律",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 4):\n    for j in range(1, 4):\n        s += i\nprint(s)",
-    "options": ["18", "9", "12", "6"],
-    "answer": "A",
-    "explanation": "i=1累加3次得3，i=2累加3次得6，i=3累加3次得9，总共18。"
+    "type": "编程题",
+    "question": "输入一个整数 n，使用 for 循环输出 1 到 n。",
+    "answer": "n=int(input())\nfor i in range(1,n+1):\n    print(i)",
+    "explain": "range结束值不包含，所以要写n+1。"
   },
   {
     "id": 447,
-    "chapter": 4,
-    "title": "循环结构 第47题：for循环中变量变化",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 0\nfor i in range(3):\n    x += 2\nprint(x)",
-    "options": ["6", "3", "2", "0"],
-    "answer": "A",
-    "explanation": "循环3次，每次加2，所以x=6。"
+    "type": "编程题",
+    "question": "输入一个整数 n，计算 1 到 n 的和并输出。",
+    "answer": "n=int(input())\ns=0\nfor i in range(1,n+1):\n    s+=i\nprint(s)",
+    "explain": "用for循环遍历1到n，每次累加。"
   },
   {
     "id": 448,
-    "chapter": 4,
-    "title": "循环结构 第48题：while循环步长",
-    "type": "single",
-    "question": "下面代码输出什么？\n\nx = 0\nwhile x < 10:\n    x += 3\nprint(x)",
-    "options": ["12", "9", "10", "15"],
-    "answer": "A",
-    "explanation": "x变化0→3→6→9→12，12不满足<10退出，输出12。"
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 的阶乘（n!）。",
+    "answer": "n=int(input())\nans=1\nfor i in range(1,n+1):\n    ans*=i\nprint(ans)",
+    "explain": "阶乘是1×2×3×...×n。"
   },
   {
     "id": 449,
-    "chapter": 4,
-    "title": "循环结构 第49题：嵌套循环打印行数",
-    "type": "single",
-    "question": "下面代码会打印几行？\n\nfor i in range(3):\n    for j in range(2):\n        print('hi')",
-    "options": ["6", "3", "2", "5"],
-    "answer": "A",
-    "explanation": "外层3次，内层2次，总共打印6次，每次print一行。"
+    "type": "编程题",
+    "question": "使用 for 循环输出 5 行 \"Hello\"。",
+    "answer": "for i in range(5):\n    print(\"Hello\")",
+    "explain": "range(5)循环5次，每次输出一行Hello。"
   },
   {
     "id": 450,
-    "chapter": 4,
-    "title": "循环结构 第50题：循环综合判断",
-    "type": "single",
-    "question": "下面代码输出什么？\n\ns = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        s += i\n    else:\n        s += 1\nprint(s)",
-    "options": ["9", "12", "15", "8"],
-    "answer": "A",
-    "explanation": "偶数2和4加到s中：2+4=6，奇数1、3、5每次加1共3次，因此总和=6+3=9。"
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 1 到 n 中所有能被 3 整除的数字。",
+    "answer": "n=int(input())\nfor i in range(1,n+1):\n    if i%3==0:\n        print(i)",
+    "explain": "使用取余运算判断是否能被3整除。"
   }
 ]
