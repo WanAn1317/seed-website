@@ -1,170 +1,424 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8" />
-<title>试卷列表</title>
+[
+  {
+    "id": 1,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 程序文件最常见的扩展名是？",
+    "options": ["A. .java", "B. .py", "C. .cpp", "D. .txt"],
+    "answer": "B",
+    "explain": "Python 源代码文件通常使用 .py 作为扩展名。"
+  },
+  {
+    "id": 2,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪条语句可以在屏幕输出 Hello？",
+    "options": ["A. input(\"Hello\")", "B. print(\"Hello\")", "C. printf(\"Hello\")", "D. echo(\"Hello\")"],
+    "answer": "B",
+    "explain": "Python 使用 print() 函数输出内容。"
+  },
+  {
+    "id": 3,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 中用于写注释的符号是？",
+    "options": ["A. //", "B. <!-- -->", "C. #", "D. **"],
+    "answer": "C",
+    "explain": "Python 单行注释使用 # 开头。"
+  },
+  {
+    "id": 4,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 对缩进的要求是？",
+    "options": ["A. 缩进可有可无", "B. 缩进只影响美观", "C. 缩进会影响代码结构", "D. 只能用Tab缩进"],
+    "answer": "C",
+    "explain": "Python 使用缩进表示代码块结构，缩进错误会导致程序报错。"
+  },
+  {
+    "id": 5,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪个不是 Python 的常见开发环境？",
+    "options": ["A. IDLE", "B. PyCharm", "C. VS Code", "D. Word"],
+    "answer": "D",
+    "explain": "Word 是文字处理软件，不是编程开发环境。"
+  },
+  {
+    "id": 6,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 语句结束是否必须加分号 ; ？",
+    "options": ["A. 必须", "B. 不允许", "C. 一般不需要", "D. 必须加逗号"],
+    "answer": "C",
+    "explain": "Python 一般不需要分号结束语句，但写了也不会报错。"
+  },
+  {
+    "id": 7,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "在 Python 中，print(2+3) 的输出是？",
+    "options": ["A. 23", "B. 5", "C. 2+3", "D. 报错"],
+    "answer": "B",
+    "explain": "2+3 会先计算为 5，然后 print 输出 5。"
+  },
+  {
+    "id": 8,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "运行 Python 程序时出现 SyntaxError 通常表示？",
+    "options": ["A. 输入错误", "B. 语法错误", "C. 变量错误", "D. 系统错误"],
+    "answer": "B",
+    "explain": "SyntaxError 表示代码语法不符合 Python 规则，例如缺少括号或冒号。"
+  },
+  {
+    "id": 9,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪个属于 Python 的特点？",
+    "options": ["A. 必须编译才能运行", "B. 语法简单易读", "C. 只能写网页", "D. 只能在手机运行"],
+    "answer": "B",
+    "explain": "Python 语法简洁，非常适合初学者学习。"
+  },
+  {
+    "id": 10,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "print(\"Hi\") 中的 \"Hi\" 属于？",
+    "options": ["A. 数字", "B. 字符串", "C. 布尔值", "D. 列表"],
+    "answer": "B",
+    "explain": "引号包裹的内容属于字符串类型。"
+  },
+  {
+    "id": 11,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "以下哪项属于良好的编程习惯？",
+    "options": ["A. 变量名随便写", "B. 不写注释", "C. 代码排版整齐", "D. 所有代码写一行"],
+    "answer": "C",
+    "explain": "良好的排版和缩进可以提高代码可读性，是优秀编程习惯。"
+  },
+  {
+    "id": 12,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪个是 Python 的输出函数？",
+    "options": ["A. out()", "B. echo()", "C. print()", "D. output()"],
+    "answer": "C",
+    "explain": "print() 是 Python 的标准输出函数。"
+  },
+  {
+    "id": 13,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "如果代码缩进不一致，Python 最可能出现什么问题？",
+    "options": ["A. 运行速度变慢", "B. IndentationError", "C. 输出变漂亮", "D. 不影响运行"],
+    "answer": "B",
+    "explain": "Python 对缩进非常严格，缩进错误会导致 IndentationError。"
+  },
+  {
+    "id": 14,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "以下哪种属于 Python 的交互式运行方式？",
+    "options": ["A. 运行 .exe 文件", "B. 进入 Python Shell 输入代码", "C. 打开 Word 输入代码", "D. 运行 HTML 文件"],
+    "answer": "B",
+    "explain": "Python Shell 可以交互式执行代码，一行一行运行。"
+  },
+  {
+    "id": 15,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪条语句是正确的 Python 输出语句？",
+    "options": ["A. print Hello", "B. print(\"Hello\")", "C. Print(\"Hello\")", "D. echo(\"Hello\")"],
+    "answer": "B",
+    "explain": "print() 必须加括号，字符串必须加引号。"
+  },
+  {
+    "id": 16,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 中大小写是否敏感？",
+    "options": ["A. 不敏感", "B. 只对数字敏感", "C. 敏感", "D. 只对变量名不敏感"],
+    "answer": "C",
+    "explain": "Python 是大小写敏感语言，print 和 Print 不一样。"
+  },
+  {
+    "id": 17,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "以下哪项是 Python 的优点？",
+    "options": ["A. 语法复杂", "B. 代码可读性高", "C. 必须写很多括号", "D. 只能用于数学计算"],
+    "answer": "B",
+    "explain": "Python 语法简洁、可读性强，是它的重要优点。"
+  },
+  {
+    "id": 18,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "Python 的代码块通常使用什么来表示？",
+    "options": ["A. 大括号 {}", "B. 小括号 ()", "C. 缩进", "D. 分号"],
+    "answer": "C",
+    "explain": "Python 使用缩进表示代码块结构，不使用大括号。"
+  },
+  {
+    "id": 19,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "如果你想快速测试一行 Python 代码，最方便的方法是？",
+    "options": ["A. 在 Python Shell 中输入", "B. 打开 Excel", "C. 关闭电脑", "D. 写在纸上"],
+    "answer": "A",
+    "explain": "Python Shell 支持交互式运行，非常适合快速测试代码。"
+  },
+  {
+    "id": 20,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "选择题",
+    "question": "下列哪个属于 Python 的错误信息？",
+    "options": ["A. SyntaxError", "B. HelloError", "C. PrintError", "D. InputError"],
+    "answer": "A",
+    "explain": "SyntaxError 是 Python 常见错误之一，表示语法错误。"
+  },
 
-<style>
-body{
-  font-family:"Microsoft YaHei",Arial;
-  margin:0;
-  padding:20px;
-  background:#fff;
-  display:flex;
-  justify-content:center;
-}
+  {
+    "id": 21,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 是一门解释型语言。",
+    "answer": "正确",
+    "explain": "Python 不需要先编译，运行时由解释器逐行解释执行。"
+  },
+  {
+    "id": 22,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 中 print() 可以用来输出内容。",
+    "answer": "正确",
+    "explain": "print() 是 Python 的标准输出函数。"
+  },
+  {
+    "id": 23,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 程序中缩进不重要。",
+    "answer": "错误",
+    "explain": "Python 使用缩进表示代码块结构，缩进错误会导致程序报错。"
+  },
+  {
+    "id": 24,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 中可以使用 # 来写单行注释。",
+    "answer": "正确",
+    "explain": "# 是 Python 的单行注释符号。"
+  },
+  {
+    "id": 25,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "print(\"A\") 和 print('A') 的效果一样。",
+    "answer": "正确",
+    "explain": "Python 中单引号和双引号都可以表示字符串。"
+  },
+  {
+    "id": 26,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 中变量名可以以数字开头。",
+    "answer": "错误",
+    "explain": "变量名不能以数字开头，否则会报错。"
+  },
+  {
+    "id": 27,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 是大小写敏感的语言。",
+    "answer": "正确",
+    "explain": "print 和 Print 是不同的，Python 对大小写敏感。"
+  },
+  {
+    "id": 28,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "SyntaxError 表示程序运行速度太慢。",
+    "answer": "错误",
+    "explain": "SyntaxError 表示语法错误，例如缺少括号、冒号等。"
+  },
+  {
+    "id": 29,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 程序必须写在一行内。",
+    "answer": "错误",
+    "explain": "Python 代码通常分行编写，更清晰。"
+  },
+  {
+    "id": 30,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 的代码块通常使用缩进来表示。",
+    "answer": "正确",
+    "explain": "Python 不使用大括号，而是使用缩进表示代码块。"
+  },
+  {
+    "id": 31,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "IDLE 是 Python 自带的开发环境之一。",
+    "answer": "正确",
+    "explain": "安装 Python 后一般会自带 IDLE。"
+  },
+  {
+    "id": 32,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "PyCharm 是常用的 Python 编程工具。",
+    "answer": "正确",
+    "explain": "PyCharm 是常见的 Python IDE，功能强大。"
+  },
+  {
+    "id": 33,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "print() 只能输出数字，不能输出文字。",
+    "answer": "错误",
+    "explain": "print() 可以输出数字、字符串、变量等多种内容。"
+  },
+  {
+    "id": 34,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 程序文件的扩展名一般是 .py。",
+    "answer": "正确",
+    "explain": ".py 是 Python 源代码文件的常见扩展名。"
+  },
+  {
+    "id": 35,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "在 Python 中，print(2+3) 会输出 23。",
+    "answer": "错误",
+    "explain": "2+3 会先计算得到 5，再输出 5。"
+  },
+  {
+    "id": 36,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 可以用于人工智能开发。",
+    "answer": "正确",
+    "explain": "Python 在人工智能领域应用广泛，例如机器学习、深度学习。"
+  },
+  {
+    "id": 37,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "写代码时保持整齐缩进是一种良好习惯。",
+    "answer": "正确",
+    "explain": "整齐的缩进和排版能让代码更容易阅读和维护。"
+  },
+  {
+    "id": 38,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python 中每条语句结束必须写分号。",
+    "answer": "错误",
+    "explain": "Python 不强制使用分号结束语句。"
+  },
+  {
+    "id": 39,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "Python Shell 可以一行一行运行代码。",
+    "answer": "正确",
+    "explain": "Python Shell 是交互式环境，适合快速测试代码。"
+  },
+  {
+    "id": 40,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "判断题",
+    "question": "IndentationError 通常与缩进有关。",
+    "answer": "正确",
+    "explain": "IndentationError 表示缩进不符合 Python 语法要求。"
+  },
 
-/* 主容器 */
-.container{
-  width:100%;
-  max-width:900px;
-}
-
-/* 标题 */
-h1,p{
-  text-align:center;
-}
-
-/* 返回首页 */
-.back-home{
-  display:inline-block;
-  margin-bottom:12px;
-  padding:8px 14px;
-  background:#2d7a2d;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  font-size:14px;
-}
-
-/* tab区域 */
-.tabs{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:20px 0;
-}
-
-.tab-btn{
-  padding:8px 16px;
-  border-radius:20px;
-  border:1px solid #ddd;
-  background:#f5f5f5;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.tab-btn.active{
-  background:#2d7a2d;
-  color:#fff;
-  border-color:#2d7a2d;
-}
-
-/* 试卷列表 */
-.paper-list{
-  list-style:none;
-  padding:0;
-  margin-top:10px;
-}
-
-.paper-list li{
-  text-align:center;
-  padding:14px;
-  margin:10px 0;
-  border:1px solid #eee;
-  border-radius:10px;
-  background:#fafafa;
-  transition:0.2s;
-}
-
-.paper-list li:hover{
-  background:#eafff2;
-  border-color:#2d7a2d;
-  transform:translateY(-2px);
-}
-
-.paper-list a{
-  text-decoration:none;
-  color:#333;
-  font-size:15px;
-  display:block;
-}
-
-.paper-list a:hover{
-  color:#2d7a2d;
-  font-weight:bold;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<!-- 返回首页 -->
-<a class="back-home" href="index.html">⬅ 返回首页</a>
-
-<h1>试卷列表</h1>
-<p>请选择科目后开始答题</p>
-
-<!-- 科目切换 -->
-<div class="tabs">
-  <button class="tab-btn active" onclick="showSubject('python')" id="btn-python">🐍 Python</button>
-  <button class="tab-btn" onclick="showSubject('scratch')" id="btn-scratch">🎮 图形化编程</button>
-  <button class="tab-btn" onclick="showSubject('cpp')" id="btn-cpp">💻 C++</button>
-</div>
-
-<!-- 列表 -->
-<ul id="paperList" class="paper-list"></ul>
-
-</div>
-
-<script>
-let allPapers = [];
-let currentSubject = "python";
-
-fetch("./data/papers.json")
-  .then(res => res.json())
-  .then(data => {
-    allPapers = data;
-    renderList();
-  });
-
-function showSubject(subject){
-  currentSubject = subject;
-
-  document.querySelectorAll(".tab-btn")
-    .forEach(btn => btn.classList.remove("active"));
-
-  document.getElementById("btn-" + subject).classList.add("active");
-
-  renderList();
-}
-
-function renderList(){
-  const ul = document.getElementById("paperList");
-  ul.innerHTML = "";
-
-  const list = allPapers.filter(p => (p.subject || "python") === currentSubject);
-
-  if(list.length === 0){
-    ul.innerHTML = "<li>暂无试卷</li>";
-    return;
+  {
+    "id": 41,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：Hello Python",
+    "answer": "print(\"Hello Python\")",
+    "explain": "使用 print() 输出字符串内容即可。"
+  },
+  {
+    "id": 42,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出两行文字：第一行输出 Hello，第二行输出 World。",
+    "answer": "print(\"Hello\")\nprint(\"World\")",
+    "explain": "print() 默认输出后换行，连续写两条 print 即可。"
+  },
+  {
+    "id": 43,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出 2+3 的结果。",
+    "answer": "print(2+3)",
+    "explain": "print() 可以输出表达式计算结果。"
+  },
+  {
+    "id": 44,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：I love Python!",
+    "answer": "print(\"I love Python!\")",
+    "explain": "字符串需要用引号包裹，再使用 print() 输出。"
+  },
+  {
+    "id": 45,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出数字 100。",
+    "answer": "print(100)",
+    "explain": "数字直接写在 print() 括号内即可输出。"
+  },
+  {
+    "id": 46,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出一段话：今天我学习了Python。",
+    "answer": "print(\"今天我学习了Python。\")",
+    "explain": "中文字符串也可以直接输出。"
+  },
+  {
+    "id": 47,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：3*5 的结果。",
+    "answer": "print(3*5)",
+    "explain": "乘法运算使用 * ，表达式会先计算再输出。"
+  },
+  {
+    "id": 48,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：Python is fun",
+    "answer": "print(\"Python is fun\")",
+    "explain": "输出字符串使用 print(\"...\")。"
+  },
+  {
+    "id": 49,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：A+B=C",
+    "answer": "print(\"A+B=C\")",
+    "explain": "输出内容是字符串，直接放入引号即可。"
+  },
+  {
+    "id": 50,
+    "chapter": "第一章：Python入门与编程习惯",
+    "type": "编程题",
+    "question": "编写程序输出：我正在写Python代码！",
+    "answer": "print(\"我正在写Python代码！\")",
+    "explain": "print() 可以输出任意字符串内容。"
   }
-
-  list.forEach(p => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <a href="quiz.html?paper=${p.id}">
-        📄 ${p.title}
-      </a>
-    `;
-    ul.appendChild(li);
-  });
-}
-</script>
-
-</body>
-</html>
+]
