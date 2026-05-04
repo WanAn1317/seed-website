@@ -1,0 +1,374 @@
+[
+  {
+    "id": 601,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(3):\n    print(i)",
+    "options": ["A. 0 1 2", "B. 1 2 3", "C. 0 1 2 3", "D. 3"],
+    "answer": "A",
+    "explain": "range(3)生成0,1,2，所以输出0 1 2。"
+  },
+  {
+    "id": 602,
+    "type": "选择题",
+    "question": "range(1,5) 会生成哪些数字？",
+    "options": ["A. 1 2 3 4", "B. 1 2 3 4 5", "C. 0 1 2 3 4", "D. 2 3 4 5"],
+    "answer": "A",
+    "explain": "range(1,5)从1到4，不包含5。"
+  },
+  {
+    "id": 603,
+    "type": "选择题",
+    "question": "range(2,10,3) 会生成哪些数字？",
+    "options": ["A. 2 5 8", "B. 2 3 4 5 6 7 8 9", "C. 2 6 10", "D. 5 8 11"],
+    "answer": "A",
+    "explain": "从2开始每次加3：2→5→8，到10前结束。"
+  },
+  {
+    "id": 604,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(5,0,-1):\n    print(i)",
+    "options": ["A. 5 4 3 2 1", "B. 5 4 3 2 1 0", "C. 4 3 2 1", "D. 0 1 2 3 4 5"],
+    "answer": "A",
+    "explain": "range(5,0,-1)生成5到1，不包含0。"
+  },
+  {
+    "id": 605,
+    "type": "选择题",
+    "question": "for循环最常用于哪种情况？",
+    "options": ["A. 次数不确定的循环", "B. 次数确定的循环", "C. 只能判断真假", "D. 只能做输入输出"],
+    "answer": "B",
+    "explain": "for循环通常用于次数确定或遍历序列的情况。"
+  },
+  {
+    "id": 606,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    print(i,end=' ')",
+    "options": ["A. 1 2 3 4 5", "B. 0 1 2 3 4", "C. 1 2 3 4 5 6", "D. 5 4 3 2 1"],
+    "answer": "A",
+    "explain": "range(1,6)生成1到5。"
+  },
+  {
+    "id": 607,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,6):\n    s+=i\nprint(s)",
+    "options": ["A. 15", "B. 10", "C. 20", "D. 6"],
+    "answer": "A",
+    "explain": "1+2+3+4+5=15。"
+  },
+  {
+    "id": 608,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(4):\n    print('hi')",
+    "options": ["A. 输出4次hi", "B. 输出3次hi", "C. 输出5次hi", "D. 死循环"],
+    "answer": "A",
+    "explain": "range(4)循环4次。"
+  },
+  {
+    "id": 609,
+    "type": "选择题",
+    "question": "range(0) 会生成什么？",
+    "options": ["A. 空序列", "B. 0", "C. 1", "D. 会报错"],
+    "answer": "A",
+    "explain": "range(0)不会生成任何数字。"
+  },
+  {
+    "id": 610,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==3:\n        continue\n    print(i)",
+    "options": ["A. 1 2 4 5", "B. 1 2 3 4 5", "C. 3 4 5", "D. 2 4"],
+    "answer": "A",
+    "explain": "continue会跳过i==3这一轮，所以不输出3。"
+  },
+  {
+    "id": 611,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,6):\n    if i==4:\n        break\n    print(i)",
+    "options": ["A. 1 2 3", "B. 1 2 3 4 5", "C. 4 5", "D. 1 2 3 4"],
+    "answer": "A",
+    "explain": "break会结束循环，因此输出1 2 3。"
+  },
+  {
+    "id": 612,
+    "type": "选择题",
+    "question": "continue 的作用是？",
+    "options": ["A. 结束循环", "B. 跳过本轮循环", "C. 删除变量", "D. 输出答案"],
+    "answer": "B",
+    "explain": "continue会跳过当前这一轮循环剩余代码。"
+  },
+  {
+    "id": 613,
+    "type": "选择题",
+    "question": "break 的作用是？",
+    "options": ["A. 结束整个循环", "B. 跳过本轮循环", "C. 重新开始循环", "D. 输出变量"],
+    "answer": "A",
+    "explain": "break会直接结束循环。"
+  },
+  {
+    "id": 614,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,11):\n    if i%2==0:\n        print(i)",
+    "options": ["A. 2 4 6 8 10", "B. 1 3 5 7 9", "C. 0 2 4 6 8", "D. 1 2 3 4 5"],
+    "answer": "A",
+    "explain": "i%2==0表示偶数，因此输出2 4 6 8 10。"
+  },
+  {
+    "id": 615,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ncount=0\nfor i in range(1,6):\n    count+=1\nprint(count)",
+    "options": ["A. 5", "B. 6", "C. 4", "D. 0"],
+    "answer": "A",
+    "explain": "循环5次，每次count加1，最后count为5。"
+  },
+  {
+    "id": 616,
+    "type": "选择题",
+    "question": "for循环中 i 的值会自动变化，属于什么？",
+    "options": ["A. 初始化", "B. 更新变量", "C. 条件判断", "D. 输出语句"],
+    "answer": "B",
+    "explain": "for循环会自动更新循环变量i。"
+  },
+  {
+    "id": 617,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(3):\n    for j in range(2):\n        print('*',end='')",
+    "options": ["A. 输出6个*", "B. 输出5个*", "C. 输出3个*", "D. 输出2个*"],
+    "answer": "A",
+    "explain": "外层3次，内层2次，总共6次输出。"
+  },
+  {
+    "id": 618,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(2):\n    for j in range(3):\n        print(i,j)",
+    "options": ["A. 输出6行", "B. 输出5行", "C. 输出3行", "D. 输出2行"],
+    "answer": "A",
+    "explain": "2×3=6次输出。"
+  },
+  {
+    "id": 619,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ns=0\nfor i in range(1,11):\n    if i%3==0:\n        s+=i\nprint(s)",
+    "options": ["A. 18", "B. 33", "C. 30", "D. 12"],
+    "answer": "A",
+    "explain": "1到10中能被3整除的是3、6、9，总和为18。"
+  },
+  {
+    "id": 620,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,4):\n    print(i*i)",
+    "options": ["A. 1 4 9", "B. 1 2 3", "C. 2 4 6", "D. 1 8 27"],
+    "answer": "A",
+    "explain": "i依次为1,2,3，输出平方1,4,9。"
+  },
+
+  {
+    "id": 621,
+    "type": "判断题",
+    "question": "for循环常用于遍历range()生成的序列。",
+    "answer": "正确",
+    "explain": "for i in range(...) 是最常见写法。"
+  },
+  {
+    "id": 622,
+    "type": "判断题",
+    "question": "range(5) 会生成 1 到 5。",
+    "answer": "错误",
+    "explain": "range(5)生成0到4。"
+  },
+  {
+    "id": 623,
+    "type": "判断题",
+    "question": "range(2,6) 会生成 2,3,4,5。",
+    "answer": "正确",
+    "explain": "range不包含结束值6。"
+  },
+  {
+    "id": 624,
+    "type": "判断题",
+    "question": "range(10,0,-2) 会生成 10,8,6,4,2。",
+    "answer": "正确",
+    "explain": "从10开始每次减2，直到大于0结束。"
+  },
+  {
+    "id": 625,
+    "type": "判断题",
+    "question": "for循环中循环变量必须手动加1。",
+    "answer": "错误",
+    "explain": "for循环变量会自动更新，不需要手动加1。"
+  },
+  {
+    "id": 626,
+    "type": "判断题",
+    "question": "for循环可以遍历列表、字符串等序列。",
+    "answer": "正确",
+    "explain": "例如 for x in [1,2,3] 或 for c in 'abc'。"
+  },
+  {
+    "id": 627,
+    "type": "判断题",
+    "question": "break可以用于for循环。",
+    "answer": "正确",
+    "explain": "break可以直接结束for循环。"
+  },
+  {
+    "id": 628,
+    "type": "判断题",
+    "question": "continue会结束整个for循环。",
+    "answer": "错误",
+    "explain": "continue只是跳过当前这一轮。"
+  },
+  {
+    "id": 629,
+    "type": "判断题",
+    "question": "for循环可以嵌套for循环。",
+    "answer": "正确",
+    "explain": "嵌套循环常用于二维结构。"
+  },
+  {
+    "id": 630,
+    "type": "判断题",
+    "question": "range(1,10,3) 会生成 1,4,7。",
+    "answer": "正确",
+    "explain": "从1开始每次加3，直到小于10。"
+  },
+  {
+    "id": 631,
+    "type": "判断题",
+    "question": "for循环中可以使用if判断。",
+    "answer": "正确",
+    "explain": "循环体内部可以包含if分支。"
+  },
+  {
+    "id": 632,
+    "type": "判断题",
+    "question": "for循环比while循环更适合次数确定的循环。",
+    "answer": "正确",
+    "explain": "for常用于固定次数或遍历序列。"
+  },
+  {
+    "id": 633,
+    "type": "判断题",
+    "question": "for循环只能循环数字，不能循环字符串。",
+    "answer": "错误",
+    "explain": "for可以遍历字符串中的每个字符。"
+  },
+  {
+    "id": 634,
+    "type": "判断题",
+    "question": "range(1,1) 会生成一个数字1。",
+    "answer": "错误",
+    "explain": "range(1,1)为空序列。"
+  },
+  {
+    "id": 635,
+    "type": "判断题",
+    "question": "for循环中可以使用pass作为占位符。",
+    "answer": "正确",
+    "explain": "pass表示什么也不做，用于占位。"
+  },
+  {
+    "id": 636,
+    "type": "判断题",
+    "question": "for循环可以用于统计次数。",
+    "answer": "正确",
+    "explain": "常见如 count+=1。"
+  },
+  {
+    "id": 637,
+    "type": "判断题",
+    "question": "嵌套for循环中，外层循环每执行一次，内层循环会完整执行一遍。",
+    "answer": "正确",
+    "explain": "这是嵌套循环的基本规律。"
+  },
+  {
+    "id": 638,
+    "type": "判断题",
+    "question": "break执行后，循环会立刻结束。",
+    "answer": "正确",
+    "explain": "break会跳出循环结构。"
+  },
+  {
+    "id": 639,
+    "type": "判断题",
+    "question": "continue执行后，会跳过本轮循环剩余代码。",
+    "answer": "正确",
+    "explain": "continue会进入下一轮循环。"
+  },
+  {
+    "id": 640,
+    "type": "判断题",
+    "question": "range(0,5) 和 range(5) 的结果相同。",
+    "answer": "正确",
+    "explain": "两者都生成0,1,2,3,4。"
+  },
+
+  {
+    "id": 641,
+    "type": "编程题",
+    "question": "使用 for 循环输出 1 到 10。",
+    "answer": "for i in range(1,11):\n    print(i)",
+    "explain": "range结束值不包含，因此要写11。"
+  },
+  {
+    "id": 642,
+    "type": "编程题",
+    "question": "使用 for 循环计算 1 到 10 的和并输出。",
+    "answer": "s=0\nfor i in range(1,11):\n    s+=i\nprint(s)",
+    "explain": "循环遍历1到10，每次累加到s。"
+  },
+  {
+    "id": 643,
+    "type": "编程题",
+    "question": "使用 for 循环输出 1 到 20 的所有偶数。",
+    "answer": "for i in range(1,21):\n    if i%2==0:\n        print(i)",
+    "explain": "判断i是否能被2整除即可。"
+  },
+  {
+    "id": 644,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 1 到 n 的所有数字。",
+    "answer": "n=int(input())\nfor i in range(1,n+1):\n    print(i)",
+    "explain": "range不包含结束值，因此要写n+1。"
+  },
+  {
+    "id": 645,
+    "type": "编程题",
+    "question": "输入一个整数 n，计算 1 到 n 的和并输出。",
+    "answer": "n=int(input())\ns=0\nfor i in range(1,n+1):\n    s+=i\nprint(s)",
+    "explain": "用for循环累加即可。"
+  },
+  {
+    "id": 646,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 1 到 n 中能被 3 整除的数字。",
+    "answer": "n=int(input())\nfor i in range(1,n+1):\n    if i%3==0:\n        print(i)",
+    "explain": "使用取余运算判断是否能被3整除。"
+  },
+  {
+    "id": 647,
+    "type": "编程题",
+    "question": "使用 for 循环输出 5 行 \"Python\"。",
+    "answer": "for i in range(5):\n    print(\"Python\")",
+    "explain": "range(5)循环5次，每次输出Python。"
+  },
+  {
+    "id": 648,
+    "type": "编程题",
+    "question": "使用 for 循环计算 1 到 5 的阶乘（1×2×3×4×5）并输出。",
+    "answer": "ans=1\nfor i in range(1,6):\n    ans*=i\nprint(ans)",
+    "explain": "使用ans累乘即可得到阶乘。"
+  },
+  {
+    "id": 649,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 的阶乘。",
+    "answer": "n=int(input())\nans=1\nfor i in range(1,n+1):\n    ans*=i\nprint(ans)",
+    "explain": "从1到n累乘得到n!。"
+  },
+  {
+    "id": 650,
+    "type": "编程题",
+    "question": "使用 for 循环输出 1 到 100 中所有 10 的倍数。",
+    "answer": "for i in range(10,101,10):\n    print(i)",
+    "explain": "从10开始每次加10，直到100。"
+  }
+]
