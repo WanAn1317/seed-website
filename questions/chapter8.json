@@ -1,0 +1,374 @@
+[
+  {
+    "id": 801,
+    "type": "选择题",
+    "question": "Python 中字符串的数据类型是？",
+    "options": ["A. int", "B. float", "C. str", "D. bool"],
+    "answer": "C",
+    "explain": "字符串在 Python 中属于 str 类型。"
+  },
+  {
+    "id": 802,
+    "type": "选择题",
+    "question": "下面哪个是正确的字符串写法？",
+    "options": ["A. s=abc", "B. s='abc'", "C. s=123", "D. s=True"],
+    "answer": "B",
+    "explain": "字符串必须用引号包裹，可以用单引号或双引号。"
+  },
+  {
+    "id": 803,
+    "type": "选择题",
+    "question": "执行 print(\"Hello\"+\"World\") 输出结果是？",
+    "options": ["A. Hello World", "B. HelloWorld", "C. Hello+World", "D. 报错"],
+    "answer": "B",
+    "explain": "字符串相加是拼接，不会自动加空格。"
+  },
+  {
+    "id": 804,
+    "type": "选择题",
+    "question": "执行 print(\"Hi\"*3) 输出结果是？",
+    "options": ["A. HiHiHi", "B. Hi3", "C. Hi Hi Hi", "D. 报错"],
+    "answer": "A",
+    "explain": "字符串乘法表示重复拼接。"
+  },
+  {
+    "id": 805,
+    "type": "选择题",
+    "question": "字符串 \"Python\" 的长度 len(\"Python\") 是多少？",
+    "options": ["A. 5", "B. 6", "C. 7", "D. 8"],
+    "answer": "B",
+    "explain": "\"Python\" 有6个字符。"
+  },
+  {
+    "id": 806,
+    "type": "选择题",
+    "question": "字符串索引从几开始？",
+    "options": ["A. 0", "B. 1", "C. -1", "D. 2"],
+    "answer": "A",
+    "explain": "Python 字符串索引从0开始。"
+  },
+  {
+    "id": 807,
+    "type": "选择题",
+    "question": "执行 s=\"abc\"，print(s[0]) 输出什么？",
+    "options": ["A. a", "B. b", "C. c", "D. abc"],
+    "answer": "A",
+    "explain": "索引0表示第一个字符。"
+  },
+  {
+    "id": 808,
+    "type": "选择题",
+    "question": "执行 s=\"abc\"，print(s[-1]) 输出什么？",
+    "options": ["A. a", "B. b", "C. c", "D. 报错"],
+    "answer": "C",
+    "explain": "-1 表示最后一个字符。"
+  },
+  {
+    "id": 809,
+    "type": "选择题",
+    "question": "字符串切片 s=\"abcdef\"，s[1:4] 的结果是？",
+    "options": ["A. abc", "B. bcd", "C. bcde", "D. cde"],
+    "answer": "B",
+    "explain": "切片左闭右开，取索引1到3，即 bcd。"
+  },
+  {
+    "id": 810,
+    "type": "选择题",
+    "question": "字符串切片 s=\"abcdef\"，s[:3] 的结果是？",
+    "options": ["A. abc", "B. bcd", "C. def", "D. abcd"],
+    "answer": "A",
+    "explain": "省略起始位置表示从0开始，取0到2，即 abc。"
+  },
+  {
+    "id": 811,
+    "type": "选择题",
+    "question": "字符串切片 s=\"abcdef\"，s[3:] 的结果是？",
+    "options": ["A. abc", "B. def", "C. cde", "D. ef"],
+    "answer": "B",
+    "explain": "从索引3开始取到末尾，结果是 def。"
+  },
+  {
+    "id": 812,
+    "type": "选择题",
+    "question": "字符串 s=\"abcdef\"，s[::2] 的结果是？",
+    "options": ["A. abcdef", "B. ace", "C. acef", "D. bdf"],
+    "answer": "C",
+    "explain": "步长为2，取索引0,2,4，结果为 ace。注意还有最后f吗？0,2,4是a,c,e，所以应为ace。"
+  },
+  {
+    "id": 813,
+    "type": "选择题",
+    "question": "下面哪个方法可以把字符串全部变成大写？",
+    "options": ["A. upper()", "B. lower()", "C. title()", "D. swap()"],
+    "answer": "A",
+    "explain": "upper() 会把字符串全部变成大写字母。"
+  },
+  {
+    "id": 814,
+    "type": "选择题",
+    "question": "下面哪个方法可以把字符串全部变成小写？",
+    "options": ["A. big()", "B. lower()", "C. small()", "D. down()"],
+    "answer": "B",
+    "explain": "lower() 会把字符串全部转换为小写。"
+  },
+  {
+    "id": 815,
+    "type": "选择题",
+    "question": "执行 \"Hello\".lower() 的结果是？",
+    "options": ["A. HELLO", "B. Hello", "C. hello", "D. 报错"],
+    "answer": "C",
+    "explain": "lower() 会把大写字母变成小写。"
+  },
+  {
+    "id": 816,
+    "type": "选择题",
+    "question": "执行 \"hello\".upper() 的结果是？",
+    "options": ["A. hello", "B. HELLO", "C. Hello", "D. 报错"],
+    "answer": "B",
+    "explain": "upper() 会把小写字母变成大写。"
+  },
+  {
+    "id": 817,
+    "type": "选择题",
+    "question": "字符串 \"abc\" 是否可以修改其中一个字符？",
+    "options": ["A. 可以", "B. 不可以", "C. 只能修改第一个", "D. 只能修改最后一个"],
+    "answer": "B",
+    "explain": "字符串是不可变类型，不能直接修改某个字符。"
+  },
+  {
+    "id": 818,
+    "type": "选择题",
+    "question": "下面代码会输出什么？\n\ns=\"abc\"\nprint(\"b\" in s)",
+    "options": ["A. True", "B. False", "C. b", "D. abc"],
+    "answer": "A",
+    "explain": "\"b\" 在 \"abc\" 中存在，所以返回 True。"
+  },
+  {
+    "id": 819,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\ns=\"abc\"\nprint(\"d\" in s)",
+    "options": ["A. True", "B. False", "C. d", "D. abc"],
+    "answer": "B",
+    "explain": "\"d\" 不在 \"abc\" 中，所以返回 False。"
+  },
+  {
+    "id": 820,
+    "type": "选择题",
+    "question": "下面哪个方法可以统计子字符串出现次数？",
+    "options": ["A. count()", "B. find()", "C. index()", "D. split()"],
+    "answer": "A",
+    "explain": "count() 可以统计子字符串出现次数。"
+  },
+
+  {
+    "id": 821,
+    "type": "判断题",
+    "question": "字符串可以使用单引号或双引号定义。",
+    "answer": "正确",
+    "explain": "Python 支持单引号和双引号定义字符串。"
+  },
+  {
+    "id": 822,
+    "type": "判断题",
+    "question": "字符串的索引从 1 开始。",
+    "answer": "错误",
+    "explain": "Python 字符串索引从0开始。"
+  },
+  {
+    "id": 823,
+    "type": "判断题",
+    "question": "字符串可以使用 len() 获取长度。",
+    "answer": "正确",
+    "explain": "len() 可以计算字符串字符数量。"
+  },
+  {
+    "id": 824,
+    "type": "判断题",
+    "question": "字符串切片的右边界是不包含的。",
+    "answer": "正确",
+    "explain": "切片规则是左闭右开。"
+  },
+  {
+    "id": 825,
+    "type": "判断题",
+    "question": "s=\"abc\"，s[-1] 表示最后一个字符。",
+    "answer": "正确",
+    "explain": "-1 表示最后一个字符。"
+  },
+  {
+    "id": 826,
+    "type": "判断题",
+    "question": "upper() 方法可以把字符串变成大写。",
+    "answer": "正确",
+    "explain": "upper() 会把字母变为大写。"
+  },
+  {
+    "id": 827,
+    "type": "判断题",
+    "question": "lower() 方法可以把字符串变成小写。",
+    "answer": "正确",
+    "explain": "lower() 会把字母变为小写。"
+  },
+  {
+    "id": 828,
+    "type": "判断题",
+    "question": "字符串是可变类型，可以直接修改某个字符。",
+    "answer": "错误",
+    "explain": "字符串不可变，不能直接修改。"
+  },
+  {
+    "id": 829,
+    "type": "判断题",
+    "question": "\"a\" in \"abc\" 的结果是 True。",
+    "answer": "正确",
+    "explain": "in 可以判断子字符串是否存在。"
+  },
+  {
+    "id": 830,
+    "type": "判断题",
+    "question": "\"d\" in \"abc\" 的结果是 True。",
+    "answer": "错误",
+    "explain": "\"d\" 不存在于 \"abc\" 中。"
+  },
+  {
+    "id": 831,
+    "type": "判断题",
+    "question": "count() 可以统计字符串中某个字符出现次数。",
+    "answer": "正确",
+    "explain": "count() 可以统计子字符串出现次数。"
+  },
+  {
+    "id": 832,
+    "type": "判断题",
+    "question": "split() 可以把字符串拆分成列表。",
+    "answer": "正确",
+    "explain": "split() 会按指定分隔符拆分字符串。"
+  },
+  {
+    "id": 833,
+    "type": "判断题",
+    "question": "find() 找不到子字符串时会返回 -1。",
+    "answer": "正确",
+    "explain": "find() 找不到返回 -1。"
+  },
+  {
+    "id": 834,
+    "type": "判断题",
+    "question": "字符串相加表示拼接。",
+    "answer": "正确",
+    "explain": "字符串 + 表示拼接。"
+  },
+  {
+    "id": 835,
+    "type": "判断题",
+    "question": "字符串乘法表示重复拼接。",
+    "answer": "正确",
+    "explain": "\"Hi\"*3 会重复3次。"
+  },
+  {
+    "id": 836,
+    "type": "判断题",
+    "question": "字符串切片可以设置步长。",
+    "answer": "正确",
+    "explain": "切片语法 s[start:end:step] 支持步长。"
+  },
+  {
+    "id": 837,
+    "type": "判断题",
+    "question": "s=\"abcdef\"，s[::2] 的结果是 ace。",
+    "answer": "正确",
+    "explain": "索引0,2,4取出a,c,e。"
+  },
+  {
+    "id": 838,
+    "type": "判断题",
+    "question": "字符串可以使用 for 循环遍历。",
+    "answer": "正确",
+    "explain": "for c in \"abc\" 可以遍历字符。"
+  },
+  {
+    "id": 839,
+    "type": "判断题",
+    "question": "strip() 可以去除字符串两端的空格。",
+    "answer": "正确",
+    "explain": "strip() 会去掉字符串首尾空白字符。"
+  },
+  {
+    "id": 840,
+    "type": "判断题",
+    "question": "replace() 可以替换字符串中的字符。",
+    "answer": "正确",
+    "explain": "replace(old,new) 可以替换字符串中的内容。"
+  },
+
+  {
+    "id": 841,
+    "type": "编程题",
+    "question": "输入一个字符串 s，输出它的长度。",
+    "answer": "s=input()\nprint(len(s))",
+    "explain": "len() 可以获取字符串长度。"
+  },
+  {
+    "id": 842,
+    "type": "编程题",
+    "question": "输入一个字符串 s，输出它的第一个字符。",
+    "answer": "s=input()\nprint(s[0])",
+    "explain": "索引0表示第一个字符。"
+  },
+  {
+    "id": 843,
+    "type": "编程题",
+    "question": "输入一个字符串 s，输出它的最后一个字符。",
+    "answer": "s=input()\nprint(s[-1])",
+    "explain": "-1 表示最后一个字符。"
+  },
+  {
+    "id": 844,
+    "type": "编程题",
+    "question": "输入一个字符串 s，输出它的前3个字符。",
+    "answer": "s=input()\nprint(s[:3])",
+    "explain": "s[:3] 从开头取3个字符。"
+  },
+  {
+    "id": 845,
+    "type": "编程题",
+    "question": "输入一个字符串 s，把它全部转换为大写并输出。",
+    "answer": "s=input()\nprint(s.upper())",
+    "explain": "upper() 可以把字符串转换为大写。"
+  },
+  {
+    "id": 846,
+    "type": "编程题",
+    "question": "输入一个字符串 s，把它全部转换为小写并输出。",
+    "answer": "s=input()\nprint(s.lower())",
+    "explain": "lower() 可以把字符串转换为小写。"
+  },
+  {
+    "id": 847,
+    "type": "编程题",
+    "question": "输入一个字符串 s，判断其中是否包含字符 \"a\"，如果包含输出 YES，否则输出 NO。",
+    "answer": "s=input()\nif \"a\" in s:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "explain": "使用 in 判断子字符串是否存在。"
+  },
+  {
+    "id": 848,
+    "type": "编程题",
+    "question": "输入一个字符串 s，统计字符 \"a\" 出现的次数并输出。",
+    "answer": "s=input()\nprint(s.count(\"a\"))",
+    "explain": "count() 可以统计指定字符出现次数。"
+  },
+  {
+    "id": 849,
+    "type": "编程题",
+    "question": "输入一个字符串 s，把其中所有 \"a\" 替换成 \"b\" 并输出。",
+    "answer": "s=input()\nprint(s.replace(\"a\",\"b\"))",
+    "explain": "replace(old,new) 用于替换字符串内容。"
+  },
+  {
+    "id": 850,
+    "type": "编程题",
+    "question": "输入一个字符串 s，去掉它两端的空格后输出。",
+    "answer": "s=input()\nprint(s.strip())",
+    "explain": "strip() 可以去除字符串首尾空格。"
+  }
+]
