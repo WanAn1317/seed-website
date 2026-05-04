@@ -1,0 +1,374 @@
+[
+  {
+    "id": 901,
+    "type": "选择题",
+    "question": "Python 中用于表示列表的数据类型是？",
+    "options": ["A. str", "B. list", "C. dict", "D. tuple"],
+    "answer": "B",
+    "explain": "列表在 Python 中属于 list 类型。"
+  },
+  {
+    "id": 902,
+    "type": "选择题",
+    "question": "下面哪个是正确的列表写法？",
+    "options": ["A. a=(1,2,3)", "B. a={1,2,3}", "C. a=[1,2,3]", "D. a=1,2,3"],
+    "answer": "C",
+    "explain": "列表使用中括号 [] 表示。"
+  },
+  {
+    "id": 903,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，print(a[0]) 输出什么？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 报错"],
+    "answer": "A",
+    "explain": "列表索引从0开始，a[0]表示第一个元素。"
+  },
+  {
+    "id": 904,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，print(a[-1]) 输出什么？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 报错"],
+    "answer": "C",
+    "explain": "-1 表示最后一个元素。"
+  },
+  {
+    "id": 905,
+    "type": "选择题",
+    "question": "执行 a=[10,20,30,40]，a[1:3] 的结果是？",
+    "options": ["A. [10,20,30]", "B. [20,30]", "C. [30,40]", "D. [20,30,40]"],
+    "answer": "B",
+    "explain": "切片左闭右开，索引1到2，结果为[20,30]。"
+  },
+  {
+    "id": 906,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，len(a) 的结果是？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "answer": "C",
+    "explain": "列表有3个元素，所以长度为3。"
+  },
+  {
+    "id": 907,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.append(4) 后 a 的结果是？",
+    "options": ["A. [1,2,3]", "B. [4,1,2,3]", "C. [1,2,3,4]", "D. [1,2,4]"],
+    "answer": "C",
+    "explain": "append() 会把元素添加到列表末尾。"
+  },
+  {
+    "id": 908,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.insert(1,99) 后 a 的结果是？",
+    "options": ["A. [99,1,2,3]", "B. [1,99,2,3]", "C. [1,2,99,3]", "D. [1,2,3,99]"],
+    "answer": "B",
+    "explain": "insert(位置,元素) 会在指定索引插入元素。"
+  },
+  {
+    "id": 909,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.pop() 的返回值是？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. [1,2]"],
+    "answer": "C",
+    "explain": "pop() 默认删除并返回最后一个元素。"
+  },
+  {
+    "id": 910,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.pop(0) 的返回值是？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. [2,3]"],
+    "answer": "A",
+    "explain": "pop(0) 删除并返回索引0的元素，即第一个元素1。"
+  },
+  {
+    "id": 911,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3,2]，a.remove(2) 后 a 的结果是？",
+    "options": ["A. [1,3,2]", "B. [1,2,3]", "C. [1,3]", "D. [1,2,3,2]"],
+    "answer": "A",
+    "explain": "remove(x) 只会删除第一个出现的x。"
+  },
+  {
+    "id": 912,
+    "type": "选择题",
+    "question": "执行 a=[3,1,2]，a.sort() 后 a 的结果是？",
+    "options": ["A. [3,2,1]", "B. [1,2,3]", "C. [2,1,3]", "D. 不变"],
+    "answer": "B",
+    "explain": "sort() 默认从小到大排序。"
+  },
+  {
+    "id": 913,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.reverse() 后 a 的结果是？",
+    "options": ["A. [1,2,3]", "B. [3,2,1]", "C. [2,1,3]", "D. 报错"],
+    "answer": "B",
+    "explain": "reverse() 会将列表元素顺序反转。"
+  },
+  {
+    "id": 914,
+    "type": "选择题",
+    "question": "下面哪个方法可以统计列表中某个元素出现次数？",
+    "options": ["A. count()", "B. find()", "C. index()", "D. append()"],
+    "answer": "A",
+    "explain": "count() 用于统计元素出现次数。"
+  },
+  {
+    "id": 915,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，print(2 in a) 输出什么？",
+    "options": ["A. True", "B. False", "C. 2", "D. 报错"],
+    "answer": "A",
+    "explain": "in 可以判断元素是否在列表中。"
+  },
+  {
+    "id": 916,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，print(5 in a) 输出什么？",
+    "options": ["A. True", "B. False", "C. 5", "D. 报错"],
+    "answer": "B",
+    "explain": "5 不在列表中，所以输出 False。"
+  },
+  {
+    "id": 917,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，b=a，b.append(4) 后 a 的结果是？",
+    "options": ["A. [1,2,3]", "B. [1,2,3,4]", "C. [4,1,2,3]", "D. 报错"],
+    "answer": "B",
+    "explain": "b=a 表示引用同一个列表，修改b会影响a。"
+  },
+  {
+    "id": 918,
+    "type": "选择题",
+    "question": "下面哪种写法可以复制列表 a 的内容？",
+    "options": ["A. b=a", "B. b=a.copy()", "C. b=a.append()", "D. b=a.sort()"],
+    "answer": "B",
+    "explain": "copy() 可以创建一个新的列表副本。"
+  },
+  {
+    "id": 919,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，b=a.copy()，b.append(9) 后 a 的结果是？",
+    "options": ["A. [1,2,3]", "B. [1,2,3,9]", "C. [9,1,2,3]", "D. 报错"],
+    "answer": "A",
+    "explain": "copy() 得到新列表，修改b不会影响a。"
+  },
+  {
+    "id": 920,
+    "type": "选择题",
+    "question": "执行 a=[1,2,3]，a.clear() 后 a 的结果是？",
+    "options": ["A. [1,2,3]", "B. []", "C. None", "D. 报错"],
+    "answer": "B",
+    "explain": "clear() 会清空列表所有元素。"
+  },
+
+  {
+    "id": 921,
+    "type": "判断题",
+    "question": "列表使用中括号 [] 来表示。",
+    "answer": "正确",
+    "explain": "列表的定义方式是 []。"
+  },
+  {
+    "id": 922,
+    "type": "判断题",
+    "question": "列表的索引从 1 开始。",
+    "answer": "错误",
+    "explain": "列表索引从0开始。"
+  },
+  {
+    "id": 923,
+    "type": "判断题",
+    "question": "列表是可变类型，可以修改元素。",
+    "answer": "正确",
+    "explain": "列表支持修改元素，例如 a[0]=100。"
+  },
+  {
+    "id": 924,
+    "type": "判断题",
+    "question": "append() 会把元素添加到列表末尾。",
+    "answer": "正确",
+    "explain": "append(x) 在列表末尾添加元素。"
+  },
+  {
+    "id": 925,
+    "type": "判断题",
+    "question": "insert() 可以在指定位置插入元素。",
+    "answer": "正确",
+    "explain": "insert(index,value) 可在指定索引插入。"
+  },
+  {
+    "id": 926,
+    "type": "判断题",
+    "question": "pop() 默认删除并返回列表第一个元素。",
+    "answer": "错误",
+    "explain": "pop() 默认删除最后一个元素。"
+  },
+  {
+    "id": 927,
+    "type": "判断题",
+    "question": "remove(x) 会删除列表中第一个出现的 x。",
+    "answer": "正确",
+    "explain": "remove只删除第一个匹配值。"
+  },
+  {
+    "id": 928,
+    "type": "判断题",
+    "question": "sort() 默认会把列表按从小到大排序。",
+    "answer": "正确",
+    "explain": "sort() 默认升序排序。"
+  },
+  {
+    "id": 929,
+    "type": "判断题",
+    "question": "reverse() 会对列表进行排序。",
+    "answer": "错误",
+    "explain": "reverse() 只是反转顺序，不是排序。"
+  },
+  {
+    "id": 930,
+    "type": "判断题",
+    "question": "len() 可以获取列表长度。",
+    "answer": "正确",
+    "explain": "len(list) 返回列表元素个数。"
+  },
+  {
+    "id": 931,
+    "type": "判断题",
+    "question": "in 可以判断某个元素是否在列表中。",
+    "answer": "正确",
+    "explain": "例如 3 in [1,2,3] 为 True。"
+  },
+  {
+    "id": 932,
+    "type": "判断题",
+    "question": "列表可以存放不同类型的数据。",
+    "answer": "正确",
+    "explain": "列表可以混合存放int、str等类型。"
+  },
+  {
+    "id": 933,
+    "type": "判断题",
+    "question": "b=a 会复制列表内容，修改b不会影响a。",
+    "answer": "错误",
+    "explain": "b=a 只是引用同一个列表，修改会互相影响。"
+  },
+  {
+    "id": 934,
+    "type": "判断题",
+    "question": "copy() 可以复制列表。",
+    "answer": "正确",
+    "explain": "copy() 会创建一个新的列表副本。"
+  },
+  {
+    "id": 935,
+    "type": "判断题",
+    "question": "clear() 会清空列表所有元素。",
+    "answer": "正确",
+    "explain": "clear() 执行后列表变为空列表。"
+  },
+  {
+    "id": 936,
+    "type": "判断题",
+    "question": "count() 可以统计列表中某个元素出现次数。",
+    "answer": "正确",
+    "explain": "count(x) 返回x出现次数。"
+  },
+  {
+    "id": 937,
+    "type": "判断题",
+    "question": "列表可以使用 for 循环遍历。",
+    "answer": "正确",
+    "explain": "for x in list 可以遍历列表元素。"
+  },
+  {
+    "id": 938,
+    "type": "判断题",
+    "question": "列表切片和字符串切片规则一样，也是左闭右开。",
+    "answer": "正确",
+    "explain": "切片规则一致。"
+  },
+  {
+    "id": 939,
+    "type": "判断题",
+    "question": "pop(index) 可以删除指定索引的元素。",
+    "answer": "正确",
+    "explain": "pop(index) 删除并返回指定位置元素。"
+  },
+  {
+    "id": 940,
+    "type": "判断题",
+    "question": "sort() 会返回排序后的新列表。",
+    "answer": "错误",
+    "explain": "sort() 会直接修改原列表，返回 None。"
+  },
+
+  {
+    "id": 941,
+    "type": "编程题",
+    "question": "创建一个列表 a=[1,2,3]，输出它。",
+    "answer": "a=[1,2,3]\nprint(a)",
+    "explain": "列表使用[]定义，print输出即可。"
+  },
+  {
+    "id": 942,
+    "type": "编程题",
+    "question": "输入3个整数，存入列表并输出列表。",
+    "answer": "a=[]\na.append(int(input()))\na.append(int(input()))\na.append(int(input()))\nprint(a)",
+    "explain": "使用append依次添加元素。"
+  },
+  {
+    "id": 943,
+    "type": "编程题",
+    "question": "创建列表 a=[10,20,30]，输出第二个元素。",
+    "answer": "a=[10,20,30]\nprint(a[1])",
+    "explain": "索引从0开始，第二个元素索引为1。"
+  },
+  {
+    "id": 944,
+    "type": "编程题",
+    "question": "创建列表 a=[1,2,3]，在末尾添加元素 4，并输出列表。",
+    "answer": "a=[1,2,3]\na.append(4)\nprint(a)",
+    "explain": "append会把元素加到列表末尾。"
+  },
+  {
+    "id": 945,
+    "type": "编程题",
+    "question": "创建列表 a=[1,2,3]，删除最后一个元素并输出列表。",
+    "answer": "a=[1,2,3]\na.pop()\nprint(a)",
+    "explain": "pop默认删除最后一个元素。"
+  },
+  {
+    "id": 946,
+    "type": "编程题",
+    "question": "输入一个整数 n，创建一个列表保存 1 到 n，并输出该列表。",
+    "answer": "n=int(input())\na=[]\nfor i in range(1,n+1):\n    a.append(i)\nprint(a)",
+    "explain": "循环生成1到n并append进列表。"
+  },
+  {
+    "id": 947,
+    "type": "编程题",
+    "question": "输入一个列表 a=[1,2,3,4,5]，输出其中所有元素的和。",
+    "answer": "a=[1,2,3,4,5]\nprint(sum(a))",
+    "explain": "sum() 可以直接求列表元素和。"
+  },
+  {
+    "id": 948,
+    "type": "编程题",
+    "question": "创建列表 a=[3,1,2]，将其排序后输出。",
+    "answer": "a=[3,1,2]\na.sort()\nprint(a)",
+    "explain": "sort() 会直接修改列表顺序。"
+  },
+  {
+    "id": 949,
+    "type": "编程题",
+    "question": "创建列表 a=[1,2,3]，反转列表并输出。",
+    "answer": "a=[1,2,3]\na.reverse()\nprint(a)",
+    "explain": "reverse() 会反转列表元素顺序。"
+  },
+  {
+    "id": 950,
+    "type": "编程题",
+    "question": "输入一个整数 x，判断 x 是否在列表 [1,2,3,4,5] 中，如果在输出 YES，否则输出 NO。",
+    "answer": "x=int(input())\na=[1,2,3,4,5]\nif x in a:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+    "explain": "使用 in 判断元素是否存在于列表中。"
+  }
+]
