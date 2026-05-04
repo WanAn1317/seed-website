@@ -1,0 +1,374 @@
+[
+  {
+    "id": 1201,
+    "type": "选择题",
+    "question": "Python 中字典的数据类型是？",
+    "options": ["A. list", "B. tuple", "C. dict", "D. set"],
+    "answer": "C",
+    "explain": "字典在 Python 中属于 dict 类型。"
+  },
+  {
+    "id": 1202,
+    "type": "选择题",
+    "question": "下面哪个是正确的字典写法？",
+    "options": ["A. d=(\"a\":1,\"b\":2)", "B. d={\"a\":1,\"b\":2}", "C. d=[\"a\":1,\"b\":2]", "D. d={\"a\",1,\"b\",2}"],
+    "answer": "B",
+    "explain": "字典使用大括号 {}，键值对用冒号连接。"
+  },
+  {
+    "id": 1203,
+    "type": "选择题",
+    "question": "字典中存储数据的方式是？",
+    "options": ["A. 按顺序存储", "B. 按索引存储", "C. 键值对存储", "D. 按大小存储"],
+    "answer": "C",
+    "explain": "字典是通过 key:value 键值对来存储数据。"
+  },
+  {
+    "id": 1204,
+    "type": "选择题",
+    "question": "执行 d={\"name\":\"Tom\",\"age\":12}，d[\"name\"] 的结果是？",
+    "options": ["A. Tom", "B. name", "C. 12", "D. 报错"],
+    "answer": "A",
+    "explain": "通过 key 访问 value，d[\"name\"] 对应 \"Tom\"。"
+  },
+  {
+    "id": 1205,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d[\"c\"]=3 后 d 的结果是？",
+    "options": ["A. {\"a\":1,\"b\":2}", "B. {\"a\":1,\"b\":2,\"c\":3}", "C. {\"c\":3}", "D. 报错"],
+    "answer": "B",
+    "explain": "给不存在的 key 赋值会新增键值对。"
+  },
+  {
+    "id": 1206,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d[\"a\"]=99 后 d 的结果是？",
+    "options": ["A. {\"a\":1,\"b\":2}", "B. {\"a\":99,\"b\":2}", "C. {\"a\":1,\"b\":99}", "D. 报错"],
+    "answer": "B",
+    "explain": "给已有 key 赋值会覆盖原来的 value。"
+  },
+  {
+    "id": 1207,
+    "type": "选择题",
+    "question": "下面哪个方法可以获取字典中所有的 key？",
+    "options": ["A. keys()", "B. values()", "C. items()", "D. get()"],
+    "answer": "A",
+    "explain": "keys() 可以返回字典所有键。"
+  },
+  {
+    "id": 1208,
+    "type": "选择题",
+    "question": "下面哪个方法可以获取字典中所有的 value？",
+    "options": ["A. keys()", "B. values()", "C. items()", "D. get()"],
+    "answer": "B",
+    "explain": "values() 可以返回字典所有值。"
+  },
+  {
+    "id": 1209,
+    "type": "选择题",
+    "question": "下面哪个方法可以获取字典中所有的键值对？",
+    "options": ["A. keys()", "B. values()", "C. items()", "D. find()"],
+    "answer": "C",
+    "explain": "items() 返回 (key,value) 键值对。"
+  },
+  {
+    "id": 1210,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d.get(\"c\") 的结果是？",
+    "options": ["A. 0", "B. None", "C. 报错", "D. 2"],
+    "answer": "B",
+    "explain": "get() 访问不存在的 key 不会报错，会返回 None。"
+  },
+  {
+    "id": 1211,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d.get(\"c\",0) 的结果是？",
+    "options": ["A. None", "B. 0", "C. 报错", "D. 2"],
+    "answer": "B",
+    "explain": "get(key,默认值)，如果 key 不存在返回默认值0。"
+  },
+  {
+    "id": 1212,
+    "type": "选择题",
+    "question": "判断 key 是否在字典中，可以使用？",
+    "options": ["A. in", "B. find()", "C. index()", "D. count()"],
+    "answer": "A",
+    "explain": "\"a\" in d 可以判断键是否存在。"
+  },
+  {
+    "id": 1213,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，print(\"a\" in d) 输出什么？",
+    "options": ["A. True", "B. False", "C. 1", "D. 报错"],
+    "answer": "A",
+    "explain": "\"a\" 是字典的 key，所以结果是 True。"
+  },
+  {
+    "id": 1214,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，print(1 in d) 输出什么？",
+    "options": ["A. True", "B. False", "C. 1", "D. 报错"],
+    "answer": "B",
+    "explain": "in 判断的是 key，字典的 key 是 \"a\" \"b\"，不是 1。"
+  },
+  {
+    "id": 1215,
+    "type": "选择题",
+    "question": "删除字典中某个 key 的常用方法是？",
+    "options": ["A. pop()", "B. remove()", "C. delete()", "D. clearall()"],
+    "answer": "A",
+    "explain": "pop(key) 可以删除指定键并返回对应值。"
+  },
+  {
+    "id": 1216,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d.pop(\"a\") 后 d 的结果是？",
+    "options": ["A. {\"a\":1,\"b\":2}", "B. {\"b\":2}", "C. {\"a\":1}", "D. {}"],
+    "answer": "B",
+    "explain": "pop(\"a\") 删除 key 为 a 的键值对。"
+  },
+  {
+    "id": 1217,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，d.clear() 后 d 的结果是？",
+    "options": ["A. {\"a\":1,\"b\":2}", "B. {\"b\":2}", "C. {}", "D. None"],
+    "answer": "C",
+    "explain": "clear() 会清空字典所有内容。"
+  },
+  {
+    "id": 1218,
+    "type": "选择题",
+    "question": "字典的 key 可以重复吗？",
+    "options": ["A. 可以", "B. 不可以", "C. 只能重复一次", "D. 只能重复数字key"],
+    "answer": "B",
+    "explain": "字典的 key 必须唯一，重复 key 会覆盖旧值。"
+  },
+  {
+    "id": 1219,
+    "type": "选择题",
+    "question": "字典的 value 可以重复吗？",
+    "options": ["A. 可以", "B. 不可以", "C. 只能重复字符串", "D. 只能重复数字"],
+    "answer": "A",
+    "explain": "字典 value 可以重复。"
+  },
+  {
+    "id": 1220,
+    "type": "选择题",
+    "question": "执行 d={\"a\":1,\"b\":2}，len(d) 的结果是？",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "answer": "B",
+    "explain": "字典中有2个键值对。"
+  },
+
+  {
+    "id": 1221,
+    "type": "判断题",
+    "question": "字典是通过键值对(key:value)存储数据的。",
+    "answer": "正确",
+    "explain": "dict 的基本结构就是 key:value。"
+  },
+  {
+    "id": 1222,
+    "type": "判断题",
+    "question": "字典中的 key 可以重复。",
+    "answer": "错误",
+    "explain": "字典 key 必须唯一，重复会覆盖。"
+  },
+  {
+    "id": 1223,
+    "type": "判断题",
+    "question": "字典中的 value 可以重复。",
+    "answer": "正确",
+    "explain": "value 没有限制，可以相同。"
+  },
+  {
+    "id": 1224,
+    "type": "判断题",
+    "question": "字典可以使用 d[key] 来访问 value。",
+    "answer": "正确",
+    "explain": "d[\"name\"] 可以取出对应 value。"
+  },
+  {
+    "id": 1225,
+    "type": "判断题",
+    "question": "如果访问字典中不存在的 key，会报错。",
+    "answer": "正确",
+    "explain": "直接 d[\"xxx\"] 会报 KeyError。"
+  },
+  {
+    "id": 1226,
+    "type": "判断题",
+    "question": "get() 访问不存在的 key 不会报错。",
+    "answer": "正确",
+    "explain": "get() 不存在返回 None 或默认值。"
+  },
+  {
+    "id": 1227,
+    "type": "判断题",
+    "question": "keys() 方法可以获取字典的所有 key。",
+    "answer": "正确",
+    "explain": "keys() 返回所有键。"
+  },
+  {
+    "id": 1228,
+    "type": "判断题",
+    "question": "values() 方法可以获取字典的所有 value。",
+    "answer": "正确",
+    "explain": "values() 返回所有值。"
+  },
+  {
+    "id": 1229,
+    "type": "判断题",
+    "question": "items() 方法可以获取字典所有键值对。",
+    "answer": "正确",
+    "explain": "items() 返回 (key,value) 形式。"
+  },
+  {
+    "id": 1230,
+    "type": "判断题",
+    "question": "in 运算符可以判断某个 key 是否在字典中。",
+    "answer": "正确",
+    "explain": "\"a\" in d 判断 key。"
+  },
+  {
+    "id": 1231,
+    "type": "判断题",
+    "question": "in 运算符判断的是字典中的 value。",
+    "answer": "错误",
+    "explain": "in 判断的是 key，不是 value。"
+  },
+  {
+    "id": 1232,
+    "type": "判断题",
+    "question": "pop(key) 可以删除字典中指定 key。",
+    "answer": "正确",
+    "explain": "pop 删除并返回对应 value。"
+  },
+  {
+    "id": 1233,
+    "type": "判断题",
+    "question": "clear() 会清空字典所有内容。",
+    "answer": "正确",
+    "explain": "clear() 后字典变成空字典。"
+  },
+  {
+    "id": 1234,
+    "type": "判断题",
+    "question": "len(d) 可以得到字典中键值对数量。",
+    "answer": "正确",
+    "explain": "len() 统计字典键值对数量。"
+  },
+  {
+    "id": 1235,
+    "type": "判断题",
+    "question": "字典的 key 必须是可变类型。",
+    "answer": "错误",
+    "explain": "key 必须是不可变类型，比如字符串、数字、元组。"
+  },
+  {
+    "id": 1236,
+    "type": "判断题",
+    "question": "字典的 key 可以是字符串。",
+    "answer": "正确",
+    "explain": "字符串是常见 key 类型。"
+  },
+  {
+    "id": 1237,
+    "type": "判断题",
+    "question": "字典的 key 可以是列表。",
+    "answer": "错误",
+    "explain": "列表是可变类型，不能作为 key。"
+  },
+  {
+    "id": 1238,
+    "type": "判断题",
+    "question": "字典可以存放不同类型的 value。",
+    "answer": "正确",
+    "explain": "value 可以是数字、字符串、列表等。"
+  },
+  {
+    "id": 1239,
+    "type": "判断题",
+    "question": "字典中的键值对是有顺序的。",
+    "answer": "正确",
+    "explain": "Python3.7+ 字典会保持插入顺序。"
+  },
+  {
+    "id": 1240,
+    "type": "判断题",
+    "question": "字典不能嵌套使用。",
+    "answer": "错误",
+    "explain": "字典可以嵌套字典或列表。"
+  },
+
+  {
+    "id": 1241,
+    "type": "编程题",
+    "question": "创建字典 d={\"name\":\"Tom\",\"age\":12}，输出 d。",
+    "answer": "d={\"name\":\"Tom\",\"age\":12}\nprint(d)",
+    "explain": "字典使用{}定义，print输出即可。"
+  },
+  {
+    "id": 1242,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2}，输出 key 为 \"a\" 的值。",
+    "answer": "d={\"a\":1,\"b\":2}\nprint(d[\"a\"])",
+    "explain": "使用 d[key] 访问对应 value。"
+  },
+  {
+    "id": 1243,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2}，新增键值对 \"c\":3，并输出字典。",
+    "answer": "d={\"a\":1,\"b\":2}\nd[\"c\"]=3\nprint(d)",
+    "explain": "对不存在的 key 赋值即可新增。"
+  },
+  {
+    "id": 1244,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2}，把 \"a\" 对应的值改成 99，并输出字典。",
+    "answer": "d={\"a\":1,\"b\":2}\nd[\"a\"]=99\nprint(d)",
+    "explain": "给已有 key 赋值会覆盖原 value。"
+  },
+  {
+    "id": 1245,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2}，删除 key 为 \"b\" 的键值对，并输出字典。",
+    "answer": "d={\"a\":1,\"b\":2}\nd.pop(\"b\")\nprint(d)",
+    "explain": "pop(key) 删除指定键值对。"
+  },
+  {
+    "id": 1246,
+    "type": "编程题",
+    "question": "输入一个字符串 s，统计每个字符出现的次数，并输出字典。",
+    "answer": "s=input()\nd={}\nfor c in s:\n    if c in d:\n        d[c]+=1\n    else:\n        d[c]=1\nprint(d)",
+    "explain": "用字典统计频率：存在则+1，不存在则初始化为1。"
+  },
+  {
+    "id": 1247,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2,\"c\":3}，输出所有 key。",
+    "answer": "d={\"a\":1,\"b\":2,\"c\":3}\nprint(d.keys())",
+    "explain": "keys() 返回所有键。"
+  },
+  {
+    "id": 1248,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2,\"c\":3}，输出所有 value。",
+    "answer": "d={\"a\":1,\"b\":2,\"c\":3}\nprint(d.values())",
+    "explain": "values() 返回所有值。"
+  },
+  {
+    "id": 1249,
+    "type": "编程题",
+    "question": "创建字典 d={\"a\":1,\"b\":2,\"c\":3}，输出所有键值对。",
+    "answer": "d={\"a\":1,\"b\":2,\"c\":3}\nprint(d.items())",
+    "explain": "items() 返回所有键值对。"
+  },
+  {
+    "id": 1250,
+    "type": "编程题",
+    "question": "输入一个名字 name，如果字典 d={\"Tom\":90,\"Lucy\":95} 中有这个名字，输出分数，否则输出 0。",
+    "answer": "name=input()\nd={\"Tom\":90,\"Lucy\":95}\nprint(d.get(name,0))",
+    "explain": "get(name,0) 如果不存在就返回0。"
+  }
+]
