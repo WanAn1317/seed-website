@@ -5,20 +5,370 @@
     "question": "Python 程序文件最常见的扩展名是？",
     "options": ["A. .java", "B. .py", "C. .cpp", "D. .txt"],
     "answer": "B",
-    "explain": "Python 源代码文件通常使用 .py 作为扩展名。"
+    "explain": "Python 源代码文件通常以 .py 作为扩展名。"
   },
   {
     "id": 2,
-    "type": "判断题",
-    "question": "Python 是一门解释型语言。",
-    "answer": "正确",
-    "explain": "Python 运行时由解释器逐行解释执行。"
+    "type": "选择题",
+    "question": "下列哪条语句可以输出 Hello？",
+    "options": ["A. input(\"Hello\")", "B. print(\"Hello\")", "C. printf(\"Hello\")", "D. echo(\"Hello\")"],
+    "answer": "B",
+    "explain": "Python 中输出使用 print() 函数。"
   },
   {
     "id": 3,
+    "type": "选择题",
+    "question": "Python 中用于写单行注释的符号是？",
+    "options": ["A. //", "B. <!-- -->", "C. #", "D. **"],
+    "answer": "C",
+    "explain": "Python 单行注释以 # 开头。"
+  },
+  {
+    "id": 4,
+    "type": "选择题",
+    "question": "Python 中代码块主要通过什么来表示？",
+    "options": ["A. 大括号 {}", "B. 小括号 ()", "C. 缩进", "D. 分号 ;"],
+    "answer": "C",
+    "explain": "Python 使用缩进表示代码块结构，这是它的重要语法特点。"
+  },
+  {
+    "id": 5,
+    "type": "选择题",
+    "question": "下列哪个不是常见的 Python 编程环境？",
+    "options": ["A. IDLE", "B. PyCharm", "C. VS Code", "D. PowerPoint"],
+    "answer": "D",
+    "explain": "PowerPoint 是制作演示文稿的软件，不是编程开发环境。"
+  },
+  {
+    "id": 6,
+    "type": "选择题",
+    "question": "Python 语句结束是否必须写分号 ;？",
+    "options": ["A. 必须", "B. 不允许写分号", "C. 通常不需要", "D. 必须写冒号 :"],
+    "answer": "C",
+    "explain": "Python 一般不需要分号结束语句，换行即代表语句结束。"
+  },
+  {
+    "id": 7,
+    "type": "选择题",
+    "question": "运行 Python 程序出现 SyntaxError 通常表示？",
+    "options": ["A. 语法错误", "B. 网络错误", "C. 内存不足", "D. 硬件损坏"],
+    "answer": "A",
+    "explain": "SyntaxError 是语法错误，例如括号不匹配、缺少冒号等。"
+  },
+  {
+    "id": 8,
+    "type": "选择题",
+    "question": "print(2 + 3) 的输出结果是？",
+    "options": ["A. 23", "B. 5", "C. 2+3", "D. 报错"],
+    "answer": "B",
+    "explain": "表达式 2+3 会先计算得到 5，再输出。"
+  },
+  {
+    "id": 9,
+    "type": "选择题",
+    "question": "以下哪项属于 Python 的特点？",
+    "options": ["A. 语法复杂", "B. 代码可读性强", "C. 必须编译运行", "D. 只能用于写游戏"],
+    "answer": "B",
+    "explain": "Python 语法简洁，代码可读性强，适合初学者。"
+  },
+  {
+    "id": 10,
+    "type": "选择题",
+    "question": "print(\"Hi\") 中的 \"Hi\" 属于什么类型？",
+    "options": ["A. 整数", "B. 字符串", "C. 小数", "D. 布尔值"],
+    "answer": "B",
+    "explain": "用引号包裹的内容是字符串类型。"
+  },
+  {
+    "id": 11,
+    "type": "选择题",
+    "question": "Python 是大小写敏感语言，以下哪组说法正确？",
+    "options": ["A. Print 和 print 完全一样", "B. print 和 PRINT 完全一样", "C. print 和 Print 是不同的", "D. Python 不区分大小写"],
+    "answer": "C",
+    "explain": "Python 区分大小写，print 是正确函数名，Print 会报错。"
+  },
+  {
+    "id": 12,
+    "type": "选择题",
+    "question": "下面哪项属于良好的编程习惯？",
+    "options": ["A. 不写注释", "B. 缩进混乱", "C. 代码整齐易读", "D. 变量名随便写"],
+    "answer": "C",
+    "explain": "良好的缩进和排版能提高可读性，是编程的重要习惯。"
+  },
+  {
+    "id": 13,
+    "type": "选择题",
+    "question": "Python 交互式环境一般指的是？",
+    "options": ["A. Python Shell", "B. Word 文档", "C. 图片编辑器", "D. 浏览器"],
+    "answer": "A",
+    "explain": "Python Shell 支持一行一行输入代码并立即运行。"
+  },
+  {
+    "id": 14,
+    "type": "选择题",
+    "question": "以下哪个是 Python 输出语句的正确写法？",
+    "options": ["A. print Hello", "B. print(\"Hello\")", "C. Print(\"Hello\")", "D. printf(\"Hello\")"],
+    "answer": "B",
+    "explain": "print 必须小写且需要括号，字符串需要引号。"
+  },
+  {
+    "id": 15,
+    "type": "选择题",
+    "question": "在 Python 中出现 IndentationError 一般是什么原因？",
+    "options": ["A. 网络不稳定", "B. 缩进错误", "C. 文件丢失", "D. 输入法问题"],
+    "answer": "B",
+    "explain": "IndentationError 是缩进错误，Python 对缩进要求严格。"
+  },
+  {
+    "id": 16,
+    "type": "选择题",
+    "question": "下列哪项属于 Python 的用途？",
+    "options": ["A. 人工智能", "B. 数据分析", "C. 网站开发", "D. 以上都是"],
+    "answer": "D",
+    "explain": "Python 可用于 AI、数据分析、爬虫、网站开发等多个领域。"
+  },
+  {
+    "id": 17,
+    "type": "选择题",
+    "question": "如果要输出一句话：我爱Python，正确写法是？",
+    "options": ["A. print(我爱Python)", "B. print(\"我爱Python\")", "C. print('我爱Python)", "D. Print(\"我爱Python\")"],
+    "answer": "B",
+    "explain": "字符串必须用引号包裹，print 必须小写。"
+  },
+  {
+    "id": 18,
+    "type": "选择题",
+    "question": "Python 中多行注释常用的写法是？",
+    "options": ["A. ### 注释 ###", "B. /* 注释 */", "C. '''注释''' 或 \"\"\"注释\"\"\"", "D. // 注释"],
+    "answer": "C",
+    "explain": "Python 中多行注释常用三引号 ''' ''' 或 \"\"\" \"\"\"。"
+  },
+  {
+    "id": 19,
+    "type": "选择题",
+    "question": "运行 Python 程序的正确方式是？",
+    "options": ["A. 用浏览器打开 .py 文件", "B. 用 Python 解释器运行 .py 文件", "C. 用 Excel 打开 .py 文件", "D. 用 PPT 打开 .py 文件"],
+    "answer": "B",
+    "explain": "Python 程序需要由 Python 解释器执行运行。"
+  },
+  {
+    "id": 20,
+    "type": "选择题",
+    "question": "以下哪条说法正确？",
+    "options": ["A. Python 必须先编译成 exe 才能运行", "B. Python 程序可以直接运行", "C. Python 只能在 Linux 上运行", "D. Python 不能输出文字"],
+    "answer": "B",
+    "explain": "Python 属于解释型语言，可以直接运行源代码。"
+  },
+
+  {
+    "id": 21,
+    "type": "判断题",
+    "question": "Python 是一种解释型语言。",
+    "answer": "正确",
+    "explain": "解释型语言不需要先编译，运行时由解释器逐行执行。"
+  },
+  {
+    "id": 22,
+    "type": "判断题",
+    "question": "Python 中 print() 用于输出内容。",
+    "answer": "正确",
+    "explain": "print() 是 Python 中最常用的输出函数。"
+  },
+  {
+    "id": 23,
+    "type": "判断题",
+    "question": "Python 程序中缩进只是为了美观，不影响运行。",
+    "answer": "错误",
+    "explain": "Python 用缩进表示代码块，缩进不正确会导致程序报错。"
+  },
+  {
+    "id": 24,
+    "type": "判断题",
+    "question": "Python 中可以用 # 写单行注释。",
+    "answer": "正确",
+    "explain": "单行注释以 # 开头，解释器会忽略注释内容。"
+  },
+  {
+    "id": 25,
+    "type": "判断题",
+    "question": "Python 中 print(\"A\") 和 print('A') 输出效果一样。",
+    "answer": "正确",
+    "explain": "单引号和双引号都可以表示字符串。"
+  },
+  {
+    "id": 26,
+    "type": "判断题",
+    "question": "Python 中变量名可以以数字开头。",
+    "answer": "错误",
+    "explain": "变量名不能以数字开头，否则会报语法错误。"
+  },
+  {
+    "id": 27,
+    "type": "判断题",
+    "question": "Python 是大小写敏感的语言。",
+    "answer": "正确",
+    "explain": "Python 区分大小写，例如 print 和 Print 是不同的。"
+  },
+  {
+    "id": 28,
+    "type": "判断题",
+    "question": "SyntaxError 表示程序运行速度太慢。",
+    "answer": "错误",
+    "explain": "SyntaxError 表示语法错误，不是运行速度问题。"
+  },
+  {
+    "id": 29,
+    "type": "判断题",
+    "question": "Python 程序文件扩展名一般是 .py。",
+    "answer": "正确",
+    "explain": ".py 是 Python 文件的标准扩展名。"
+  },
+  {
+    "id": 30,
+    "type": "判断题",
+    "question": "Python 的代码块通常用缩进来表示。",
+    "answer": "正确",
+    "explain": "Python 不用大括号，而是通过缩进表示结构。"
+  },
+  {
+    "id": 31,
+    "type": "判断题",
+    "question": "IDLE 是 Python 自带的一个简单开发环境。",
+    "answer": "正确",
+    "explain": "安装 Python 后一般会自带 IDLE，可以直接写代码运行。"
+  },
+  {
+    "id": 32,
+    "type": "判断题",
+    "question": "VS Code 是一个可以用来写 Python 的编辑器。",
+    "answer": "正确",
+    "explain": "VS Code 支持 Python 插件，可以写代码和运行程序。"
+  },
+  {
+    "id": 33,
+    "type": "判断题",
+    "question": "print() 只能输出数字，不能输出字符串。",
+    "answer": "错误",
+    "explain": "print() 可以输出数字、字符串、变量等。"
+  },
+  {
+    "id": 34,
+    "type": "判断题",
+    "question": "Python 的注释内容会影响程序运行结果。",
+    "answer": "错误",
+    "explain": "注释不会被解释器执行，只用于说明代码。"
+  },
+  {
+    "id": 35,
+    "type": "判断题",
+    "question": "在 Python 中，语句结尾必须加分号 ;。",
+    "answer": "错误",
+    "explain": "Python 不要求分号，换行即表示语句结束。"
+  },
+  {
+    "id": 36,
+    "type": "判断题",
+    "question": "Python 可以用来制作小游戏。",
+    "answer": "正确",
+    "explain": "Python 可以结合 pygame 等库开发小游戏。"
+  },
+  {
+    "id": 37,
+    "type": "判断题",
+    "question": "保持代码排版整齐是一种良好编程习惯。",
+    "answer": "正确",
+    "explain": "良好的排版能提高代码可读性，减少错误。"
+  },
+  {
+    "id": 38,
+    "type": "判断题",
+    "question": "Python 中可以使用三引号写多行注释。",
+    "answer": "正确",
+    "explain": "三引号 ''' ''' 或 \"\"\" \"\"\" 可以用于多行注释或多行字符串。"
+  },
+  {
+    "id": 39,
+    "type": "判断题",
+    "question": "Python Shell 可以一行一行运行代码。",
+    "answer": "正确",
+    "explain": "Shell 属于交互式运行环境，输入一行执行一行。"
+  },
+  {
+    "id": 40,
+    "type": "判断题",
+    "question": "IndentationError 通常和缩进有关。",
+    "answer": "正确",
+    "explain": "IndentationError 是缩进错误，常见于 if/for/while 等代码块。"
+  },
+
+  {
+    "id": 41,
     "type": "编程题",
     "question": "编写程序输出：Hello Python",
     "answer": "print(\"Hello Python\")",
     "explain": "使用 print() 输出字符串即可。"
+  },
+  {
+    "id": 42,
+    "type": "编程题",
+    "question": "编写程序输出两行文字：第一行输出 Hello，第二行输出 World。",
+    "answer": "print(\"Hello\")\nprint(\"World\")",
+    "explain": "连续写两条 print() 语句即可实现换行输出。"
+  },
+  {
+    "id": 43,
+    "type": "编程题",
+    "question": "编写程序输出 2+5 的计算结果。",
+    "answer": "print(2+5)",
+    "explain": "print() 可以输出表达式结果。"
+  },
+  {
+    "id": 44,
+    "type": "编程题",
+    "question": "编写程序输出：I love Python!",
+    "answer": "print(\"I love Python!\")",
+    "explain": "字符串输出需要加引号，再用 print() 输出。"
+  },
+  {
+    "id": 45,
+    "type": "编程题",
+    "question": "编写程序输出数字 2025。",
+    "answer": "print(2025)",
+    "explain": "数字可以直接放入 print() 括号中输出。"
+  },
+  {
+    "id": 46,
+    "type": "编程题",
+    "question": "编写程序输出一句中文：今天我学习Python。",
+    "answer": "print(\"今天我学习Python。\")",
+    "explain": "Python 支持中文字符串输出。"
+  },
+  {
+    "id": 47,
+    "type": "编程题",
+    "question": "编写程序输出 6*7 的结果。",
+    "answer": "print(6*7)",
+    "explain": "乘法运算符是 * ，表达式会先计算后输出。"
+  },
+  {
+    "id": 48,
+    "type": "编程题",
+    "question": "编写程序输出：Python is fun",
+    "answer": "print(\"Python is fun\")",
+    "explain": "使用 print() 输出字符串即可。"
+  },
+  {
+    "id": 49,
+    "type": "编程题",
+    "question": "编写程序输出：A+B=C",
+    "answer": "print(\"A+B=C\")",
+    "explain": "输出内容是字符串，需要加引号。"
+  },
+  {
+    "id": 50,
+    "type": "编程题",
+    "question": "编写程序输出：我正在写Python代码！",
+    "answer": "print(\"我正在写Python代码！\")",
+    "explain": "字符串输出使用 print(\"...\")。"
   }
 ]
