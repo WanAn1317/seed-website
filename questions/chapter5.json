@@ -1,0 +1,374 @@
+[
+  {
+    "id": 501,
+    "type": "选择题",
+    "question": "while 循环的基本结构是？",
+    "options": ["A. while 条件:\n    循环体", "B. if 条件:\n    循环体", "C. for 条件:\n    循环体", "D. loop 条件:\n    循环体"],
+    "answer": "A",
+    "explain": "while 循环的语法是 while 条件: 后面缩进写循环体。"
+  },
+  {
+    "id": 502,
+    "type": "选择题",
+    "question": "下面代码会输出什么？\n\nx=1\nwhile x<=3:\n    print(x)\n    x+=1",
+    "options": ["A. 1 2 3", "B. 1 2 3 4", "C. 0 1 2 3", "D. 死循环"],
+    "answer": "A",
+    "explain": "x 从1到3，循环结束后 x=4。"
+  },
+  {
+    "id": 503,
+    "type": "选择题",
+    "question": "下面代码会输出什么？\n\nx=5\nwhile x>0:\n    print(x)\n    x-=2",
+    "options": ["A. 5 3 1", "B. 5 4 3 2 1", "C. 5 3", "D. 死循环"],
+    "answer": "A",
+    "explain": "每次减2：5→3→1→-1，-1不满足>0退出。"
+  },
+  {
+    "id": 504,
+    "type": "选择题",
+    "question": "while 循环最适合用来做什么？",
+    "options": ["A. 次数固定的循环", "B. 条件不确定次数的循环", "C. 输出字符串", "D. 定义函数"],
+    "answer": "B",
+    "explain": "while 循环适合用于“条件满足就继续”的情况，次数可能不确定。"
+  },
+  {
+    "id": 505,
+    "type": "选择题",
+    "question": "下面代码的输出是什么？\n\nx=0\nwhile x<3:\n    x+=1\nprint(x)",
+    "options": ["A. 3", "B. 2", "C. 0", "D. 4"],
+    "answer": "A",
+    "explain": "x依次变为1、2、3，最后输出3。"
+  },
+  {
+    "id": 506,
+    "type": "选择题",
+    "question": "下面代码会发生什么？\n\nx=1\nwhile x<5:\n    print(x)",
+    "options": ["A. 死循环", "B. 输出1 2 3 4", "C. 输出1 2 3 4 5", "D. 报错"],
+    "answer": "A",
+    "explain": "x 没有更新，始终为1，所以循环永远不会结束。"
+  },
+  {
+    "id": 507,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=1\ns=0\nwhile x<=4:\n    s+=x\n    x+=1\nprint(s)",
+    "options": ["A. 10", "B. 6", "C. 4", "D. 12"],
+    "answer": "A",
+    "explain": "累加1+2+3+4=10。"
+  },
+  {
+    "id": 508,
+    "type": "选择题",
+    "question": "while 循环中常见的三要素不包括？",
+    "options": ["A. 初始化变量", "B. 循环条件", "C. 更新变量", "D. 定义类class"],
+    "answer": "D",
+    "explain": "while循环常见结构包括初始化、条件判断、更新变量。"
+  },
+  {
+    "id": 509,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=10\nwhile x>=6:\n    print(x)\n    x-=2",
+    "options": ["A. 10 8 6", "B. 10 8", "C. 10 9 8 7 6", "D. 8 6"],
+    "answer": "A",
+    "explain": "x从10开始每次减2，输出10 8 6。"
+  },
+  {
+    "id": 510,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=1\nwhile x<=5:\n    if x==3:\n        break\n    print(x)\n    x+=1",
+    "options": ["A. 1 2", "B. 1 2 3", "C. 1 2 4 5", "D. 1 2 3 4 5"],
+    "answer": "A",
+    "explain": "当x==3时break结束循环，因此只输出1 2。"
+  },
+  {
+    "id": 511,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=0\nwhile x<5:\n    x+=1\n    if x==2:\n        continue\n    print(x)",
+    "options": ["A. 1 3 4 5", "B. 1 2 3 4 5", "C. 2 3 4 5", "D. 死循环"],
+    "answer": "A",
+    "explain": "x=2时continue跳过print，因此不输出2。"
+  },
+  {
+    "id": 512,
+    "type": "选择题",
+    "question": "break 的作用是？",
+    "options": ["A. 跳过本轮循环", "B. 结束整个循环", "C. 重启程序", "D. 删除变量"],
+    "answer": "B",
+    "explain": "break会直接结束循环。"
+  },
+  {
+    "id": 513,
+    "type": "选择题",
+    "question": "continue 的作用是？",
+    "options": ["A. 跳过当前这一轮循环", "B. 结束整个循环", "C. 让变量归零", "D. 输出循环次数"],
+    "answer": "A",
+    "explain": "continue 会跳过本轮剩余代码，进入下一轮。"
+  },
+  {
+    "id": 514,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=1\nwhile x<10:\n    x*=2\nprint(x)",
+    "options": ["A. 16", "B. 8", "C. 10", "D. 32"],
+    "answer": "A",
+    "explain": "1→2→4→8→16，16不满足<10退出。"
+  },
+  {
+    "id": 515,
+    "type": "选择题",
+    "question": "下面代码中while循环执行几次？\n\nx=1\nwhile x<10:\n    x+=3",
+    "options": ["A. 3次", "B. 4次", "C. 5次", "D. 2次"],
+    "answer": "B",
+    "explain": "x=1→4→7→10，共执行4次，最后退出。"
+  },
+  {
+    "id": 516,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=5\nwhile x!=0:\n    x-=1\nprint(x)",
+    "options": ["A. 0", "B. 1", "C. 5", "D. -1"],
+    "answer": "A",
+    "explain": "x不断减1，直到变成0停止。"
+  },
+  {
+    "id": 517,
+    "type": "选择题",
+    "question": "while循环的条件为 False 时会发生什么？",
+    "options": ["A. 循环执行一次", "B. 循环一次都不执行", "C. 会报错", "D. 会自动变成for循环"],
+    "answer": "B",
+    "explain": "while是先判断条件，条件不成立则循环体不执行。"
+  },
+  {
+    "id": 518,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=1\ncount=0\nwhile x<=20:\n    x*=2\n    count+=1\nprint(count)",
+    "options": ["A. 5", "B. 4", "C. 6", "D. 3"],
+    "answer": "A",
+    "explain": "x变化：1→2→4→8→16→32，循环5次。"
+  },
+  {
+    "id": 519,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=0\nwhile x<5:\n    print('hi')\n    x+=1",
+    "options": ["A. 输出5次hi", "B. 输出4次hi", "C. 输出6次hi", "D. 死循环"],
+    "answer": "A",
+    "explain": "x从0到4，共循环5次。"
+  },
+  {
+    "id": 520,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nx=10\nwhile x>0:\n    x-=4\nprint(x)",
+    "options": ["A. -2", "B. 2", "C. 0", "D. 6"],
+    "answer": "A",
+    "explain": "10→6→2→-2，-2不满足>0退出。"
+  },
+
+  {
+    "id": 521,
+    "type": "判断题",
+    "question": "while循环是先判断条件，再执行循环体。",
+    "answer": "正确",
+    "explain": "while属于前测循环，条件不满足时循环体不执行。"
+  },
+  {
+    "id": 522,
+    "type": "判断题",
+    "question": "while循环中必须更新变量，否则一定会报错。",
+    "answer": "错误",
+    "explain": "不会一定报错，但可能会导致死循环。"
+  },
+  {
+    "id": 523,
+    "type": "判断题",
+    "question": "break可以结束while循环。",
+    "answer": "正确",
+    "explain": "break会直接跳出循环。"
+  },
+  {
+    "id": 524,
+    "type": "判断题",
+    "question": "continue会结束整个while循环。",
+    "answer": "错误",
+    "explain": "continue只是跳过本轮剩余代码，进入下一轮。"
+  },
+  {
+    "id": 525,
+    "type": "判断题",
+    "question": "while True: 是一种无限循环写法。",
+    "answer": "正确",
+    "explain": "True永远成立，除非遇到break退出。"
+  },
+  {
+    "id": 526,
+    "type": "判断题",
+    "question": "while循环更适合用于循环次数确定的情况。",
+    "answer": "错误",
+    "explain": "while更适合条件控制，次数不一定确定。"
+  },
+  {
+    "id": 527,
+    "type": "判断题",
+    "question": "while循环条件中可以使用比较运算符。",
+    "answer": "正确",
+    "explain": "例如 while x<10: 是常见写法。"
+  },
+  {
+    "id": 528,
+    "type": "判断题",
+    "question": "while循环中可以嵌套while循环。",
+    "answer": "正确",
+    "explain": "循环可以嵌套形成多重循环结构。"
+  },
+  {
+    "id": 529,
+    "type": "判断题",
+    "question": "while循环中可以使用if语句进行判断。",
+    "answer": "正确",
+    "explain": "while循环体内部可以包含if分支结构。"
+  },
+  {
+    "id": 530,
+    "type": "判断题",
+    "question": "如果while循环条件一直为True，程序会一直执行。",
+    "answer": "正确",
+    "explain": "条件永远为真时就是死循环。"
+  },
+  {
+    "id": 531,
+    "type": "判断题",
+    "question": "while循环中break后，循环体后面的代码仍会执行。",
+    "answer": "错误",
+    "explain": "break会立即跳出循环，循环体后面代码不再执行。"
+  },
+  {
+    "id": 532,
+    "type": "判断题",
+    "question": "while循环可以用于求和、计数等任务。",
+    "answer": "正确",
+    "explain": "while循环常用于累加、统计次数等操作。"
+  },
+  {
+    "id": 533,
+    "type": "判断题",
+    "question": "while循环只能用于数字循环，不能用于字符串。",
+    "answer": "错误",
+    "explain": "while循环可以用于任何条件控制。"
+  },
+  {
+    "id": 534,
+    "type": "判断题",
+    "question": "while循环可以和input()结合实现重复输入。",
+    "answer": "正确",
+    "explain": "常用于输入直到满足条件为止。"
+  },
+  {
+    "id": 535,
+    "type": "判断题",
+    "question": "while循环中如果写成 x=x+1 就是更新变量。",
+    "answer": "正确",
+    "explain": "更新变量可以避免死循环。"
+  },
+  {
+    "id": 536,
+    "type": "判断题",
+    "question": "continue会跳过本轮循环剩余代码，直接进入下一轮。",
+    "answer": "正确",
+    "explain": "continue的作用就是跳过后续语句。"
+  },
+  {
+    "id": 537,
+    "type": "判断题",
+    "question": "while循环中可以使用逻辑运算符and/or。",
+    "answer": "正确",
+    "explain": "例如 while x>0 and x<10:。"
+  },
+  {
+    "id": 538,
+    "type": "判断题",
+    "question": "while循环条件写错不会影响程序。",
+    "answer": "错误",
+    "explain": "条件写错可能导致死循环或循环不执行。"
+  },
+  {
+    "id": 539,
+    "type": "判断题",
+    "question": "while循环可以用来做“猜数字游戏”。",
+    "answer": "正确",
+    "explain": "猜数字需要反复输入直到猜对，非常适合while循环。"
+  },
+  {
+    "id": 540,
+    "type": "判断题",
+    "question": "while循环退出后，循环变量的值会保留。",
+    "answer": "正确",
+    "explain": "变量仍然存在并保存最后一次的值。"
+  },
+
+  {
+    "id": 541,
+    "type": "编程题",
+    "question": "使用 while 循环输出 1 到 5。",
+    "answer": "i=1\nwhile i<=5:\n    print(i)\n    i+=1",
+    "explain": "初始化i=1，每次输出后i加1，直到i>5退出。"
+  },
+  {
+    "id": 542,
+    "type": "编程题",
+    "question": "使用 while 循环输出 5 到 1。",
+    "answer": "i=5\nwhile i>=1:\n    print(i)\n    i-=1",
+    "explain": "从5开始每次减1，直到小于1退出。"
+  },
+  {
+    "id": 543,
+    "type": "编程题",
+    "question": "使用 while 循环计算 1 到 10 的和并输出。",
+    "answer": "i=1\ns=0\nwhile i<=10:\n    s+=i\n    i+=1\nprint(s)",
+    "explain": "循环累加变量s，最终输出总和。"
+  },
+  {
+    "id": 544,
+    "type": "编程题",
+    "question": "输入一个整数 n，使用 while 循环输出 1 到 n。",
+    "answer": "n=int(input())\ni=1\nwhile i<=n:\n    print(i)\n    i+=1",
+    "explain": "while循环条件是i<=n，每次输出后i加1。"
+  },
+  {
+    "id": 545,
+    "type": "编程题",
+    "question": "输入一个整数 n，使用 while 循环输出 1 到 n 的偶数。",
+    "answer": "n=int(input())\ni=1\nwhile i<=n:\n    if i%2==0:\n        print(i)\n    i+=1",
+    "explain": "循环遍历1到n，判断能被2整除就输出。"
+  },
+  {
+    "id": 546,
+    "type": "编程题",
+    "question": "输入一个整数 n，计算 n 的阶乘（n!）并输出。",
+    "answer": "n=int(input())\nans=1\ni=1\nwhile i<=n:\n    ans*=i\n    i+=1\nprint(ans)",
+    "explain": "用while循环累乘1到n即可得到阶乘。"
+  },
+  {
+    "id": 547,
+    "type": "编程题",
+    "question": "输入一个整数 n，计算 1 到 n 中所有能被 3 整除的数字的个数。",
+    "answer": "n=int(input())\ni=1\ncount=0\nwhile i<=n:\n    if i%3==0:\n        count+=1\n    i+=1\nprint(count)",
+    "explain": "count用于计数，遇到能被3整除的数字就加1。"
+  },
+  {
+    "id": 548,
+    "type": "编程题",
+    "question": "使用 while 循环输出 1 到 20 中所有的奇数。",
+    "answer": "i=1\nwhile i<=20:\n    if i%2==1:\n        print(i)\n    i+=1",
+    "explain": "奇数判断条件是 i%2==1。"
+  },
+  {
+    "id": 549,
+    "type": "编程题",
+    "question": "使用 while 循环输出 1 到 100 的所有 10 的倍数。",
+    "answer": "i=10\nwhile i<=100:\n    print(i)\n    i+=10",
+    "explain": "每次加10即可得到10的倍数。"
+  },
+  {
+    "id": 550,
+    "type": "编程题",
+    "question": "输入一个整数 n，使用 while 循环求 1 到 n 的和并输出。",
+    "answer": "n=int(input())\ni=1\ns=0\nwhile i<=n:\n    s+=i\n    i+=1\nprint(s)",
+    "explain": "不断累加i，直到i超过n结束。"
+  }
+]
