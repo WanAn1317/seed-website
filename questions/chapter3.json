@@ -1,0 +1,374 @@
+[
+  {
+    "id": 301,
+    "type": "选择题",
+    "question": "Python 中表示加法运算的运算符是？",
+    "options": ["A. -", "B. +", "C. *", "D. /"],
+    "answer": "B",
+    "explain": "+ 表示加法运算。"
+  },
+  {
+    "id": 302,
+    "type": "选择题",
+    "question": "Python 中表示乘法运算的运算符是？",
+    "options": ["A. x", "B. **", "C. *", "D. //"],
+    "answer": "C",
+    "explain": "* 表示乘法运算。"
+  },
+  {
+    "id": 303,
+    "type": "选择题",
+    "question": "Python 中 10 / 3 的结果是？",
+    "options": ["A. 3", "B. 3.0", "C. 3.3333333333333335", "D. 0"],
+    "answer": "C",
+    "explain": "/ 表示普通除法，结果是浮点数。"
+  },
+  {
+    "id": 304,
+    "type": "选择题",
+    "question": "Python 中 10 // 3 的结果是？",
+    "options": ["A. 3", "B. 3.3333", "C. 0", "D. 4"],
+    "answer": "A",
+    "explain": "// 表示整除，只保留整数部分，10//3=3。"
+  },
+  {
+    "id": 305,
+    "type": "选择题",
+    "question": "Python 中 10 % 3 的结果是？",
+    "options": ["A. 3", "B. 1", "C. 0", "D. 10"],
+    "answer": "B",
+    "explain": "% 表示取余运算，10%3=1。"
+  },
+  {
+    "id": 306,
+    "type": "选择题",
+    "question": "Python 中 2 ** 3 的结果是？",
+    "options": ["A. 6", "B. 8", "C. 9", "D. 5"],
+    "answer": "B",
+    "explain": "** 表示幂运算，2的3次方等于8。"
+  },
+  {
+    "id": 307,
+    "type": "选择题",
+    "question": "下列哪个属于比较运算符？",
+    "options": ["A. +", "B. *", "C. ==", "D. //"],
+    "answer": "C",
+    "explain": "== 是比较运算符，用于判断是否相等。"
+  },
+  {
+    "id": 308,
+    "type": "选择题",
+    "question": "下列哪个表达式表示“不等于”？",
+    "options": ["A. ==", "B. !=", "C. >=", "D. <="],
+    "answer": "B",
+    "explain": "!= 表示不等于。"
+  },
+  {
+    "id": 309,
+    "type": "选择题",
+    "question": "下列哪个表达式结果为 True？",
+    "options": ["A. 3 > 5", "B. 10 == 5", "C. 7 != 7", "D. 6 <= 6"],
+    "answer": "D",
+    "explain": "6<=6 成立，因此结果为 True。"
+  },
+  {
+    "id": 310,
+    "type": "选择题",
+    "question": "逻辑运算符 and 表示？",
+    "options": ["A. 或", "B. 与", "C. 非", "D. 取余"],
+    "answer": "B",
+    "explain": "and 表示“与”，两个条件都成立才为 True。"
+  },
+  {
+    "id": 311,
+    "type": "选择题",
+    "question": "逻辑运算符 or 表示？",
+    "options": ["A. 或", "B. 与", "C. 非", "D. 等于"],
+    "answer": "A",
+    "explain": "or 表示“或”，只要有一个条件成立就为 True。"
+  },
+  {
+    "id": 312,
+    "type": "选择题",
+    "question": "逻辑运算符 not 的作用是？",
+    "options": ["A. 求和", "B. 取反", "C. 取余", "D. 乘法"],
+    "answer": "B",
+    "explain": "not 用于布尔取反，True 变 False，False 变 True。"
+  },
+  {
+    "id": 313,
+    "type": "选择题",
+    "question": "下列运算优先级最高的是？",
+    "options": ["A. +", "B. *", "C. **", "D. -"],
+    "answer": "C",
+    "explain": "幂运算 ** 的优先级高于乘除加减。"
+  },
+  {
+    "id": 314,
+    "type": "选择题",
+    "question": "表达式 3 + 2 * 5 的结果是？",
+    "options": ["A. 25", "B. 13", "C. 17", "D. 10"],
+    "answer": "B",
+    "explain": "先乘法 2*5=10，再加 3，结果为 13。"
+  },
+  {
+    "id": 315,
+    "type": "选择题",
+    "question": "表达式 (3 + 2) * 5 的结果是？",
+    "options": ["A. 13", "B. 10", "C. 25", "D. 15"],
+    "answer": "C",
+    "explain": "括号优先，(3+2)=5，再乘5得到25。"
+  },
+  {
+    "id": 316,
+    "type": "选择题",
+    "question": "下列哪个表达式可以判断 n 是偶数？",
+    "options": ["A. n/2==0", "B. n%2==0", "C. n//2==1", "D. n%2==1"],
+    "answer": "B",
+    "explain": "偶数除以2余数为0，所以用 n%2==0 判断。"
+  },
+  {
+    "id": 317,
+    "type": "选择题",
+    "question": "下列哪个表达式可以判断 n 是奇数？",
+    "options": ["A. n%2==1", "B. n%2==0", "C. n//2==0", "D. n/2==1"],
+    "answer": "A",
+    "explain": "奇数除以2余数为1，所以 n%2==1。"
+  },
+  {
+    "id": 318,
+    "type": "选择题",
+    "question": "表达式 True and False 的结果是？",
+    "options": ["A. True", "B. False", "C. 1", "D. 报错"],
+    "answer": "B",
+    "explain": "and 两边都为 True 才为 True，因此结果 False。"
+  },
+  {
+    "id": 319,
+    "type": "选择题",
+    "question": "表达式 True or False 的结果是？",
+    "options": ["A. True", "B. False", "C. 0", "D. 报错"],
+    "answer": "A",
+    "explain": "or 只要有一个为 True 就为 True。"
+  },
+  {
+    "id": 320,
+    "type": "选择题",
+    "question": "表达式 not True 的结果是？",
+    "options": ["A. True", "B. False", "C. 1", "D. 0"],
+    "answer": "B",
+    "explain": "not True 取反为 False。"
+  },
+
+  {
+    "id": 321,
+    "type": "判断题",
+    "question": "Python 中 / 运算的结果一定是 float 类型。",
+    "answer": "正确",
+    "explain": "Python 中普通除法 / 运算结果默认是浮点数。"
+  },
+  {
+    "id": 322,
+    "type": "判断题",
+    "question": "Python 中 // 运算表示整除。",
+    "answer": "正确",
+    "explain": "// 只保留商的整数部分。"
+  },
+  {
+    "id": 323,
+    "type": "判断题",
+    "question": "Python 中 % 运算表示取余数。",
+    "answer": "正确",
+    "explain": "% 会得到除法运算的余数。"
+  },
+  {
+    "id": 324,
+    "type": "判断题",
+    "question": "Python 中 ** 运算符表示乘法。",
+    "answer": "错误",
+    "explain": "** 表示幂运算，不是乘法。"
+  },
+  {
+    "id": 325,
+    "type": "判断题",
+    "question": "3 + 2 * 5 的结果是 25。",
+    "answer": "错误",
+    "explain": "乘法优先，2*5=10，再加3，结果是13。"
+  },
+  {
+    "id": 326,
+    "type": "判断题",
+    "question": "(3 + 2) * 5 的结果是 25。",
+    "answer": "正确",
+    "explain": "括号优先，(3+2)=5，再乘5得到25。"
+  },
+  {
+    "id": 327,
+    "type": "判断题",
+    "question": "比较运算符 == 用于判断是否相等。",
+    "answer": "正确",
+    "explain": "== 是判断相等，= 是赋值。"
+  },
+  {
+    "id": 328,
+    "type": "判断题",
+    "question": "!= 表示不等于。",
+    "answer": "正确",
+    "explain": "!= 是不等于运算符。"
+  },
+  {
+    "id": 329,
+    "type": "判断题",
+    "question": "5 > 3 的结果是 False。",
+    "answer": "错误",
+    "explain": "5 大于 3 成立，因此结果为 True。"
+  },
+  {
+    "id": 330,
+    "type": "判断题",
+    "question": "6 <= 6 的结果是 True。",
+    "answer": "正确",
+    "explain": "小于等于包含相等情况，所以 6<=6 成立。"
+  },
+  {
+    "id": 331,
+    "type": "判断题",
+    "question": "and 表示“或”的关系。",
+    "answer": "错误",
+    "explain": "and 表示“与”，两个条件都成立才为 True。"
+  },
+  {
+    "id": 332,
+    "type": "判断题",
+    "question": "or 表示“或”的关系。",
+    "answer": "正确",
+    "explain": "or 只要有一个条件为 True 就为 True。"
+  },
+  {
+    "id": 333,
+    "type": "判断题",
+    "question": "not False 的结果是 True。",
+    "answer": "正确",
+    "explain": "not 会取反，False 取反为 True。"
+  },
+  {
+    "id": 334,
+    "type": "判断题",
+    "question": "not True 的结果是 False。",
+    "answer": "正确",
+    "explain": "True 取反为 False。"
+  },
+  {
+    "id": 335,
+    "type": "判断题",
+    "question": "判断一个数是否是偶数，可以用 n%2==0。",
+    "answer": "正确",
+    "explain": "偶数除以2余数为0。"
+  },
+  {
+    "id": 336,
+    "type": "判断题",
+    "question": "判断一个数是否是奇数，可以用 n%2==1。",
+    "answer": "正确",
+    "explain": "奇数除以2余数为1。"
+  },
+  {
+    "id": 337,
+    "type": "判断题",
+    "question": "True and True 的结果是 True。",
+    "answer": "正确",
+    "explain": "and 两边都为 True 才为 True。"
+  },
+  {
+    "id": 338,
+    "type": "判断题",
+    "question": "True or False 的结果是 False。",
+    "answer": "错误",
+    "explain": "or 有一个为 True 就为 True，所以结果 True。"
+  },
+  {
+    "id": 339,
+    "type": "判断题",
+    "question": "2 ** 3 的结果是 6。",
+    "answer": "错误",
+    "explain": "2的3次方等于8。"
+  },
+  {
+    "id": 340,
+    "type": "判断题",
+    "question": "10 // 3 的结果是 3。",
+    "answer": "正确",
+    "explain": "整除只保留整数部分，10//3=3。"
+  },
+
+  {
+    "id": 341,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出它们的和。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a+b)",
+    "explain": "先输入两个整数并转换类型，再相加输出。"
+  },
+  {
+    "id": 342,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出它们的差 a-b。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a-b)",
+    "explain": "减法运算符是 - ，输出 a-b。"
+  },
+  {
+    "id": 343,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出它们的乘积。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a*b)",
+    "explain": "乘法运算符是 * 。"
+  },
+  {
+    "id": 344,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出 a 除以 b 的结果。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a/b)",
+    "explain": "普通除法 / 的结果是浮点数。"
+  },
+  {
+    "id": 345,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出 a 整除 b 的结果。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a//b)",
+    "explain": "// 表示整除，只保留商的整数部分。"
+  },
+  {
+    "id": 346,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出 a 除以 b 的余数。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a%b)",
+    "explain": "% 表示取余数运算。"
+  },
+  {
+    "id": 347,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 的平方。",
+    "answer": "n=int(input())\nprint(n**2)",
+    "explain": "n 的平方就是 n**2。"
+  },
+  {
+    "id": 348,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 是否是偶数（输出 True 或 False）。",
+    "answer": "n=int(input())\nprint(n%2==0)",
+    "explain": "偶数除以2余数为0，用 n%2==0 判断。"
+  },
+  {
+    "id": 349,
+    "type": "编程题",
+    "question": "输入一个整数 n，输出 n 是否大于 10（输出 True 或 False）。",
+    "answer": "n=int(input())\nprint(n>10)",
+    "explain": "比较表达式 n>10 的结果是布尔值。"
+  },
+  {
+    "id": 350,
+    "type": "编程题",
+    "question": "输入两个整数 a 和 b，输出它们是否相等（输出 True 或 False）。",
+    "answer": "a=int(input())\nb=int(input())\nprint(a==b)",
+    "explain": "== 用于判断是否相等，结果是布尔值。"
+  }
+]
