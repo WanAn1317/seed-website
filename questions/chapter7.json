@@ -1,0 +1,374 @@
+[
+  {
+    "id": 701,
+    "type": "选择题",
+    "question": "下面代码会输出多少个 * ？\n\nfor i in range(3):\n    for j in range(4):\n        print(\"*\", end=\"\")",
+    "options": ["A. 7个", "B. 12个", "C. 3个", "D. 4个"],
+    "answer": "B",
+    "explain": "外层循环3次，内层循环4次，总输出3×4=12个*。"
+  },
+  {
+    "id": 702,
+    "type": "选择题",
+    "question": "嵌套循环中，外层循环执行一次，内层循环会怎样？",
+    "options": ["A. 执行一次", "B. 执行两次", "C. 完整执行一遍", "D. 不执行"],
+    "answer": "C",
+    "explain": "外层每执行一轮，内层循环都会从头到尾完整执行一次。"
+  },
+  {
+    "id": 703,
+    "type": "选择题",
+    "question": "下面代码输出多少行？\n\nfor i in range(2):\n    for j in range(3):\n        print(i, j)",
+    "options": ["A. 2行", "B. 3行", "C. 5行", "D. 6行"],
+    "answer": "D",
+    "explain": "外层2次，内层3次，总输出2×3=6行。"
+  },
+  {
+    "id": 704,
+    "type": "选择题",
+    "question": "下面代码输出结果是什么？\n\nfor i in range(2):\n    for j in range(2):\n        print(i+j)",
+    "options": ["A. 0 1 1 2", "B. 0 1 2 3", "C. 1 2 3 4", "D. 0 0 1 1"],
+    "answer": "A",
+    "explain": "i=0时输出0+0=0,0+1=1；i=1时输出1+0=1,1+1=2。"
+  },
+  {
+    "id": 705,
+    "type": "选择题",
+    "question": "下面代码会输出几行？\n\nfor i in range(5):\n    for j in range(i):\n        print(\"*\", end=\"\")\n    print()",
+    "options": ["A. 4行", "B. 5行", "C. 6行", "D. 10行"],
+    "answer": "B",
+    "explain": "外层循环range(5)执行5次，所以总共输出5行。"
+  },
+  {
+    "id": 706,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,4):\n    for j in range(1,4):\n        print(i*j, end=\" \")\n    print()",
+    "options": ["A. 输出3行，每行3个乘积", "B. 输出4行，每行4个乘积", "C. 输出1行9个数", "D. 输出报错"],
+    "answer": "A",
+    "explain": "外层1~3共3行，内层1~3共3列，每行输出3个乘积。"
+  },
+  {
+    "id": 707,
+    "type": "选择题",
+    "question": "嵌套循环最常用于解决什么问题？",
+    "options": ["A. 只输出一次", "B. 重复输入", "C. 二维结构（行列）问题", "D. 只能判断真假"],
+    "answer": "C",
+    "explain": "嵌套循环常用于二维结构，如表格、矩阵、图形输出。"
+  },
+  {
+    "id": 708,
+    "type": "选择题",
+    "question": "下面代码输出多少个数字？\n\nfor i in range(3):\n    for j in range(3):\n        print(i, end=\"\")",
+    "options": ["A. 3个", "B. 6个", "C. 9个", "D. 12个"],
+    "answer": "C",
+    "explain": "外层3次，内层3次，总共输出9次。"
+  },
+  {
+    "id": 709,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(3):\n    for j in range(2):\n        print(j, end=\"\")",
+    "options": ["A. 010101", "B. 001122", "C. 012012", "D. 111222"],
+    "answer": "A",
+    "explain": "内层每次输出0和1，重复3次，总输出010101。"
+  },
+  {
+    "id": 710,
+    "type": "选择题",
+    "question": "下面代码输出结果是什么？\n\nfor i in range(2):\n    for j in range(3):\n        if j==1:\n            break\n        print(j, end=\"\")",
+    "options": ["A. 0000", "B. 01", "C. 00", "D. 0"],
+    "answer": "C",
+    "explain": "j=0时输出0，j=1时break跳出内层循环。外层执行2次，因此输出00。"
+  },
+  {
+    "id": 711,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(2):\n    for j in range(3):\n        if j==1:\n            continue\n        print(j, end=\"\")",
+    "options": ["A. 0202", "B. 012012", "C. 001122", "D. 0101"],
+    "answer": "A",
+    "explain": "j=1时continue跳过，所以只输出0和2，外层2次，输出0202。"
+  },
+  {
+    "id": 712,
+    "type": "选择题",
+    "question": "下面代码输出多少行？\n\nfor i in range(4):\n    for j in range(4):\n        print(\"*\", end=\"\")\n    print()",
+    "options": ["A. 4行", "B. 8行", "C. 16行", "D. 1行"],
+    "answer": "A",
+    "explain": "外层循环4次，每次print()换行，所以输出4行。"
+  },
+  {
+    "id": 713,
+    "type": "选择题",
+    "question": "下面代码会输出什么形状？\n\nfor i in range(3):\n    for j in range(3):\n        print(\"*\", end=\"\")\n    print()",
+    "options": ["A. 3×3方阵", "B. 3×1竖线", "C. 1×3横线", "D. 三角形"],
+    "answer": "A",
+    "explain": "外层3行，内层每行3个*，形成3×3方阵。"
+  },
+  {
+    "id": 714,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(1,4):\n    for j in range(1,i+1):\n        print(\"*\", end=\"\")\n    print()",
+    "options": ["A. 正方形", "B. 右直角三角形", "C. 倒三角形", "D. 一条直线"],
+    "answer": "B",
+    "explain": "每行输出的*数量随i增加，形成右直角三角形。"
+  },
+  {
+    "id": 715,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(3,0,-1):\n    for j in range(i):\n        print(\"*\", end=\"\")\n    print()",
+    "options": ["A. 正方形", "B. 右直角倒三角形", "C. 正三角形", "D. 无输出"],
+    "answer": "B",
+    "explain": "第一行3个*，第二行2个*，第三行1个*，形成倒三角形。"
+  },
+  {
+    "id": 716,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(2):\n    for j in range(2):\n        for k in range(2):\n            print(\"*\", end=\"\")",
+    "options": ["A. 4个*", "B. 6个*", "C. 8个*", "D. 2个*"],
+    "answer": "C",
+    "explain": "三层循环2×2×2=8次输出。"
+  },
+  {
+    "id": 717,
+    "type": "选择题",
+    "question": "嵌套循环中 break 只会跳出哪一层？",
+    "options": ["A. 所有循环", "B. 当前所在的那一层循环", "C. 最外层循环", "D. 不起作用"],
+    "answer": "B",
+    "explain": "break只会结束当前所在的循环（最近的一层）。"
+  },
+  {
+    "id": 718,
+    "type": "选择题",
+    "question": "下面代码输出什么？\n\nfor i in range(2):\n    for j in range(3):\n        if i==1:\n            break\n        print(j, end=\"\")",
+    "options": ["A. 012", "B. 012012", "C. 0120", "D. 000"],
+    "answer": "A",
+    "explain": "i=0时输出012，i=1时立刻break跳出内层循环，不输出。"
+  },
+  {
+    "id": 719,
+    "type": "选择题",
+    "question": "下面代码输出多少个 * ？\n\nfor i in range(1,4):\n    for j in range(1,i+1):\n        print(\"*\", end=\"\")",
+    "options": ["A. 3个", "B. 6个", "C. 9个", "D. 12个"],
+    "answer": "B",
+    "explain": "输出数量为1+2+3=6个*。"
+  },
+  {
+    "id": 720,
+    "type": "选择题",
+    "question": "99乘法表通常需要几层循环实现？",
+    "options": ["A. 1层", "B. 2层", "C. 3层", "D. 4层"],
+    "answer": "B",
+    "explain": "乘法表有行和列，通常用两层循环实现。"
+  },
+
+  {
+    "id": 721,
+    "type": "判断题",
+    "question": "嵌套循环中，外层循环执行一次，内层循环会完整执行一遍。",
+    "answer": "正确",
+    "explain": "这是嵌套循环的基本规律。"
+  },
+  {
+    "id": 722,
+    "type": "判断题",
+    "question": "嵌套循环只能使用 for + for 组合，不能使用 while。",
+    "answer": "错误",
+    "explain": "嵌套循环可以是for+for、while+while、for+while等多种组合。"
+  },
+  {
+    "id": 723,
+    "type": "判断题",
+    "question": "外层循环通常控制“行”，内层循环通常控制“列”。",
+    "answer": "正确",
+    "explain": "在输出图形或表格时，外层常用于行，内层用于列。"
+  },
+  {
+    "id": 724,
+    "type": "判断题",
+    "question": "嵌套循环中，break 会跳出所有循环。",
+    "answer": "错误",
+    "explain": "break只跳出当前所在的那一层循环。"
+  },
+  {
+    "id": 725,
+    "type": "判断题",
+    "question": "嵌套循环中，continue 会跳过当前这一轮内层循环。",
+    "answer": "正确",
+    "explain": "continue会跳过当前这一轮循环剩余代码，进入下一轮。"
+  },
+  {
+    "id": 726,
+    "type": "判断题",
+    "question": "两层循环 range(3) 和 range(4) 总执行次数是 12 次。",
+    "answer": "正确",
+    "explain": "3×4=12次。"
+  },
+  {
+    "id": 727,
+    "type": "判断题",
+    "question": "嵌套循环可以用于输出乘法表。",
+    "answer": "正确",
+    "explain": "乘法表就是典型的二维输出问题。"
+  },
+  {
+    "id": 728,
+    "type": "判断题",
+    "question": "嵌套循环可以用于输出星号三角形。",
+    "answer": "正确",
+    "explain": "星号图形常通过嵌套循环控制行列输出。"
+  },
+  {
+    "id": 729,
+    "type": "判断题",
+    "question": "三层嵌套循环 range(2)、range(2)、range(2) 总输出8次。",
+    "answer": "正确",
+    "explain": "2×2×2=8次。"
+  },
+  {
+    "id": 730,
+    "type": "判断题",
+    "question": "嵌套循环中，内层循环执行次数越多，程序运行越慢。",
+    "answer": "正确",
+    "explain": "嵌套循环执行次数越多，总运行时间会变长。"
+  },
+  {
+    "id": 731,
+    "type": "判断题",
+    "question": "for i in range(3): for j in range(3): 会执行9次。",
+    "answer": "正确",
+    "explain": "3×3=9次。"
+  },
+  {
+    "id": 732,
+    "type": "判断题",
+    "question": "嵌套循环中，内层循环变量会影响外层循环变量。",
+    "answer": "错误",
+    "explain": "正常情况下内层变量不会影响外层变量，两者独立。"
+  },
+  {
+    "id": 733,
+    "type": "判断题",
+    "question": "输出一个5×5的星号方阵，需要两层循环。",
+    "answer": "正确",
+    "explain": "外层控制行，内层控制列。"
+  },
+  {
+    "id": 734,
+    "type": "判断题",
+    "question": "输出三角形图案时，通常内层循环次数会随着外层变量变化。",
+    "answer": "正确",
+    "explain": "三角形每行数量不同，内层循环次数需要变化。"
+  },
+  {
+    "id": 735,
+    "type": "判断题",
+    "question": "嵌套循环中，print() 默认会换行。",
+    "answer": "正确",
+    "explain": "print默认end='\\n'，输出后换行。"
+  },
+  {
+    "id": 736,
+    "type": "判断题",
+    "question": "print(\"*\", end=\"\") 可以让星号不换行。",
+    "answer": "正确",
+    "explain": "end=\"\"表示输出后不换行。"
+  },
+  {
+    "id": 737,
+    "type": "判断题",
+    "question": "嵌套循环只能输出数字，不能输出字符串。",
+    "answer": "错误",
+    "explain": "嵌套循环可以输出任意内容，包括字符串和符号。"
+  },
+  {
+    "id": 738,
+    "type": "判断题",
+    "question": "99乘法表中外层循环通常控制乘数，内层控制被乘数。",
+    "answer": "正确",
+    "explain": "通常写法是外层控制行数，内层控制列数。"
+  },
+  {
+    "id": 739,
+    "type": "判断题",
+    "question": "嵌套循环中，如果内层循环使用break，只会结束内层循环。",
+    "answer": "正确",
+    "explain": "break只结束最近的循环层。"
+  },
+  {
+    "id": 740,
+    "type": "判断题",
+    "question": "嵌套循环适合用于二维数组的遍历。",
+    "answer": "正确",
+    "explain": "二维数组有行和列，嵌套循环正好对应。"
+  },
+
+  {
+    "id": 741,
+    "type": "编程题",
+    "question": "使用嵌套for循环输出 3 行 4 列的星号矩阵（每行4个*）。",
+    "answer": "for i in range(3):\n    for j in range(4):\n        print(\"*\", end=\"\")\n    print()",
+    "explain": "外层控制3行，内层控制每行4个星号，最后换行。"
+  },
+  {
+    "id": 742,
+    "type": "编程题",
+    "question": "使用嵌套for循环输出一个 5×5 的数字方阵，每行输出 5 个 1。",
+    "answer": "for i in range(5):\n    for j in range(5):\n        print(1, end=\" \")\n    print()",
+    "explain": "外层5行，内层5列，每次输出1并用空格分隔。"
+  },
+  {
+    "id": 743,
+    "type": "编程题",
+    "question": "使用嵌套for循环输出如下图形：\n*\n**\n***",
+    "answer": "for i in range(1,4):\n    for j in range(i):\n        print(\"*\", end=\"\")\n    print()",
+    "explain": "第i行输出i个星号即可。"
+  },
+  {
+    "id": 744,
+    "type": "编程题",
+    "question": "使用嵌套for循环输出如下图形：\n***\n**\n*",
+    "answer": "for i in range(3,0,-1):\n    for j in range(i):\n        print(\"*\", end=\"\")\n    print()",
+    "explain": "第一行3个，第二行2个，第三行1个。"
+  },
+  {
+    "id": 745,
+    "type": "编程题",
+    "question": "使用嵌套循环输出 1 到 3 的乘法表（每行输出3个结果）。",
+    "answer": "for i in range(1,4):\n    for j in range(1,4):\n        print(i*j, end=\" \")\n    print()",
+    "explain": "两层循环分别遍历1到3，输出乘积。"
+  },
+  {
+    "id": 746,
+    "type": "编程题",
+    "question": "使用嵌套循环输出 1 到 9 的乘法表（标准99乘法表）。",
+    "answer": "for i in range(1,10):\n    for j in range(1,i+1):\n        print(f\"{j}*{i}={i*j}\", end=\" \")\n    print()",
+    "explain": "外层控制行数，内层控制每行输出到i。"
+  },
+  {
+    "id": 747,
+    "type": "编程题",
+    "question": "使用嵌套循环计算 1 到 3 的所有乘积之和，并输出结果。",
+    "answer": "s=0\nfor i in range(1,4):\n    for j in range(1,4):\n        s+=i*j\nprint(s)",
+    "explain": "两层循环遍历所有i*j并累加到s。"
+  },
+  {
+    "id": 748,
+    "type": "编程题",
+    "question": "使用嵌套循环输出一个 4×4 的数字方阵，每行输出 4 个 0。",
+    "answer": "for i in range(4):\n    for j in range(4):\n        print(0, end=\" \")\n    print()",
+    "explain": "外层4行，内层4列，输出0并换行。"
+  },
+  {
+    "id": 749,
+    "type": "编程题",
+    "question": "使用嵌套循环输出 2 行 3 列的坐标对：(0,0)到(1,2)。",
+    "answer": "for i in range(2):\n    for j in range(3):\n        print(f\"({i},{j})\")",
+    "explain": "外层控制行坐标i，内层控制列坐标j。"
+  },
+  {
+    "id": 750,
+    "type": "编程题",
+    "question": "使用嵌套循环输出如下图形：\n1\n22\n333\n4444",
+    "answer": "for i in range(1,5):\n    for j in range(i):\n        print(i, end=\"\")\n    print()",
+    "explain": "第i行输出i个数字i。"
+  }
+]
