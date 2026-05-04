@@ -1,1 +1,24 @@
-
+[
+  {
+    "id": 1,
+    "type": "选择题",
+    "question": "Python 程序文件最常见的扩展名是？",
+    "options": ["A. .java", "B. .py", "C. .cpp", "D. .txt"],
+    "answer": "B",
+    "explain": "Python 源代码文件通常使用 .py 作为扩展名。"
+  },
+  {
+    "id": 2,
+    "type": "判断题",
+    "question": "Python 是一门解释型语言。",
+    "answer": "正确",
+    "explain": "Python 运行时由解释器逐行解释执行。"
+  },
+  {
+    "id": 3,
+    "type": "编程题",
+    "question": "编写程序输出：Hello Python",
+    "answer": "print(\"Hello Python\")",
+    "explain": "使用 print() 输出字符串即可。"
+  }
+]
