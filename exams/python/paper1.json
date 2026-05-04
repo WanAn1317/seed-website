@@ -1,0 +1,15 @@
+{
+  "title": "Python 第一套试卷",
+  "questions": [
+    {
+      "question": "Python 输出使用哪个函数？",
+      "options": ["echo", "print", "write", "cout"],
+      "answer": 1
+    },
+    {
+      "question": "以下哪个是合法变量名？",
+      "options": ["1abc", "a_1", "a-1", "a 1"],
+      "answer": 1
+    }
+  ]
+}
