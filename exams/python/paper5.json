@@ -1,0 +1,191 @@
+{
+  "title": "2024 信息素养大赛 初赛 01",
+  "questions": [
+    {
+      "type": "single",
+      "question": "下列是字符串的是（）",
+      "options": ["3452", "\"#$%dr\"", "@fs123", "ABC"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（\"#$%dr\"）\n💡 核心考点：考察 Python 字符串的定义方式——必须用引号包裹。\n🔎 执行追踪：只有选项 B 用双引号包裹，是字符串；其余选项无引号，会被当作数字或变量。\n⚠️ 易错提醒：字符串必须用单引号或双引号包裹，缺少引号的 ABC 会被当作变量名。"
+    },
+    {
+      "type": "single",
+      "question": "导入随机库后，执行如下代码，输出的结果可能是（）\na = randint(0,5)\nb = randint(1,6)\nc = a + b\nprint(c)",
+      "options": ["8", "14", "12", "0"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（8）\n💡 核心考点：randint() 的取值范围（闭区间）。\n🔎 执行追踪：a ∈ [0,5]，b ∈ [1,6]，所以 c ∈ [1,11]。\n⚠️ 易错提醒：只有 8 在范围内，0、12、14 都不可能出现。"
+    },
+    {
+      "type": "single",
+      "question": "下列代码的输出结果是（ ）\nprint(6+4)",
+      "options": ["10", "6", "6+4", "4"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（10）\n💡 核心考点：print() 输出表达式计算结果。\n🔎 执行追踪：6+4=10，输出 10。\n⚠️ 易错提醒：如果写成 \"6+4\" 才会原样输出。"
+    },
+    {
+      "type": "single",
+      "question": "下列代码可以获得用户输入的是()",
+      "options": ["input()", "remove()", "INPUT()", "print0"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（input()）\n💡 核心考点：input() 是 Python 输入函数。\n🔎 执行追踪：remove() 是列表方法，INPUT() 大小写错误，print0 拼写错误。\n⚠️ 易错提醒：Python 区分大小写，input() 不能写成 INPUT()。"
+    },
+    {
+      "type": "single",
+      "question": "下列代码中，能够正确导入随机库的是()",
+      "options": ["import random *", "from import random *", "from math import *", "from random import *"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（from random import *）\n💡 核心考点：模块导入语法。\n🔎 执行追踪：import random * 语法错误，from import random * 缺模块名，math 不是随机库。\n⚠️ 易错提醒：只有 from random import * 才能导入 random 库所有函数。"
+    },
+    {
+      "type": "single",
+      "question": "导入随机库后，下列代码中能够生成 1 到 88 之间（包含 1 和 88）任意整数的是（）",
+      "options": ["random(0, 88)", "randint(0, 88)", "randint(1, 88)", "random(1, 88)"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（randint(1, 88)）\n💡 核心考点：randint(a,b) 生成闭区间随机整数。\n🔎 执行追踪：randint(1,88) 刚好生成 1~88。\n⚠️ 易错提醒：randint(0,88) 会包含 0，不符合题意；random() 不是这样用的。"
+    },
+    {
+      "type": "single",
+      "question": "下列是字符串的是（）",
+      "options": ["#EVA#", "\"345\"", "\"3@5f%", "number"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（\"345\"）\n💡 核心考点：字符串必须用引号包裹。\n🔎 执行追踪：B 有完整引号；C 缺少右引号；D 无引号是变量名；A 含 # 不是标准字符串写法。\n⚠️ 易错提醒：字符串必须成对出现引号。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，输出结果是( )\nh = {\"Tom\":147, \"Jack\":150, \"Amy\":143}\nh[\"Jack\"] = 160\nprint(h)",
+      "options": [
+        "{'Tom':147,'Jack':160,'Amy':143}",
+        "{'Tom':147,:150,'Amy':143}",
+        "{'Tom':147,'Jack':150,'Amy':143}",
+        "{'Jack':147}"
+      ],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A\n💡 核心考点：字典键值修改。\n🔎 执行追踪：h['Jack'] 原来是 150，被修改为 160，其余不变。\n⚠️ 易错提醒：修改字典某个 key 的值不会影响其他键值对。"
+    },
+    {
+      "type": "single",
+      "question": "导入随机库后，执行如下代码，下列说法正确的是（ ）\na = randint(1,15)\nb = randint(20,30)",
+      "options": [
+        "变量a存储的数字大于变量b存储的数字",
+        "变量a存储的数字等于变量b存储的数字",
+        "以上说法都正确",
+        "变量a存储的数字小于变量b存储的数字"
+      ],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D\n💡 核心考点：randint() 取值范围比较。\n🔎 执行追踪：a 最大 15，b 最小 20，因此 a 一定小于 b。\n⚠️ 易错提醒：看清楚两个区间是否有交集。"
+    },
+    {
+      "type": "single",
+      "question": "下列代码的输出结果是（ ）\nx = 18\ny = 9\nz = x / y\nprint(z)",
+      "options": ["18", "2", "9", "2.0"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（2.0）\n💡 核心考点：/ 运算符返回浮点数。\n🔎 执行追踪：18/9=2.0。\n⚠️ 易错提醒：// 才是整除得到整数。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，list1 中最后存储的是( )\nlist1 = {\"牙刷\":2,\"牙膏\":4}\nlist1[\"毛巾\"] = 6",
+      "options": [
+        "{\"毛巾\":6}",
+        "{\"牙刷\":2,\"牙膏\":6}",
+        "{\"牙刷\":2,\"牙膏\":4}",
+        "{\"牙刷\":2,\"牙膏\":4,\"毛巾\":6}"
+      ],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D\n💡 核心考点：字典新增键值对。\n🔎 执行追踪：添加 key \"毛巾\" 后，字典包含 3 个键。\n⚠️ 易错提醒：{} 创建的是字典，不是列表。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项中，定义字典 stu 正确的是( )",
+      "options": [
+        "stu = (\"姓名\":\"可多\":\"年龄\":8)",
+        "stu = {\"姓名\":\"可多\",\"年龄\":8}",
+        "stu = [\"姓名\":\"可多\";\"年龄\":8]",
+        "stu = \"姓名\",\"可多\",\"年龄\",8"
+      ],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B\n💡 核心考点：字典定义语法。\n🔎 执行追踪：字典用 {}，键值用冒号，多个键值对用逗号。\n⚠️ 易错提醒：() 是元组，[] 是列表，只有 {} 才是字典。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，最后 a 中存储的内容是( )\na = [\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\"]\na.append(\"黑豹\")",
+      "options": [
+        "[\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\"]",
+        "[\"钢铁侠\"]",
+        "[\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\",\"黑豹\"]",
+        "[\"钢铁侠\",\"绿巨人\",\"蜘蛛侠\",\"钢铁侠\"]"
+      ],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C\n💡 核心考点：append() 在末尾追加元素。\n🔎 执行追踪：列表新增一个元素 \"黑豹\"。\n⚠️ 易错提醒：append() 只加一个整体元素。"
+    },
+    {
+      "type": "single",
+      "question": "关于变量的命名方式，下列写法正确的是（ ）",
+      "options": ["abc@1", "Abc1", "abc-2", "2shd"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（Abc1）\n💡 核心考点：变量命名规则。\n🔎 执行追踪：Abc1 由字母+数字组成且不以数字开头。\n⚠️ 易错提醒：@、- 是非法字符，变量名不能以数字开头。"
+    },
+    {
+      "type": "single",
+      "question": "下列代码中，如果输出结果是 hi，横线处应填入\nn = \"hi\"\n__________",
+      "options": ["PRINT(n)", "input(n)", "print(n)", "print(hi)"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（print(n)）\n💡 核心考点：print() 输出变量值。\n🔎 执行追踪：n 存储 \"hi\"，print(n) 输出 hi。\n⚠️ 易错提醒：PRINT 大小写错误，print(hi) 会把 hi 当变量报错。"
+    },
+
+    {
+      "type": "judge",
+      "question": "列表定义后，里面的元素是可以修改的。",
+      "options": ["正确", "错误"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A\n💡 核心考点：列表是可变类型。\n🔎 执行追踪：可以用 lst[0] = 10 修改元素。\n⚠️ 易错提醒：字符串和元组是不可变类型。"
+    },
+    {
+      "type": "judge",
+      "question": "在 Python 中判断相等的符号是 = 。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：= 是赋值，== 才是比较。\n🔎 执行追踪：a=3 是赋值，a==3 才是判断。\n⚠️ 易错提醒：区分赋值运算符 = 与比较运算符 ==。"
+    },
+    {
+      "type": "judge",
+      "question": "使用 is 可以判断一个元素是否在某个列表中。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：is 比较对象身份，in 才是成员判断。\n🔎 执行追踪：x in lst 才能判断元素是否在列表。\n⚠️ 易错提醒：is 和 in 作用完全不同。"
+    },
+    {
+      "type": "judge",
+      "question": "下面代码可以正确遍历列表 nums。\nnums = [1,2,3,4,5]\nfor num in nums.\n    print(num)",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：for 循环语法。\n🔎 执行追踪：for 语句末尾必须是冒号 :，而不是点号 .\n⚠️ 易错提醒：Python 中 for/if/while 结尾必须写冒号。"
+    },
+    {
+      "type": "judge",
+      "question": "输入语句 input() 的括号里面可以写提示语。",
+      "options": ["正确", "错误"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（正确）\n💡 核心考点：input() 支持提示语。\n🔎 执行追踪：例如 input(\"请输入姓名：\")。\n⚠️ 易错提醒：提示语只是显示，不会影响输入值本身。"
+    }
+  ]
+}
