@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>在线考试系统</title>
+<title>在线考试系统 V4</title>
 
 <style>
 body{
@@ -33,13 +33,12 @@ body{
   padding:15px;
   margin-bottom:15px;
   border-radius:8px;
-  background:#fff;
 }
 
 .question{
   font-size:15px;
   margin-bottom:10px;
-  white-space: pre-wrap; /* ⭐关键修复：保留换行 */
+  white-space: pre-wrap;
 }
 
 .opt{
@@ -48,12 +47,20 @@ body{
   border:1px solid #ddd;
   border-radius:6px;
   cursor:pointer;
-  transition:0.2s;
 }
 
 .opt:hover{
   background:#eaffea;
+}
+
+.correct{
+  background:#d6ffd6 !important;
   border-color:#2d7a2d;
+}
+
+.wrong{
+  background:#ffd6d6 !important;
+  border-color:#ff4d4d;
 }
 
 .submit{
@@ -66,35 +73,30 @@ body{
   border-radius:6px;
 }
 
-.title{
-  font-size:18px;
-  margin-bottom:15px;
-  color:#333;
+.result{
+  margin-top:20px;
+  padding:15px;
+  background:#f0f8f0;
+  border-left:4px solid #2d7a2d;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">在线考试系统</div>
+<div class="header">在线考试系统 V4</div>
 
-<div class="container" id="box">
-加载中...
-</div>
+<div class="container" id="box">加载中...</div>
 
 <script>
 const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
 const paper = params.get("paper");
 
-if(!subject || !paper){
-  document.getElementById("box").innerHTML = "参数错误";
-}
-
-// ⭐注意：你的 list.json 已经带 .json，所以这里不再拼接
 const url = `./exams/${subject}/${paper}`;
 
 let answers = {};
+let resultBox;
 
 fetch(url)
 .then(res=>{
@@ -114,35 +116,39 @@ function render(data){
   const box = document.getElementById("box");
   box.innerHTML = "";
 
-  // 标题
   const title = document.createElement("div");
-  title.className = "title";
-  title.innerText = data.title || "试卷";
+  title.className = "question";
+  title.innerHTML = "<b>" + data.title + "</b>";
   box.appendChild(title);
 
-  // 题目
-  data.questions.forEach((q, i)=>{
+  data.questions.forEach((q,i)=>{
 
     const div = document.createElement("div");
     div.className = "q";
 
-    // ⭐关键修复：换行 + 代码不挤一起
     const qDiv = document.createElement("div");
     qDiv.className = "question";
     qDiv.innerText = (i+1) + ". " + q.question;
     div.appendChild(qDiv);
 
-    // 选项（必须独立渲染）
-    if(q.options && q.options.length){
+    if(q.options){
 
-      q.options.forEach(opt => {
+      q.options.forEach(opt=>{
+
         const o = document.createElement("div");
         o.className = "opt";
         o.innerText = opt;
 
         o.onclick = ()=>{
+
           answers[i] = opt;
-          o.style.background = "#d6ffd6";
+
+          // 取消同组高亮
+          Array.from(div.querySelectorAll(".opt")).forEach(el=>{
+            el.classList.remove("correct","wrong");
+          });
+
+          o.classList.add("correct");
         };
 
         div.appendChild(o);
@@ -153,7 +159,6 @@ function render(data){
     box.appendChild(div);
   });
 
-  // 提交按钮
   const btn = document.createElement("div");
   btn.className = "submit";
   btn.innerText = "提交试卷";
@@ -161,18 +166,38 @@ function render(data){
   btn.onclick = ()=>{
 
     let score = 0;
+    let html = "";
 
     data.questions.forEach((q,i)=>{
 
       const userAns = answers[i];
       const correct = q.options[q.answer];
 
-      if(userAns === correct){
-        score += (q.score || 5);
-      }
+      const isRight = userAns === correct;
+
+      if(isRight) score += (q.score || 5);
+
+      html += `
+        <div style="margin-bottom:10px;">
+          <b>${i+1}. ${isRight ? "✔ 正确" : "✘ 错误"}</b><br>
+          你的答案：${userAns || "未作答"}<br>
+          正确答案：${correct}<br>
+          <div style="color:#666;font-size:13px;">
+            ${q.explanation || ""}
+          </div>
+        </div>
+      `;
     });
 
-    alert("得分：" + score);
+    resultBox = document.createElement("div");
+    resultBox.className = "result";
+    resultBox.innerHTML = `
+      <h3>最终得分：${score}</h3>
+      <hr>
+      ${html}
+    `;
+
+    box.appendChild(resultBox);
   };
 
   box.appendChild(btn);
