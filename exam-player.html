@@ -126,6 +126,9 @@ const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
 const paperFile = params.get("paper");
 
+console.log("subject:", subject);
+console.log("paperFile:", paperFile);
+
 if (!subject || !paperFile) {
   alert("缺少参数");
 }
