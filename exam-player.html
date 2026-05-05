@@ -1,156 +1,167 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>在线考试</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>在线考试系统 V2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: "Microsoft YaHei";
-      margin: 0;
-      background: #f5f5f5;
-    }
-
-    .header {
-      background: #2d7a2d;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .question {
-      margin-bottom: 20px;
-      padding: 15px;
-      border: 1px solid #eee;
-      border-radius: 8px;
-    }
-
-    .option {
-      display: block;
-      padding: 8px;
-      margin: 5px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .option:hover {
-      background: #eaffea;
-    }
-
-    .submit {
-      margin-top: 20px;
-      padding: 10px;
-      background: #2d7a2d;
-      color: white;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-  </style>
+<style>
+body{
+  font-family: "Microsoft YaHei";
+  margin:0;
+  background:#f5f5f5;
+}
+.header{
+  background:#2d7a2d;
+  color:#fff;
+  padding:15px;
+  text-align:center;
+}
+.container{
+  max-width:800px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+}
+.q{
+  border:1px solid #eee;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:8px;
+}
+.opt{
+  display:block;
+  margin:6px 0;
+  padding:6px;
+  border:1px solid #ddd;
+  border-radius:5px;
+  cursor:pointer;
+}
+.opt:hover{
+  background:#eaffea;
+}
+.submit{
+  margin-top:20px;
+  padding:10px;
+  background:#2d7a2d;
+  color:#fff;
+  text-align:center;
+  cursor:pointer;
+  border-radius:6px;
+}
+.title{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#333;
+}
+</style>
 </head>
 
 <body>
 
-<div class="header">
-  在线考试系统
-</div>
+<div class="header">在线考试系统 V2</div>
 
-<div class="container" id="container">
-  正在加载试卷...
+<div class="container" id="box">
+正在加载试卷...
 </div>
 
 <script>
-  const params = new URLSearchParams(location.search);
+const params = new URLSearchParams(location.search);
+const subject = params.get("subject");
+const paper = params.get("paper");
 
-  const subject = params.get("subject");
-  const paper = params.get("paper");
+if(!subject || !paper){
+  document.getElementById("box").innerHTML="参数错误";
+}
 
-  if (!subject || !paper) {
-    document.getElementById("container").innerHTML =
-      "参数错误";
-  }
+// ✔ 自动兼容 .json
+let file = paper;
+if(!file.endsWith(".json")){
+  file += ".json";
+}
 
-  const url = `./exams/${subject}/${paper}`;
+const url = `./exams/${subject}/${file}`;
 
-  console.log("加载试卷：", url);
+let answers = {};
 
-  fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error("试卷不存在：" + url);
-      }
-      return res.json();
-    })
-    .then(data => {
-      render(data);
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById("container").innerHTML =
-        "加载失败：" + url;
-    });
+fetch(url)
+.then(r=>{
+  if(!r.ok) throw new Error("文件不存在");
+  return r.json();
+})
+.then(data=>{
+  render(data);
+})
+.catch(err=>{
+  document.getElementById("box").innerHTML="加载失败：" + url;
+  console.error(err);
+});
 
-  function render(data) {
-    const box = document.getElementById("container");
+function render(data){
 
-    let score = 0;
-    let answers = {};
+  const box = document.getElementById("box");
+  box.innerHTML = "";
 
-    box.innerHTML = "";
+  // 标题
+  const title = document.createElement("div");
+  title.className = "title";
+  title.innerText = data.title || "试卷";
+  box.appendChild(title);
 
-    data.questions.forEach((q, i) => {
-      const div = document.createElement("div");
-      div.className = "question";
+  data.questions.forEach((q,i)=>{
 
-      div.innerHTML = `
-        <div>${i + 1}. ${q.title}</div>
-      `;
+    const div = document.createElement("div");
+    div.className = "q";
 
-      q.options.forEach(opt => {
+    div.innerHTML = `<div>${i+1}. ${q.question}</div>`;
+
+    // 选择题
+    if(q.options && q.options.length){
+
+      q.options.forEach(opt=>{
+
         const o = document.createElement("div");
-        o.className = "option";
+        o.className = "opt";
         o.innerText = opt;
 
-        o.onclick = () => {
+        o.onclick = ()=>{
           answers[i] = opt;
           o.style.background = "#d6ffd6";
         };
 
         div.appendChild(o);
       });
+    }
 
-      box.appendChild(div);
+    box.appendChild(div);
+  });
+
+  const btn = document.createElement("div");
+  btn.className = "submit";
+  btn.innerText = "提交试卷";
+
+  btn.onclick = ()=>{
+
+    let score = 0;
+
+    data.questions.forEach((q,i)=>{
+
+      const userAns = answers[i];
+
+      // ✔ 关键修复：answer 是索引
+      const correct = q.options[q.answer];
+
+      if(userAns === correct){
+        score += (q.score || 5);
+      }
     });
 
-    const btn = document.createElement("div");
-    btn.className = "submit";
-    btn.innerText = "提交试卷";
+    alert(`得分：${score}`);
+  };
 
-    btn.onclick = () => {
-      score = 0;
-
-      data.questions.forEach((q, i) => {
-        if (answers[i] === q.answer) {
-          score++;
-        }
-      });
-
-      alert(`你的得分：${score} / ${data.questions.length}`);
-    };
-
-    box.appendChild(btn);
-  }
+  box.appendChild(btn);
+}
 </script>
 
 </body>
