@@ -1,0 +1,186 @@
+{
+  "title": "2025 信息素养大赛 初赛 小学组01",
+  "questions": [
+    {
+      "type": "single",
+      "question": "下列变量命名正确的是？",
+      "options": ["123", "x", "123abc", "￥) ( )"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（x）\n💡 核心考点：Python 变量命名规则。\n🔎 执行追踪：变量名必须以字母或下划线开头，只能包含字母、数字和下划线。选项 A 和 C 以数字开头，选项 D 包含非法字符，只有 B 符合规则。\n⚠️ 易错提醒：变量名不能以数字开头，也不能包含特殊符号（如 ￥、)、( 等）。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的代码，最终输出的结果是？\nn = 6 * 3 + 4 * 2\nprint(n)",
+      "options": ["15", "44", "84", "26"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（26）\n💡 核心考点：考察 Python 算术运算符的优先级规则。\n🔎 执行追踪：先算乘法 6×3=18，4×2=8，再算加法 18+8=26。\n⚠️ 易错提醒：乘法 * 优先级高于加法 +，不能从左到右顺序计算。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项能够成功输出以下文字的是？\n你好\n很高兴见到你",
+      "options": [
+        "print('你好很高兴见到你')",
+        "print('你好')print('很高兴见到你')",
+        "print('你好 很高兴见到你')",
+        "print('你好')\nprint('很高兴见到你')"
+      ],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D\n💡 核心考点：print() 函数的换行输出特性。\n🔎 执行追踪：每个 print() 默认输出后自动换行，D 选项两条 print() 分别输出两行。\n⚠️ 易错提醒：A 无换行；B 写在同一行会语法错误；C 只有空格没有换行。"
+    },
+    {
+      "type": "single",
+      "question": "下面可以用来表示注释符号的是？",
+      "options": ["#", "==", "//", "!"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（#）\n💡 核心考点：Python 单行注释符号。\n🔎 执行追踪：Python 使用 # 作为单行注释符号。\n⚠️ 易错提醒：// 是 C/C++/Java 的注释符号，== 是比较运算符，! 不是 Python 的注释符号。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，代码输出数字 1 的次数是？\nfor i in range(5):\n    print(1)",
+      "options": ["4次", "无法输出", "1次", "5次"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（5 次）\n💡 核心考点：range() 函数的范围及 for 循环执行次数。\n🔎 执行追踪：range(5) 生成 [0,1,2,3,4] 共 5 个元素，循环执行 5 次。\n⚠️ 易错提醒：range(5) 不是到 5，而是到 4。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，列表 num 的最终内容是？\nnum = [1, 2, 3, 4]\nnum.append(6)\nprint(num)",
+      "options": ["[1, 2, 3, 4, 6]", "[1, 2, 3, 4]", "[1, 2, 3, 4, 5]", "[2, 3, 4, 6]"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（[1, 2, 3, 4, 6]）\n💡 核心考点：列表 append() 方法。\n🔎 执行追踪：append(6) 会把 6 添加到列表末尾。\n⚠️ 易错提醒：append() 是追加，不会替换原来的元素。"
+    },
+    {
+      "type": "single",
+      "question": "运行以下代码，seasons 中最终存储的是？\nseasons = ['春天', '夏天', '秋天', '冬天']\nseasons.remove('春天')",
+      "options": [
+        "[“春天”, “夏天”, “秋天”, “冬天”, “春天”]",
+        "[“夏天”, “秋天”, “冬天”]",
+        "[“春天”, “夏天”, “秋天”, “冬天”]",
+        "[“春天”, “夏天”, “冬天”]"
+      ],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（['夏天', '秋天', '冬天']）\n💡 核心考点：remove() 方法。\n🔎 执行追踪：remove('春天') 删除列表中的 '春天'。\n⚠️ 易错提醒：remove() 删除的是值，不是索引。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码的输出结果是？\nm = 0\nif 10 > m:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+      "options": ["NO", "10", "无法输出", "YES"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（YES）\n💡 核心考点：if-else 条件判断。\n🔎 执行追踪：10 > 0 为 True，执行 if 分支输出 YES。\n⚠️ 易错提醒：比较符号方向不要看错。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，最终的运行结果是？\nbook = ['三国演义', '红楼梦', '水浒传', '西游记', '论语', '安徒生童话']\nprint(book[3])",
+      "options": ["红楼梦", "论语", "水浒传", "西游记"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（西游记）\n💡 核心考点：列表索引从 0 开始。\n🔎 执行追踪：book[3] 是第 4 个元素 '西游记'。\n⚠️ 易错提醒：索引 3 对应第 4 个元素。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项中，能够将元素 ‘牛奶’ 修改为 ‘咖啡’ 的是？\ndrinks = ['茶', '牛奶', '啤酒', '果汁']",
+      "options": [
+        "drinks[1] = '咖啡'",
+        "drinks[3] = '咖啡'",
+        "drinks[2] = '咖啡'",
+        "drinks[0] = '咖啡'"
+      ],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（drinks[1] = '咖啡'）\n💡 核心考点：列表索引与元素修改。\n🔎 执行追踪：'牛奶' 在索引 1 位置，因此修改 drinks[1]。\n⚠️ 易错提醒：Python 索引从 0 开始。"
+    },
+    {
+      "type": "single",
+      "question": "下列程序的输出结果是？\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\n    if n < 8:\n        print(n)",
+      "options": ["2", "7", "3", "3 7 2"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（3 7 2）\n💡 核心考点：for 遍历 + if 条件判断。\n🔎 执行追踪：3<8 输出3，7<8 输出7，2<8 输出2，后面都不输出。\n⚠️ 易错提醒：会输出多个结果，不是只输出一个。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，程序的执行结果是？\na = 10\nfor i in range(3):\n    a = a - 2\nprint(a)",
+      "options": ["6", "10", "8", "4"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（4）\n💡 核心考点：循环次数与变量累减。\n🔎 执行追踪：循环 3 次，每次减 2，10-2×3=4。\n⚠️ 易错提醒：range(3) 是 3 次循环，不是 4 次。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项中，变量命名不正确的说法是？",
+      "options": [
+        "变量名以数字开头",
+        "变量名避免使用保留关键字",
+        "变量名只能包含字母、数字和下划线",
+        "变量名定义尽量使用有意义的名称"
+      ],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A\n💡 核心考点：Python 变量命名规则。\n🔎 执行追踪：题目问“不正确的说法”，A 表述的是错误规则，因此 A 正确。\n⚠️ 易错提醒：注意审题，是“不正确的说法”。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的代码，最终的运行结果是？\na = [1, 2, 3, 4, 5, 6, 7]\nprint(a[3] + a[5])",
+      "options": ["9", "35", "8", "10"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（10）\n💡 核心考点：列表索引。\n🔎 执行追踪：a[3]=4，a[5]=6，相加得 10。\n⚠️ 易错提醒：索引从 0 开始，不要误以为 a[3]=3。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列程序，最终结果是？\nx = 6\ny = x + 3\nz = x - 2\na = y * z\nprint(a)",
+      "options": ["72", "24", "6", "36"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（36）\n💡 核心考点：变量赋值与算术运算。\n🔎 执行追踪：x=6，y=9，z=4，a=9×4=36。\n⚠️ 易错提醒：注意 y 和 z 都由 x 推导。"
+    },
+
+    {
+      "type": "judge",
+      "question": "要使用 randint() 函数，需要先导入 random 库。",
+      "options": ["正确", "错误"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（正确）\n💡 核心考点：random 模块导入。\n🔎 执行追踪：randint() 属于 random 标准库，需要 import random 或 from random import randint。\n⚠️ 易错提醒：randint(a,b) 包含两端，而 range(a,b) 不包含 b。"
+    },
+    {
+      "type": "judge",
+      "question": "小明使用程序制作了一个计算器，但是现在计算器不能输入，小明应该使用 print() 语句输入。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：input() 与 print() 区别。\n🔎 执行追踪：print() 用于输出，input() 才是输入。\n⚠️ 易错提醒：print 是输出函数，input 是输入函数。"
+    },
+    {
+      "type": "judge",
+      "question": "小明想要重复打印自己的名字 5 次，这种情况下应该使用 if 语句。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：if 与循环的区别。\n🔎 执行追踪：if 只判断一次，重复执行应该使用 for 或 while。\n⚠️ 易错提醒：if 是判断，循环才是重复。"
+    },
+    {
+      "type": "judge",
+      "question": "运行下面代码，程序会输出 2 个“胖大星”。\nwhile True:\n    print('胖大星')\n    break\n    print('胖大星')",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：break 的作用。\n🔎 执行追踪：第一次输出后 break 立即跳出循环，后面的 print 永远不执行，因此只输出 1 次。\n⚠️ 易错提醒：break 后面的代码不会执行。"
+    },
+    {
+      "type": "judge",
+      "question": "执行下面代码，程序的输出结果为 3。\na = 3\nif a == '3':\n    print(3)\nelse:\n    print(1)",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：整数与字符串类型比较。\n🔎 执行追踪：a 是整数 3，而 '3' 是字符串，比较结果 False，输出 1。\n⚠️ 易错提醒：3 和 '3' 类型不同，== 比较为 False。"
+    }
+  ]
+}
