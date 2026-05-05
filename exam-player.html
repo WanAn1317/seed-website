@@ -1,326 +1,157 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>在线答题</title>
+  <meta charset="UTF-8">
+  <title>在线考试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
+      font-family: "Microsoft YaHei";
       margin: 0;
-      padding: 0;
-      font-family: "Microsoft YaHei", Arial, sans-serif;
-      background: #ffffff;
-      color: #333;
+      background: #f5f5f5;
     }
 
-    .nav {
-      width: 100%;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      box-sizing: border-box;
-      border-bottom: 1px solid #eee;
-    }
-
-    .nav .logo {
-      font-size: 18px;
-      font-weight: bold;
-      color: #2d7a2d;
-      cursor: pointer;
-    }
-
-    .back-btn {
-      font-size: 14px;
-      color: #555;
-      padding: 8px 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      background: #fafafa;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .back-btn:hover {
+    .header {
       background: #2d7a2d;
       color: white;
-      border-color: #2d7a2d;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
     }
 
-    .main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .paper-title {
-      font-size: 28px;
-      font-weight: bold;
-      color: #2d7a2d;
-      margin-bottom: 10px;
-    }
-
-    .paper-info {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 30px;
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .question {
-      padding: 18px;
-      border-radius: 12px;
+      margin-bottom: 20px;
+      padding: 15px;
       border: 1px solid #eee;
-      background: #fafafa;
-      margin-bottom: 15px;
+      border-radius: 8px;
     }
 
-    .question h3 {
-      margin: 0 0 10px 0;
-      font-size: 16px;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    .options label {
+    .option {
       display: block;
-      padding: 6px 0;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 14px;
-      color: #444;
     }
 
-    .submit-btn {
-      margin-top: 25px;
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      cursor: pointer;
+    .option:hover {
+      background: #eaffea;
+    }
+
+    .submit {
+      margin-top: 20px;
+      padding: 10px;
       background: #2d7a2d;
       color: white;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .submit-btn:hover {
-      background: #256525;
-    }
-
-    .result-box {
-      margin-top: 25px;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px solid #eee;
-      background: #fffbe6;
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
-      display: none;
-      line-height: 1.6;
-    }
-
-    .correct {
-      border: 2px solid #2d7a2d;
-      background: #f0fff0;
-    }
-
-    .wrong {
-      border: 2px solid #d93025;
-      background: #fff0f0;
-    }
-
-    .answer-info {
-      margin-top: 12px;
-      font-size: 14px;
-      padding: 12px;
-      border-radius: 10px;
-      background: #ffffff;
-      border: 1px dashed #ccc;
-      display: none;
-      line-height: 1.6;
-      white-space: pre-line;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding: 20px;
       text-align: center;
-      font-size: 12px;
-      color: #999;
+      cursor: pointer;
+      border-radius: 6px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="nav">
-    <div class="logo" onclick="location.href='index.html'">🌱 代码种子工作室</div>
-    <button class="back-btn" onclick="history.back()">⬅ 返回试卷列表</button>
-  </div>
+<div class="header">
+  在线考试系统
+</div>
 
-  <div class="main">
-    <div class="paper-title" id="paperTitle">加载中...</div>
-    <div class="paper-info" id="paperInfo"></div>
+<div class="container" id="container">
+  正在加载试卷...
+</div>
 
-    <div id="questionContainer"></div>
+<script>
+  const params = new URLSearchParams(location.search);
 
-    <button class="submit-btn" id="submitBtn" onclick="submitPaper()">提交试卷并评分</button>
+  const subject = params.get("subject");
+  const paper = params.get("paper");
 
-    <div class="result-box" id="resultBox"></div>
-  </div>
+  if (!subject || !paper) {
+    document.getElementById("container").innerHTML =
+      "参数错误";
+  }
 
-  <footer>
-    © 2026 代码种子工作室 | 在线答题系统
-  </footer>
+  const url = `./exams/${subject}/${paper}.json`;
 
-  <script>
-    const studentName = localStorage.getItem("studentName");
-    if (!studentName) {
-      window.location.href = "login.html";
-    }
+  console.log("加载试卷：", url);
 
-    const params = new URLSearchParams(location.search);
-    const subject = params.get("subject");
-    const paperFile = params.get("paper");
-
-    if (!subject || !paperFile) {
-      alert("试卷参数缺失！");
-      history.back();
-    }
-
-    let paperData = null;
-
-    fetch(`exams/${subject}/${paperFile}`)
-      .then(res => res.json())
-      .then(data => {
-        paperData = data;
-
-        document.getElementById("paperTitle").innerText = data.title || "未命名试卷";
-        document.getElementById("paperInfo").innerText =
-          "答题人：" + studentName + " | 题目数量：" + data.questions.length + " 题";
-
-        renderQuestions(data.questions);
-      })
-      .catch(err => {
-        alert("加载试卷失败，请检查 JSON 文件是否存在！");
-        console.error(err);
-      });
-
-    function renderQuestions(questions) {
-      const container = document.getElementById("questionContainer");
-      container.innerHTML = "";
-
-      questions.forEach((q, index) => {
-        const div = document.createElement("div");
-        div.className = "question";
-        div.id = "question_" + index;
-
-        let optionsHtml = "";
-        q.options.forEach((opt, i) => {
-          optionsHtml += `
-            <label>
-              <input type="radio" name="q${index}" value="${i}">
-              ${String.fromCharCode(65 + i)}. ${opt}
-            </label>
-          `;
-        });
-
-        const scoreText = q.score ? `（${q.score}分）` : "";
-
-        div.innerHTML = `
-          <h3>${index + 1}. ${q.question} ${scoreText}</h3>
-          <div class="options">${optionsHtml}</div>
-
-          <div class="answer-info" id="answerInfo_${index}"></div>
-        `;
-
-        container.appendChild(div);
-      });
-    }
-
-    function submitPaper() {
-      if (!paperData) return;
-
-      let gotScore = 0;
-      let totalScore = 0;
-      let correctCount = 0;
-
-      paperData.questions.forEach((q, index) => {
-        const qScore = q.score || 1;
-        totalScore += qScore;
-
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        const qDiv = document.getElementById("question_" + index);
-
-        const correctLetter = String.fromCharCode(65 + q.answer);
-        const correctText = q.options[q.answer];
-
-        let userAnswer = "未作答";
-        if (selected) {
-          userAnswer = String.fromCharCode(65 + parseInt(selected.value));
-        }
-
-        const explain = q.explanation || "暂无解析";
-
-        const answerInfoDiv = document.getElementById("answerInfo_" + index);
-        answerInfoDiv.style.display = "block";
-
-        if (selected && parseInt(selected.value) === q.answer) {
-          correctCount++;
-          gotScore += qScore;
-          qDiv.classList.add("correct");
-
-          answerInfoDiv.innerText =
-            `✅ 本题答对！\n你的答案：${userAnswer}\n正确答案：${correctLetter}（${correctText}）\n解析：\n${explain}`;
-        } else {
-          qDiv.classList.add("wrong");
-
-          answerInfoDiv.innerText =
-            `❌ 本题答错！\n你的答案：${userAnswer}\n正确答案：${correctLetter}（${correctText}）\n解析：\n${explain}`;
-        }
-      });
-
-      const percent = Math.round((gotScore / totalScore) * 100);
-
-      const resultBox = document.getElementById("resultBox");
-      resultBox.style.display = "block";
-      resultBox.innerText =
-        `提交成功！\n\n你的得分：${gotScore} / ${totalScore}\n答对题数：${correctCount} / ${paperData.questions.length}\n正确率：${percent}%`;
-
-      document.getElementById("submitBtn").disabled = true;
-      document.getElementById("submitBtn").innerText = "已提交（不可重复提交）";
-      document.getElementById("submitBtn").style.background = "#999";
-
-      saveScore(gotScore, totalScore, percent, correctCount);
-    }
-
-    function saveScore(gotScore, totalScore, percent, correctCount) {
-      const record = {
-        student: studentName,
-        subject: subject,
-        paper: paperFile,
-        paperTitle: paperData.title || paperFile,
-        gotScore: gotScore,
-        totalScore: totalScore,
-        correctCount: correctCount,
-        totalQuestions: paperData.questions.length,
-        percent: percent,
-        time: new Date().toLocaleString()
-      };
-
-      let history = JSON.parse(localStorage.getItem("scoreHistory")) || [];
-      history.unshift(record);
-
-      if (history.length > 50) {
-        history = history.slice(0, 50);
+  fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("试卷不存在：" + url);
       }
+      return res.json();
+    })
+    .then(data => {
+      render(data);
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("container").innerHTML =
+        "加载失败：" + url;
+    });
 
-      localStorage.setItem("scoreHistory", JSON.stringify(history));
-    }
-  </script>
+  function render(data) {
+    const box = document.getElementById("container");
+
+    let score = 0;
+    let answers = {};
+
+    box.innerHTML = "";
+
+    data.questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+
+      div.innerHTML = `
+        <div>${i + 1}. ${q.title}</div>
+      `;
+
+      q.options.forEach(opt => {
+        const o = document.createElement("div");
+        o.className = "option";
+        o.innerText = opt;
+
+        o.onclick = () => {
+          answers[i] = opt;
+          o.style.background = "#d6ffd6";
+        };
+
+        div.appendChild(o);
+      });
+
+      box.appendChild(div);
+    });
+
+    const btn = document.createElement("div");
+    btn.className = "submit";
+    btn.innerText = "提交试卷";
+
+    btn.onclick = () => {
+      score = 0;
+
+      data.questions.forEach((q, i) => {
+        if (answers[i] === q.answer) {
+          score++;
+        }
+      });
+
+      alert(`你的得分：${score} / ${data.questions.length}`);
+    };
+
+    box.appendChild(btn);
+  }
+</script>
 
 </body>
 </html>
