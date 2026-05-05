@@ -157,7 +157,7 @@
     document.getElementById("pageTitle").innerText = subjectMap[subject] + " 试卷列表";
 
     // 读取 list.json
-    fetch(`exams/${subject}/list.json`)
+   fetch("exams/scratch/list.json")
       .then(res => res.json())
       .then(data => {
         const paperList = document.getElementById("paperList");
