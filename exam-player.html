@@ -2,21 +2,24 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>在线考试系统 V2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线考试系统</title>
 
 <style>
 body{
-  font-family: "Microsoft YaHei";
   margin:0;
+  font-family:"Microsoft YaHei", Arial;
   background:#f5f5f5;
 }
+
 .header{
   background:#2d7a2d;
   color:#fff;
   padding:15px;
   text-align:center;
+  font-size:18px;
 }
+
 .container{
   max-width:800px;
   margin:20px auto;
@@ -24,35 +27,48 @@ body{
   padding:20px;
   border-radius:10px;
 }
+
 .q{
   border:1px solid #eee;
   padding:15px;
   margin-bottom:15px;
   border-radius:8px;
+  background:#fff;
 }
+
+.question{
+  font-size:15px;
+  margin-bottom:10px;
+  white-space: pre-wrap; /* ⭐关键修复：保留换行 */
+}
+
 .opt{
-  display:block;
+  padding:8px;
   margin:6px 0;
-  padding:6px;
   border:1px solid #ddd;
-  border-radius:5px;
+  border-radius:6px;
   cursor:pointer;
+  transition:0.2s;
 }
+
 .opt:hover{
   background:#eaffea;
+  border-color:#2d7a2d;
 }
+
 .submit{
   margin-top:20px;
-  padding:10px;
+  padding:12px;
   background:#2d7a2d;
   color:#fff;
   text-align:center;
   cursor:pointer;
   border-radius:6px;
 }
+
 .title{
   font-size:18px;
-  margin-bottom:10px;
+  margin-bottom:15px;
   color:#333;
 }
 </style>
@@ -60,10 +76,10 @@ body{
 
 <body>
 
-<div class="header">在线考试系统 V2</div>
+<div class="header">在线考试系统</div>
 
 <div class="container" id="box">
-正在加载试卷...
+加载中...
 </div>
 
 <script>
@@ -72,29 +88,24 @@ const subject = params.get("subject");
 const paper = params.get("paper");
 
 if(!subject || !paper){
-  document.getElementById("box").innerHTML="参数错误";
+  document.getElementById("box").innerHTML = "参数错误";
 }
 
-// ✔ 自动兼容 .json
-let file = paper;
-if(!file.endsWith(".json")){
-  file += ".json";
-}
-
+// ⭐注意：你的 list.json 已经带 .json，所以这里不再拼接
 const url = `./exams/${subject}/${paper}`;
 
 let answers = {};
 
 fetch(url)
-.then(r=>{
-  if(!r.ok) throw new Error("文件不存在");
-  return r.json();
+.then(res=>{
+  if(!res.ok) throw new Error("文件不存在");
+  return res.json();
 })
 .then(data=>{
   render(data);
 })
 .catch(err=>{
-  document.getElementById("box").innerHTML="加载失败：" + url;
+  document.getElementById("box").innerHTML = "加载失败：" + url;
   console.error(err);
 });
 
@@ -109,18 +120,22 @@ function render(data){
   title.innerText = data.title || "试卷";
   box.appendChild(title);
 
-  data.questions.forEach((q,i)=>{
+  // 题目
+  data.questions.forEach((q, i)=>{
 
     const div = document.createElement("div");
     div.className = "q";
 
-    div.innerHTML = `<div>${i+1}. ${q.question}</div>`;
+    // ⭐关键修复：换行 + 代码不挤一起
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    qDiv.innerText = (i+1) + ". " + q.question;
+    div.appendChild(qDiv);
 
-    // 选择题
+    // 选项（必须独立渲染）
     if(q.options && q.options.length){
 
-      q.options.forEach(opt=>{
-
+      q.options.forEach(opt => {
         const o = document.createElement("div");
         o.className = "opt";
         o.innerText = opt;
@@ -132,11 +147,13 @@ function render(data){
 
         div.appendChild(o);
       });
+
     }
 
     box.appendChild(div);
   });
 
+  // 提交按钮
   const btn = document.createElement("div");
   btn.className = "submit";
   btn.innerText = "提交试卷";
@@ -148,8 +165,6 @@ function render(data){
     data.questions.forEach((q,i)=>{
 
       const userAns = answers[i];
-
-      // ✔ 关键修复：answer 是索引
       const correct = q.options[q.answer];
 
       if(userAns === correct){
@@ -157,7 +172,7 @@ function render(data){
       }
     });
 
-    alert(`得分：${score}`);
+    alert("得分：" + score);
   };
 
   box.appendChild(btn);
