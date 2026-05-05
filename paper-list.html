@@ -2,190 +2,161 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>试卷列表</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Microsoft YaHei", Arial, sans-serif;
-      background: #ffffff;
+      font-family: "Microsoft YaHei", Arial;
+      background: #fff;
       color: #333;
     }
 
     .nav {
-      width: 100%;
       height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 30px;
-      box-sizing: border-box;
       border-bottom: 1px solid #eee;
     }
 
-    .nav .logo {
-      font-size: 18px;
+    .logo {
       font-weight: bold;
       color: #2d7a2d;
       cursor: pointer;
     }
 
     .back-btn {
-      text-decoration: none;
-      font-size: 14px;
-      color: #555;
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 8px 12px;
       border: 1px solid #ddd;
       background: #fafafa;
-      transition: 0.2s;
+      border-radius: 8px;
       cursor: pointer;
-    }
-
-    .back-btn:hover {
-      background: #2d7a2d;
-      color: white;
-      border-color: #2d7a2d;
     }
 
     .main {
       max-width: 800px;
-      margin: 50px auto;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
-    .main h1 {
-      font-size: 28px;
+    h1 {
       color: #2d7a2d;
-      margin-bottom: 10px;
-    }
-
-    .main p {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 25px;
     }
 
     .paper-list {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
 
     .paper-list li {
       background: #fafafa;
       border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: 0.2s;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      transition: 0.2s;
     }
 
     .paper-list li:hover {
       background: #2d7a2d;
       color: white;
-      transform: translateY(-2px);
-    }
-
-    .paper-title {
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .paper-go {
-      font-size: 13px;
-      opacity: 0.8;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #999;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="nav">
-    <div class="logo" onclick="location.href='index.html'">🌱 代码种子工作室</div>
-    <button class="back-btn" onclick="location.href='papers.html'">⬅ 返回科目选择</button>
+<div class="nav">
+  <div class="logo" onclick="location.href='index.html'">
+    🌱 代码种子工作室
   </div>
 
-  <div class="main">
-    <h1 id="pageTitle">试卷列表</h1>
-    <p id="pageDesc">请选择一张试卷开始答题</p>
+  <button class="back-btn" onclick="location.href='papers.html'">
+    ⬅ 返回
+  </button>
+</div>
 
-    <ul class="paper-list" id="paperList"></ul>
-  </div>
+<div class="main">
+  <h1 id="pageTitle">试卷列表</h1>
+  <p>请选择试卷开始答题</p>
 
-  <footer>
-    © 2026 代码种子工作室 | 在线试卷题库
-  </footer>
+  <ul class="paper-list" id="paperList"></ul>
+</div>
 
-  <script>
-    // 登录保护
-    const studentName = localStorage.getItem("studentName");
-    if (!studentName) {
-      window.location.href = "login.html";
-    }
+<script>
+  // 登录检查
+  const studentName = localStorage.getItem("studentName");
+  if (!studentName) {
+    location.href = "login.html";
+  }
 
-    // 获取科目参数
-    const params = new URLSearchParams(location.search);
-    const subject = params.get("subject");
+  // 获取 subject
+  const params = new URLSearchParams(location.search);
+  const subject = params.get("subject");
 
-    if (!subject) {
-      alert("科目参数缺失！");
-      location.href = "papers.html";
-    }
+  if (!subject) {
+    alert("缺少 subject 参数");
+    location.href = "papers.html";
+  }
 
-    // 科目中文名
-    const subjectMap = {
-      python: "Python",
-      scratch: "Scratch",
-      cpp: "C++"
-    };
+  // 学科名称
+  const subjectMap = {
+    python: "Python",
+    scratch: "Scratch",
+    cpp: "C++"
+  };
 
-    document.getElementById("pageTitle").innerText = subjectMap[subject] + " 试卷列表";
+  document.getElementById("pageTitle").innerText =
+    (subjectMap[subject] || "未知") + " 试卷列表";
 
-    // 读取 list.json
-   fetch("exams/scratch/list.json")
-      .then(res => res.json())
-      .then(data => {
-        const paperList = document.getElementById("paperList");
+  // ⭐ 正确路径（核心修复）
+  const url = `./exams/${subject}/list.json`;
 
-        if (data.length === 0) {
-          paperList.innerHTML = "<li>暂无试卷</li>";
-          return;
-        }
+  console.log("加载路径：", url);
 
-        data.forEach(paper => {
-          const li = document.createElement("li");
-          li.innerHTML = `
-            <div class="paper-title">📄 ${paper.name}</div>
-            <div class="paper-go">点击进入 →</div>
-          `;
+  fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("找不到：" + url);
+      }
+      return res.json();
+    })
+    .then(data => {
+      const list = document.getElementById("paperList");
 
-          li.onclick = () => {
-            location.href = `exam-player.html?subject=${subject}&paper=${paper.file}`;
-          };
+      if (!Array.isArray(data) || data.length === 0) {
+        list.innerHTML = "<li>暂无试卷</li>";
+        return;
+      }
 
-          paperList.appendChild(li);
-        });
-      })
-      .catch(err => {
-        alert("加载试卷列表失败，请检查 list.json 是否存在！");
-        console.error(err);
+      data.forEach(item => {
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+          <div>📄 ${item.name}</div>
+          <div>→</div>
+        `;
+
+        li.onclick = () => {
+          location.href =
+            `exam-player.html?subject=${subject}&paper=${item.file}`;
+        };
+
+        list.appendChild(li);
       });
-  </script>
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("paperList").innerHTML =
+        `<li>加载失败：${url}</li>`;
+    });
+</script>
 
 </body>
 </html>
