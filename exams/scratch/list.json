@@ -1,3 +1,7 @@
 [
-  { "name": "【初赛集训】16模拟考-小低组（2）", "file": "paper1" }
+  {
+    "name": "Scratch 初赛模拟卷1",
+    "file": "paper1.json",
+    "pdf": "pdfs/paper1.pdf"
+  }
 ]
