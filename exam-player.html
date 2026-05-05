@@ -76,17 +76,16 @@
     }
 
     .question h3 {
+      margin: 0 0 10px 0;
       font-size: 16px;
-      line-height: 1.6;
-      white-space: pre-wrap; /* ⭐关键：保留换行 */
+      line-height: 1.5;
     }
 
     .options label {
       display: block;
       padding: 6px 0;
-      cursor: pointer;
       font-size: 14px;
-      white-space: pre-wrap; /* ⭐防止选项挤压 */
+      cursor: pointer;
     }
 
     .submit-btn {
@@ -110,12 +109,9 @@
       margin-top: 25px;
       padding: 18px;
       border-radius: 12px;
-      border: 1px solid #eee;
       background: #fffbe6;
-      font-size: 16px;
-      font-weight: bold;
       display: none;
-      line-height: 1.6;
+      font-weight: bold;
     }
 
     .correct {
@@ -155,7 +151,7 @@
   <div id="questionContainer"></div>
 
   <button class="submit-btn" onclick="submitPaper()" id="submitBtn">
-    提交试卷并评分
+    提交试卷
   </button>
 
   <div class="result-box" id="resultBox"></div>
@@ -171,8 +167,11 @@ const paperFile = params.get("paper");
 
 let paperData = null;
 
+// =======================
+// 加载试卷
+// =======================
 fetch(`exams/${subject}/${paperFile}`)
-  .then(r => r.json())
+  .then(res => res.json())
   .then(data => {
     paperData = data;
 
@@ -181,83 +180,94 @@ fetch(`exams/${subject}/${paperFile}`)
       `答题人：${studentName} | 共 ${data.questions.length} 题`;
 
     renderQuestions(data.questions);
+  })
+  .catch(err => {
+    alert("加载失败，请检查 JSON 路径");
+    console.error(err);
   });
 
+// =======================
+// 渲染题目（兼容 Scratch + Python）
+// =======================
 function renderQuestions(questions) {
   const container = document.getElementById("questionContainer");
   container.innerHTML = "";
 
-  questions.forEach((q, i) => {
+  questions.forEach((q, index) => {
     const div = document.createElement("div");
     div.className = "question";
-    div.id = "q_" + i;
+    div.id = "question_" + index;
 
-    const title = document.createElement("h3");
-    title.textContent = `${i + 1}. ${q.question}`;
-    div.appendChild(title);
+    let optionsHtml = "";
 
-    const opt = document.createElement("div");
-    opt.className = "options";
+    if (q.options && Array.isArray(q.options)) {
+      q.options.forEach((opt, i) => {
+        optionsHtml += `
+          <label>
+            <input type="radio" name="q${index}" value="${i}">
+            ${String.fromCharCode(65 + i)}. ${opt}
+          </label>
+        `;
+      });
+    } else {
+      optionsHtml = `<div style="color:red">无选项</div>`;
+    }
 
-    q.options.forEach((o, j) => {
-      const label = document.createElement("label");
+    div.innerHTML = `
+      <h3>${index + 1}. ${q.question || ""}</h3>
+      <div class="options">${optionsHtml}</div>
+      <div class="answer-info" id="answerInfo_${index}"></div>
+    `;
 
-      label.innerHTML = `
-        <input type="radio" name="q${i}" value="${j}">
-        ${String.fromCharCode(65 + j)}. ${o}
-      `;
-
-      opt.appendChild(label);
-    });
-
-    div.appendChild(opt);
-
-    const info = document.createElement("div");
-    info.className = "answer-info";
-    info.id = "info_" + i;
-
-    div.appendChild(info);
     container.appendChild(div);
   });
 }
 
+// =======================
+// 提交评分（兼容 Scratch 字母 + Python 数字）
+// =======================
 function submitPaper() {
   let score = 0;
   let total = 0;
-  let correct = 0;
 
-  paperData.questions.forEach((q, i) => {
+  paperData.questions.forEach((q, index) => {
     total += q.score || 1;
 
-    const sel = document.querySelector(`input[name="q${i}"]:checked`);
-    const box = document.getElementById("q_" + i);
-    const info = document.getElementById("info_" + i);
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const box = document.getElementById("question_" + index);
+    const info = document.getElementById("answerInfo_" + index);
 
-    const right = q.answer;
+    let correct = q.answer;
 
-    let user = sel ? parseInt(sel.value) : -1;
-
-    if (user === right) {
-      score += q.score || 1;
-      correct++;
-      box.classList.add("correct");
-    } else {
-      box.classList.add("wrong");
+    // Scratch: A/B/C/D → 数字
+    if (typeof correct === "string") {
+      correct = correct.charCodeAt(0) - 65;
     }
 
+    let user = selected ? parseInt(selected.value) : -1;
+
+    let correctLetter = String.fromCharCode(65 + correct);
+    let correctText = q.options ? q.options[correct] : "";
+
     info.style.display = "block";
-    info.innerText =
-      `你的答案：${user === -1 ? "未作答" : String.fromCharCode(65 + user)}\n` +
-      `正确答案：${String.fromCharCode(65 + right)}\n\n` +
-      q.explanation;
+
+    if (user === correct) {
+      score += (q.score || 1);
+      box.classList.add("correct");
+
+      info.innerText =
+        `✔ 正确\n答案：${correctLetter}\n${q.explanation || ""}`;
+    } else {
+      box.classList.add("wrong");
+
+      info.innerText =
+        `✘ 错误\n你的答案：${user === -1 ? "未选" : String.fromCharCode(65 + user)}\n正确：${correctLetter}\n${q.explanation || ""}`;
+    }
   });
 
-  const percent = Math.round((score / total) * 100);
-
-  const result = document.getElementById("resultBox");
-  result.style.display = "block";
-  result.innerText =
-    `得分：${score}/${total}\n正确率：${percent}%\n正确题数：${correct}`;
+  document.getElementById("resultBox").style.display = "block";
+  document.getElementById("resultBox").innerText =
+    `得分：${score} / ${total}`;
 }
 </script>
 
