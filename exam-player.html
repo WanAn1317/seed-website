@@ -124,23 +124,23 @@ const studentName = localStorage.getItem("studentName") || "未登录";
 
 const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
-
-// ⭐ 核心修复：统一 paperFile 处理（不会重复加 .json）
 let paperFile = params.get("paper");
-if (!paperFile.endsWith(".json")) {
-  paperFile = paperFile + ".json";
-}
-
-console.log("subject:", subject);
-console.log("paperFile:", paperFile);
 
 if (!subject || !paperFile) {
   alert("缺少参数");
 }
 
-/* ⭐ 稳定路径（GitHub Pages 必须带项目名） */
+/* ⭐统一规则：永远补 .json */
+if (!paperFile.endsWith(".json")) {
+  paperFile += ".json";
+}
+
+console.log("subject:", subject);
+console.log("paperFile:", paperFile);
+
+/* ⭐唯一正确路径（GitHub Pages稳定写法） */
 function getPaperPath() {
-  return `/seed-website/exams/${subject}/${paperFile}`;
+  return `exams/${subject}/${paperFile}`;
 }
 
 let paperData = null;
@@ -163,7 +163,7 @@ fetch(getPaperPath())
   })
   .catch(err => {
     console.error(err);
-    alert("试卷加载失败，请检查文件路径");
+    alert("试卷加载失败：请检查 exams/scratch/ 下是否存在对应 json 文件");
   });
 
 function render(list) {
@@ -208,7 +208,7 @@ function submitPaper() {
 
     const correct = q.answer;
 
-    if (sel && parseInt(sel.value) == correct) {
+    if (sel && sel.value == correct) {
       score++;
       qDiv.classList.add("correct");
       ansBox.innerText = "✔ 正确";
