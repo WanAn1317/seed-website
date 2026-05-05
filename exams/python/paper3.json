@@ -1,0 +1,186 @@
+{
+  "title": "2025 信息素养大赛 初赛 小学组02",
+  "questions": [
+    {
+      "type": "single",
+      "question": "以下选项不是字符串的是？",
+      "options": ["'Hello'", "zifuchuan", "'111'", "'123'"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B\n💡 核心考点：考察 Python 字符串的定义方式。\n🔎 执行追踪：'Hello'、'111'、'123' 都用引号包裹，是字符串；zifuchuan 没有引号，是变量名。\n⚠️ 易错提醒：字符串必须用引号（单引号或双引号）包裹，不加引号的是变量名或标识符。"
+    },
+    {
+      "type": "single",
+      "question": "执行下面的代码，变量 a 的值有可能是？\nfrom random import *\na = randint(1,10)",
+      "options": ["0", "11", "5", "20"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（5）\n💡 核心考点：考察 randint() 函数的取值范围（双闭区间）。\n🔎 执行追踪：randint(1, 10) 返回 [1,10] 范围内的随机整数。\n⚠️ 易错提醒：randint(a, b) 两端都包含，只有 5 在范围内。"
+    },
+    {
+      "type": "single",
+      "question": "下列变量命名正确的是？",
+      "options": ["￥(()", "123abc", "x", "123"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（x）\n💡 核心考点：Python 变量命名规则。\n🔎 执行追踪：变量名只能由字母、数字、下划线组成，且不能以数字开头。\n⚠️ 易错提醒：变量名不能以数字开头，这是最常见的命名错误。"
+    },
+    {
+      "type": "single",
+      "question": "Python 中，可以用来计算两个数的乘积的运算符是？",
+      "options": ["×", "/", "+", "*"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（*）\n💡 核心考点：Python 算术运算符。\n🔎 执行追踪：Python 中乘法运算符是 *。\n⚠️ 易错提醒：数学符号 × 在 Python 中无效，必须用 *。"
+    },
+    {
+      "type": "single",
+      "question": "下面代码可以正常输出的是？",
+      "options": [
+        "2>1: print('Ok')",
+        "if 2>1 print('Ok')",
+        "if 2>1: Print('Ok')",
+        "if 2>1: print('Ok')"
+      ],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D\n💡 核心考点：if 语句语法。\n🔎 执行追踪：A 缺少 if；B 缺少冒号；C Print 大写错误；D 正确。\n⚠️ 易错提醒：print 必须全小写，且 if 条件后必须加冒号。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，最终输出的结果是？\nbook = ['三国演义','红楼梦','水浒传','西游记','论语','安徒生童话']\nprint(book[3])",
+      "options": ["论语", "水浒传", "红楼梦", "西游记"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（西游记）\n💡 核心考点：列表索引从 0 开始。\n🔎 执行追踪：book[3] 是第 4 个元素，为 '西游记'。\n⚠️ 易错提醒：索引从 0 开始，第 4 个元素索引是 3。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项中，能够将元素 \"牛奶\" 修改为 \"咖啡\" 的是？\ndrinks = ['茶', '牛奶', '啤酒', '果汁']",
+      "options": [
+        "drinks[1] = '咖啡'",
+        "drinks[0] = '咖啡'",
+        "drinks[3] = '咖啡'",
+        "drinks[2] = '咖啡'"
+      ],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A\n💡 核心考点：列表索引与元素修改。\n🔎 执行追踪：'牛奶' 在索引 1 位置，因此用 drinks[1] 修改。\n⚠️ 易错提醒：Python 列表索引从 0 开始。"
+    },
+    {
+      "type": "single",
+      "question": "运行以下代码，输出结果是？\nx = 10\ny = 15\nz = x + y\nprint(z)",
+      "options": ["25", "15", "20", "10"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（25）\n💡 核心考点：变量赋值与算术运算。\n🔎 执行追踪：z = 10 + 15 = 25。\n⚠️ 易错提醒：z 存的是计算结果，不是字符串。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，num 列表最终的元素是？\nnum = [1, 2, 3, 4, 5]\nnum[3] = 1",
+      "options": [
+        "[1, 2, 3, 4, 5, 1]",
+        "[1, 2, 1, 4, 5]",
+        "[1, 2, 3, 1, 5]",
+        "[1, 1, 3, 4, 5]"
+      ],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（[1, 2, 3, 1, 5]）\n💡 核心考点：列表索引赋值。\n🔎 执行追踪：num[3] 是第 4 个元素 4，被修改为 1。\n⚠️ 易错提醒：索引从 0 开始，num[3] 不是第 3 个元素。"
+    },
+    {
+      "type": "single",
+      "question": "下面代码的输出结果是？\na = 95\nif a >= 60:\n    print('通过')\nelse:\n    print('不通过')",
+      "options": ["无法输出", "通过", "95", "不通过"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（通过）\n💡 核心考点：if-else 判断。\n🔎 执行追踪：95 >= 60 为 True，输出“通过”。\n⚠️ 易错提醒：条件成立只执行 if 分支。"
+    },
+    {
+      "type": "single",
+      "question": "下列选项中，变量命名不正确的说法是？",
+      "options": [
+        "变量名避免使用保留关键字",
+        "变量名定义尽量使用有意义的名称",
+        "变量名以数字开头",
+        "变量名只能包含字母、数字和下划线"
+      ],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C\n💡 核心考点：Python 变量命名规则。\n🔎 执行追踪：变量名不能以数字开头，因此 C 是错误说法。\n⚠️ 易错提醒：注意审题问的是“不正确的说法”。"
+    },
+    {
+      "type": "single",
+      "question": "下列程序的输出结果是？\nnumbers = [3, 7, 2, 15, 9, 12]\nfor n in numbers:\n    if n < 8:\n        print(n)",
+      "options": ["3 7 2", "7", "3", "2"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（3 7 2）\n💡 核心考点：for 遍历 + if 判断。\n🔎 执行追踪：3、7、2 小于 8，会被依次输出。\n⚠️ 易错提醒：会输出多个值，不是只输出一个。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，最终的输出“练习”的次数是？\nwhile True:\n    print('练习')\n    break\nprint('练习')",
+      "options": ["1", "无数次", "2", "0"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（2）\n💡 核心考点：while True 与 break。\n🔎 执行追踪：循环内输出 1 次后 break，循环外再输出 1 次，总共 2 次。\n⚠️ 易错提醒：break 会结束循环，因此不是无限输出。"
+    },
+    {
+      "type": "single",
+      "question": "下面程序的输出结果是？\na = 50\na = a * 2\na = a - 15\nif a > 90:\n    print('完美!')\nelse:\n    print('不错哦!')",
+      "options": ["90", "不错哦!", "完美!", "85"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（不错哦!）\n💡 核心考点：变量运算 + if 判断。\n🔎 执行追踪：50×2=100，100-15=85，85>90 不成立，输出“不错哦!”。\n⚠️ 易错提醒：条件是严格大于 >90，不包含 90。"
+    },
+    {
+      "type": "single",
+      "question": "运行下面的程序，最终的结果是？\na = 10\nfor j in range(2):\n    a += 10\nprint(a)",
+      "options": ["110", "100", "10", "30"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（30）\n💡 核心考点：range() 循环次数与累加。\n🔎 执行追踪：初始 a=10，循环 2 次，每次 +10，最终 30。\n⚠️ 易错提醒：range(2) 是执行 2 次。"
+    },
+
+    {
+      "type": "judge",
+      "question": "定义变量的时候，可以定义为 1text。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：变量命名规则。\n🔎 执行追踪：变量名不能以数字开头，因此 1text 非法。\n⚠️ 易错提醒：text1 合法，但 1text 不合法。"
+    },
+    {
+      "type": "judge",
+      "question": "运行代码，输出结果是 3。\na = [2, 4, 6, 8]\nprint(a[2])",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：列表索引。\n🔎 执行追踪：a[2] 的值是 6，不是 3。\n⚠️ 易错提醒：索引从 0 开始。"
+    },
+    {
+      "type": "judge",
+      "question": "小明使用程序制作了一个计算器，但是现在计算器不能输入，小明应该使用 print() 语句输入。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B\n💡 核心考点：print() 与 input() 区别。\n🔎 执行追踪：print() 是输出，input() 才是输入。\n⚠️ 易错提醒：牢记 print 输出，input 输入。"
+    },
+    {
+      "type": "judge",
+      "question": "运行代码，输出结果是 3。\na = [1, 2, 3, 4]\nprint(a[2] + 1)",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B\n💡 核心考点：列表索引 + 运算。\n🔎 执行追踪：a[2]=3，3+1=4，输出 4，不是 3。\n⚠️ 易错提醒：a[2] 是第 3 个元素。"
+    },
+    {
+      "type": "judge",
+      "question": "执行下面代码，程序的输出结果为 3。\na = 3\nif a == '3':\n    print(3)\nelse:\n    print(1)",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：整数与字符串比较。\n🔎 执行追踪：a 是整数 3，'3' 是字符串，比较为 False，输出 1。\n⚠️ 易错提醒：3 和 '3' 类型不同。"
+    }
+  ]
+}
