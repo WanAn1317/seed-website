@@ -124,7 +124,9 @@ const studentName = localStorage.getItem("studentName") || "未登录";
 
 const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
-const paperFile = params.get("paper");
+
+// ⭐ 核心修复：统一 paperFile 处理（不会重复加 .json）
+let paperFile = params.get("paper");
 if (!paperFile.endsWith(".json")) {
   paperFile = paperFile + ".json";
 }
@@ -136,17 +138,9 @@ if (!subject || !paperFile) {
   alert("缺少参数");
 }
 
-/* ⭐⭐⭐ 核心修复：统一路径处理 ⭐⭐⭐ */
+/* ⭐ 稳定路径（GitHub Pages 必须带项目名） */
 function getPaperPath() {
-  let file = paperFile;
-
-  // 自动补 .json
-  if (!file.endsWith(".json")) {
-    file += ".json";
-  }
-
-  // ⭐ GitHub Pages 必须用项目路径
-  return `/seed-website/exams/${subject}/${file}`;
+  return `/seed-website/exams/${subject}/${paperFile}`;
 }
 
 let paperData = null;
@@ -169,7 +163,7 @@ fetch(getPaperPath())
   })
   .catch(err => {
     console.error(err);
-    alert("试卷加载失败，请检查路径或文件");
+    alert("试卷加载失败，请检查文件路径");
   });
 
 function render(list) {
