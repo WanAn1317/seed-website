@@ -21,7 +21,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 30px;
-      box-sizing: border-box;
       border-bottom: 1px solid #eee;
     }
 
@@ -33,12 +32,10 @@
     }
 
     .back-btn {
-      font-size: 14px;
-      color: #555;
       padding: 8px 14px;
-      border-radius: 8px;
       border: 1px solid #ddd;
       background: #fafafa;
+      border-radius: 8px;
       cursor: pointer;
     }
 
@@ -49,7 +46,7 @@
     }
 
     .paper-title {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: bold;
       color: #2d7a2d;
       margin-bottom: 10px;
@@ -62,43 +59,43 @@
     }
 
     .question {
-      padding: 18px;
-      border-radius: 12px;
+      padding: 16px;
       border: 1px solid #eee;
+      border-radius: 10px;
       background: #fafafa;
       margin-bottom: 15px;
     }
 
     .question h3 {
-      margin: 0 0 10px 0;
       font-size: 16px;
+      margin-bottom: 10px;
       line-height: 1.5;
     }
 
     .options label {
       display: block;
-      padding: 6px 0;
+      padding: 5px 0;
       font-size: 14px;
+      cursor: pointer;
     }
 
     .submit-btn {
-      margin-top: 25px;
       width: 100%;
+      margin-top: 20px;
       padding: 14px;
       border: none;
-      border-radius: 12px;
-      font-size: 16px;
+      border-radius: 10px;
       background: #2d7a2d;
-      color: white;
-      font-weight: bold;
+      color: #fff;
+      font-size: 16px;
       cursor: pointer;
     }
 
     .result-box {
-      margin-top: 25px;
-      padding: 18px;
-      border-radius: 12px;
+      margin-top: 20px;
+      padding: 16px;
       background: #fffbe6;
+      border-radius: 10px;
       display: none;
       white-space: pre-line;
     }
@@ -120,6 +117,7 @@
       border-radius: 8px;
       display: none;
       white-space: pre-line;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -137,7 +135,7 @@
 
   <div id="questionContainer"></div>
 
-  <button class="submit-btn" onclick="submitPaper()" id="submitBtn">提交试卷</button>
+  <button class="submit-btn" id="submitBtn" onclick="submitPaper()">提交试卷</button>
 
   <div class="result-box" id="resultBox"></div>
 </div>
@@ -159,6 +157,10 @@ fetch(`exams/${subject}/${paperFile}`)
       `题目数量：${data.questions.length}`;
 
     render(data.questions);
+  })
+  .catch(err => {
+    alert("加载试卷失败，请检查文件路径！");
+    console.error(err);
   });
 
 function render(questions) {
@@ -166,10 +168,10 @@ function render(questions) {
   box.innerHTML = "";
 
   questions.forEach((q, i) => {
-    let html = "";
+    let optionsHtml = "";
 
     q.options.forEach((opt, idx) => {
-      html += `
+      optionsHtml += `
         <label>
           <input type="radio" name="q${i}" value="${idx}">
           ${String.fromCharCode(65 + idx)}. ${opt}
@@ -179,8 +181,8 @@ function render(questions) {
 
     box.innerHTML += `
       <div class="question" id="qbox${i}">
-        <h3>${i + 1}. ${q.question || ""}</h3>
-        <div class="options">${html}</div>
+        <h3>${i + 1}. ${q.question}</h3>
+        <div class="options">${optionsHtml}</div>
         <div class="answer-info" id="info${i}"></div>
       </div>
     `;
@@ -199,19 +201,21 @@ function submitPaper() {
     let isCorrect = false;
 
     if (selected) {
+      const idx = parseInt(selected.value);
+
       // Python（数字）
       if (typeof q.answer === "number") {
-        isCorrect = parseInt(selected.value) === q.answer;
+        isCorrect = idx === q.answer;
       }
 
       // Scratch（字母）
       if (typeof q.answer === "string") {
-        const letter = String.fromCharCode(65 + parseInt(selected.value));
+        const letter = String.fromCharCode(65 + idx);
         isCorrect = letter === q.answer;
       }
     }
 
-    total += 1;
+    total++;
 
     const userAns = selected
       ? String.fromCharCode(65 + parseInt(selected.value))
