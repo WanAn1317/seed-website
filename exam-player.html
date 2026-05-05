@@ -125,6 +125,9 @@ const studentName = localStorage.getItem("studentName") || "未登录";
 const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
 const paperFile = params.get("paper");
+if (!paperFile.endsWith(".json")) {
+  paperFile = paperFile + ".json";
+}
 
 console.log("subject:", subject);
 console.log("paperFile:", paperFile);
