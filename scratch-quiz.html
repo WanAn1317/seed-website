@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Scratch闯关练习</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f6f6f6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #2d7a2d;
+}
+
+.question {
+  margin: 20px 0;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.options label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #2d7a2d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f8f0;
+  border-radius: 10px;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+.back {
+  margin-top: 10px;
+  display: inline-block;
+  color: #2d7a2d;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🎮 Scratch闯关练习</h1>
+
+  <div id="quiz"></div>
+
+  <button onclick="submitQuiz()">提交答案</button>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <div class="back" onclick="history.back()">⬅ 返回上一页</div>
+</div>
+
+<script>
+// ====== 这里以后换成你的 JSON ======
+const data = [
+  {
+    id: 1,
+    question: "Scratch中，哪个是循环结构？",
+    options: ["如果", "重复执行", "变量", "声音"],
+    answer: 1,
+    explain: "重复执行是循环结构"
+  },
+  {
+    id: 2,
+    question: "变量的作用是？",
+    options: ["存储数据", "播放音乐", "移动角色", "结束程序"],
+    answer: 0,
+    explain: "变量用于存储数据"
+  }
+];
+
+function loadQuiz() {
+  let html = "";
+
+  data.forEach((q, index) => {
+    html += `
+      <div class="question">
+        <div><b>${index + 1}. ${q.question}</b></div>
+        <div class="options">
+          ${q.options.map((opt, i) => `
+            <label>
+              <input type="radio" name="q${index}" value="${i}">
+              ${opt}
+            </label>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("quiz").innerHTML = html;
+}
+
+function submitQuiz() {
+  let score = 0;
+  let resultHTML = "";
+
+  data.forEach((q, index) => {
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const userAnswer = selected ? parseInt(selected.value) : -1;
+
+    if (userAnswer === q.answer) {
+      score++;
+      resultHTML += `<p class="correct">✔ 第${index + 1}题正确</p>`;
+    } else {
+      resultHTML += `<p class="wrong">✘ 第${index + 1}题错误</p>`;
+    }
+
+    resultHTML += `<p>解析：${q.explain}</p><hr>`;
+  });
+
+  resultHTML = `<h2>得分：${score} / ${data.length}</h2>` + resultHTML;
+
+  const box = document.getElementById("result");
+  box.style.display = "block";
+  box.innerHTML = resultHTML;
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
