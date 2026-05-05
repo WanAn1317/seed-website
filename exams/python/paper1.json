@@ -1,15 +1,186 @@
 {
-  "title": "Python 第一套试卷",
+  "title": "2025 信息素养大赛 初赛 初中组",
   "questions": [
     {
-      "question": "Python 输出使用哪个函数？",
-      "options": ["echo", "print", "write", "cout"],
-      "answer": 1
+      "type": "single",
+      "question": "以下变量名合法的是？",
+      "options": ["100python", "for", ".py", "code_py"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（code_py）\n💡 核心考点：Python 变量命名规则。\n🔎 执行追踪：A 以数字开头不合法；B 是关键字不可用；C 以 . 开头不合法；D 由字母和下划线组成，合法。\n⚠️ 易错提醒：变量名只能以字母或下划线开头，且不能是 Python 关键字（如 for、if、while 等）。"
     },
     {
-      "question": "以下哪个是合法变量名？",
-      "options": ["1abc", "a_1", "a-1", "a 1"],
-      "answer": 1
+      "type": "single",
+      "question": "在 Python 中，列表的索引是从几开始的？",
+      "options": ["-1", "1", "0", "2"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（0）\n💡 核心考点：Python 列表索引从 0 开始。\n🔎 执行追踪：列表 lst = ['a', 'b', 'c'] 中，lst[0] 为 'a'，lst[1] 为 'b'，依此类推。\n⚠️ 易错提醒：负索引 -1 表示最后一个元素，但正向索引仍从 0 开始，而非 1 开始。"
+    },
+    {
+      "type": "single",
+      "question": "关于 Python 的循环，以下说法正确的是？",
+      "options": [
+        "break 只能用于 for 循环",
+        "continue 会结束整个循环",
+        "for 循环可以遍历可迭代对象",
+        "while 循环必须有 break 结束"
+      ],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C\n💡 核心考点：考察 Python 循环语句的基本特性与控制语句的作用。\n🔎 执行追踪：for 循环可遍历列表、字符串、元组、字典等所有可迭代对象，这是 Python 循环的核心特性。\n⚠️ 易错提醒：break 可用于 for 和 while 两种循环（A 错）；continue 只跳过本次迭代而非结束循环（B 错）；while 循环可通过条件变为 False 自然结束，不必须用 break（D 错）。"
+    },
+    {
+      "type": "single",
+      "question": "以下哪个不是 Python 中的比较运算符？",
+      "options": [">=", "!=", "==", "=>"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（=>）\n💡 核心考点：Python 比较运算符的正确写法。\n🔎 执行追踪：>=（大于等于）、!=（不等于）、==（等于）均为合法比较运算符；=> 在 Python 中不存在，正确写法应为 >=。\n⚠️ 易错提醒：注意符号顺序，大于等于是 >= 而非 =>，这是初学者常见的书写错误。"
+    },
+    {
+      "type": "single",
+      "question": "Python 中输入数据的函数是？",
+      "options": ["printf()", "cout()", "output()", "input()"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（input()）\n💡 核心考点：Python 基础输入函数的识别。\n🔎 执行追踪：input() 是 Python 内置函数，用于从标准输入读取一行文本，返回字符串类型。\n⚠️ 易错提醒：printf() 是 C 语言输出函数，cout() 是 C++ 输出流，output() 不是任何主流语言的标准函数。"
+    },
+    {
+      "type": "single",
+      "question": "对于列表 ls = [1, 2, 3, 4, 5]，ls[1:4] 的结果是？",
+      "options": ["[1, 2, 3, 4]", "[1, 2, 3]", "[2, 3, 4, 5]", "[2, 3, 4]"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（[2, 3, 4]）\n💡 核心考点：列表切片的“左闭右开”原则。\n🔎 执行追踪：ls[1:4] 取索引 1,2,3 的元素，即 ls[1]=2、ls[2]=3、ls[3]=4，组成 [2, 3, 4]。\n⚠️ 易错提醒：切片不包含结束索引 4 对应的元素 5，新手常误选 C。"
+    },
+    {
+      "type": "single",
+      "question": "列表 a = [3, 2, 1]，a[1] 的值是？",
+      "options": ["报错", "3", "2", "1"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（2）\n💡 核心考点：列表索引从 0 开始。\n🔎 执行追踪：列表 a = [3, 2, 1] 中，a[0] 为 3，a[1] 为 2，a[2] 为 1。\n⚠️ 易错提醒：Python 列表索引从 0 而非 1 开始，a[1] 是第 2 个元素。"
+    },
+    {
+      "type": "single",
+      "question": "运行以下代码，day 中最终存储的是？\nday = ['早晨', '中午', '傍晚', '深夜']\nday.remove('早晨')\nprint(day)",
+      "options": [
+        "[“早晨”, “中午”, “傍晚”, “深夜”]",
+        "[“早晨”, “中午”, “深夜”]",
+        "[“早晨”, “中午”, “傍晚”, “深夜”, “早晨”]",
+        "[“中午”, “傍晚”, “深夜”]"
+      ],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（['中午', '傍晚', '深夜']）\n💡 核心考点：列表 remove() 方法的使用。\n🔎 执行追踪：remove('早晨') 从列表中删除第一个匹配的元素 '早晨'，剩余 ['中午', '傍晚', '深夜']。\n⚠️ 易错提醒：remove() 是原地修改列表，删除的是值而非索引；若元素不存在会报错。"
+    },
+    {
+      "type": "single",
+      "question": "以下代码的输出是什么？\nd = {'a':1, 'b':2, 'c':3}\nfor k in d:\n    print(k, end='')",
+      "options": ["123", "123abc", "abc", "a1b2c3"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（abc）\n💡 核心考点：字典遍历时默认迭代的是键（key）。\n🔎 执行追踪：for k in d 依次取出键 'a'、'b'、'c'，print(k, end='') 将它们无换行拼接输出为 abc。\n⚠️ 易错提醒：遍历字典时只遍历键，若需遍历值用 d.values()，若需同时遍历键值用 d.items()。"
+    },
+    {
+      "type": "single",
+      "question": "以下代码运行后的输出结果是？\nls1 = [1,2,3]\nls2 = ls1\nls2.append(4)\nprint(ls1)",
+      "options": ["报错", "[4]", "[1, 2, 3, 4]", "[1, 2, 3]"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（[1, 2, 3, 4]）\n💡 核心考点：列表的引用赋值（浅拷贝与引用的区别）\n🔎 执行追踪：ls2 = ls1 使两个变量指向同一个列表对象，通过 ls2.append(4) 修改列表后，ls1 也能看到变化。\n⚠️ 易错提醒：列表赋值是引用传递而非复制，修改其中一个变量会影响另一个；若需独立副本应使用 ls1.copy() 或 ls1[:]。"
+    },
+    {
+      "type": "single",
+      "question": "以下代码运行后，x 中的值是？\nx = [1, 2, 3]\ny = x\ny.append(4)\nprint(x)",
+      "options": ["[1, 2, 3, 4]", "[4]", "[1, 2, 3]", "报错"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（[1, 2, 3, 4]）\n💡 核心考点：列表的引用赋值（浅拷贝 vs 引用）\n🔎 执行追踪：y = x 使 y 和 x 指向同一个列表对象，对 y 执行 append(4) 会同时影响 x。\n⚠️ 易错提醒：列表赋值是引用传递而非复制，若需独立副本应使用 y = x.copy() 或 y = x[:]。"
+    },
+    {
+      "type": "single",
+      "question": "运行下列代码，最终的输出 “happy” 的次数是？\nwhile True:\n    print('happy')\n    break\nprint('happy')",
+      "options": ["1", "0", "一直在输出", "2"],
+      "answer": 3,
+      "score": 5,
+      "explanation": "✅ 正确答案：D（2）\n💡 核心考点：while True 循环与 break 语句的配合使用。\n🔎 执行追踪：进入循环后先输出第 1 次 happy，随即 break 跳出循环；接着执行循环外的 print，输出第 2 次 happy。\n⚠️ 易错提醒：break 只跳出当前循环，不会终止整个程序，循环后的代码仍会正常执行。"
+    },
+    {
+      "type": "single",
+      "question": "列表 ls = [1, 2, 3]，执行 ls.append([4, 5]) 后的结果是？",
+      "options": ["报错", "[4, 5, 1, 2, 3]", "[1, 2, 3, [4, 5]]", "[1, 2, 3, 4, 5]"],
+      "answer": 2,
+      "score": 5,
+      "explanation": "✅ 正确答案：C（[1, 2, 3, [4, 5]]）\n💡 核心考点：append() 方法将参数作为单个元素追加到列表末尾。\n🔎 执行追踪：append([4, 5]) 把列表 [4, 5] 整体作为一个元素添加，形成嵌套列表，最终 ls 长度为 4。\n⚠️ 易错提醒：append() 与 extend() 易混淆——extend([4, 5]) 才会逐个添加得到 [1, 2, 3, 4, 5]。"
+    },
+    {
+      "type": "single",
+      "question": "判断一个数字 num 是否是偶数，以下哪个语句正确的是？",
+      "options": [
+        "if num % 2 == 0: print(\"是偶数\")",
+        "if num / 2 == 0: print(\"是偶数\")",
+        "if num % 2 != 0: print(\"是偶数\")",
+        "if num / 2 != 0: print(\"是偶数\")"
+      ],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A\n💡 核心考点：考察取余运算符 % 判断奇偶性。\n🔎 执行追踪：偶数除以 2 余数为 0，num % 2 == 0 正确判断偶数；而 num / 2 是除法运算，结果不为 0（除非 num 本身为 0）。\n⚠️ 易错提醒：% 是取余运算，/ 是除法运算，两者功能完全不同；选项 C 的 != 0 判断的是奇数而非偶数。"
+    },
+    {
+      "type": "single",
+      "question": "以下哪个表达式结果为 False?",
+      "options": [
+        "'5' in '12345'",
+        "3 not in [1,2,3]",
+        "5 in [1,2,3,4,5]",
+        "'a' not in {'word':'a'}"
+      ],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（3 not in [1,2,3]）\n💡 核心考点：考察 in 和 not in 成员运算符的使用。\n🔎 执行追踪：\nA：'5' in '12345' → True。\nB：3 not in [1,2,3] → 3 在列表中，not in 结果为 False。\nC：5 in [1,2,3,4,5] → True。\nD：'a' not in {'word':'a'} → 字典 in 检查的是键，'a' 不是键，结果为 True。\n⚠️ 易错提醒：字典的 in 运算符只检查键（key），不检查值（value）。"
+    },
+
+    {
+      "type": "judge",
+      "question": "Python 中表达式的运算规则基本遵循四则运算法则。",
+      "options": ["正确", "错误"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（正确）\n💡 核心考点：Python 表达式的运算优先级规则。\n🔎 执行追踪：Python 中算术表达式遵循数学中的四则运算法则，即先乘除后加减，有括号先算括号内。\n⚠️ 易错提醒：Python 还有 //、%、** 等运算符，其中 ** 优先级最高，但整体仍遵循“先乘除后加减”的基本法则。"
+    },
+    {
+      "type": "judge",
+      "question": "range(0,5) 生成的序列包含数字 5。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：range() 函数的取值范围（左闭右开）。\n🔎 执行追踪：range(0, 5) 生成序列 [0,1,2,3,4]，不包含 5。\n⚠️ 易错提醒：range(start, stop) 的范围是 [start, stop)，终止值 stop 永远不会被包含。"
+    },
+    {
+      "type": "judge",
+      "question": "Python 中字符串是不可变类型，创建之后不能修改。",
+      "options": ["正确", "错误"],
+      "answer": 0,
+      "score": 5,
+      "explanation": "✅ 正确答案：A（正确）\n💡 核心考点：Python 字符串的不可变性（immutable）。\n🔎 执行追踪：字符串一旦创建，其内容无法被修改；对字符串的任何“修改”操作（如拼接、替换）都会返回一个新的字符串对象。\n⚠️ 易错提醒：s[0] = 'a' 会报错 TypeError，因为字符串不支持元素级别的修改。"
+    },
+    {
+      "type": "judge",
+      "question": "for 循环可以遍历字典时，默认遍历的是字典的值。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：考察 for 循环遍历字典的默认行为。\n🔎 执行追踪：for 遍历字典时默认遍历的是键（key），而非值（value）。若要遍历值需使用 dict.values()。\n⚠️ 易错提醒：牢记字典遍历三方法：dict.keys() 遍历键、dict.values() 遍历值、dict.items() 遍历键值对。"
+    },
+    {
+      "type": "judge",
+      "question": "列表的 extend() 方法和 append() 方法的功能完全相同。",
+      "options": ["正确", "错误"],
+      "answer": 1,
+      "score": 5,
+      "explanation": "✅ 正确答案：B（错误）\n💡 核心考点：考察 append() 与 extend() 方法的区别。\n🔎 执行追踪：append() 将参数作为单个元素追加到列表末尾；extend() 将可迭代对象中的每个元素逐一追加到列表末尾。\n例如：[1].append([2,3]) 得到 [1, [2,3]]；[1].extend([2,3]) 得到 [1, 2, 3]。\n⚠️ 易错提醒：两者传入列表时结果完全不同，append() 会产生嵌套列表，extend() 会展开一层。"
     }
   ]
 }
