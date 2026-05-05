@@ -42,12 +42,6 @@
       cursor: pointer;
     }
 
-    .back-btn:hover {
-      background: #2d7a2d;
-      color: white;
-      border-color: #2d7a2d;
-    }
-
     .main {
       max-width: 900px;
       margin: 40px auto;
@@ -85,7 +79,6 @@
       display: block;
       padding: 6px 0;
       font-size: 14px;
-      cursor: pointer;
     }
 
     .submit-btn {
@@ -95,14 +88,10 @@
       border: none;
       border-radius: 12px;
       font-size: 16px;
-      cursor: pointer;
       background: #2d7a2d;
       color: white;
       font-weight: bold;
-    }
-
-    .submit-btn:hover {
-      background: #256525;
+      cursor: pointer;
     }
 
     .result-box {
@@ -111,7 +100,7 @@
       border-radius: 12px;
       background: #fffbe6;
       display: none;
-      font-weight: bold;
+      white-space: pre-line;
     }
 
     .correct {
@@ -125,12 +114,10 @@
     }
 
     .answer-info {
-      margin-top: 12px;
-      font-size: 14px;
-      padding: 12px;
-      border-radius: 10px;
-      background: #fff;
+      margin-top: 10px;
+      padding: 10px;
       border: 1px dashed #ccc;
+      border-radius: 8px;
       display: none;
       white-space: pre-line;
     }
@@ -141,7 +128,7 @@
 
 <div class="nav">
   <div class="logo" onclick="location.href='index.html'">🌱 代码种子工作室</div>
-  <button class="back-btn" onclick="history.back()">⬅ 返回</button>
+  <button class="back-btn" onclick="history.back()">返回</button>
 </div>
 
 <div class="main">
@@ -150,26 +137,18 @@
 
   <div id="questionContainer"></div>
 
-  <button class="submit-btn" onclick="submitPaper()" id="submitBtn">
-    提交试卷
-  </button>
+  <button class="submit-btn" onclick="submitPaper()" id="submitBtn">提交试卷</button>
 
   <div class="result-box" id="resultBox"></div>
 </div>
 
 <script>
-const studentName = localStorage.getItem("studentName");
-if (!studentName) location.href = "login.html";
+let paperData = null;
 
 const params = new URLSearchParams(location.search);
 const subject = params.get("subject");
 const paperFile = params.get("paper");
 
-let paperData = null;
-
-// =======================
-// 加载试卷
-// =======================
 fetch(`exams/${subject}/${paperFile}`)
   .then(res => res.json())
   .then(data => {
@@ -177,97 +156,93 @@ fetch(`exams/${subject}/${paperFile}`)
 
     document.getElementById("paperTitle").innerText = data.title;
     document.getElementById("paperInfo").innerText =
-      `答题人：${studentName} | 共 ${data.questions.length} 题`;
+      `题目数量：${data.questions.length}`;
 
-    renderQuestions(data.questions);
-  })
-  .catch(err => {
-    alert("加载失败，请检查 JSON 路径");
-    console.error(err);
+    render(data.questions);
   });
 
-// =======================
-// 渲染题目（兼容 Scratch + Python）
-// =======================
-function renderQuestions(questions) {
-  const container = document.getElementById("questionContainer");
-  container.innerHTML = "";
+function render(questions) {
+  const box = document.getElementById("questionContainer");
+  box.innerHTML = "";
 
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.className = "question";
-    div.id = "question_" + index;
+  questions.forEach((q, i) => {
+    let html = "";
 
-    let optionsHtml = "";
+    q.options.forEach((opt, idx) => {
+      html += `
+        <label>
+          <input type="radio" name="q${i}" value="${idx}">
+          ${String.fromCharCode(65 + idx)}. ${opt}
+        </label>
+      `;
+    });
 
-    if (q.options && Array.isArray(q.options)) {
-      q.options.forEach((opt, i) => {
-        optionsHtml += `
-          <label>
-            <input type="radio" name="q${index}" value="${i}">
-            ${String.fromCharCode(65 + i)}. ${opt}
-          </label>
-        `;
-      });
-    } else {
-      optionsHtml = `<div style="color:red">无选项</div>`;
-    }
-
-    div.innerHTML = `
-      <h3>${index + 1}. ${q.question || ""}</h3>
-      <div class="options">${optionsHtml}</div>
-      <div class="answer-info" id="answerInfo_${index}"></div>
+    box.innerHTML += `
+      <div class="question" id="qbox${i}">
+        <h3>${i + 1}. ${q.question || ""}</h3>
+        <div class="options">${html}</div>
+        <div class="answer-info" id="info${i}"></div>
+      </div>
     `;
-
-    container.appendChild(div);
   });
 }
 
-// =======================
-// 提交评分（兼容 Scratch 字母 + Python 数字）
-// =======================
 function submitPaper() {
   let score = 0;
   let total = 0;
 
-  paperData.questions.forEach((q, index) => {
-    total += q.score || 1;
+  paperData.questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    const box = document.getElementById(`qbox${i}`);
+    const info = document.getElementById(`info${i}`);
 
-    const selected = document.querySelector(`input[name="q${index}"]:checked`);
-    const box = document.getElementById("question_" + index);
-    const info = document.getElementById("answerInfo_" + index);
+    let isCorrect = false;
 
-    let correct = q.answer;
+    if (selected) {
+      // Python（数字）
+      if (typeof q.answer === "number") {
+        isCorrect = parseInt(selected.value) === q.answer;
+      }
 
-    // Scratch: A/B/C/D → 数字
-    if (typeof correct === "string") {
-      correct = correct.charCodeAt(0) - 65;
+      // Scratch（字母）
+      if (typeof q.answer === "string") {
+        const letter = String.fromCharCode(65 + parseInt(selected.value));
+        isCorrect = letter === q.answer;
+      }
     }
 
-    let user = selected ? parseInt(selected.value) : -1;
+    total += 1;
 
-    let correctLetter = String.fromCharCode(65 + correct);
-    let correctText = q.options ? q.options[correct] : "";
+    const userAns = selected
+      ? String.fromCharCode(65 + parseInt(selected.value))
+      : "未作答";
 
-    info.style.display = "block";
+    const correctAns =
+      typeof q.answer === "number"
+        ? String.fromCharCode(65 + q.answer)
+        : q.answer;
 
-    if (user === correct) {
-      score += (q.score || 1);
+    if (isCorrect) {
+      score++;
       box.classList.add("correct");
 
       info.innerText =
-        `✔ 正确\n答案：${correctLetter}\n${q.explanation || ""}`;
+        `✔ 正确\n你的答案：${userAns}\n正确答案：${correctAns}\n\n${q.analysis || ""}`;
     } else {
       box.classList.add("wrong");
 
       info.innerText =
-        `✘ 错误\n你的答案：${user === -1 ? "未选" : String.fromCharCode(65 + user)}\n正确：${correctLetter}\n${q.explanation || ""}`;
+        `✘ 错误\n你的答案：${userAns}\n正确答案：${correctAns}\n\n${q.analysis || ""}`;
     }
+
+    info.style.display = "block";
   });
 
   document.getElementById("resultBox").style.display = "block";
   document.getElementById("resultBox").innerText =
     `得分：${score} / ${total}`;
+
+  document.getElementById("submitBtn").disabled = true;
 }
 </script>
 
